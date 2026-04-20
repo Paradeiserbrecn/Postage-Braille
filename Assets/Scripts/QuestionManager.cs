@@ -9,9 +9,9 @@ public class QuestionManager : MonoBehaviour
     public static QuestionManager Instance;
 
     public string correctAnswer;
-    public List<string> currentOptions = new List<string>();
+    public List<string> currentOptions = new();
 
-    private List<string> _possibleLetters = new List<string> { "A", "B", "L", "M", "AU" };
+    private List<string> _possibleLetters = new() { "A", "B", "L", "M", "AU" };
 
     private void Awake()
     {

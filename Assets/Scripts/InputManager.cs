@@ -14,9 +14,9 @@ public class InputManager : MonoBehaviour
         if (Keyboard.current.digit4Key.wasPressedThisFrame) SelectOption(3);
     }
 
-    void SelectOption(int index)
+    private void SelectOption(int index)
     {
-        string selected = QuestionManager.Instance.currentOptions[index];
+        var selected = QuestionManager.Instance.currentOptions[index];
         GameManager.Instance.SubmitAnswer(selected);
     }
 }

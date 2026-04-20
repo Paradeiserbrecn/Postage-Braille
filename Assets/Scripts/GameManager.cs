@@ -13,12 +13,12 @@ public class GameManager : MonoBehaviour
     }
 
     public GameState currentState;
-    private Action<string, float> invoke;
+    private Action<string, float> _invoke;
 
     private void Awake()
     {
         Instance = this;
-        invoke = Invoke;
+        _invoke = Invoke;
     }
 
     private void Start()
@@ -45,11 +45,11 @@ public class GameManager : MonoBehaviour
     {
         if (currentState != GameState.WaitingForInput) return;
         
-        bool correct = QuestionManager.Instance.CheckAnswer(answer);
+        var correct = QuestionManager.Instance.CheckAnswer(answer);
         
         currentState = GameState.ShowFeedback;
         UIManager.Instance.ShowFeedback(correct);
 
-        invoke(nameof(NextQuestion), 1.5f);
+        _invoke(nameof(NextQuestion), 1.5f);
     }
 }
