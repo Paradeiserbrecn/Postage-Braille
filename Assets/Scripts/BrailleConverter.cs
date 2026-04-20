@@ -1,4 +1,5 @@
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,7 +14,7 @@ public class BrailleConverter : MonoBehaviour
 
     public GameObject ConvertCharacterToBraille(string s)
     {
-        var textMeshProUGUI = gameObject.AddComponent<TextMeshProUGUI>();
+        var textMeshProUGUI = gameObject.GetOrAddComponent<TextMeshProUGUI>();
         textMeshProUGUI.text = s;
         return textMeshProUGUI.gameObject;
     }
