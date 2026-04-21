@@ -13,14 +13,14 @@ public class BrailleObject : MonoBehaviour
     }
     private void UpdateBrailleSize()
     {
-        GetComponent<RectTransform>().localScale = Vector3.one * GlobalVisualProfile.BrailleSize;
+        GetComponent<RectTransform>().localScale = Vector3.one * GlobalSettings.BrailleSize;
     }
 
     private void UpdateDotSize()
     {
         foreach (GameObject dot in dots)
         {
-            dot.GetComponent<RectTransform>().localScale = Vector3.one * GlobalVisualProfile.DotSize;
+            dot.GetComponent<RectTransform>().localScale = Vector3.one * GlobalSettings.DotSize;
         }
     }
 
@@ -28,11 +28,12 @@ public class BrailleObject : MonoBehaviour
     {
         foreach (GameObject dot in dots)
         {
-            dot.GetComponent<Image>().color = GlobalVisualProfile.BrailleColor;
+            dot.GetComponent<Image>().color = GlobalSettings.BrailleColor;
         }
     }
 
-    public void setBrailleCharacter(List<bool> braille)
+    //DOES NOT COVERT only takes bool list from the converter
+    public void SetBrailleCharacter(List<bool> braille)
     {
         if (braille.Count != dots.Count)
         {
