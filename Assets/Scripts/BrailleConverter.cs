@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using System.Collections.Generic;
 using System.Text;
+using Unity.VisualScripting;
 
 public class BrailleConverter : MonoBehaviour
 {
@@ -12,32 +13,32 @@ public class BrailleConverter : MonoBehaviour
     //temporary Dictionary for Braille conversion
     Dictionary<string, List<bool>> german = new()
     {
-        { "a", new List<bool> { true, false, false, false, false, false }},   // 1
-        { "b", new List<bool> { true, false, true, false, false, false }},    // 1 2
-        { "c", new List<bool> { true, true, false, false, false, false }},    // 1 4
-        { "d", new List<bool> { true, true, false, true, false, false }},     // 1 4 5
-        { "e", new List<bool> { true, false, false, true, false, false }},    // 1 5
-        { "f", new List<bool> { true, true, true, false, false, false }},     // 1 2 4
-        { "g", new List<bool> { true, true, true, true, false, false }},      // 1 2 4 5
-        { "h", new List<bool> { true, false, true, true, false, false }},     // 1 2 5
-        { "i", new List<bool> { false, true, true, false, false, false }},    // 2 4
-        { "j", new List<bool> { false, true, true, true, false, false }},     // 2 4 5
-        { "k", new List<bool> { true, false, false, false, true, false }},    // 1 3
-        { "l", new List<bool> { true, false, true, false, true, false }},     // 1 2 3
-        { "m", new List<bool> { true, true, false, false, true, false }},     // 1 3 4
-        { "n", new List<bool> { true, true, false, true, true, false }},      // 1 3 4 5
-        { "o", new List<bool> { true, false, false, true, true, false }},     // 1 3 5
-        { "p", new List<bool> { true, true, true, false, true, false }},      // 1 2 3 4
-        { "q", new List<bool> { true, true, true, true, true, false }},       // 1 2 3 4 5
-        { "r", new List<bool> { true, false, true, true, true, false }},      // 1 2 3 5
-        { "s", new List<bool> { false, true, true, false, true, false }},     // 2 3 4
-        { "t", new List<bool> { false, true, true, true, true, false }},      // 2 3 4 5
-        { "u", new List<bool> { true, false, false, false, true, true }},     // 1 3 6
-        { "v", new List<bool> { true, false, true, false, true, true }},      // 1 2 3 6
-        { "w", new List<bool> { false, true, true, true, false, true }},      // 2 4 5 6
-        { "x", new List<bool> { true, true, false, false, true, true }},      // 1 3 4 6
-        { "y", new List<bool> { true, true, false, true, true, true }},       // 1 3 4 5 6
-        { "z", new List<bool> { true, false, false, true, true, true }},      // 1 3 5 6
+        { "a", new List<bool> { true, false, false, false, false, false }},  
+        { "b", new List<bool> { true, false, true, false, false, false }},    
+        { "c", new List<bool> { true, true, false, false, false, false }},
+        { "d", new List<bool> { true, true, false, true, false, false }},     
+        { "e", new List<bool> { true, false, false, true, false, false }},    
+        { "f", new List<bool> { true, true, true, false, false, false }},     
+        { "g", new List<bool> { true, true, true, true, false, false }},      
+        { "h", new List<bool> { true, false, true, true, false, false }},     
+        { "i", new List<bool> { false, true, true, false, false, false }},    
+        { "j", new List<bool> { false, true, true, true, false, false }},     
+        { "k", new List<bool> { true, false, false, false, true, false }},    
+        { "l", new List<bool> { true, false, true, false, true, false }},     
+        { "m", new List<bool> { true, true, false, false, true, false }},     
+        { "n", new List<bool> { true, true, false, true, true, false }},      
+        { "o", new List<bool> { true, false, false, true, true, false }},     
+        { "p", new List<bool> { true, true, true, false, true, false }},      
+        { "q", new List<bool> { true, true, true, true, true, false }},       
+        { "r", new List<bool> { true, false, true, true, true, false }},      
+        { "s", new List<bool> { false, true, true, false, true, false }},     
+        { "t", new List<bool> { false, true, true, true, true, false }},      
+        { "u", new List<bool> { true, false, false, false, true, true }},     
+        { "v", new List<bool> { true, false, true, false, true, true }},      
+        { "w", new List<bool> { false, true, true, true, false, true }},      
+        { "x", new List<bool> { true, true, false, false, true, true }},      
+        { "y", new List<bool> { true, true, false, true, true, true }},       
+        { "z", new List<bool> { true, false, false, true, true, true }},      
     
         // Umlaute
         { "ä", new List<bool> { false, true, false, true, true, false }},
@@ -46,31 +47,31 @@ public class BrailleConverter : MonoBehaviour
         { "ß", new List<bool> { false, true, true, false, true, true }},
     
         // Kurzschrift characters
-        { "au", new List<bool> { false, false, true, false, true, false }},   // 2 3
-        { "äu", new List<bool> { false, true, true, false, true, false }},    // approx
-        { "eu", new List<bool> { false, false, true, true, true, false }},    // approx
-        { "ei", new List<bool> { false, false, true, true, false, false }},   // approx
-        { "ie", new List<bool> { false, false, true, false, false, true }},   // approx
-        { "ch", new List<bool> { false, false, false, false, true, false }},  // dot 3
-        { "sch", new List<bool> { false, false, true, false, true, true }},   // approx
-        { "st", new List<bool> { false, false, true, true, false, true }},    // approx
+        { "au", new List<bool> { true, false, false, false, false, true }},   
+        { "äu", new List<bool> { false, true, false, false, true, false }},    
+        { "eu", new List<bool> { true, false, true, false, false, true }},    
+        { "ei", new List<bool> { true, true, false, false, false, true }},   
+        { "ie", new List<bool> { false, true, false, false, true, true }},   
+        { "ch", new List<bool> { true, true, false, true, false, true }},  
+        { "sch", new List<bool> { true, false, false, true, false, true }},
+        { "st", new List<bool> { false, true, true, true, true, true }},
     
         // punctuation
-        { ",", new List<bool> { false, false, true, false, false, false }},   // dot 2
-        { ".", new List<bool> { false, false, true, true, false, true }},     // 2 5 6
-        { ";", new List<bool> { false, false, true, false, true, false }},    // 2 3
-        { ":", new List<bool> { false, false, true, true, false, false }},    // 2 5
-        { "?", new List<bool> { false, false, true, false, true, true }},     // 2 3 6
-        { "!", new List<bool> { false, false, true, true, true, false }},     // 2 3 5
-        { "(", new List<bool> { false, true, false, false, true, true }},     // approx
-        { ")", new List<bool> { false, true, false, false, true, true }},     // same
-        { "„", new List<bool> { false, false, true, false, true, true }},    // 4 5 6
-        { "“", new List<bool> { false, false, false, true, true, true }},    // approx
-        { "-", new List<bool> { false, false, false, false, true, true }},    // 3 6
-        { "'", new List<bool> { false, false, false, false, true, false }},   // 3
+        { ",", new List<bool> { false, false, true, false, false, false }},   
+        { ".", new List<bool> { false, false, false, false, true, false }},     
+        { ";", new List<bool> { false, false, true, false, true, false }},    
+        { ":", new List<bool> { false, false, true, true, false, false }},   
+        { "?", new List<bool> { false, false, true, false, false, true }},
+        { "!", new List<bool> { false, false, true, true, true, false }},
+        { "(", new List<bool> { false, false, true, true, true, true }},     
+        { ")", new List<bool> { false, false, true, true, true, true }},     
+        { "„", new List<bool> { false, false, true, false, true, true }},
+        { "“", new List<bool> { false, false, false, true, true, true }},
+        { "-", new List<bool> { false, false, false, false, true, true }},
+        { "'", new List<bool> { false, false, false, false, false, true }},
     
         // number indicator 
-        { "#", new List<bool> { false, true, true, true, true, true }},        // 3 4 5 6
+        { "#", new List<bool> { false, true, true, true, true, true }},
     };
      
     
@@ -81,8 +82,9 @@ public class BrailleConverter : MonoBehaviour
 
     private void Start()
     {
-        ConvertTextToBraille("hello there");
+        ConvertTextToBraille(",.;:?!()„“-'");
     }
+    
 
 
     public GameObject ConvertCharacterToBraille(string s)
@@ -98,12 +100,12 @@ public class BrailleConverter : MonoBehaviour
         brailleObject.SetBrailleCharacter(pattern);
         
         //printing pattern to letter
-        String message = s + " = ";
-        foreach (bool dot in pattern)
-        {
-            message = message + dot + ", ";
-        }
-        Debug.Log(message);
+        //String message = s + " = ";
+        //foreach (bool dot in pattern)
+        //{
+        //    message = message + dot + ", ";
+        //}
+        //Debug.Log(message);
 
         return brailleObject.gameObject;
     }
@@ -212,11 +214,10 @@ public class BrailleConverter : MonoBehaviour
             if (Char.IsDigit(text.Curr))
             {
                 word.Append('#');
-                word.Append(text.Curr);
-                while (Char.IsDigit(text.La))
+                while (Char.IsDigit(text.Curr))
                 {
-                    text.Next();
                     word.Append(ConvertNumberToChar(text.Curr));
+                    text.Next();
                 }
                 Debug.Log("creating word using string: "+ word.ToString());
                 var wordObject = ConvertWordToBraille(word.ToString());
@@ -226,11 +227,10 @@ public class BrailleConverter : MonoBehaviour
             }
             else
             {
-                word.Append(text.Curr);
-                while (text.HasNext && !Char.IsWhiteSpace(text.Curr) && !Char.IsDigit(text.Curr))
+                while ((Char.IsLetter(text.Curr) || Char.IsPunctuation(text.Curr)) && !Char.IsDigit(text.Curr))
                 {
+                    word.Append(Char.ToLower(text.Curr));
                     text.Next();
-                    word.Append(text.Curr);
                 }
                 Debug.Log("creating word using string: "+ word.ToString());
                 var wordObject = ConvertWordToBraille(word.ToString());

@@ -40,7 +40,7 @@ public class BrailleObject : MonoBehaviour
         for (int i = 0; i < dots.Count; i++)
         {
             dots[i].GetComponent<Image>().enabled = braille[i];
-            Debug.Log("dot "+ i + " is " + braille[i]);
+            //Debug.Log("dot "+ i + " is " + braille[i]);
         }
     }
 }
