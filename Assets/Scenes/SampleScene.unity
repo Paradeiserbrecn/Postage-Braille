@@ -445,7 +445,7 @@ Transform:
   m_GameObject: {fileID: 1719412867}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -375, y: 77, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -464,7 +464,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BrailleConverter
   brailleCharacterPrefab: {fileID: 1004382091453081510, guid: 2146a4e2dfa83af48ba07d2c56ca225f, type: 3}
-  groupObjectPrefab: {fileID: 2560240273084119370, guid: 648f14be1f80743408f95b99213166af, type: 3}
+  wordObjectPrefab: {fileID: 6205178292540478917, guid: fce45ddf663259946b982bb9eb9288cd, type: 3}
+  textObjectPrefab: {fileID: 2736151656627887328, guid: f1a346e6c6790174ebf184da92c8c1ac, type: 3}
 --- !u!1 &2089414309
 GameObject:
   m_ObjectHideFlags: 0

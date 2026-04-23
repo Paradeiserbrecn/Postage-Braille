@@ -8,7 +8,7 @@ public class BrailleConverter : MonoBehaviour
 {
     public  static BrailleConverter Instance;
     
-    [SerializeField] private GameObject brailleCharacterPrefab, groupObjectPrefab;
+    [SerializeField] private GameObject brailleCharacterPrefab, wordObjectPrefab, textObjectPrefab;
     
     //temporary Dictionary for Braille conversion
     Dictionary<string, List<bool>> german = new()
@@ -82,7 +82,7 @@ public class BrailleConverter : MonoBehaviour
 
     private void Start()
     {
-        ConvertTextToBraille(",.;:?!()„“-'");
+        ConvertTextToBraille("Hi there!");
     }
     
 
@@ -112,7 +112,7 @@ public class BrailleConverter : MonoBehaviour
     
     public GameObject ConvertWordToBraille(string s)
     {
-        var wordObject = Instantiate(groupObjectPrefab);
+        var wordObject = Instantiate(wordObjectPrefab);
         
         CharFactory text = new CharFactory(s);
         StringBuilder  character = new StringBuilder();
@@ -199,7 +199,7 @@ public class BrailleConverter : MonoBehaviour
 
     public GameObject ConvertTextToBraille(string s)
     {
-        var textObject = Instantiate(groupObjectPrefab,transform);
+        var textObject = Instantiate(textObjectPrefab,transform);
         
         CharFactory text = new CharFactory(s);
         StringBuilder  word = new StringBuilder();

@@ -9,10 +9,10 @@ public class BrailleObject : MonoBehaviour
     {
         UpdateDotSize();
         UpdateDotColor();
+        UpdateCharacterSize();
         
         //TODO: subscribe to size/color change events
     }
-
     private void UpdateDotSize()
     {
         foreach (GameObject dot in dots)
@@ -20,13 +20,16 @@ public class BrailleObject : MonoBehaviour
             dot.GetComponent<RectTransform>().localScale = Vector3.one * GlobalSettings.DotSize;
         }
     }
-
     private void UpdateDotColor()
     {
         foreach (GameObject dot in dots)
         {
             dot.GetComponent<Image>().color = GlobalSettings.BrailleColor;
         }
+    }
+    private void UpdateCharacterSize()
+    {
+        transform.localScale = Vector3.one * GlobalSettings.BrailleSize;
     }
 
     //DOES NOT CONVERT only takes bool list from the converter
