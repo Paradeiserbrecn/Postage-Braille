@@ -7,13 +7,10 @@ public class BrailleObject : MonoBehaviour
     [SerializeField] private List<GameObject> dots = new List<GameObject>();
     void Start()
     {
-        UpdateBrailleSize();
         UpdateDotSize();
         UpdateDotColor();
-    }
-    private void UpdateBrailleSize()
-    {
-        GetComponent<RectTransform>().localScale = Vector3.one * GlobalSettings.BrailleSize;
+        
+        //TODO: subscribe to size/color change events
     }
 
     private void UpdateDotSize()
@@ -32,17 +29,18 @@ public class BrailleObject : MonoBehaviour
         }
     }
 
-    //DOES NOT COVERT only takes bool list from the converter
+    //DOES NOT CONVERT only takes bool list from the converter
     public void SetBrailleCharacter(List<bool> braille)
     {
         if (braille.Count != dots.Count)
         {
-            Debug.Log("Braille list size mismatch");
+            Debug.Log("Braille list size mismatch. Braille: " + braille.Count + " Dot: " + dots.Count);
             return;
         }
         for (int i = 0; i < dots.Count; i++)
         {
-            dots[i].SetActive(braille[i]);
+            dots[i].GetComponent<Image>().enabled = braille[i];
+            Debug.Log("dot "+ i + " is " + braille[i]);
         }
     }
 }
