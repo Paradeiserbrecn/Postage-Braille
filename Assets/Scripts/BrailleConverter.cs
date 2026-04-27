@@ -82,7 +82,7 @@ public class BrailleConverter : MonoBehaviour
 
     private void Start()
     {
-        ConvertTextToBraille("Hi there!");
+        ConvertTextToBraille("Hallo freunde!");
     }
     
 
@@ -200,6 +200,8 @@ public class BrailleConverter : MonoBehaviour
     public GameObject ConvertTextToBraille(string s)
     {
         var textObject = Instantiate(textObjectPrefab,transform);
+        textObject.GetComponent<TextObject>().text = s;
+        
         
         CharFactory text = new CharFactory(s);
         StringBuilder  word = new StringBuilder();
@@ -262,4 +264,5 @@ public class BrailleConverter : MonoBehaviour
             default: Debug.Log(c + " is not a number."); return '\0';
         }
     }
+    
 }
