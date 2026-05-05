@@ -14,8 +14,10 @@ public class BrailleConverter : MonoBehaviour
 
     public GameObject ConvertCharacterToBraille(string s)
     {
-        var textMeshProUGUI = gameObject.GetOrAddComponent<TextMeshProUGUI>();
-        textMeshProUGUI.text = s;
-        return textMeshProUGUI.gameObject;
+        var obj = Instantiate(UIManager.Instance.questionTextPrefab);
+        var text = obj.GetComponent<TextMeshProUGUI>();
+        text.text = "BRAILLE: " + s;
+
+        return obj;
     }
 }
