@@ -6,31 +6,22 @@ using UnityEngine.UI;
 using UnityEngine.UIElements;
 using Button = UnityEngine.UI.Button;
 
-public class TextObject : MonoBehaviour, IPointerEnterHandler, ISelectHandler
+public class gridTextObject : MonoBehaviour, IPointerEnterHandler, ISelectHandler
 {
-    private HorizontalLayoutGroup _layoutGroup;
+    private GridLayoutGroup _layoutGroup;
     public string text;
     [FormerlySerializedAs("type")] public AssistiveOutput.OutputType outputType = AssistiveOutput.OutputType.BOTH;
-    private Button _button;
     
     
     void Start()
     {
-        _layoutGroup = GetComponent<HorizontalLayoutGroup>();
+        _layoutGroup = GetComponent<GridLayoutGroup>();
         UpdateSpacing();
-        _button = GetComponent<Button>();
-        //TODO: subscribe to WordSpacing change event
+        //TODO: subscribe to BrailleSpacing and LineSpacing change event
     }
-
     void UpdateSpacing()
     {
-        _layoutGroup.spacing = GlobalSettings.WordSpacing;
-        Debug.Log("word spacing is: " + GlobalSettings.WordSpacing);
-    }
-
-    public void ButtonTest()
-    {
-        if(text != null) IOEventManager.InvokeAssistiveOutput("button klick: "+ text, AssistiveOutput.OutputType.SPEAK);
+        _layoutGroup.spacing = new Vector2(GlobalSettings.BrailleSpacing, GlobalSettings.LineSpacing);
     }
 
     public void OnPointerEnter(PointerEventData eventData)

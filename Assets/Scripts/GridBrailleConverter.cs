@@ -4,11 +4,11 @@ using System.Collections.Generic;
 using System.Text;
 using Unity.VisualScripting;
 
-public class BrailleConverter : MonoBehaviour
+public class GridBrailleConverter : MonoBehaviour
 {
-    public  static BrailleConverter Instance;
+    public  static GridBrailleConverter Instance;
     
-    [SerializeField] private GameObject brailleCharacterPrefab, wordObjectPrefab, textObjectPrefab;
+    [SerializeField] private GameObject brailleCharacterPrefab, textObjectPrefab;
     
     //temporary Dictionary for Braille conversion
     Dictionary<string, List<bool>> german = new()
@@ -72,6 +72,9 @@ public class BrailleConverter : MonoBehaviour
     
         // number indicator 
         { "#", new List<bool> { false, true, true, true, true, true }},
+        
+        //space
+        { " ", new List<bool> { false, false, false, false, false, false }},
     };
      
     
@@ -82,11 +85,14 @@ public class BrailleConverter : MonoBehaviour
 
     private void Start()
     {
-        //ConvertTextToBraille("Hallo freunde!");
+        ConvertTextToBraille("Hallo freunde!");
     }
-    
 
-
+    /// <summary>
+    ///    The gameObject generated with this method does not support accessibility features, only ConvertTextToBraille does that
+    /// </summary>
+    /// <param name="s">character to convert (type string to support character combinations)</param>
+    /// <returns>BrailleObject</returns>
     public GameObject ConvertCharacterToBraille(string s)
     {
         if (!german.TryGetValue(s, out var pattern))
@@ -102,10 +108,8 @@ public class BrailleConverter : MonoBehaviour
         return brailleObject.gameObject;
     }
     
-    public GameObject ConvertWordToBraille(string s)
+    private void GenerateBrailleObjects(string s, GameObject textObject)
     {
-        var wordObject = Instantiate(wordObjectPrefab);
-        
         CharFactory text = new CharFactory(s);
         StringBuilder  character = new StringBuilder();
 
@@ -182,10 +186,9 @@ public class BrailleConverter : MonoBehaviour
             text.Next();
             if (brailleObject != null)
             {
-                brailleObject.transform.SetParent(wordObject.transform, false);
+                brailleObject.transform.SetParent(textObject.transform, false);
             }
         } 
-        return wordObject.gameObject;
     }
     
     /// <summary>
@@ -194,51 +197,51 @@ public class BrailleConverter : MonoBehaviour
     /// <param name="s">string</param>
     /// <param name="outputType">enum OutputType, can be either BRAILLE, SPEAK or BOTH while BOTH is selected as default</param>
     /// <returns></returns>
-    public GameObject ConvertTextToBraille(string s, AssistiveOutput.OutputType outputType = AssistiveOutput.OutputType.BOTH)
+    private string PreprocessText(string s)
     {
-        var textObject = Instantiate(textObjectPrefab,transform);
-        textObject.GetComponent<TextObject>().text = s;
-        textObject.GetComponent<TextObject>().outputType = outputType;
-        
         
         CharFactory text = new CharFactory(s);
-        StringBuilder  word = new StringBuilder();
+        StringBuilder  processedText = new StringBuilder();
 
         while (text.HasNext)
         {
+            Debug.Log("processing: " + text.Curr);
             if (Char.IsWhiteSpace(text.Curr))
             {
+                processedText.Append(' ');
                 text.Next();
             }
             
-            if (Char.IsDigit(text.Curr))
+            else if (Char.IsDigit(text.Curr))
             {
-                word.Append('#');
+                processedText.Append('#');
                 while (Char.IsDigit(text.Curr))
                 {
-                    word.Append(ConvertNumberToChar(text.Curr));
+                    processedText.Append(ConvertNumberToChar(text.Curr));
                     text.Next();
                 }
-                Debug.Log("creating word using string: "+ word.ToString());
-                var wordObject = ConvertWordToBraille(word.ToString());
-                //wordObject.name = word.ToString();
-                wordObject.transform.SetParent(textObject.transform, false);
-                word.Clear();
             }
             else
             {
                 while ((Char.IsLetter(text.Curr) || Char.IsPunctuation(text.Curr)) && !Char.IsDigit(text.Curr))
                 {
-                    word.Append(Char.ToLower(text.Curr));
+                    processedText.Append(Char.ToLower(text.Curr));
                     text.Next();
                 }
-                Debug.Log("creating word using string: "+ word.ToString());
-                var wordObject = ConvertWordToBraille(word.ToString());
-                //wordObject.name = word.ToString();
-                wordObject.transform.SetParent(textObject.transform, false);
-                word.Clear();
             }
         }
+
+        return processedText.ToString();
+    }
+
+    public GameObject ConvertTextToBraille(string s, AssistiveOutput.OutputType outputType = AssistiveOutput.OutputType.BOTH)
+    {
+        var textObject = Instantiate(textObjectPrefab,transform);
+        textObject.GetComponent<gridTextObject>().text = s;
+        textObject.GetComponent<gridTextObject>().outputType = outputType;
+        
+        GenerateBrailleObjects(PreprocessText(s), textObject.gameObject);
+        
         return textObject.gameObject;
     }
 
