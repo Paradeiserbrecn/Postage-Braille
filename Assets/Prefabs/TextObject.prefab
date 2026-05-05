@@ -94,6 +94,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TextObject
   text: 
+  outputType: 2
 --- !u!114 &2407134412987346857
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -196,11 +196,17 @@ public class BrailleConverter : MonoBehaviour
         return wordObject.gameObject;
     }
     
-
-    public GameObject ConvertTextToBraille(string s)
+    /// <summary>
+    /// Converts input string s into a <c>textObject</c> which handles output through Screenreader/Braille isplay
+    /// </summary>
+    /// <param name="s">string</param>
+    /// <param name="outputType">enum OutputType, can be either BRAILLE, SPEAK or BOTH while BOTH is selected as default</param>
+    /// <returns></returns>
+    public GameObject ConvertTextToBraille(string s, AssistiveOutput.OutputType outputType = AssistiveOutput.OutputType.BOTH)
     {
         var textObject = Instantiate(textObjectPrefab,transform);
         textObject.GetComponent<TextObject>().text = s;
+        textObject.GetComponent<TextObject>().outputType = outputType;
         
         
         CharFactory text = new CharFactory(s);
