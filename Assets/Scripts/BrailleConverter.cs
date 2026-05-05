@@ -98,14 +98,6 @@ public class BrailleConverter : MonoBehaviour
         var brailleObject = Instantiate(brailleCharacterPrefab).GetComponent<BrailleObject>();
         brailleObject.gameObject.name = s;
         brailleObject.SetBrailleCharacter(pattern);
-        
-        //printing pattern to letter
-        //String message = s + " = ";
-        //foreach (bool dot in pattern)
-        //{
-        //    message = message + dot + ", ";
-        //}
-        //Debug.Log(message);
 
         return brailleObject.gameObject;
     }
