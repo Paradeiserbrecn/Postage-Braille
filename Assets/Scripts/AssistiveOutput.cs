@@ -44,7 +44,7 @@ public class AssistiveOutput : MonoBehaviour
     // </summary>
     // <param name="text">The text to output.</param>
     // <param name="type">If the text is supposed to be output in speech, in braille, or both.</param>
-    public void Output(string text, OutputType type)
+    public void Output(string text, OutputType type = OutputType.BOTH)
     {
         Debug.Log("Tolk Output (" + type + "): " + text);
 

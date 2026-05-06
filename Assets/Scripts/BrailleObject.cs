@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using Image = UnityEngine.UI.Image;
 
 public class BrailleObject : MonoBehaviour
@@ -10,11 +11,14 @@ public class BrailleObject : MonoBehaviour
         UpdateDotSize();
         UpdateDotColor();
         UpdateCharacterSize();
-        
-        //TODO: subscribe to size/color change events
+
+        IOEventManager.BrailleSizeChanged += UpdateCharacterSize;
+        IOEventManager.DotSizeChanged += UpdateDotSize;
+        IOEventManager.BrailleColorChanged += UpdateDotColor;
     }
     private void UpdateDotSize()
     {
+        Debug.Log("Trying to update dotSize");
         foreach (GameObject dot in dots)
         {
             dot.GetComponent<RectTransform>().localScale = Vector3.one * GlobalSettings.DotSize;
@@ -27,9 +31,10 @@ public class BrailleObject : MonoBehaviour
             dot.GetComponent<Image>().color = GlobalSettings.BrailleColor;
         }
     }
+    
     private void UpdateCharacterSize()
     {
-        transform.localScale = Vector3.one * GlobalSettings.BrailleSize;
+        transform.GetComponent<GridLayoutGroup>().cellSize = Vector2.one * GlobalSettings.BrailleSize;
     }
 
     //DOES NOT CONVERT only takes bool list from the converter

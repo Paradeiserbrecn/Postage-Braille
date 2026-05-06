@@ -237,8 +237,8 @@ public class GridBrailleConverter : MonoBehaviour
     public GameObject ConvertTextToBraille(string s, AssistiveOutput.OutputType outputType = AssistiveOutput.OutputType.BOTH)
     {
         var textObject = Instantiate(textObjectPrefab,transform);
-        textObject.GetComponent<gridTextObject>().text = s;
-        textObject.GetComponent<gridTextObject>().outputType = outputType;
+        textObject.GetComponent<GridTextObject>().text = s;
+        textObject.GetComponent<GridTextObject>().outputType = outputType;
         
         GenerateBrailleObjects(PreprocessText(s), textObject.gameObject);
         
