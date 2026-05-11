@@ -5,6 +5,11 @@ using UnityEngine;
 using UnityEngine.Serialization;
 
 
+public enum SupportedLanguage
+{
+    de
+}
+
 public class LetterUnit
 {
     public List<string> Letters { get; set; } = new();
@@ -13,11 +18,6 @@ public class LetterUnit
 
 public class LetterPackages : MonoBehaviour
 {
-    public enum SupportedLanguage
-    {
-        de
-    }
-    
     [SerializeField] private int startingPackageProgress = 1;
     public int PackageProgress => LanguageProgress[currentLanguage];
 
@@ -52,7 +52,7 @@ public class LetterPackages : MonoBehaviour
     }
 
     /// <summary>
-    /// Changes the internal CurrentPackage 
+    /// Changes the internal CurrentPackage and all according variables
     /// </summary>
     /// <param name="language"></param>
     /// <returns></returns>
@@ -63,6 +63,7 @@ public class LetterPackages : MonoBehaviour
         {
             case SupportedLanguage.de:
                 CurrentLanguagePackage = GermanPackage;
+                currentLanguage = SupportedLanguage.de;
                 break;
             default:
                 throw new UnexpectedEnumValueException<SupportedLanguage>(language);

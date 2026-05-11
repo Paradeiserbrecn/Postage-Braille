@@ -35,6 +35,15 @@ public class GridTextObject : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         transform.GetComponent<GridLayoutGroup>().cellSize = scale;
     }
 
+    public void Focus()
+    {
+        OnPointerEnter(null);
+    }
+
+    public void Unfocus()
+    {
+        OnPointerExit(null);
+    }
     public void OnPointerEnter(PointerEventData eventData)
     {
         if(text != null) IOEventManager.InvokeAssistiveOutput(text, outputType);
