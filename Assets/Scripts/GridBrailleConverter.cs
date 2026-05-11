@@ -85,7 +85,7 @@ public class GridBrailleConverter : MonoBehaviour
 
     private void Start()
     {
-        ConvertTextToBraille("Hallo freunde!");
+        // ConvertTextToBraille("Hallo freunde!");
     }
 
     /// <summary>
@@ -203,7 +203,7 @@ public class GridBrailleConverter : MonoBehaviour
         CharFactory text = new CharFactory(s);
         StringBuilder  processedText = new StringBuilder();
 
-        while (text.HasNext)
+        do
         {
             Debug.Log("processing: " + text.Curr);
             if (Char.IsWhiteSpace(text.Curr))
@@ -211,7 +211,7 @@ public class GridBrailleConverter : MonoBehaviour
                 processedText.Append(' ');
                 text.Next();
             }
-            
+
             else if (Char.IsDigit(text.Curr))
             {
                 processedText.Append('#');
@@ -229,7 +229,7 @@ public class GridBrailleConverter : MonoBehaviour
                     text.Next();
                 }
             }
-        }
+        } while (text.HasNext);
 
         return processedText.ToString();
     }

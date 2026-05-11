@@ -4,7 +4,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 
-public class GridTextObject : MonoBehaviour, IPointerEnterHandler, ISelectHandler
+public class GridTextObject : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, ISelectHandler
 {
     private GridLayoutGroup _layoutGroup;
     public string text;
@@ -38,8 +38,20 @@ public class GridTextObject : MonoBehaviour, IPointerEnterHandler, ISelectHandle
     public void OnPointerEnter(PointerEventData eventData)
     {
         if(text != null) IOEventManager.InvokeAssistiveOutput(text, outputType);
+        foreach (var brailleObject in GetComponentsInChildren<BrailleObject>())
+        {
+           brailleObject.HighlightDots();
+        }
     }
 
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        if(text != null) IOEventManager.InvokeAssistiveOutput(text, outputType);
+        foreach (var brailleObject in GetComponentsInChildren<BrailleObject>())
+        {
+            brailleObject.UpdateDotColor();
+        }
+    }
     public void OnSelect(BaseEventData eventData)
     {
         if(text != null) IOEventManager.InvokeAssistiveOutput(text, outputType);

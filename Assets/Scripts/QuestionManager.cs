@@ -31,7 +31,7 @@ public class QuestionManager : MonoBehaviour
 
         // Pick correct answer
         correctAnswer = _possibleLetters[Random.Range(0, _possibleLetters.Count)];
-
+        
         // Create a pool of wrong answers
         var wrongOptions = _possibleLetters
             .Where(letter => letter != correctAnswer)

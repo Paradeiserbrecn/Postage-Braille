@@ -39,8 +39,8 @@ public class UIManager : MonoBehaviour
         // Clear only braille visuals if needed (not text objects)
         ClearChildren(questionPosition.transform);
 
-        var questionBraille = BrailleConverter.Instance
-            .ConvertCharacterToBraille(QuestionManager.Instance.correctAnswer);
+        var questionBraille = GridBrailleConverter.Instance
+            .ConvertTextToBraille(QuestionManager.Instance.correctAnswer);
 
         questionBraille.transform.SetParent(questionPosition.transform, false);
 
@@ -63,8 +63,8 @@ public class UIManager : MonoBehaviour
         {
             ClearChildren(optionsPositions[i].transform);
 
-            var optionBraille = BrailleConverter.Instance
-                .ConvertCharacterToBraille(QuestionManager.Instance.currentOptions[i]);
+            var optionBraille = GridBrailleConverter.Instance
+                .ConvertTextToBraille(QuestionManager.Instance.currentOptions[i]);
 
             optionBraille.transform.SetParent(optionsPositions[i].transform, false);
         }

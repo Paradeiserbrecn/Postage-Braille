@@ -24,11 +24,19 @@ public class BrailleObject : MonoBehaviour
             dot.GetComponent<RectTransform>().localScale = Vector3.one * GlobalSettings.DotSize;
         }
     }
-    private void UpdateDotColor()
+    public void UpdateDotColor()
     {
         foreach (GameObject dot in dots)
         {
             dot.GetComponent<Image>().color = GlobalSettings.BrailleColor;
+        }
+    }
+    
+    public void HighlightDots()
+    {
+        foreach (GameObject dot in dots)
+        {
+            dot.GetComponent<Image>().color = GlobalSettings.HighlightedColor;
         }
     }
     
