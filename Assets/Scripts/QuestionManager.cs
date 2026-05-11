@@ -19,11 +19,12 @@ public class QuestionManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Picks 1 correct and 3 false letters from `_possibleLetters` and adds them to `this.currentOptions` and populated `this.correctAnswer`
+    /// Picks 1 correct and 3 false letters from `_possibleLetters` and adds them to `this.currentOptions` and populates `this.correctAnswer`
     /// </summary>
     /// <exception cref="InvalidOperationException">If there are too few possible letters to populate all options</exception>
     public void GenerateQuestion()
     {
+        // Because we take 4 option anchors as SerializedFields in the UIManager Component
         if (_possibleLetters.Count < 4)
             throw new InvalidOperationException("Not enough possible letters to generate options.");
 
