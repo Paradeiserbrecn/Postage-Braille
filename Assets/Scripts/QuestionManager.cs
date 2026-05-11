@@ -11,7 +11,6 @@ public class QuestionManager : MonoBehaviour
     public string correctAnswer;
     public List<string> currentOptions = new();
 
-    private List<string> _possibleLetters = new() { "A", "B", "L", "M", "AU" };
 
     private void Awake()
     {
@@ -19,25 +18,25 @@ public class QuestionManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Picks 1 correct and 3 false letters from `_possibleLetters` and adds them to `this.currentOptions` and populates `this.correctAnswer`
+    /// TODO: Add summary 
     /// </summary>
     /// <exception cref="InvalidOperationException">If there are too few possible letters to populate all options</exception>
     public void GenerateQuestion()
     {
         // Because we take 4 option anchors as SerializedFields in the UIManager Component
-        if (_possibleLetters.Count < 4)
+        if (LetterPackages.Instance.CurrentPackageProgresses.Letters.Count < UIManager.Instance.optionsCount)
             throw new InvalidOperationException("Not enough possible letters to generate options.");
 
         currentOptions.Clear();
 
         // Pick correct answer
-        correctAnswer = _possibleLetters[Random.Range(0, _possibleLetters.Count)];
+        correctAnswer = LetterPackages.Instance.CurrentPackageProgresses.Letters[Random.Range(0, LetterPackages.Instance.CurrentPackageProgresses.Letters.Count)];
         
         // Create a pool of wrong answers
-        var wrongOptions = _possibleLetters
+        var wrongOptions = LetterPackages.Instance.CurrentPackageProgresses.Letters
             .Where(letter => letter != correctAnswer)
             .OrderBy(_ => Random.value)
-            .Take(3)
+            .Take(UIManager.Instance.optionsCount - 1)
             .ToList();
 
         // Combine correct + wrong

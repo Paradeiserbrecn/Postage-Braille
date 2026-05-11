@@ -83,11 +83,6 @@ public class GridBrailleConverter : MonoBehaviour
         Instance = this;
     }
 
-    private void Start()
-    {
-        // ConvertTextToBraille("Hallo freunde!");
-    }
-
     /// <summary>
     ///    The gameObject generated with this method does not support accessibility features, only ConvertTextToBraille does that
     /// </summary>

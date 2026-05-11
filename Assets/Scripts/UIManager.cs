@@ -8,12 +8,13 @@ public class UIManager : MonoBehaviour
     public static UIManager Instance;
 
     public GameObject questionPosition;
-    public List<GameObject> optionsPositions = new();
+    public GameObject optionsGrid;
+    public int optionsCount;
     public TextMeshProUGUI feedbackText;
     public GameObject questionTextPrefab;
     
-    private List<TextMeshProUGUI> optionTexts = new();
-    private TextMeshProUGUI questionText;
+    private readonly List<TextMeshProUGUI> optionTexts = new();
+    private TextMeshProUGUI _questionText;
     
     private void Awake()
     {
@@ -23,12 +24,12 @@ public class UIManager : MonoBehaviour
     private void Start()
     {
         // Create question text once
-        questionText = questionPosition.GetOrAddComponent<TextMeshProUGUI>();
+        _questionText = questionPosition.GetOrAddComponent<TextMeshProUGUI>();
 
         // Create option texts once
-        foreach (var t in optionsPositions)
+        for(var i = 0; i < optionsCount; i++)
         {
-            var obj = Instantiate(questionTextPrefab, t.transform, false);
+            var obj = Instantiate(questionTextPrefab, optionsGrid.transform, false);
             var text = obj.GetComponent<TextMeshProUGUI>();
             optionTexts.Add(text);
         }
@@ -38,6 +39,7 @@ public class UIManager : MonoBehaviour
     {
         // Clear only braille visuals if needed (not text objects)
         ClearChildren(questionPosition.transform);
+        _questionText.text = "";
 
         var questionBraille = GridBrailleConverter.Instance
             .ConvertTextToBraille(QuestionManager.Instance.correctAnswer);
@@ -46,6 +48,7 @@ public class UIManager : MonoBehaviour
 
         for (int i = 0; i < optionTexts.Count; i++)
         {
+            ClearChildren(optionTexts[i].transform);
             optionTexts[i].text = (i + 1) + ": " + QuestionManager.Instance.currentOptions[i];
         }
 
@@ -56,17 +59,19 @@ public class UIManager : MonoBehaviour
     {
         ClearChildren(questionPosition.transform);
 
-        questionText.text = QuestionManager.Instance.correctAnswer;
+        _questionText.text = QuestionManager.Instance.correctAnswer;
 
         // Instead of destroying, clear and reuse option containers
-        for (var i = 0; i < optionsPositions.Count; i++)
+        for (var i = 0; i < optionTexts.Count; i++)
         {
-            ClearChildren(optionsPositions[i].transform);
+            ClearChildren(optionTexts[i].transform);
+
+            optionTexts[i].text = "";
 
             var optionBraille = GridBrailleConverter.Instance
                 .ConvertTextToBraille(QuestionManager.Instance.currentOptions[i]);
 
-            optionBraille.transform.SetParent(optionsPositions[i].transform, false);
+            optionBraille.transform.SetParent(optionTexts[i].transform, false);
         }
 
         feedbackText.text = "";
