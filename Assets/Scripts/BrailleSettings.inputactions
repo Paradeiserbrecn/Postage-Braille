@@ -1,0 +1,175 @@
+{
+    "version": 1,
+    "name": "BrailleSettings",
+    "maps": [
+        {
+            "name": "BrailleSettings",
+            "id": "8642e1a8-8a31-41df-afe5-3f1a17fa2605",
+            "actions": [
+                {
+                    "name": "BrailleSizeUp",
+                    "type": "Button",
+                    "id": "7046ee3e-d511-409b-9697-8f97e4a7cb13",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "BrailleSizeDown",
+                    "type": "Button",
+                    "id": "8e6d8524-0d76-463f-beb6-98f810fbb17d",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "DotSizeUp",
+                    "type": "Button",
+                    "id": "7972c99c-17ae-4542-81e4-e10f61942b2c",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "DotSizeDown",
+                    "type": "Button",
+                    "id": "f0bc8a25-da74-44de-bbcf-61c7d2fd2fdd",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "BrailleSpacingUp",
+                    "type": "Button",
+                    "id": "b0a089e0-69ef-4c67-bf91-f9e6e18bfc2e",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "BrailleSpacingDown",
+                    "type": "Button",
+                    "id": "47a3deb9-66a9-4b85-9c6b-a0a56386a504",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "LineSpacingUp",
+                    "type": "Button",
+                    "id": "953c81c3-b673-46d1-81e2-39b110af2311",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "LineSpacingDown",
+                    "type": "Button",
+                    "id": "f968fbb2-d695-4b55-a07b-61a399977475",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "cf92df46-7c3f-4f54-bd4f-24b9e535c2cf",
+                    "path": "<Keyboard>/f1",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "BrailleSizeUp",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "373f0f76-73ee-4ceb-a30a-e0eab53f3a69",
+                    "path": "<Keyboard>/f2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "BrailleSizeDown",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "199a3582-7ff5-46c3-ae6b-36ccab32be96",
+                    "path": "<Keyboard>/f3",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DotSizeUp",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4b1db400-faf7-4f02-bd2e-ca23ca9129a8",
+                    "path": "<Keyboard>/f4",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DotSizeDown",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "83657769-4ec5-4341-9a91-c98bfa5ddb03",
+                    "path": "<Keyboard>/f5",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "BrailleSpacingUp",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d73cdd63-4679-4c9b-a3e0-233700ec7b0a",
+                    "path": "<Keyboard>/f6",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "BrailleSpacingDown",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a149cae9-abd9-4c7d-89cb-183eb6a2ac8e",
+                    "path": "<Keyboard>/f7",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LineSpacingUp",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b9335d15-3625-4b27-90dc-3d63f4b995c7",
+                    "path": "<Keyboard>/f8",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LineSpacingDown",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
