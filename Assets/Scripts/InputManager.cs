@@ -15,19 +15,19 @@ public class InputManager : MonoBehaviour
         if (Keyboard.current.digit5Key.wasPressedThisFrame) SelectOption(4);
         if (Keyboard.current.digit6Key.wasPressedThisFrame) SelectOption(5);
 
-        if (Keyboard.current.leftArrowKey.wasPressedThisFrame) UIManager.Instance.HighlightPreviousGridTextObject();
-        if (Keyboard.current.rightArrowKey.wasPressedThisFrame) UIManager.Instance.HighlightNextGridTextObject();
+        if (Keyboard.current.leftArrowKey.wasPressedThisFrame) UIManager.Instance.HighlightPreviousOption();
+        if (Keyboard.current.rightArrowKey.wasPressedThisFrame) UIManager.Instance.HighlightNextOption();
         if (Keyboard.current.enterKey.wasPressedThisFrame) SelectOption();
     }
 
     private void SelectOption(int index)
     {
-        var selected = QuestionManager.Instance.currentOptions[index];
-        GameManager.Instance.SubmitAnswer(selected);
+        var selected = UIManager.Instance.Options[index];
+        selected.ConfirmAction();
     }
 
     private void SelectOption()
     {
-        GameManager.Instance.SubmitAnswer(UIManager.Instance.HighlightedGridTextObject.text);
+        UIManager.Instance.HighlightedOption.ConfirmAction();
     }
 }

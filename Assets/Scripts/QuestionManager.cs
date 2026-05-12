@@ -48,6 +48,7 @@ public class QuestionManager : MonoBehaviour
 
     public bool CheckAnswer(string answer)
     {
+        Debug.Log("Answered with: " + answer + " and correct: " + correctAnswer);
         return answer == correctAnswer;
     }
 

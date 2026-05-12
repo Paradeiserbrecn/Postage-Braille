@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 public class CircularList<T>
 {
+    public List<T> Items => _items;
     private readonly List<T> _items;
     private int _currentIndex;
 
@@ -21,7 +22,7 @@ public class CircularList<T>
 
     public T Current => _items[_currentIndex];
 
-    
+
     public T Next()
     {
         _currentIndex = (_currentIndex + 1) % _items.Count;
@@ -49,6 +50,8 @@ public class CircularList<T>
 
     public override string ToString()
     {
-        return _items.ToArray().ToString();
+        return string.Join(", ", _items);
     }
+
+    public List<T> ToList() => _items;
 }
