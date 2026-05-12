@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 using Unity.VisualScripting;
 
 public class GridBrailleConverter : MonoBehaviour
@@ -85,7 +86,7 @@ public class GridBrailleConverter : MonoBehaviour
 
     private void Start()
     {
-        ConvertTextToBraille("Hallo freunde!");
+        //ConvertTextToBraille("Hallo freunde!");
     }
 
     /// <summary>
@@ -106,6 +107,19 @@ public class GridBrailleConverter : MonoBehaviour
         brailleObject.SetBrailleCharacter(pattern);
 
         return brailleObject.gameObject;
+    }
+
+    public string ConvertBrailleToCharacter(List<bool> brailleList)
+    {
+        foreach (string letter in german.Keys)
+        {
+            if (brailleList.SequenceEqual(german[letter]))
+            {
+                return letter;
+            }
+        }
+
+        return "";
     }
     
     private void GenerateBrailleObjects(string s, GameObject textObject)

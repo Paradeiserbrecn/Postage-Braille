@@ -6,6 +6,7 @@ using Image = UnityEngine.UI.Image;
 public class BrailleObject : MonoBehaviour
 {
     [SerializeField] private List<GameObject> dots = new List<GameObject>();
+    private List<bool> _dotBools = new List<bool> {false, false, false, false, false, false};
     void Start()
     {
         UpdateDotSize();
@@ -40,6 +41,7 @@ public class BrailleObject : MonoBehaviour
     //DOES NOT CONVERT only takes bool list from the converter
     public void SetBrailleCharacter(List<bool> braille)
     {
+        _dotBools = braille;
         if (braille.Count != dots.Count)
         {
             Debug.Log("Braille list size mismatch. Braille: " + braille.Count + " Dot: " + dots.Count);
@@ -51,4 +53,6 @@ public class BrailleObject : MonoBehaviour
             //Debug.Log("dot "+ i + " is " + braille[i]);
         }
     }
+    
+    public List<bool> DotBools => _dotBools;
 }

@@ -431,6 +431,7 @@ GameObject:
   - component: {fileID: 1719412870}
   - component: {fileID: 1719412871}
   - component: {fileID: 1719412872}
+  - component: {fileID: 1719412873}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -454,7 +455,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.000030517578}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1719412870
@@ -495,6 +496,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3af375c5570bca044894435b9446d527, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+--- !u!114 &1719412873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1719412867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcf76feb60d4c7c499821df7255fda6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PerkinsInputHandler
+  brailleObjectPrefab: {fileID: 1004382091453081510, guid: 2146a4e2dfa83af48ba07d2c56ca225f, type: 3}
+  textObjectPrefab: {fileID: 1342502263326980618, guid: 23152662c3ca817408fdb0bac435a16c, type: 3}
+  targetObject: {fileID: 1719412867}
 --- !u!1 &2089414309
 GameObject:
   m_ObjectHideFlags: 0
