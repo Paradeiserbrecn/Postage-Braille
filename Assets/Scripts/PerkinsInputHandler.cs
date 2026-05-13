@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Text;
 using System.Linq;
 using Unity.VisualScripting;
-using UnityEngine.Serialization;
 
 public class PerkinsInputHandler : MonoBehaviour
 {
@@ -17,7 +16,7 @@ public class PerkinsInputHandler : MonoBehaviour
     
     private List<BrailleObject> _brailleObjects = new List<BrailleObject>();
     private StringBuilder _text = new StringBuilder();
-    private List<bool> _currentBrailleList;
+    private List<bool> _currentBrailleList, _pressedDots;
     private BrailleObject _currentBrailleObject;
     private GridTextObject _gridTextObject;
 
@@ -28,6 +27,7 @@ public class PerkinsInputHandler : MonoBehaviour
         
         _gridTextObject = Instantiate(textObjectPrefab, targetObject.transform).GetComponent<GridTextObject>();
         NewBrailleCharacter();
+        _pressedDots = new List<bool>(_emptyBrailleList);
     }
     private void OnEnable()
     {
@@ -62,6 +62,8 @@ public class PerkinsInputHandler : MonoBehaviour
         _actions.PerkinsBrailer.Dot4.canceled -= OnDot4Canceled;
         _actions.PerkinsBrailer.Dot5.started -= OnDot5Started;
         _actions.PerkinsBrailer.Dot5.canceled -= OnDot5Canceled;
+        _actions.PerkinsBrailer.Delete.started -= OnDeleteCharacter;
+        _actions.PerkinsBrailer.Space.started -= OnSpace;
 
         _actions.Disable();
     }
@@ -78,9 +80,8 @@ public class PerkinsInputHandler : MonoBehaviour
     }
     private void LockInCharacter()
     {
-        if (!_currentBrailleList.SequenceEqual(_emptyBrailleList))
+        if (_pressedDots.SequenceEqual(_emptyBrailleList))
         {
-            Debug.Log("locking in character");
             _text.Append(GridBrailleConverter.Instance.ConvertBrailleToCharacter(_currentBrailleList));
             NewBrailleCharacter();
             Debug.Log(_text.ToString());
@@ -89,55 +90,67 @@ public class PerkinsInputHandler : MonoBehaviour
     private void OnDot0Started(UnityEngine.InputSystem.InputAction.CallbackContext context)
     {
         _currentBrailleList[0] = true;
+        _pressedDots[0] = true;
         _currentBrailleObject.SetBrailleCharacter(_currentBrailleList);
     }
     private void OnDot0Canceled(UnityEngine.InputSystem.InputAction.CallbackContext context)
     {
+        _pressedDots[0] = false;
         LockInCharacter();
     }
     private void OnDot1Started(UnityEngine.InputSystem.InputAction.CallbackContext context)
     {
         _currentBrailleList[1] = true;
+        _pressedDots[1] = true;
         _currentBrailleObject.SetBrailleCharacter(_currentBrailleList);
     }
     private void OnDot1Canceled(UnityEngine.InputSystem.InputAction.CallbackContext context)
     {
+        _pressedDots[1] = false;
         LockInCharacter();
     }
     private void OnDot2Started(UnityEngine.InputSystem.InputAction.CallbackContext context)
     {
         _currentBrailleList[2] = true;
+        _pressedDots[2] = true;
         _currentBrailleObject.SetBrailleCharacter(_currentBrailleList);
     }
     private void OnDot2Canceled(UnityEngine.InputSystem.InputAction.CallbackContext context)
     {
+        _pressedDots[2] = false;
         LockInCharacter();
     }
     private void OnDot3Started(UnityEngine.InputSystem.InputAction.CallbackContext context)
     {
         _currentBrailleList[3] = true;
+        _pressedDots[3] = true;
         _currentBrailleObject.SetBrailleCharacter(_currentBrailleList);
     }
     private void OnDot3Canceled(UnityEngine.InputSystem.InputAction.CallbackContext context)
     {
+        _pressedDots[3] = false;
         LockInCharacter();
     }
     private void OnDot4Started(UnityEngine.InputSystem.InputAction.CallbackContext context)
     {
         _currentBrailleList[4] = true;
+        _pressedDots[4] = true;
         _currentBrailleObject.SetBrailleCharacter(_currentBrailleList);
     }
     private void OnDot4Canceled(UnityEngine.InputSystem.InputAction.CallbackContext context)
     {
+        _pressedDots[4] = false;
         LockInCharacter();
     }
     private void OnDot5Started(UnityEngine.InputSystem.InputAction.CallbackContext context)
     {
         _currentBrailleList[5] = true;
+        _pressedDots[5] = true;
         _currentBrailleObject.SetBrailleCharacter(_currentBrailleList);
     }
     private void OnDot5Canceled(UnityEngine.InputSystem.InputAction.CallbackContext context)
     {
+        _pressedDots[5] = false;
         LockInCharacter();
     }
 
@@ -149,7 +162,6 @@ public class PerkinsInputHandler : MonoBehaviour
             Destroy(_brailleObjects[^2].gameObject);
             _brailleObjects.Remove(_brailleObjects[^2]);
             _text.Remove(_text.Length - lastBrailleLength, lastBrailleLength);
-            Debug.Log(_text.ToString());
         }
     }
     private void OnSpace(UnityEngine.InputSystem.InputAction.CallbackContext context)
@@ -161,5 +173,13 @@ public class PerkinsInputHandler : MonoBehaviour
     public String GetText()
     {
         return _text.ToString();
+    }
+
+    public void ClearText()
+    {
+        while(_brailleObjects.Count > 1)
+        {
+            OnDeleteCharacter(new UnityEngine.InputSystem.InputAction.CallbackContext());
+        }
     }
 }

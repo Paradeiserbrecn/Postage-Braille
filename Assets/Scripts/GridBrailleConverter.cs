@@ -195,7 +195,7 @@ public class GridBrailleConverter : MonoBehaviour
                     character.Append(text.Curr);
                     break;
             }
-            Debug.Log("creating braille using string: "+ character.ToString());
+            //Debug.Log("creating braille using string: "+ character.ToString());
             var brailleObject = ConvertCharacterToBraille(character.ToString());
             text.Next();
             if (brailleObject != null)
@@ -219,7 +219,7 @@ public class GridBrailleConverter : MonoBehaviour
 
         while (text.HasNext)
         {
-            Debug.Log("processing: " + text.Curr);
+            //Debug.Log("processing: " + text.Curr);
             if (Char.IsWhiteSpace(text.Curr))
             {
                 processedText.Append(' ');

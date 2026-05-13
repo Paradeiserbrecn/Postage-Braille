@@ -19,7 +19,6 @@ public class BrailleObject : MonoBehaviour
     }
     private void UpdateDotSize()
     {
-        Debug.Log("Trying to update dotSize");
         foreach (GameObject dot in dots)
         {
             dot.GetComponent<RectTransform>().localScale = Vector3.one * GlobalSettings.DotSize;
