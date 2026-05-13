@@ -17,16 +17,16 @@ public class UIManager : MonoBehaviour
     public GameObject questionTextPrefab;
 
     private TextMeshProUGUI _questionText;
-    private readonly List<FocusableTextTextObject> _optionTexts = new();
+    private readonly List<FocusableTextObject> _optionTexts = new();
     private readonly List<GridTextObject> _optionBrailleTexts = new();
 
-    public List<IFocusableText> Options =>
-        _optionTexts.Cast<IFocusableText>()
+    public List<IFocusable> Options =>
+        _optionTexts.Cast<IFocusable>()
             .Concat(_optionBrailleTexts)
             .ToList();
     private int currentOptionIndex;
 
-    public IFocusableText HighlightedOption;
+    public IFocusable HighlightedOption;
 
     private void Awake()
     {
@@ -78,7 +78,7 @@ public class UIManager : MonoBehaviour
         for (int i = 0; i < QuestionManager.Instance.currentOptions.Count; i++)
         {
             var tmpObject = Instantiate(questionTextPrefab, optionsGrid.transform, false).GetComponent<TextMeshProUGUI>();
-            var focusableText = new FocusableTextTextObject(tmpObject)
+            var focusableText = new FocusableTextObject(tmpObject)
             {
                 Text = QuestionManager.Instance.currentOptions[i],
                 DisplayText = (i + 1) + ": " + QuestionManager.Instance.currentOptions[i]
@@ -109,10 +109,10 @@ public class UIManager : MonoBehaviour
         feedbackText.text = "";
     }
 
-    public IFocusableText HighlightNextOption() => HighlightOption();
-    public IFocusableText HighlightPreviousOption() => HighlightOption(false);
+    public IFocusable HighlightNextOption() => HighlightOption();
+    public IFocusable HighlightPreviousOption() => HighlightOption(false);
 
-    private IFocusableText HighlightOption(bool next = true)
+    private IFocusable HighlightOption(bool next = true)
     {
         if (GameManager.Instance.currentState != GameManager.GameState.WaitingForInput)
         {
@@ -133,9 +133,9 @@ public class UIManager : MonoBehaviour
         return null;
     }
 
-    private IFocusableText HighlightPreviousFocusable()
+    private IFocusable HighlightPreviousFocusable()
     {
-        List<IFocusableText> options = Options;
+        List<IFocusable> options = Options;
 
         if (options.Count == 0)
             return null;
@@ -158,9 +158,9 @@ public class UIManager : MonoBehaviour
         return HighlightedOption;
     }
 
-    private IFocusableText HighlightNextFocusable()
+    private IFocusable HighlightNextFocusable()
     {
-        List<IFocusableText> options = Options;
+        List<IFocusable> options = Options;
 
         if (options.Count == 0)
             return null;

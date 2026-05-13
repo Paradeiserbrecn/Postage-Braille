@@ -1,57 +1,50 @@
 ﻿using System;
 using System.Collections.Generic;
 
-public class CircularList<T>
+public class CircularList<T> : List<T>
 {
-    public List<T> Items => _items;
-    private readonly List<T> _items;
+    private List<T> Items { get; }
+
     private int _currentIndex;
 
     public CircularList(IEnumerable<T> items)
     {
-        _items = new List<T>(items);
+        Items = new List<T>(items);
 
-        if (_items.Count == 0)
+        if (Items.Count == 0)
             throw new ArgumentException("Collection cannot be empty");
     }
 
     public CircularList()
     {
-        _items = new List<T>();
+        Items = new List<T>();
     }
 
-    public T Current => _items[_currentIndex];
+    public T Current => Items[_currentIndex];
 
 
     public T Next()
     {
-        _currentIndex = (_currentIndex + 1) % _items.Count;
+        _currentIndex = (_currentIndex + 1) % Items.Count;
         return Current;
     }
 
     public T Previous()
     {
-        _currentIndex = (_currentIndex - 1 + _items.Count) % _items.Count;
+        _currentIndex = (_currentIndex - 1 + Items.Count) % Items.Count;
         return Current;
     }
 
-    public void Clear()
+    public new void Clear()
     {
-        _items.Clear();
+        Items.Clear();
         _currentIndex = 0;
-    }
-
-    public T this[int i] => _items[i];
-
-    public void Add(T item)
-    {
-        _items.Add(item);
     }
 
     public override string ToString()
     {
-        return string.Join(", ", _items);
+        return string.Join(", ", Items);
     }
 
-    public List<T> ToList() => _items;
+    public List<T> ToList() => Items;
 }

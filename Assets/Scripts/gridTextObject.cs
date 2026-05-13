@@ -1,10 +1,11 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 
-public class GridTextObject : MonoBehaviour, IFocusableText, IPointerEnterHandler, IPointerExitHandler, ISelectHandler
+public class GridTextObject : MonoBehaviour, IFocusable
 {
     private GridLayoutGroup _layoutGroup;
     public string text;
@@ -39,12 +40,20 @@ public class GridTextObject : MonoBehaviour, IFocusableText, IPointerEnterHandle
 
     public void Focus()
     {
-        OnPointerEnter(null);
+       if (text != null) IOEventManager.InvokeAssistiveOutput(text, outputType);
+        foreach (var brailleObject in GetComponentsInChildren<BrailleObject>())
+        {
+            brailleObject.HighlightDots();
+        }
     }
 
     public void Unfocus()
     {
-        OnPointerExit(null);
+        if (text != null) IOEventManager.InvokeAssistiveOutput(text, outputType);
+        foreach (var brailleObject in GetComponentsInChildren<BrailleObject>())
+        {
+            brailleObject.UpdateDotColor();
+        }
     }
 
     public void ConfirmAction()
@@ -58,28 +67,5 @@ public class GridTextObject : MonoBehaviour, IFocusableText, IPointerEnterHandle
                 Debug.Log("Confirmed focus when no confirm action was provided");
                 break;
         }
-    }
-
-    public void OnPointerEnter(PointerEventData eventData)
-    {
-        if (text != null) IOEventManager.InvokeAssistiveOutput(text, outputType);
-        foreach (var brailleObject in GetComponentsInChildren<BrailleObject>())
-        {
-            brailleObject.HighlightDots();
-        }
-    }
-
-    public void OnPointerExit(PointerEventData eventData)
-    {
-        if (text != null) IOEventManager.InvokeAssistiveOutput(text, outputType);
-        foreach (var brailleObject in GetComponentsInChildren<BrailleObject>())
-        {
-            brailleObject.UpdateDotColor();
-        }
-    }
-
-    public void OnSelect(BaseEventData eventData)
-    {
-        if (text != null) IOEventManager.InvokeAssistiveOutput(text, outputType);
     }
 }

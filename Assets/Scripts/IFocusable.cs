@@ -1,4 +1,4 @@
-﻿public interface IFocusableText
+﻿public interface IFocusable
 {
     public void Focus();
     public void Unfocus();

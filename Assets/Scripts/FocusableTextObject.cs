@@ -2,7 +2,7 @@
 using TMPro;
 using UnityEngine;
 
-public class FocusableTextTextObject : IFocusableText
+public class FocusableTextObject : IFocusable
 {
     public AssistiveOutput.OutputType OutputType = AssistiveOutput.OutputType.BOTH;
     public readonly TextMeshProUGUI TMPText;
@@ -17,9 +17,8 @@ public class FocusableTextTextObject : IFocusableText
         set
         {
             _text = value;
-            _displayTextOverride = null;
-            RefreshDisplayedText();
-        }
+            TMPText.text = _text;
+       }
     }
 
     /// <summary>
@@ -28,12 +27,8 @@ public class FocusableTextTextObject : IFocusableText
     /// </summary>
     public string DisplayText
     {
-        get => _displayTextOverride ?? _text;
-        set
-        {
-            _displayTextOverride = value;
-            RefreshDisplayedText();
-        }
+        get => TMPText.text;
+        set => TMPText.text = value;
     }
 
     private void RefreshDisplayedText()
@@ -41,7 +36,7 @@ public class FocusableTextTextObject : IFocusableText
         TMPText.text = _displayTextOverride ?? _text;
     }
 
-    public FocusableTextTextObject(TextMeshProUGUI tmpText)
+    public FocusableTextObject(TextMeshProUGUI tmpText)
     {
         TMPText = tmpText;
     }
