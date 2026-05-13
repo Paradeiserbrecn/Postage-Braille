@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using DavyKager; // Tolk accessibility wrapper
 
@@ -9,19 +7,19 @@ public class AssistiveOutput : MonoBehaviour
 {
     public enum OutputType
     {
-        BRAILLE,
-        SPEAK,
-        BOTH
+        Braille,
+        Speak,
+        Both
     }
 
-    void Start()
+    public void Start()
     {
         Tolk.Load();
         Debug.Log("Querying for the active screen reader driver ...");
 
-        string name = Tolk.DetectScreenReader();
-        if (name != null)
-            Debug.Log("The active screen reader driver is: " + name + ".");
+        var reader = Tolk.DetectScreenReader();
+        if (reader != null)
+            Debug.Log("The active screen reader driver is: " + reader + ".");
         else
             Debug.Log("None of the supported screen readers is running.");
 
@@ -34,7 +32,7 @@ public class AssistiveOutput : MonoBehaviour
         IOEventManager.AssistiveOutput += Output;
     }
 
-    void OnDestroy()
+    public void OnDestroy()
     {
         Tolk.Unload();
     }
@@ -44,18 +42,18 @@ public class AssistiveOutput : MonoBehaviour
     // </summary>
     // <param name="text">The text to output.</param>
     // <param name="type">If the text is supposed to be output in speech, in braille, or both.</param>
-    public void Output(string text, OutputType type = OutputType.BOTH)
+    public void Output(string text, OutputType type = OutputType.Both)
     {
         Debug.Log("Tolk Output (" + type + "): " + text);
 
         bool success = false;
 
-        switch(type)
+        switch (type)
         {
-            case OutputType.BRAILLE:
+            case OutputType.Braille:
                 success = Tolk.Braille(text);
                 break;
-            case OutputType.SPEAK:
+            case OutputType.Speak:
                 success = Tolk.Speak(text);
                 Debug.Log("trying to speak");
                 break;
@@ -67,5 +65,4 @@ public class AssistiveOutput : MonoBehaviour
         if (!success)
             Debug.Log("Failed to output text via Tolk.");
     }
-
 }

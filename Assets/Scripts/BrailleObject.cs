@@ -5,12 +5,23 @@ using Image = UnityEngine.UI.Image;
 
 public class BrailleObject : MonoBehaviour
 {
-    [SerializeField] private List<GameObject> dots = new List<GameObject>();
+    [SerializeField] private List<GameObject> dots = new();
 
-    public List<bool> DotBools { get; private set; } = new List<bool> {false, false, false, false, false, false};
+    public List<bool> DotBools { get; private set; } = new() {false, false, false, false, false, false};
+    private readonly List<RectTransform> _dotRects = new();
+    private readonly List<Image> _dotImages = new();
+    private GridLayoutGroup _gridLayoutGroup;
 
-    void Start()
+    private void Start()
     {
+        foreach (GameObject dot in dots)
+        {
+            _dotRects.Add(dot.GetComponent<RectTransform>());
+            _dotImages.Add(dot.GetComponent<Image>());
+        }
+        
+        _gridLayoutGroup = transform.GetComponent<GridLayoutGroup>();
+        
         UpdateDotSize();
         UpdateDotColor();
         UpdateCharacterSize();
@@ -22,9 +33,9 @@ public class BrailleObject : MonoBehaviour
 
     private void UpdateDotSize()
     {
-        foreach (GameObject dot in dots)
+        foreach (RectTransform rect in _dotRects)
         {
-            dot.GetComponent<RectTransform>().localScale = Vector3.one * GlobalSettings.DotSize;
+            rect.localScale = Vector3.one * GlobalSettings.DotSize;
         }
     }
 
@@ -33,9 +44,9 @@ public class BrailleObject : MonoBehaviour
     /// </summary>
     public void UpdateDotColor()
     {
-        foreach (GameObject dot in dots)
+        foreach (var image in _dotImages)
         {
-            dot.GetComponent<Image>().color = GlobalSettings.BrailleColor;
+            image.color = GlobalSettings.BrailleColor;
         }
     }
 
@@ -44,15 +55,15 @@ public class BrailleObject : MonoBehaviour
     /// </summary>
     public void HighlightDots()
     {
-        foreach (GameObject dot in dots)
+        foreach (var image in _dotImages)
         {
-            dot.GetComponent<Image>().color = GlobalSettings.HighlightedColor;
+            image.color = GlobalSettings.HighlightedColor;
         }
     }
 
     private void UpdateCharacterSize()
     {
-        transform.GetComponent<GridLayoutGroup>().cellSize = Vector2.one * GlobalSettings.BrailleSize;
+        _gridLayoutGroup.cellSize = Vector2.one * GlobalSettings.BrailleSize;
     }
 
     //DOES NOT CONVERT only takes bool list from the converter
@@ -67,7 +78,6 @@ public class BrailleObject : MonoBehaviour
         for (int i = 0; i < dots.Count; i++)
         {
             dots[i].GetComponent<Image>().enabled = braille[i];
-            //Debug.Log("dot "+ i + " is " + braille[i]);
         }
     }
 }

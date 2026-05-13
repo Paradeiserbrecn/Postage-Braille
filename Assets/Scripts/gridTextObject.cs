@@ -9,7 +9,7 @@ public class GridTextObject : MonoBehaviour, IFocusable
 {
     private GridLayoutGroup _layoutGroup;
     public string text;
-    [FormerlySerializedAs("type")] public AssistiveOutput.OutputType outputType = AssistiveOutput.OutputType.BOTH;
+    [FormerlySerializedAs("type")] public AssistiveOutput.OutputType outputType = AssistiveOutput.OutputType.Both;
 
     void Start()
     {

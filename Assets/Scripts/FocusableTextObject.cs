@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FocusableTextObject : IFocusable
 {
-    public AssistiveOutput.OutputType OutputType = AssistiveOutput.OutputType.BOTH;
+    public AssistiveOutput.OutputType OutputType = AssistiveOutput.OutputType.Both;
     public readonly TextMeshProUGUI TMPText;
 
     private bool focused = false;
