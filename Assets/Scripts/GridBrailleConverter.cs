@@ -12,7 +12,7 @@ public class GridBrailleConverter : MonoBehaviour
     [SerializeField] private GameObject brailleCharacterPrefab, textObjectPrefab;
     
     //temporary Dictionary for Braille conversion
-    Dictionary<string, List<bool>> german = new()
+    private readonly Dictionary<string, List<bool>> _german = new()
     {
         { "a", new List<bool> { true, false, false, false, false, false }},  
         { "b", new List<bool> { true, false, true, false, false, false }},    
@@ -91,7 +91,7 @@ public class GridBrailleConverter : MonoBehaviour
     /// <returns>BrailleObject</returns>
     public GameObject ConvertCharacterToBraille(string s)
     {
-        if (!german.TryGetValue(s, out var pattern))
+        if (!_german.TryGetValue(s, out var pattern))
         {
             Debug.LogWarning($"{s} is not supported");
             return null;
@@ -106,9 +106,9 @@ public class GridBrailleConverter : MonoBehaviour
 
     public string ConvertBrailleToCharacter(List<bool> brailleList)
     {
-        foreach (string letter in german.Keys)
+        foreach (string letter in _german.Keys)
         {
-            if (brailleList.SequenceEqual(german[letter]))
+            if (brailleList.SequenceEqual(_german[letter]))
             {
                 return letter;
             }
@@ -190,7 +190,6 @@ public class GridBrailleConverter : MonoBehaviour
                     character.Append(text.Curr);
                     break;
             }
-            //Debug.Log("creating braille using string: "+ character.ToString());
             var brailleObject = ConvertCharacterToBraille(character.ToString());
             text.Next();
             if (brailleObject != null)
@@ -214,7 +213,6 @@ public class GridBrailleConverter : MonoBehaviour
 
         do
         {
-            //Debug.Log("processing: " + text.Curr);
             if (Char.IsWhiteSpace(text.Curr))
             {
                 processedText.Append(' ');

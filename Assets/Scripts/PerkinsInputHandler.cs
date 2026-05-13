@@ -4,18 +4,18 @@ using System.Collections.Generic;
 using System.Text;
 using System.Linq;
 using Unity.VisualScripting;
+using UnityEngine.InputSystem;
 
 public class PerkinsInputHandler : MonoBehaviour
 {
-    private readonly List<bool> _emptyBrailleList = new List<bool>{false, false, false, false, false, false};
-    private PerkinsActions _actions;
-    
     [SerializeField] private GameObject brailleObjectPrefab;
     [SerializeField] private GameObject textObjectPrefab;
     [SerializeField] private GameObject targetObject; //where the text will show up
-    
-    private List<BrailleObject> _brailleObjects = new List<BrailleObject>();
-    private StringBuilder _text = new StringBuilder();
+
+    private readonly List<BrailleObject> _brailleObjects = new();
+    private readonly List<bool> _emptyBrailleList = new() { false, false, false, false, false, false };
+    private readonly StringBuilder _text = new();
+    private PerkinsActions _actions;
     private List<bool> _currentBrailleList, _pressedDots;
     private BrailleObject _currentBrailleObject;
     private GridTextObject _gridTextObject;
@@ -24,11 +24,12 @@ public class PerkinsInputHandler : MonoBehaviour
     {
         ResetCharacter();
         _actions = new PerkinsActions();
-        
+
         _gridTextObject = Instantiate(textObjectPrefab, targetObject.transform).GetComponent<GridTextObject>();
         NewBrailleCharacter();
         _pressedDots = new List<bool>(_emptyBrailleList);
     }
+
     private void OnEnable()
     {
         _actions.PerkinsBrailer.Dot0.started += OnDot0Started;
@@ -48,6 +49,7 @@ public class PerkinsInputHandler : MonoBehaviour
 
         _actions.Enable();
     }
+
     private void OnDisable()
     {
         _actions.PerkinsBrailer.Dot0.started -= OnDot0Started;
@@ -67,17 +69,36 @@ public class PerkinsInputHandler : MonoBehaviour
 
         _actions.Disable();
     }
+
+    #region DotControlsActions
+    private void OnDot0Started(InputAction.CallbackContext context) => OnDotNStarted(0, context);
+    private void OnDot0Canceled(InputAction.CallbackContext context) => OnDotNCanceled(0, context);
+    private void OnDot1Started(InputAction.CallbackContext context) => OnDotNStarted(1, context);
+    private void OnDot1Canceled(InputAction.CallbackContext context) => OnDotNCanceled(1, context);
+    private void OnDot2Started(InputAction.CallbackContext context) => OnDotNStarted(2, context);
+    private void OnDot2Canceled(InputAction.CallbackContext context) => OnDotNCanceled(2, context);
+    private void OnDot3Started(InputAction.CallbackContext context) => OnDotNStarted(3, context);
+    private void OnDot3Canceled(InputAction.CallbackContext context) => OnDotNCanceled(3, context);
+    private void OnDot4Started(InputAction.CallbackContext context) => OnDotNStarted(4, context);
+    private void OnDot4Canceled(InputAction.CallbackContext context) => OnDotNCanceled(4, context);
+    private void OnDot5Started(InputAction.CallbackContext context) => OnDotNStarted(5, context);
+    private void OnDot5Canceled(InputAction.CallbackContext context) => OnDotNCanceled(5, context);
+    #endregion
+
     private void NewBrailleCharacter()
     {
         ResetCharacter();
-        _currentBrailleObject = Instantiate(brailleObjectPrefab, _gridTextObject.transform).GetComponent<BrailleObject>();
+        _currentBrailleObject =
+            Instantiate(brailleObjectPrefab, _gridTextObject.transform).GetComponent<BrailleObject>();
         _currentBrailleObject.SetBrailleCharacter(_currentBrailleList);
         _brailleObjects.Add(_currentBrailleObject);
     }
+
     private void ResetCharacter()
     {
         _currentBrailleList = new List<bool>(_emptyBrailleList);
     }
+
     private void LockInCharacter()
     {
         if (_pressedDots.SequenceEqual(_emptyBrailleList))
@@ -87,99 +108,49 @@ public class PerkinsInputHandler : MonoBehaviour
             Debug.Log(_text.ToString());
         }
     }
-    private void OnDot0Started(UnityEngine.InputSystem.InputAction.CallbackContext context)
+
+
+    private void OnDotNStarted(int n, InputAction.CallbackContext context)
     {
-        _currentBrailleList[0] = true;
-        _pressedDots[0] = true;
+        _currentBrailleList[n] = true;
+        _pressedDots[n] = true;
         _currentBrailleObject.SetBrailleCharacter(_currentBrailleList);
     }
-    private void OnDot0Canceled(UnityEngine.InputSystem.InputAction.CallbackContext context)
+
+    private void OnDotNCanceled(int i, InputAction.CallbackContext context)
     {
-        _pressedDots[0] = false;
-        LockInCharacter();
-    }
-    private void OnDot1Started(UnityEngine.InputSystem.InputAction.CallbackContext context)
-    {
-        _currentBrailleList[1] = true;
-        _pressedDots[1] = true;
-        _currentBrailleObject.SetBrailleCharacter(_currentBrailleList);
-    }
-    private void OnDot1Canceled(UnityEngine.InputSystem.InputAction.CallbackContext context)
-    {
-        _pressedDots[1] = false;
-        LockInCharacter();
-    }
-    private void OnDot2Started(UnityEngine.InputSystem.InputAction.CallbackContext context)
-    {
-        _currentBrailleList[2] = true;
-        _pressedDots[2] = true;
-        _currentBrailleObject.SetBrailleCharacter(_currentBrailleList);
-    }
-    private void OnDot2Canceled(UnityEngine.InputSystem.InputAction.CallbackContext context)
-    {
-        _pressedDots[2] = false;
-        LockInCharacter();
-    }
-    private void OnDot3Started(UnityEngine.InputSystem.InputAction.CallbackContext context)
-    {
-        _currentBrailleList[3] = true;
-        _pressedDots[3] = true;
-        _currentBrailleObject.SetBrailleCharacter(_currentBrailleList);
-    }
-    private void OnDot3Canceled(UnityEngine.InputSystem.InputAction.CallbackContext context)
-    {
-        _pressedDots[3] = false;
-        LockInCharacter();
-    }
-    private void OnDot4Started(UnityEngine.InputSystem.InputAction.CallbackContext context)
-    {
-        _currentBrailleList[4] = true;
-        _pressedDots[4] = true;
-        _currentBrailleObject.SetBrailleCharacter(_currentBrailleList);
-    }
-    private void OnDot4Canceled(UnityEngine.InputSystem.InputAction.CallbackContext context)
-    {
-        _pressedDots[4] = false;
-        LockInCharacter();
-    }
-    private void OnDot5Started(UnityEngine.InputSystem.InputAction.CallbackContext context)
-    {
-        _currentBrailleList[5] = true;
-        _pressedDots[5] = true;
-        _currentBrailleObject.SetBrailleCharacter(_currentBrailleList);
-    }
-    private void OnDot5Canceled(UnityEngine.InputSystem.InputAction.CallbackContext context)
-    {
-        _pressedDots[5] = false;
+        _pressedDots[i] = false;
         LockInCharacter();
     }
 
-    private void OnDeleteCharacter(UnityEngine.InputSystem.InputAction.CallbackContext context)
+    private void OnDeleteCharacter(InputAction.CallbackContext context)
     {
         if (_brailleObjects.Count > 1)
         {
-            int lastBrailleLength = GridBrailleConverter.Instance.ConvertBrailleToCharacter(_brailleObjects[^2].DotBools).Length;
+            int lastBrailleLength = GridBrailleConverter.Instance
+                .ConvertBrailleToCharacter(_brailleObjects[^2].DotBools).Length;
             Destroy(_brailleObjects[^2].gameObject);
             _brailleObjects.Remove(_brailleObjects[^2]);
             _text.Remove(_text.Length - lastBrailleLength, lastBrailleLength);
         }
     }
-    private void OnSpace(UnityEngine.InputSystem.InputAction.CallbackContext context)
+
+    private void OnSpace(InputAction.CallbackContext context)
     {
         NewBrailleCharacter();
         _text.Append(" ");
     }
 
-    public String GetText()
+    public string GetText()
     {
         return _text.ToString();
     }
 
     public void ClearText()
     {
-        while(_brailleObjects.Count > 1)
+        while (_brailleObjects.Count > 1)
         {
-            OnDeleteCharacter(new UnityEngine.InputSystem.InputAction.CallbackContext());
+            OnDeleteCharacter(new InputAction.CallbackContext());
         }
     }
 }

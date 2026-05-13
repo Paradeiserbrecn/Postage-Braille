@@ -6,7 +6,9 @@ using Image = UnityEngine.UI.Image;
 public class BrailleObject : MonoBehaviour
 {
     [SerializeField] private List<GameObject> dots = new List<GameObject>();
-    private List<bool> _dotBools = new List<bool> {false, false, false, false, false, false};
+
+    public List<bool> DotBools { get; private set; } = new List<bool> {false, false, false, false, false, false};
+
     void Start()
     {
         UpdateDotSize();
@@ -17,6 +19,7 @@ public class BrailleObject : MonoBehaviour
         IOEventManager.DotSizeChanged += UpdateDotSize;
         IOEventManager.BrailleColorChanged += UpdateDotColor;
     }
+
     private void UpdateDotSize()
     {
         foreach (GameObject dot in dots)
@@ -24,7 +27,7 @@ public class BrailleObject : MonoBehaviour
             dot.GetComponent<RectTransform>().localScale = Vector3.one * GlobalSettings.DotSize;
         }
     }
-    
+
     /// <summary>
     /// Sets the Dot Color to the default dot color specified in GlobalSettings.BrailleColor
     /// </summary>
@@ -35,7 +38,7 @@ public class BrailleObject : MonoBehaviour
             dot.GetComponent<Image>().color = GlobalSettings.BrailleColor;
         }
     }
-    
+
     /// <summary>
     /// Sets the Dot Color to the highlighted dot color specified in GlobalSettings.HighlightedColor
     /// </summary>
@@ -46,7 +49,7 @@ public class BrailleObject : MonoBehaviour
             dot.GetComponent<Image>().color = GlobalSettings.HighlightedColor;
         }
     }
-    
+
     private void UpdateCharacterSize()
     {
         transform.GetComponent<GridLayoutGroup>().cellSize = Vector2.one * GlobalSettings.BrailleSize;
@@ -55,7 +58,7 @@ public class BrailleObject : MonoBehaviour
     //DOES NOT CONVERT only takes bool list from the converter
     public void SetBrailleCharacter(List<bool> braille)
     {
-        _dotBools = braille;
+        DotBools = braille;
         if (braille.Count != dots.Count)
         {
             Debug.Log("Braille list size mismatch. Braille: " + braille.Count + " Dot: " + dots.Count);
@@ -67,6 +70,4 @@ public class BrailleObject : MonoBehaviour
             //Debug.Log("dot "+ i + " is " + braille[i]);
         }
     }
-    
-    public List<bool> DotBools => _dotBools;
 }
