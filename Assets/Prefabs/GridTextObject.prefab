@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 2083209915919263388}
   - component: {fileID: 7349789695329890089}
   - component: {fileID: 3434115880025930205}
-  - component: {fileID: 2452418498141061486}
   - component: {fileID: 179769515246804264}
   m_Layer: 5
   m_Name: GridTextObject
@@ -61,7 +60,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -102,19 +101,6 @@ MonoBehaviour:
   m_Spacing: {x: 50, y: 50}
   m_Constraint: 0
   m_ConstraintCount: 2
---- !u!114 &2452418498141061486
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1342502263326980618}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31a19414c41e5ae4aae2af33fee712f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Mask
-  m_ShowMaskGraphic: 0
 --- !u!114 &179769515246804264
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -127,3 +113,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5e3ff41d4c82894c925721e51e6c156, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  text: 
+  outputType: 2

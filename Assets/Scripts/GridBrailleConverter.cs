@@ -84,11 +84,6 @@ public class GridBrailleConverter : MonoBehaviour
         Instance = this;
     }
 
-    private void Start()
-    {
-        //ConvertTextToBraille("Hallo freunde!");
-    }
-
     /// <summary>
     ///    The gameObject generated with this method does not support accessibility features, only ConvertTextToBraille does that
     /// </summary>
@@ -217,7 +212,7 @@ public class GridBrailleConverter : MonoBehaviour
         CharFactory text = new CharFactory(s);
         StringBuilder  processedText = new StringBuilder();
 
-        while (text.HasNext)
+        do
         {
             //Debug.Log("processing: " + text.Curr);
             if (Char.IsWhiteSpace(text.Curr))
@@ -225,7 +220,7 @@ public class GridBrailleConverter : MonoBehaviour
                 processedText.Append(' ');
                 text.Next();
             }
-            
+
             else if (Char.IsDigit(text.Curr))
             {
                 processedText.Append('#');
@@ -243,7 +238,7 @@ public class GridBrailleConverter : MonoBehaviour
                     text.Next();
                 }
             }
-        }
+        } while (text.HasNext);
 
         return processedText.ToString();
     }

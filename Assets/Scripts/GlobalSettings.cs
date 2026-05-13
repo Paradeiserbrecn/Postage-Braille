@@ -33,4 +33,6 @@ public static class GlobalSettings
     public static float BrailleSpacing = 50f;
     public static float LineSpacing = 100f;
     public static Color BrailleColor = Color.white;
+    public static Color HighlightedColor = Color.red;
+    public static Color TextColor = Color.white;
 }
