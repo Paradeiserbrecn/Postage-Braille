@@ -2,6 +2,9 @@ using System;
 using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
+using Data;
+using Settings;
+using UI;
 using Random = UnityEngine.Random;
 
 public class QuestionManager : MonoBehaviour
