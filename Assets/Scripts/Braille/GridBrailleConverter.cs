@@ -92,7 +92,19 @@ namespace Braille
         /// </summary>
         /// <param name="s">character to convert (type string to support character combinations)</param>
         /// <returns>BrailleObject</returns>
-        public GameObject ConvertCharacterToBraille(string s)
+        public GameObject ConvertCharacterToBrailleObject(string s)
+        {
+            List<bool> pattern = ConvertCharacterToBrailleList(s);
+            if(pattern == null) return null;
+            
+            var brailleObject = Instantiate(brailleCharacterPrefab).GetComponent<BrailleObject>();
+            brailleObject.gameObject.name = s;
+            brailleObject.SetBrailleCharacter(pattern);
+            
+            return brailleObject.gameObject;
+        }
+
+        public List<bool> ConvertCharacterToBrailleList(string s)
         {
             if (!_german.TryGetValue(s, out var pattern))
             {
@@ -100,11 +112,7 @@ namespace Braille
                 return null;
             }
 
-            var brailleObject = Instantiate(brailleCharacterPrefab).GetComponent<BrailleObject>();
-            brailleObject.gameObject.name = s;
-            brailleObject.SetBrailleCharacter(pattern);
-
-            return brailleObject.gameObject;
+            return pattern;
         }
 
         public string ConvertBrailleToCharacter(List<bool> brailleList)
@@ -200,7 +208,7 @@ namespace Braille
                         break;
                 }
 
-                var brailleObject = ConvertCharacterToBraille(character.ToString());
+                var brailleObject = ConvertCharacterToBrailleObject(character.ToString());
                 text.Next();
                 if (brailleObject != null)
                 {

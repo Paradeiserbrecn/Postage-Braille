@@ -16,6 +16,7 @@ namespace IO
 
         private readonly List<BrailleObject> _brailleObjects = new();
         private readonly List<bool> _emptyBrailleList = new() { false, false, false, false, false, false };
+        
         private readonly StringBuilder _text = new();
         private PerkinsActions _actions;
         private List<bool> _currentBrailleList, _pressedDots;
