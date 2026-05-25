@@ -5,36 +5,20 @@ using Braille;
 using UI;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 namespace IO
 {
-    public class PerkinsInputHandler : MonoBehaviour
+    public class PerkinsInputHandler
     {
-        [SerializeField] private GameObject brailleObjectPrefab;
-        [SerializeField] private GameObject textObjectPrefab;
-        [SerializeField] private GameObject targetObject; //where the text will show up
-
-        private readonly List<BrailleObject> _brailleObjects = new();
-        private readonly List<bool> _emptyBrailleList = new() { false, false, false, false, false, false };
+        public TextBoxController textbox;
         
-        private readonly StringBuilder _text = new();
         private PerkinsActions _actions;
-        private List<bool> _currentBrailleList, _pressedDots;
-        private BrailleObject _currentBrailleObject;
-        private GridTextObject _gridTextObject;
-
-        public void Awake()
+        private List<bool> _pressedDots;
+        public void OnEnable()
         {
-            ResetCharacter();
             _actions = new PerkinsActions();
-
-            _gridTextObject = Instantiate(textObjectPrefab, targetObject.transform).GetComponent<GridTextObject>();
-            NewBrailleCharacter();
-            _pressedDots = new List<bool>(_emptyBrailleList);
-        }
-
-        private void OnEnable()
-        {
+            _pressedDots = new List<bool>(textbox.EmptyBrailleList);
             _actions.PerkinsBrailer.Dot0.started += OnDot0Started;
             _actions.PerkinsBrailer.Dot0.canceled += OnDot0Canceled;
             _actions.PerkinsBrailer.Dot1.started += OnDot1Started;
@@ -53,7 +37,7 @@ namespace IO
             _actions.Enable();
         }
 
-        private void OnDisable()
+        public void OnDisable()
         {
             _actions.PerkinsBrailer.Dot0.started -= OnDot0Started;
             _actions.PerkinsBrailer.Dot0.canceled -= OnDot0Canceled;
@@ -87,36 +71,20 @@ namespace IO
         private void OnDot5Started(InputAction.CallbackContext context) => OnDotNStarted(5, context);
         private void OnDot5Canceled(InputAction.CallbackContext context) => OnDotNCanceled(5, context);
         #endregion
-
-        private void NewBrailleCharacter()
-        {
-            ResetCharacter();
-            _currentBrailleObject =
-                Instantiate(brailleObjectPrefab, _gridTextObject.transform).GetComponent<BrailleObject>();
-            _currentBrailleObject.SetBrailleCharacter(_currentBrailleList);
-            _brailleObjects.Add(_currentBrailleObject);
-        }
-
-        private void ResetCharacter()
-        {
-            _currentBrailleList = new List<bool>(_emptyBrailleList);
-        }
-
+        
         private void LockInCharacter()
         {
-            if (_pressedDots.SequenceEqual(_emptyBrailleList))
+            if (_pressedDots.SequenceEqual(textbox.EmptyBrailleList))
             {
-                _text.Append(GridBrailleConverter.Instance.ConvertBrailleToCharacter(_currentBrailleList));
-                NewBrailleCharacter();
+                textbox.NextBrailleCharacter();
             }
         }
 
-
         private void OnDotNStarted(int n, InputAction.CallbackContext context)
         {
-            _currentBrailleList[n] = true;
+            textbox.currentBrailleList[n] = true;
             _pressedDots[n] = true;
-            _currentBrailleObject.SetBrailleCharacter(_currentBrailleList);
+            textbox.UpdateCurrentBrailleObject();
         }
 
         private void OnDotNCanceled(int i, InputAction.CallbackContext context)
@@ -127,33 +95,12 @@ namespace IO
 
         private void OnDeleteCharacter(InputAction.CallbackContext context)
         {
-            if (_brailleObjects.Count > 1)
-            {
-                int lastBrailleLength = GridBrailleConverter.Instance
-                    .ConvertBrailleToCharacter(_brailleObjects[^2].DotBools).Length;
-                Destroy(_brailleObjects[^2].gameObject);
-                _brailleObjects.Remove(_brailleObjects[^2]);
-                _text.Remove(_text.Length - lastBrailleLength, lastBrailleLength);
-            }
+            textbox.DeleteCharacter();
         }
 
         private void OnSpace(InputAction.CallbackContext context)
         {
-            NewBrailleCharacter();
-            _text.Append(" ");
-        }
-
-        public string GetText()
-        {
-            return _text.ToString();
-        }
-
-        public void ClearText()
-        {
-            while (_brailleObjects.Count > 1)
-            {
-                OnDeleteCharacter(new InputAction.CallbackContext());
-            }
+            textbox.NextBrailleCharacter();
         }
     }
 }
