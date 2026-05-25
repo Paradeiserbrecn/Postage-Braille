@@ -262,8 +262,8 @@ namespace Braille
             AssistiveOutput.OutputType outputType = AssistiveOutput.OutputType.Both)
         {
             var textObject = Instantiate(textObjectPrefab, transform);
-            textObject.GetComponent<GridTextObject>().text = s;
-            textObject.GetComponent<GridTextObject>().outputType = outputType;
+            textObject.GetComponent<BrailleTextObject>().text = s;
+            textObject.GetComponent<BrailleTextObject>().outputType = outputType;
 
             GenerateBrailleObjects(PreprocessText(s), textObject.gameObject);
 

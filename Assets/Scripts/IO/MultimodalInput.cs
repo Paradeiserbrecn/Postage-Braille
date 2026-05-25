@@ -1,18 +1,19 @@
-using IO;
 using UnityEngine;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 
-public class MultimodalInput : MonoBehaviour
+namespace IO
 {
-    [SerializeField] private TextBoxController _textbox;
-    
-    private PerkinsInputHandler _perkinsInputHandler;
-    
-    private void Start()
+    public class MultimodalInput : MonoBehaviour
     {
-        _perkinsInputHandler = new PerkinsInputHandler();
-        _perkinsInputHandler.textbox = _textbox;
-        _perkinsInputHandler.OnEnable();
+        private InputHandledBrailleTextObject _textbox;
+    
+        private PerkinsTextInput _perkinsTextInput;
+    
+        private void Start()
+        {
+            _textbox = GetComponent<InputHandledBrailleTextObject>();
+            _perkinsTextInput = new PerkinsTextInput();
+            _perkinsTextInput.Textbox = _textbox;
+            _perkinsTextInput.OnEnable();
+        }
     }
 }

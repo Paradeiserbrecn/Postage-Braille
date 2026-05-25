@@ -1,43 +1,38 @@
-using System;
-using UnityEngine;
 using System.Collections.Generic;
 using System.Text;
 using Braille;
 using UI;
-using UnityEngine.Serialization;
+using UnityEngine;
 
 namespace IO
 {
-    public class TextBoxController : MonoBehaviour
+    public class InputHandledBrailleTextObject : BrailleTextObject
     {
         [SerializeField] private GameObject brailleObjectPrefab;
-        [SerializeField] private GameObject textObjectPrefab;
-        [SerializeField] private GameObject targetObject; //where the text will show up
+        public List<bool> currentBrailleList;
 
         private readonly List<BrailleObject> _brailleObjects = new();
+
+        private readonly StringBuilder _proceedingText = new();
         public readonly List<bool> EmptyBrailleList = new() { false, false, false, false, false, false };
-        
-        private readonly StringBuilder _text = new();
         private BrailleObject _currentBrailleObject;
-        public List<bool> currentBrailleList;
-        private GridTextObject _gridTextObject;
-        
-        
+
+
         public void Start()
         {
             ResetCharacter();
 
-            _gridTextObject = Instantiate(textObjectPrefab, targetObject.transform).GetComponent<GridTextObject>();
-            Debug.Log(_text.ToString());
+            Debug.Log(_proceedingText.ToString());
             NextBrailleCharacter();
         }
-        
+
         public void NextBrailleCharacter()
         {
-            _text.Append(GridBrailleConverter.Instance.ConvertBrailleToCharacter(currentBrailleList));
+            _proceedingText.Append(GridBrailleConverter.Instance.ConvertBrailleToCharacter(currentBrailleList));
+            text = _proceedingText.ToString();
             ResetCharacter();
             _currentBrailleObject =
-                Instantiate(brailleObjectPrefab, _gridTextObject.transform).GetComponent<BrailleObject>();
+                Instantiate(brailleObjectPrefab, transform).GetComponent<BrailleObject>();
             _currentBrailleObject.SetBrailleCharacter(currentBrailleList);
             _brailleObjects.Add(_currentBrailleObject);
         }
@@ -51,7 +46,7 @@ namespace IO
         {
             currentBrailleList = new List<bool>(EmptyBrailleList);
         }
-        
+
         public void DeleteCharacter()
         {
             if (_brailleObjects.Count > 1)
@@ -60,15 +55,16 @@ namespace IO
                     .ConvertBrailleToCharacter(_brailleObjects[^2].DotBools).Length;
                 Destroy(_brailleObjects[^2].gameObject);
                 _brailleObjects.Remove(_brailleObjects[^2]);
-                _text.Remove(_text.Length - lastBrailleLength, lastBrailleLength);
+                _proceedingText.Remove(_proceedingText.Length - lastBrailleLength, lastBrailleLength);
+                text = _proceedingText.ToString();
             }
         }
-        
+
         public string GetText()
         {
-            return _text.ToString();
+            return _proceedingText.ToString();
         }
-        
+
         public void ClearText()
         {
             while (_brailleObjects.Count > 1)

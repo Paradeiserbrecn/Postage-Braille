@@ -8,9 +8,12 @@ using Utility;
 
 namespace UI
 {
-    public class GridTextObject : MonoBehaviour, IFocusable
+    public class BrailleTextObject : MonoBehaviour, IFocusable
     {
         private GridLayoutGroup _layoutGroup;
+        /// <summary>
+        /// actual latin characters behind the brailleObjects
+        /// </summary>
         public string text;
         [FormerlySerializedAs("type")] public AssistiveOutput.OutputType outputType = AssistiveOutput.OutputType.Both;
 

@@ -9,16 +9,16 @@ using UnityEngine.Serialization;
 
 namespace IO
 {
-    public class PerkinsInputHandler
+    public class PerkinsTextInput
     {
-        public TextBoxController textbox;
+        public InputHandledBrailleTextObject Textbox;
         
         private PerkinsActions _actions;
         private List<bool> _pressedDots;
         public void OnEnable()
         {
             _actions = new PerkinsActions();
-            _pressedDots = new List<bool>(textbox.EmptyBrailleList);
+            _pressedDots = new List<bool>(Textbox.EmptyBrailleList);
             _actions.PerkinsBrailer.Dot0.started += OnDot0Started;
             _actions.PerkinsBrailer.Dot0.canceled += OnDot0Canceled;
             _actions.PerkinsBrailer.Dot1.started += OnDot1Started;
@@ -74,17 +74,17 @@ namespace IO
         
         private void LockInCharacter()
         {
-            if (_pressedDots.SequenceEqual(textbox.EmptyBrailleList))
+            if (_pressedDots.SequenceEqual(Textbox.EmptyBrailleList))
             {
-                textbox.NextBrailleCharacter();
+                Textbox.NextBrailleCharacter();
             }
         }
 
         private void OnDotNStarted(int n, InputAction.CallbackContext context)
         {
-            textbox.currentBrailleList[n] = true;
+            Textbox.currentBrailleList[n] = true;
             _pressedDots[n] = true;
-            textbox.UpdateCurrentBrailleObject();
+            Textbox.UpdateCurrentBrailleObject();
         }
 
         private void OnDotNCanceled(int i, InputAction.CallbackContext context)
@@ -95,12 +95,12 @@ namespace IO
 
         private void OnDeleteCharacter(InputAction.CallbackContext context)
         {
-            textbox.DeleteCharacter();
+            Textbox.DeleteCharacter();
         }
 
         private void OnSpace(InputAction.CallbackContext context)
         {
-            textbox.NextBrailleCharacter();
+            Textbox.NextBrailleCharacter();
         }
     }
 }

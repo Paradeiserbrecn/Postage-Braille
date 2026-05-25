@@ -20,7 +20,7 @@ namespace UI
 
         private TextMeshProUGUI _questionText;
         private readonly List<FocusableTextObject> _optionTexts = new();
-        private readonly List<GridTextObject> _optionBrailleTexts = new();
+        private readonly List<BrailleTextObject> _optionBrailleTexts = new();
 
         public List<IFocusable> Options =>
             _optionTexts.Cast<IFocusable>()
@@ -107,7 +107,7 @@ namespace UI
 
                 optionBraille.transform.SetParent(optionsGrid.transform, false);
 
-                _optionBrailleTexts.Add(optionBraille.GetComponent<GridTextObject>());
+                _optionBrailleTexts.Add(optionBraille.GetComponent<BrailleTextObject>());
             }
 
             feedbackText.text = "";
