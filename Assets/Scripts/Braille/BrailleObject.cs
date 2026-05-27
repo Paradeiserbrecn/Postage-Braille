@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using IO;
 using Settings;
@@ -33,6 +34,13 @@ namespace Braille
             IOEventManager.BrailleSizeChanged += UpdateCharacterSize;
             IOEventManager.DotSizeChanged += UpdateDotSize;
             IOEventManager.BrailleColorChanged += UpdateDotColor;
+        }
+
+        private void OnDestroy()
+        {
+            IOEventManager.BrailleSizeChanged -= UpdateCharacterSize;
+            IOEventManager.DotSizeChanged -= UpdateDotSize;
+            IOEventManager.BrailleColorChanged -= UpdateDotColor;
         }
 
         private void UpdateDotSize()

@@ -616,7 +616,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1325491869}
-  - component: {fileID: 1325491868}
   m_Layer: 0
   m_Name: InputManager
   m_TagString: Untagged
@@ -624,18 +623,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1325491868
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1325491867}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f464e44b023b703448b67c8bd87bf70e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InputManager
 --- !u!4 &1325491869
 Transform:
   m_ObjectHideFlags: 0
@@ -1127,7 +1114,6 @@ GameObject:
   - component: {fileID: 2756323601533518622}
   - component: {fileID: 2387507793720322142}
   - component: {fileID: 4773844982008809796}
-  - component: {fileID: 6706093625814296237}
   m_Layer: 0
   m_Name: BrailleTranslator
   m_TagString: Untagged
@@ -1135,18 +1121,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &6706093625814296237
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6048388713618293045}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3af375c5570bca044894435b9446d527, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
 --- !u!114 &8628968910629494610
 MonoBehaviour:
   m_ObjectHideFlags: 0

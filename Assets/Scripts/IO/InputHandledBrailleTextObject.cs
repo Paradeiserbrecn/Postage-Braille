@@ -21,8 +21,6 @@ namespace IO
         public void Start()
         {
             ResetCharacter();
-
-            Debug.Log(_proceedingText.ToString());
             NextBrailleCharacter();
         }
 

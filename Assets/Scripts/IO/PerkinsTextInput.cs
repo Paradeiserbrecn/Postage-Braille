@@ -9,15 +9,11 @@ using UnityEngine.Serialization;
 
 namespace IO
 {
-    public class PerkinsTextInput
+    public class PerkinsTextInput: AbstractTextInput
     {
-        public InputHandledBrailleTextObject Textbox;
-        
-        private PerkinsActions _actions;
         private List<bool> _pressedDots;
-        public void OnEnable()
+        public override void Enable()
         {
-            _actions = new PerkinsActions();
             _pressedDots = new List<bool>(Textbox.EmptyBrailleList);
             _actions.PerkinsBrailer.Dot0.started += OnDot0Started;
             _actions.PerkinsBrailer.Dot0.canceled += OnDot0Canceled;
@@ -34,10 +30,18 @@ namespace IO
             _actions.PerkinsBrailer.Delete.started += OnDeleteCharacter;
             _actions.PerkinsBrailer.Space.started += OnSpace;
 
-            _actions.Enable();
+            StringBuilder actionsString = new StringBuilder();
+            actionsString.Append("action string: \n");
+            foreach (var binding in _actions)
+            {
+                actionsString.Append(binding + "\n");
+            }
+            Debug.Log(actionsString.ToString());
+
+            _actions.PerkinsBrailer.Enable();
         }
 
-        public void OnDisable()
+        public override void Disable()
         {
             _actions.PerkinsBrailer.Dot0.started -= OnDot0Started;
             _actions.PerkinsBrailer.Dot0.canceled -= OnDot0Canceled;
@@ -54,7 +58,7 @@ namespace IO
             _actions.PerkinsBrailer.Delete.started -= OnDeleteCharacter;
             _actions.PerkinsBrailer.Space.started -= OnSpace;
 
-            _actions.Disable();
+            _actions.PerkinsBrailer.Disable();
         }
 
         #region DotControlsActions
