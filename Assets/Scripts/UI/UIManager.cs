@@ -11,25 +11,30 @@ namespace UI
     public class UIManager : MonoBehaviour
     {
         public static UIManager Instance;
-
-        public GameObject questionPosition;
-        public GameObject optionsGrid;
-        public int optionsCount;
-        public TextMeshProUGUI feedbackText;
+        [Header("Scene References")]
+        [SerializeField] private GameObject questionPosition;
+        [SerializeField] private GameObject optionsGrid;
+        [SerializeField] private TextMeshProUGUI feedbackText;
+        
+        [Header("Prefabs")]
+        public GameObject optionParentPrefab;
         public GameObject questionTextPrefab;
+        
+        private readonly List<GridTextObject> _optionBrailleTexts = new();
+        private readonly List<FocusableTextObject> _optionTexts = new();
 
         private TextMeshProUGUI _questionText;
-        private readonly List<FocusableTextObject> _optionTexts = new();
-        private readonly List<GridTextObject> _optionBrailleTexts = new();
+
+        private int _currentOptionIndex;
+
+        public IFocusable HighlightedOption;
+        [Header("Parameters")]
+        public int optionsCount;
 
         public List<IFocusable> Options =>
             _optionTexts.Cast<IFocusable>()
                 .Concat(_optionBrailleTexts)
                 .ToList();
-
-        private int currentOptionIndex;
-
-        public IFocusable HighlightedOption;
 
         private void Awake()
         {
@@ -56,6 +61,7 @@ namespace UI
             {
                 Debug.LogWarning("Tried to display unsupported question type.");
             }
+            
         }
 
         private void ClearQuestionCanvas()
@@ -80,7 +86,8 @@ namespace UI
 
             for (int i = 0; i < QuestionManager.Instance.currentOptions.Count; i++)
             {
-                var tmpObject = Instantiate(questionTextPrefab, optionsGrid.transform, false)
+                var parent = Instantiate(optionParentPrefab, optionsGrid.transform, false);
+                var tmpObject = Instantiate(questionTextPrefab, parent.transform)
                     .GetComponent<TextMeshProUGUI>();
                 var focusableText = new FocusableTextObject(tmpObject)
                 {
@@ -105,7 +112,9 @@ namespace UI
                 var optionBraille = GridBrailleConverter.Instance
                     .ConvertTextToBraille(QuestionManager.Instance.currentOptions[i]);
 
-                optionBraille.transform.SetParent(optionsGrid.transform, false);
+                var parent = Instantiate(optionParentPrefab, optionsGrid.transform, false);
+
+                optionBraille.transform.SetParent(parent.transform, false);
 
                 _optionBrailleTexts.Add(optionBraille.GetComponent<GridTextObject>());
             }
@@ -147,15 +156,15 @@ namespace UI
             if (HighlightedOption == null)
             {
                 HighlightedOption = options[0];
-                currentOptionIndex = 0;
+                _currentOptionIndex = 0;
             }
             else
             {
                 HighlightedOption.Unfocus();
 
-                currentOptionIndex = (currentOptionIndex - 1 + options.Count) % options.Count;
+                _currentOptionIndex = (_currentOptionIndex - 1 + options.Count) % options.Count;
 
-                HighlightedOption = options[currentOptionIndex];
+                HighlightedOption = options[_currentOptionIndex];
             }
 
             HighlightedOption.Focus();
@@ -172,15 +181,15 @@ namespace UI
             if (HighlightedOption == null)
             {
                 HighlightedOption = options[0];
-                currentOptionIndex = 0;
+                _currentOptionIndex = 0;
             }
             else
             {
                 HighlightedOption.Unfocus();
 
-                currentOptionIndex = (currentOptionIndex + 1) % options.Count;
+                _currentOptionIndex = (_currentOptionIndex + 1) % options.Count;
 
-                HighlightedOption = options[currentOptionIndex];
+                HighlightedOption = options[_currentOptionIndex];
             }
 
             HighlightedOption.Focus();

@@ -197,8 +197,8 @@ MonoBehaviour:
   questionPosition: {fileID: 1420295528}
   optionsGrid: {fileID: 2118399053}
   feedbackText: {fileID: 454836760}
-  optionParentPrefab: {fileID: 6729847199861348322, guid: fddcfbb292c7a7b4f8e24d6cccc8d8e0, type: 3}
-  optionsCount: 5
+  optionParentPrefab: {fileID: 0}
+  optionsCount: 4
   questionTextPrefab: {fileID: 4462799027721514223, guid: b4c78f2293e673d4ebf416c0b0992e7a, type: 3}
 --- !u!4 &421783635
 Transform:
@@ -979,7 +979,7 @@ RectTransform:
   m_GameObject: {fileID: 2043370117}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.0111, y: 0.0111, z: 0.0111}
+  m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1420295529}
@@ -1027,8 +1027,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 129.58624, y: 145}
-  m_SizeDelta: {x: 859.1725, y: 400}
+  m_AnchoredPosition: {x: 101.3, y: 145}
+  m_SizeDelta: {x: 1191.22, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2118399055
 MonoBehaviour:
@@ -1050,8 +1050,8 @@ MonoBehaviour:
   m_ChildAlignment: 4
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 116, y: 90.333336}
-  m_Spacing: {x: 50, y: 50}
+  m_CellSize: {x: 100, y: 150}
+  m_Spacing: {x: 200, y: 50}
   m_Constraint: 0
   m_ConstraintCount: 2
 --- !u!114 &2387507793720322142
