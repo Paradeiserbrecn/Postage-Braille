@@ -70,5 +70,16 @@ namespace IO
                 DeleteCharacter();
             }
         }
+        public override void Focus()
+        {
+            base.Focus();
+            MultimodalInputManager.Instance.EnableTextInput(MultimodalInputManager.TextInputType.Perkins, this);
+        }
+
+        public override void Unfocus()
+        {
+            base.Unfocus();
+            MultimodalInputManager.Instance.DisableTextInput();
+        }
     }
 }

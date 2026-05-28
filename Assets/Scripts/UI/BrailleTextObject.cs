@@ -44,7 +44,7 @@ namespace UI
             transform.GetComponent<GridLayoutGroup>().cellSize = scale;
         }
 
-        public void Focus()
+        public virtual void Focus()
         {
             if (text != null) IOEventManager.InvokeAssistiveOutput(text, outputType);
             foreach (var brailleObject in GetComponentsInChildren<BrailleObject>())
@@ -53,7 +53,7 @@ namespace UI
             }
         }
 
-        public void Unfocus()
+        public virtual void Unfocus()
         {
             if (text != null) IOEventManager.InvokeAssistiveOutput(text, outputType);
             foreach (var brailleObject in GetComponentsInChildren<BrailleObject>())
