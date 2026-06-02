@@ -1,4 +1,3 @@
-using UnityEngine;
 using IO;
 
 public abstract class AbstractInput

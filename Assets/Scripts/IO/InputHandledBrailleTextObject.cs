@@ -11,7 +11,7 @@ namespace IO
         [SerializeField] private GameObject brailleObjectPrefab;
         public List<bool> currentBrailleList;
 
-        private readonly List<BrailleObject> _brailleObjects = new();
+        public readonly List<BrailleObject> BrailleObjects = new();
 
         private readonly StringBuilder _proceedingText = new();
         public readonly List<bool> EmptyBrailleList = new() { false, false, false, false, false, false };
@@ -32,7 +32,7 @@ namespace IO
             _currentBrailleObject =
                 Instantiate(brailleObjectPrefab, transform).GetComponent<BrailleObject>();
             _currentBrailleObject.SetBrailleCharacter(currentBrailleList);
-            _brailleObjects.Add(_currentBrailleObject);
+            BrailleObjects.Add(_currentBrailleObject);
         }
 
         public void UpdateCurrentBrailleObject()
@@ -45,14 +45,21 @@ namespace IO
             currentBrailleList = new List<bool>(EmptyBrailleList);
         }
 
+        public void AddCharacter(string character)
+        {
+            currentBrailleList = GridBrailleConverter.Instance.ConvertCharacterToBrailleList(character);
+            UpdateCurrentBrailleObject();
+            NextBrailleCharacter();
+        }
+
         public void DeleteCharacter()
         {
-            if (_brailleObjects.Count > 1)
+            if (BrailleObjects.Count > 1)
             {
                 int lastBrailleLength = GridBrailleConverter.Instance
-                    .ConvertBrailleToCharacter(_brailleObjects[^2].DotBools).Length;
-                Destroy(_brailleObjects[^2].gameObject);
-                _brailleObjects.Remove(_brailleObjects[^2]);
+                    .ConvertBrailleToCharacter(BrailleObjects[^2].DotBools).Length;
+                Destroy(BrailleObjects[^2].gameObject);
+                BrailleObjects.Remove(BrailleObjects[^2]);
                 _proceedingText.Remove(_proceedingText.Length - lastBrailleLength, lastBrailleLength);
                 text = _proceedingText.ToString();
             }
@@ -65,7 +72,7 @@ namespace IO
 
         public void ClearText()
         {
-            while (_brailleObjects.Count > 1)
+            while (BrailleObjects.Count > 1)
             {
                 DeleteCharacter();
             }

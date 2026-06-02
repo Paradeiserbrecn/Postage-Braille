@@ -10,10 +10,13 @@ namespace IO
         
         private InputHandledBrailleTextObject _currentTextbox;
         private Dictionary<TextInputType, AbstractTextInput> _textInputs = new();
+        
+        [SerializeField] private InputHandledBrailleTextObject defaultTextbox;
 
         public enum TextInputType
         {
-            Perkins
+            Perkins,
+            Keyboard
         }
         
         public static MultimodalInputManager Instance;
@@ -25,19 +28,22 @@ namespace IO
         private void Start()
         {
             _navigation = new NavigationInput();
-            _navigation.Enable();
+            //_navigation.Enable();
             
             _brailleSettingsInput = new BrailleSettingsInput();
             _brailleSettingsInput.Enable();
             
             _textInputs[TextInputType.Perkins] = new PerkinsTextInput();
+            _textInputs[TextInputType.Keyboard] = new KeyboardTextInput();
+            EnableTextInput(TextInputType.Keyboard, defaultTextbox);
         }
 
         public void EnableTextInput(TextInputType textInputType, InputHandledBrailleTextObject textBox)
         {
             DisableTextInput();
-            _textInputs[textInputType].Enable();
             _textInputs[textInputType].Textbox = textBox;
+            _textInputs[textInputType].Enable();
+            _currentTextbox = textBox;
         }
 
         public void DisableTextInput()

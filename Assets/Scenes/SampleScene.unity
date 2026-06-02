@@ -1173,6 +1173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00358f4ce27d1c043a4c471c00ecc9a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MultimodalInput
+  defaultTextbox: {fileID: 8628968910629494612}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

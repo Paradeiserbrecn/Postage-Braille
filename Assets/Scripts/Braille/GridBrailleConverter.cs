@@ -75,7 +75,7 @@ namespace Braille
             { "'", new List<bool> { false, false, false, false, false, true } },
 
             // number indicator 
-            { "#", new List<bool> { false, true, true, true, true, true } },
+            { "#", new List<bool> { false, true, false, true, true, true } },
 
             //space
             { " ", new List<bool> { false, false, false, false, false, false } },
@@ -272,7 +272,7 @@ namespace Braille
 
 
         //takes a single digit and converts it into its corresponding character for braille representation
-        private Char ConvertNumberToChar(char c)
+        public Char ConvertNumberToChar(char c)
         {
             switch (c)
             {
