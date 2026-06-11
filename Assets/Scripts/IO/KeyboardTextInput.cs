@@ -23,55 +23,55 @@ public class KeyboardTextInput: AbstractTextInput
     };
     public override void Enable()
     {
-        _actions.BrailleKeyboard.Enable();
-        _actions.BrailleKeyboard.a.started += APressed;
-        _actions.BrailleKeyboard.b.started += BPressed;
-        _actions.BrailleKeyboard.c.started += CPressed;
-        _actions.BrailleKeyboard.d.started += DPressed;
-        _actions.BrailleKeyboard.e.started += EPressed;
-        _actions.BrailleKeyboard.f.started += FPressed;
-        _actions.BrailleKeyboard.g.started += GPressed;
-        _actions.BrailleKeyboard.h.started += HPressed;
-        _actions.BrailleKeyboard.i.started += IPressed;
-        _actions.BrailleKeyboard.j.started += JPressed;
-        _actions.BrailleKeyboard.k.started += KPressed;
-        _actions.BrailleKeyboard.l.started += LPressed;
-        _actions.BrailleKeyboard.m.started += MPressed;
-        _actions.BrailleKeyboard.n.started += NPressed;
-        _actions.BrailleKeyboard.o.started += OPressed;
-        _actions.BrailleKeyboard.p.started += PPressed;
-        _actions.BrailleKeyboard.q.started += QPressed;
-        _actions.BrailleKeyboard.r.started += RPressed;
-        _actions.BrailleKeyboard.s.started += SPressed;
-        _actions.BrailleKeyboard.t.started += TPressed;
-        _actions.BrailleKeyboard.u.started += UPressed;
-        _actions.BrailleKeyboard.v.started += VPressed;
-        _actions.BrailleKeyboard.w.started += WPressed;
-        _actions.BrailleKeyboard.x.started += XPressed;
-        _actions.BrailleKeyboard.y.started += YPressed;
-        _actions.BrailleKeyboard.z.started += ZPressed;
-        _actions.BrailleKeyboard.ä.started += ÄPressed;
-        _actions.BrailleKeyboard.ö.started += ÖPressed;
-        _actions.BrailleKeyboard.ü.started += ÜPressed;
-        _actions.BrailleKeyboard.ß.started += ßPressed;
-        _actions.BrailleKeyboard.d1.started += D1Pressed;
-        _actions.BrailleKeyboard.d2.started += D2Pressed;
-        _actions.BrailleKeyboard.d3.started += D3Pressed;
-        _actions.BrailleKeyboard.d4.started += D4Pressed;
-        _actions.BrailleKeyboard.d5.started += D5Pressed;
-        _actions.BrailleKeyboard.d6.started += D6Pressed;
-        _actions.BrailleKeyboard.d7.started += D7Pressed;
-        _actions.BrailleKeyboard.d8.started += D8Pressed;
-        _actions.BrailleKeyboard.d9.started += D9Pressed;
-        _actions.BrailleKeyboard.d0.started += D0Pressed;
-        _actions.BrailleKeyboard.comma.started += CommaPressed;
-        _actions.BrailleKeyboard.period.started += PeriodPressed;
-        _actions.BrailleKeyboard.dash.started += DashPressed;
-        _actions.BrailleKeyboard.hashtag.started += HashtagPressed;
-        _actions.BrailleKeyboard.space.started += SpacePressed;
-        _actions.BrailleKeyboard.delete.started += OnDeleteCharacter;
-        _actions.BrailleKeyboard.shift.started += OnShiftPrss;
-        _actions.BrailleKeyboard.shift.canceled += OnShiftRelease;
+        Actions.BrailleKeyboard.Enable();
+        Actions.BrailleKeyboard.a.started += APressed;
+        Actions.BrailleKeyboard.b.started += BPressed;
+        Actions.BrailleKeyboard.c.started += CPressed;
+        Actions.BrailleKeyboard.d.started += DPressed;
+        Actions.BrailleKeyboard.e.started += EPressed;
+        Actions.BrailleKeyboard.f.started += FPressed;
+        Actions.BrailleKeyboard.g.started += GPressed;
+        Actions.BrailleKeyboard.h.started += HPressed;
+        Actions.BrailleKeyboard.i.started += IPressed;
+        Actions.BrailleKeyboard.j.started += JPressed;
+        Actions.BrailleKeyboard.k.started += KPressed;
+        Actions.BrailleKeyboard.l.started += LPressed;
+        Actions.BrailleKeyboard.m.started += MPressed;
+        Actions.BrailleKeyboard.n.started += NPressed;
+        Actions.BrailleKeyboard.o.started += OPressed;
+        Actions.BrailleKeyboard.p.started += PPressed;
+        Actions.BrailleKeyboard.q.started += QPressed;
+        Actions.BrailleKeyboard.r.started += RPressed;
+        Actions.BrailleKeyboard.s.started += SPressed;
+        Actions.BrailleKeyboard.t.started += TPressed;
+        Actions.BrailleKeyboard.u.started += UPressed;
+        Actions.BrailleKeyboard.v.started += VPressed;
+        Actions.BrailleKeyboard.w.started += WPressed;
+        Actions.BrailleKeyboard.x.started += XPressed;
+        Actions.BrailleKeyboard.y.started += YPressed;
+        Actions.BrailleKeyboard.z.started += ZPressed;
+        Actions.BrailleKeyboard.ä.started += ÄPressed;
+        Actions.BrailleKeyboard.ö.started += ÖPressed;
+        Actions.BrailleKeyboard.ü.started += ÜPressed;
+        Actions.BrailleKeyboard.ß.started += ßPressed;
+        Actions.BrailleKeyboard.d1.started += D1Pressed;
+        Actions.BrailleKeyboard.d2.started += D2Pressed;
+        Actions.BrailleKeyboard.d3.started += D3Pressed;
+        Actions.BrailleKeyboard.d4.started += D4Pressed;
+        Actions.BrailleKeyboard.d5.started += D5Pressed;
+        Actions.BrailleKeyboard.d6.started += D6Pressed;
+        Actions.BrailleKeyboard.d7.started += D7Pressed;
+        Actions.BrailleKeyboard.d8.started += D8Pressed;
+        Actions.BrailleKeyboard.d9.started += D9Pressed;
+        Actions.BrailleKeyboard.d0.started += D0Pressed;
+        Actions.BrailleKeyboard.comma.started += CommaPressed;
+        Actions.BrailleKeyboard.period.started += PeriodPressed;
+        Actions.BrailleKeyboard.dash.started += DashPressed;
+        Actions.BrailleKeyboard.hashtag.started += HashtagPressed;
+        Actions.BrailleKeyboard.space.started += SpacePressed;
+        Actions.BrailleKeyboard.delete.started += OnDeleteCharacter;
+        Actions.BrailleKeyboard.shift.started += OnShiftPrss;
+        Actions.BrailleKeyboard.shift.canceled += OnShiftRelease;
         Debug.Log("Keyboard text input");
     }
     
@@ -126,7 +126,7 @@ public class KeyboardTextInput: AbstractTextInput
 
     public override void Disable()
     {
-        _actions.BrailleKeyboard.Disable();
+        Actions.BrailleKeyboard.Disable();
     }
 
     public void OnShiftPrss(InputAction.CallbackContext context)

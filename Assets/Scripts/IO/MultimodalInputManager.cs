@@ -11,7 +11,12 @@ namespace IO
         private InputHandledBrailleTextObject _currentTextbox;
         private Dictionary<TextInputType, AbstractTextInput> _textInputs = new();
         
+        private GameActions _actions;
+        
         [SerializeField] private InputHandledBrailleTextObject defaultTextbox;
+        
+        private ActionRebinder _actionRebinder;
+        [SerializeField] private RebindUI rebindUI;
 
         public enum TextInputType
         {
@@ -23,10 +28,13 @@ namespace IO
         private void Awake()
         {
             Instance = this;
+            _actions = new GameActions();
         }
     
         private void Start()
         {
+            _actionRebinder = new ActionRebinder(_actions, rebindUI);
+            
             _navigation = new NavigationInput();
             //_navigation.Enable();
             
@@ -35,7 +43,7 @@ namespace IO
             
             _textInputs[TextInputType.Perkins] = new PerkinsTextInput();
             _textInputs[TextInputType.Keyboard] = new KeyboardTextInput();
-            EnableTextInput(TextInputType.Keyboard, defaultTextbox);
+            EnableTextInput(TextInputType.Perkins, defaultTextbox);
         }
 
         public void EnableTextInput(TextInputType textInputType, InputHandledBrailleTextObject textBox)

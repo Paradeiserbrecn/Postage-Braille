@@ -8,29 +8,29 @@ namespace IO
     {
         public override void Enable()
         {
-            _actions.Navigation.answer0.started += OnAnswer0;
-            _actions.Navigation.answer1.started += OnAnswer1;
-            _actions.Navigation.answer2.started += OnAnswer2;
-            _actions.Navigation.answer3.started += OnAnswer3;
-            _actions.Navigation.answer4.started += OnAnswer4;
-            _actions.Navigation.answer5.started += OnAnswer5;
-            _actions.Navigation.next.started += OnNext;
-            _actions.Navigation.prev.started += OnPrev;
-            _actions.Navigation.confirm.started += OnConfirm;
-            _actions.Navigation.Enable();
+            Actions.Navigation.answer0.started += OnAnswer0;
+            Actions.Navigation.answer1.started += OnAnswer1;
+            Actions.Navigation.answer2.started += OnAnswer2;
+            Actions.Navigation.answer3.started += OnAnswer3;
+            Actions.Navigation.answer4.started += OnAnswer4;
+            Actions.Navigation.answer5.started += OnAnswer5;
+            Actions.Navigation.next.started += OnNext;
+            Actions.Navigation.prev.started += OnPrev;
+            Actions.Navigation.confirm.started += OnConfirm;
+            Actions.Navigation.Enable();
         }
         public override void Disable()
         {
-            _actions.Navigation.answer0.started -= OnAnswer0;
-            _actions.Navigation.answer1.started -= OnAnswer1;
-            _actions.Navigation.answer2.started -= OnAnswer2;
-            _actions.Navigation.answer3.started -= OnAnswer3;
-            _actions.Navigation.answer4.started -= OnAnswer4;
-            _actions.Navigation.answer5.started -= OnAnswer5;
-            _actions.Navigation.next.started -= OnNext;
-            _actions.Navigation.prev.started -= OnPrev;
-            _actions.Navigation.confirm.started -= OnConfirm;
-            _actions.Navigation.Disable();
+            Actions.Navigation.answer0.started -= OnAnswer0;
+            Actions.Navigation.answer1.started -= OnAnswer1;
+            Actions.Navigation.answer2.started -= OnAnswer2;
+            Actions.Navigation.answer3.started -= OnAnswer3;
+            Actions.Navigation.answer4.started -= OnAnswer4;
+            Actions.Navigation.answer5.started -= OnAnswer5;
+            Actions.Navigation.next.started -= OnNext;
+            Actions.Navigation.prev.started -= OnPrev;
+            Actions.Navigation.confirm.started -= OnConfirm;
+            Actions.Navigation.Disable();
         }
         private void OnAnswer0(InputAction.CallbackContext context) {SelectOption(0);}
         private void OnAnswer1(InputAction.CallbackContext context) {SelectOption(1);}

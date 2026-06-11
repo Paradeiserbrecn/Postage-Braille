@@ -1040,6 +1040,15 @@ namespace IO
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""questionmark"",
+                    ""type"": ""Button"",
+                    ""id"": ""05f7a50d-daea-4bd2-89d8-aac8a9659f18"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -1559,6 +1568,39 @@ namespace IO
                     ""action"": ""shift"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""One Modifier"",
+                    ""id"": ""e528bd08-f8dc-48e4-b01b-26cc550784b3"",
+                    ""path"": ""OneModifier"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""questionmark"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""modifier"",
+                    ""id"": ""e5935c6f-a69a-43ca-8ffc-9c38aa50b44d"",
+                    ""path"": ""<Keyboard>/shift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""questionmark"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""binding"",
+                    ""id"": ""48a1b8f0-744b-4341-8faa-52ce580b7ae4"",
+                    ""path"": ""<Keyboard>/minus"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""questionmark"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         }
@@ -1645,6 +1687,7 @@ namespace IO
             m_BrailleKeyboard_space = m_BrailleKeyboard.FindAction("space", throwIfNotFound: true);
             m_BrailleKeyboard_delete = m_BrailleKeyboard.FindAction("delete", throwIfNotFound: true);
             m_BrailleKeyboard_shift = m_BrailleKeyboard.FindAction("shift", throwIfNotFound: true);
+            m_BrailleKeyboard_questionmark = m_BrailleKeyboard.FindAction("questionmark", throwIfNotFound: true);
         }
 
         ~@GameActions()
@@ -2305,6 +2348,7 @@ namespace IO
         private readonly InputAction m_BrailleKeyboard_space;
         private readonly InputAction m_BrailleKeyboard_delete;
         private readonly InputAction m_BrailleKeyboard_shift;
+        private readonly InputAction m_BrailleKeyboard_questionmark;
         /// <summary>
         /// Provides access to input actions defined in input action map "BrailleKeyboard".
         /// </summary>
@@ -2505,6 +2549,10 @@ namespace IO
             /// </summary>
             public InputAction @shift => m_Wrapper.m_BrailleKeyboard_shift;
             /// <summary>
+            /// Provides access to the underlying input action "BrailleKeyboard/questionmark".
+            /// </summary>
+            public InputAction @questionmark => m_Wrapper.m_BrailleKeyboard_questionmark;
+            /// <summary>
             /// Provides access to the underlying input action map instance.
             /// </summary>
             public InputActionMap Get() { return m_Wrapper.m_BrailleKeyboard; }
@@ -2671,6 +2719,9 @@ namespace IO
                 @shift.started += instance.OnShift;
                 @shift.performed += instance.OnShift;
                 @shift.canceled += instance.OnShift;
+                @questionmark.started += instance.OnQuestionmark;
+                @questionmark.performed += instance.OnQuestionmark;
+                @questionmark.canceled += instance.OnQuestionmark;
             }
 
             /// <summary>
@@ -2823,6 +2874,9 @@ namespace IO
                 @shift.started -= instance.OnShift;
                 @shift.performed -= instance.OnShift;
                 @shift.canceled -= instance.OnShift;
+                @questionmark.started -= instance.OnQuestionmark;
+                @questionmark.performed -= instance.OnQuestionmark;
+                @questionmark.canceled -= instance.OnQuestionmark;
             }
 
             /// <summary>
@@ -3391,6 +3445,13 @@ namespace IO
             /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
             void OnShift(InputAction.CallbackContext context);
+            /// <summary>
+            /// Method invoked when associated input action "questionmark" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// </summary>
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+            void OnQuestionmark(InputAction.CallbackContext context);
         }
     }
 }
