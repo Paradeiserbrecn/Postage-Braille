@@ -75,5 +75,18 @@ namespace UI
 
             return Current;
         }
+        
+        public void SelectCurrent()
+        {
+            Current?.ConfirmAction();
+        }
+
+        public void Select(int index)
+        {
+            if (index < 0 || index >= _focusables.Count)
+                return;
+
+            _focusables[index].ConfirmAction();
+        }
     }
 }
