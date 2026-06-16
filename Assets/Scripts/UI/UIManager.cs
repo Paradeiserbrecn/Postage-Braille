@@ -62,6 +62,7 @@ namespace UI
             {
                 Debug.LogWarning("Tried to display unsupported question type.");
             }
+            CurrentLayer.FocusFirst();
         }
 
         private void ClearQuestionCanvas()
@@ -86,7 +87,6 @@ namespace UI
             }
 
             feedbackText.text = "";
-            CurrentLayer.FocusFirst();
         }
 
         private FocusableTextObject GenerateFocusableTextObjectOption(string optionText)
@@ -113,7 +113,6 @@ namespace UI
             }
 
             feedbackText.text = "";
-            CurrentLayer.FocusFirst();
         }
 
         private GridTextObject GenerateBrailleOption(string optionText)
