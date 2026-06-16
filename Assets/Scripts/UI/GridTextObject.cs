@@ -10,13 +10,12 @@ namespace UI
 {
     public class GridTextObject : Focusable
     {
-        private GridLayoutGroup _layoutGroup;
+        [SerializeField] private GridLayoutGroup _layoutGroup;
         public string text;
         [FormerlySerializedAs("type")] public AssistiveOutput.OutputType outputType = AssistiveOutput.OutputType.Both;
 
-        void Start()
+        void Awake()
         {
-            _layoutGroup = GetComponent<GridLayoutGroup>();
             UpdateSpacing();
             UpdateCharacterSize();
 
@@ -29,7 +28,6 @@ namespace UI
 
         void UpdateSpacing()
         {
-            
             _layoutGroup.spacing = new Vector2(GlobalSettings.BrailleSpacing, GlobalSettings.LineSpacing);
         }
 
@@ -38,7 +36,7 @@ namespace UI
             Vector2 scale = Vector2.one * GlobalSettings.BrailleSize;
             scale.x *= 2; //two dots horizontally
             scale.y *= 3; //three dots vertically
-            transform.GetComponent<GridLayoutGroup>().cellSize = scale;
+            _layoutGroup.cellSize = scale;
         }
 
         public override void Focus()

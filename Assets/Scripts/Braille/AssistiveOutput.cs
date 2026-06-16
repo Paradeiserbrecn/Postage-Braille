@@ -1,3 +1,4 @@
+using System;
 using DavyKager;
 using IO;
 using UnityEngine;
@@ -17,6 +18,11 @@ namespace Braille
             Both
         }
 
+        private void Awake()
+        {
+            IOEventManager.AssistiveOutput += Output;
+        }
+
         public void Start()
         {
             Tolk.Load();
@@ -33,8 +39,6 @@ namespace Braille
 
             if (Tolk.HasBraille())
                 Debug.Log("This screen reader driver supports braille.");
-
-            IOEventManager.AssistiveOutput += Output;
         }
 
         public void OnDestroy()

@@ -25,13 +25,13 @@ namespace IO
 
         private void SelectOption(int index)
         {
-            var selected = UIManager.Instance.Options[index];
+            var selected = UIManager.Instance.CurrentOptions[index];
             selected.ConfirmAction();
         }
 
         private void SelectOption()
         {
-            UIManager.Instance.HighlightedOption.ConfirmAction();
+            UIManager.Instance.CurrentlyFocusedOption.ConfirmAction();
         }
     }
 }

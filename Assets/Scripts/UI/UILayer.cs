@@ -1,22 +1,22 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Utility;
 
 namespace UI
 {
+    [Serializable]
     public class UILayer
     {
         public string Name { get; }
 
-        private readonly List<Focusable> _focusables = new();
-
-        public IReadOnlyList<Focusable> Focusables => _focusables;
+        public List<Focusable> Focusables { get; } = new();
 
         public int CurrentIndex { get; private set; }
 
         public Focusable Current =>
-            _focusables.Count == 0
+            Focusables.Count == 0
                 ? null
-                : _focusables[CurrentIndex];
+                : Focusables[CurrentIndex];
 
         public UILayer(string name)
         {
@@ -25,39 +25,39 @@ namespace UI
 
         public void Add(Focusable focusable)
         {
-            _focusables.Add(focusable);
+            Focusables.Add(focusable);
         }
 
         public void Clear()
         {
-            _focusables.Clear();
+            Focusables.Clear();
             CurrentIndex = 0;
         }
 
-        public Focusable Next()
+        public Focusable FocusNext()
         {
-            if (_focusables.Count == 0)
+            if (Focusables.Count == 0)
                 return null;
 
             Current?.Unfocus();
 
-            CurrentIndex = (CurrentIndex + 1) % _focusables.Count;
+            CurrentIndex = (CurrentIndex + 1) % Focusables.Count;
 
             Current?.Focus();
 
             return Current;
         }
 
-        public Focusable Previous()
+        public Focusable FocusPrevious()
         {
-            if (_focusables.Count == 0)
+            if (Focusables.Count == 0)
                 return null;
 
             Current?.Unfocus();
 
             CurrentIndex =
-                (CurrentIndex - 1 + _focusables.Count)
-                % _focusables.Count;
+                (CurrentIndex - 1 + Focusables.Count)
+                % Focusables.Count;
 
             Current?.Focus();
 
@@ -66,7 +66,7 @@ namespace UI
 
         public Focusable FocusFirst()
         {
-            if (_focusables.Count == 0)
+            if (Focusables.Count == 0)
                 return null;
 
             CurrentIndex = 0;
@@ -75,18 +75,24 @@ namespace UI
 
             return Current;
         }
+
+        public void Unfocus()
+        {
+            CurrentIndex = 0;
+            Current?.Unfocus();
+        }
         
-        public void SelectCurrent()
+        public void ConfirmCurrent()
         {
             Current?.ConfirmAction();
         }
 
-        public void Select(int index)
+        public void Confirm(int index)
         {
-            if (index < 0 || index >= _focusables.Count)
+            if (index < 0 || index >= Focusables.Count)
                 return;
 
-            _focusables[index].ConfirmAction();
+            Focusables[index].ConfirmAction();
         }
     }
 }

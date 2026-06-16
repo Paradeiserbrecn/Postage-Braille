@@ -20,19 +20,26 @@ namespace UI
 
         [Header("Prefabs")] public GameObject optionParentPrefab;
         public GameObject questionTextPrefab;
+        [Header("Parameters")] public int optionsCount;
 
         private TextMeshProUGUI _questionText;
 
         private int _currentOptionIndex;
 
-        public Focusable HighlightedOption;
-        [Header("Parameters")] public int optionsCount;
+        public Focusable CurrentlyFocusedOption => CurrentLayer?.Current;
 
-        public List<Focusable> Options = new();
+        public List<UILayer> Layers { get; } = new();
+        private int _currentLayerIdx = 0;
+        private UILayer CurrentLayer => Layers.Count == 0 ? null : Layers[_currentLayerIdx];
+
+        public List<Focusable> CurrentOptions => Layers.Count == 0
+            ? null
+            : Layers[_currentLayerIdx].Focusables;
 
         private void Awake()
         {
             Instance = this;
+            Layers.Add(new UILayer("Base"));
         }
 
         private void Start()
@@ -61,8 +68,7 @@ namespace UI
         {
             ClearChildren(questionPosition.transform);
             ClearChildren(optionsGrid.transform);
-            Options.Clear();
-            HighlightedOption = null;
+            CurrentLayer?.Clear();
         }
 
         private void DisplayBrailleToLatinQuestion()
@@ -76,10 +82,11 @@ namespace UI
 
             foreach (var option in QuestionManager.Instance.currentOptions)
             {
-                Options.Add(GenerateFocusableTextObjectOption(option));
+                CurrentLayer.Add(GenerateFocusableTextObjectOption(option));
             }
 
             feedbackText.text = "";
+            CurrentLayer.FocusFirst();
         }
 
         private FocusableTextObject GenerateFocusableTextObjectOption(string optionText)
@@ -102,10 +109,11 @@ namespace UI
 
             foreach (var optionText in QuestionManager.Instance.currentOptions)
             {
-                Options.Add(GenerateBrailleOption(optionText));
+                CurrentLayer.Add(GenerateBrailleOption(optionText));
             }
 
             feedbackText.text = "";
+            CurrentLayer.FocusFirst();
         }
 
         private GridTextObject GenerateBrailleOption(string optionText)
@@ -129,7 +137,6 @@ namespace UI
                 return null;
             }
 
-
             // This will be expanded once we have different menu options.
             switch (GameManager.Instance.currentQuestionType)
             {
@@ -141,55 +148,15 @@ namespace UI
             Debug.LogWarning("Highlighting for this Option type is not yet supported");
             return null;
         }
+        
+        private Focusable HighlightNextFocusable()
+        {
+            return CurrentLayer.FocusNext();
+        }
 
         private Focusable HighlightPreviousFocusable()
         {
-            List<Focusable> options = Options;
-
-            if (options.Count == 0)
-                return null;
-
-            if (HighlightedOption == null)
-            {
-                HighlightedOption = options[0];
-                _currentOptionIndex = 0;
-            }
-            else
-            {
-                HighlightedOption.Unfocus();
-
-                _currentOptionIndex = (_currentOptionIndex - 1 + options.Count) % options.Count;
-
-                HighlightedOption = options[_currentOptionIndex];
-            }
-
-            HighlightedOption.Focus();
-            return HighlightedOption;
-        }
-
-        private Focusable HighlightNextFocusable()
-        {
-            List<Focusable> options = Options;
-
-            if (options.Count == 0)
-                return null;
-
-            if (HighlightedOption == null)
-            {
-                HighlightedOption = options[0];
-                _currentOptionIndex = 0;
-            }
-            else
-            {
-                HighlightedOption.Unfocus();
-
-                _currentOptionIndex = (_currentOptionIndex + 1) % options.Count;
-
-                HighlightedOption = options[_currentOptionIndex];
-            }
-
-            HighlightedOption.Focus();
-            return HighlightedOption;
+            return CurrentLayer.FocusPrevious();
         }
 
         public void ShowFeedback(bool correct)
