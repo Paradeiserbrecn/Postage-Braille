@@ -11,15 +11,16 @@ namespace UI
     public class UIManager : MonoBehaviour
     {
         public static UIManager Instance;
-        [Header("Scene References")]
-        [SerializeField] private GameObject questionPosition;
+
+        [Header("Scene References")] [SerializeField]
+        private GameObject questionPosition;
+
         [SerializeField] private GameObject optionsGrid;
         [SerializeField] private TextMeshProUGUI feedbackText;
-        
-        [Header("Prefabs")]
-        public GameObject optionParentPrefab;
+
+        [Header("Prefabs")] public GameObject optionParentPrefab;
         public GameObject questionTextPrefab;
-        
+
         private readonly List<GridTextObject> _optionBrailleTexts = new();
         private readonly List<FocusableTextObject> _optionTexts = new();
 
@@ -27,12 +28,11 @@ namespace UI
 
         private int _currentOptionIndex;
 
-        public IFocusable HighlightedOption;
-        [Header("Parameters")]
-        public int optionsCount;
+        public Focusable HighlightedOption;
+        [Header("Parameters")] public int optionsCount;
 
-        public List<IFocusable> Options =>
-            _optionTexts.Cast<IFocusable>()
+        public List<Focusable> Options =>
+            _optionTexts.Cast<Focusable>()
                 .Concat(_optionBrailleTexts)
                 .ToList();
 
@@ -61,7 +61,6 @@ namespace UI
             {
                 Debug.LogWarning("Tried to display unsupported question type.");
             }
-            
         }
 
         private void ClearQuestionCanvas()
@@ -79,26 +78,27 @@ namespace UI
             _questionText.text = "";
 
             // Generate the question braille and set it to the correct position
-            var questionBraille = GridBrailleConverter.Instance
-                .ConvertTextToBraille(QuestionManager.Instance.correctAnswer);
+            GridBrailleConverter.Instance
+                .ConvertTextToBraille(QuestionManager.Instance.correctAnswer, parent: questionPosition.transform);
 
-            questionBraille.transform.SetParent(questionPosition.transform, false);
-
-            for (int i = 0; i < QuestionManager.Instance.currentOptions.Count; i++)
+            foreach (var option in QuestionManager.Instance.currentOptions)
             {
-                var parent = Instantiate(optionParentPrefab, optionsGrid.transform, false);
-                var tmpObject = Instantiate(questionTextPrefab, parent.transform)
-                    .GetComponent<TextMeshProUGUI>();
-                var focusableText = new FocusableTextObject(tmpObject)
-                {
-                    Text = QuestionManager.Instance.currentOptions[i],
-                    DisplayText = (i + 1) + ": " + QuestionManager.Instance.currentOptions[i]
-                };
-
-                _optionTexts.Add(focusableText);
+                _optionTexts.Add(GenerateFocusableTextObjectOption(option));
             }
 
             feedbackText.text = "";
+        }
+
+        private FocusableTextObject GenerateFocusableTextObjectOption(string optionText)
+        {
+            var parent = Instantiate(optionParentPrefab, optionsGrid.transform, false);
+
+            var focusableText = Instantiate(questionTextPrefab, parent.transform)
+                .GetComponent<FocusableTextObject>();
+
+            focusableText.Text = optionText;
+
+            return focusableText;
         }
 
         private void DisplayLatinToBrailleQuestion()
@@ -107,25 +107,28 @@ namespace UI
 
             _questionText.text = QuestionManager.Instance.correctAnswer;
 
-            for (var i = 0; i < QuestionManager.Instance.currentOptions.Count; i++)
+            foreach (var optionText in QuestionManager.Instance.currentOptions)
             {
-                var optionBraille = GridBrailleConverter.Instance
-                    .ConvertTextToBraille(QuestionManager.Instance.currentOptions[i]);
-
-                var parent = Instantiate(optionParentPrefab, optionsGrid.transform, false);
-
-                optionBraille.transform.SetParent(parent.transform, false);
-
-                _optionBrailleTexts.Add(optionBraille.GetComponent<GridTextObject>());
+                _optionBrailleTexts.Add(GenerateBrailleOption(optionText));
             }
 
             feedbackText.text = "";
         }
 
-        public IFocusable HighlightNextOption() => HighlightOption();
-        public IFocusable HighlightPreviousOption() => HighlightOption(false);
+        private GridTextObject GenerateBrailleOption(string optionText)
+        {
+            var parent = Instantiate(optionParentPrefab, optionsGrid.transform, false);
 
-        private IFocusable HighlightOption(bool next = true)
+            var optionBraille = GridBrailleConverter.Instance
+                .ConvertTextToBraille(optionText, parent: parent.transform);
+
+            return optionBraille.GetComponent<GridTextObject>();
+        }
+
+        public Focusable HighlightNextOption() => HighlightOption();
+        public Focusable HighlightPreviousOption() => HighlightOption(false);
+
+        private Focusable HighlightOption(bool next = true)
         {
             if (GameManager.Instance.currentState != GameManager.GameState.WaitingForInput)
             {
@@ -146,9 +149,9 @@ namespace UI
             return null;
         }
 
-        private IFocusable HighlightPreviousFocusable()
+        private Focusable HighlightPreviousFocusable()
         {
-            List<IFocusable> options = Options;
+            List<Focusable> options = Options;
 
             if (options.Count == 0)
                 return null;
@@ -171,9 +174,9 @@ namespace UI
             return HighlightedOption;
         }
 
-        private IFocusable HighlightNextFocusable()
+        private Focusable HighlightNextFocusable()
         {
-            List<IFocusable> options = Options;
+            List<Focusable> options = Options;
 
             if (options.Count == 0)
                 return null;

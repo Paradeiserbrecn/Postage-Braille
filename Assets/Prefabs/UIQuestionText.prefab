@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5544341945654689489}
   - component: {fileID: 2108166617158404813}
   - component: {fileID: 2344851745373571531}
+  - component: {fileID: 6264728266216297925}
   m_Layer: 5
   m_Name: UIQuestionText
   m_TagString: Untagged
@@ -137,3 +138,17 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &6264728266216297925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4462799027721514223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a8a7b240d924f879ece5cc383980d16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UI.FocusableTextObject
+  OutputType: 2
+  tmpText: {fileID: 2344851745373571531}

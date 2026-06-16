@@ -4,16 +4,17 @@ using IO;
 using Settings;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Utility;
 
 namespace UI
 {
-    public class FocusableTextObject : IFocusable
+    public class FocusableTextObject : Focusable
     {
         public AssistiveOutput.OutputType OutputType = AssistiveOutput.OutputType.Both;
-        public readonly TextMeshProUGUI TMPText;
+        public TextMeshProUGUI tmpText;
 
-        private bool focused = false;
+        private bool _focused = false;
         private string _text;
         private string _displayTextOverride;
 
@@ -23,7 +24,7 @@ namespace UI
             set
             {
                 _text = value;
-                TMPText.text = _text;
+                tmpText.text = _text;
             }
         }
 
@@ -33,40 +34,40 @@ namespace UI
         /// </summary>
         public string DisplayText
         {
-            get => TMPText.text;
-            set => TMPText.text = value;
+            get => tmpText.text;
+            set => tmpText.text = value;
         }
 
         private void RefreshDisplayedText()
         {
-            TMPText.text = _displayTextOverride ?? _text;
+            tmpText.text = _displayTextOverride ?? _text;
         }
 
-        public FocusableTextObject(TextMeshProUGUI tmpText)
+        public void Initialize(TextMeshProUGUI textMesh)
         {
-            TMPText = tmpText;
+            tmpText = textMesh;
         }
 
         /// <summary>
         /// Highlights the object and sends assistive output with the specified OutputType
         /// </summary>
-        public void Focus()
+        public override void Focus()
         {
-            focused = true;
-            if (TMPText.text != null) IOEventManager.InvokeAssistiveOutput(TMPText.text, OutputType);
-            TMPText.color = GlobalSettings.HighlightedColor;
+            _focused = true;
+            if (tmpText.text != null) IOEventManager.InvokeAssistiveOutput(tmpText.text, OutputType);
+            tmpText.color = GlobalSettings.HighlightedColor;
         }
 
-        public void Unfocus()
+        public override void Unfocus()
         {
-            focused = false;
-            if (TMPText.text != null) IOEventManager.InvokeAssistiveOutput(TMPText.text, OutputType);
-            TMPText.color = GlobalSettings.TextColor;
+            _focused = false;
+            if (tmpText.text != null) IOEventManager.InvokeAssistiveOutput(tmpText.text, OutputType);
+            tmpText.color = GlobalSettings.TextColor;
         }
 
-        public void ConfirmAction()
+        public override void ConfirmAction()
         {
-            if (!focused) throw new Exception("Tried to Execute Focus action on unfocused object");
+            if (!_focused) throw new Exception("Tried to Execute Focus action on unfocused object");
             switch (GameManager.Instance.currentState)
             {
                 case GameManager.GameState.WaitingForInput:

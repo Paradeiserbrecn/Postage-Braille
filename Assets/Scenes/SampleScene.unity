@@ -198,8 +198,9 @@ MonoBehaviour:
   optionsGrid: {fileID: 2118399053}
   feedbackText: {fileID: 454836760}
   optionParentPrefab: {fileID: 6729847199861348322, guid: fddcfbb292c7a7b4f8e24d6cccc8d8e0, type: 3}
-  optionsCount: 5
   questionTextPrefab: {fileID: 4462799027721514223, guid: b4c78f2293e673d4ebf416c0b0992e7a, type: 3}
+  HighlightedOption: {fileID: 0}
+  optionsCount: 5
 --- !u!4 &421783635
 Transform:
   m_ObjectHideFlags: 0
@@ -777,7 +778,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1fbd0cb3dc829c468545b62bce62f4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
-  currentQuestionType: 1
+  currentQuestionType: 0
   currentState: 0
 --- !u!4 &1526424201
 Transform:

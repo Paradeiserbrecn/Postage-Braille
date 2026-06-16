@@ -8,7 +8,7 @@ using Utility;
 
 namespace UI
 {
-    public class GridTextObject : MonoBehaviour, IFocusable
+    public class GridTextObject : Focusable
     {
         private GridLayoutGroup _layoutGroup;
         public string text;
@@ -41,7 +41,7 @@ namespace UI
             transform.GetComponent<GridLayoutGroup>().cellSize = scale;
         }
 
-        public void Focus()
+        public override void Focus()
         {
             if (text != null) IOEventManager.InvokeAssistiveOutput(text, outputType);
             foreach (var brailleObject in GetComponentsInChildren<BrailleObject>())
@@ -50,7 +50,7 @@ namespace UI
             }
         }
 
-        public void Unfocus()
+        public override void Unfocus()
         {
             if (text != null) IOEventManager.InvokeAssistiveOutput(text, outputType);
             foreach (var brailleObject in GetComponentsInChildren<BrailleObject>())
@@ -59,7 +59,7 @@ namespace UI
             }
         }
 
-        public void ConfirmAction()
+        public override void ConfirmAction()
         {
             switch (GameManager.Instance.currentState)
             {

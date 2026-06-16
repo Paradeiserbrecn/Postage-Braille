@@ -7,13 +7,13 @@ namespace UI
     {
         public string Name { get; }
 
-        private readonly List<IFocusable> _focusables = new();
+        private readonly List<Focusable> _focusables = new();
 
-        public IReadOnlyList<IFocusable> Focusables => _focusables;
+        public IReadOnlyList<Focusable> Focusables => _focusables;
 
         public int CurrentIndex { get; private set; }
 
-        public IFocusable Current =>
+        public Focusable Current =>
             _focusables.Count == 0
                 ? null
                 : _focusables[CurrentIndex];
@@ -23,7 +23,7 @@ namespace UI
             Name = name;
         }
 
-        public void Add(IFocusable focusable)
+        public void Add(Focusable focusable)
         {
             _focusables.Add(focusable);
         }
@@ -34,7 +34,7 @@ namespace UI
             CurrentIndex = 0;
         }
 
-        public IFocusable Next()
+        public Focusable Next()
         {
             if (_focusables.Count == 0)
                 return null;
@@ -48,7 +48,7 @@ namespace UI
             return Current;
         }
 
-        public IFocusable Previous()
+        public Focusable Previous()
         {
             if (_focusables.Count == 0)
                 return null;
@@ -64,7 +64,7 @@ namespace UI
             return Current;
         }
 
-        public IFocusable FocusFirst()
+        public Focusable FocusFirst()
         {
             if (_focusables.Count == 0)
                 return null;
