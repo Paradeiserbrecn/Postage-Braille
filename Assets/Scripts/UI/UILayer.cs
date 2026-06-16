@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using UnityEngine;
 using Utility;
 
 namespace UI
@@ -7,9 +8,11 @@ namespace UI
     [Serializable]
     public class UILayer
     {
-        public string Name { get; }
+        [SerializeField] private string name;
+        [SerializeField] private List<Focusable> focusables = new();
 
-        public List<Focusable> Focusables { get; } = new();
+        public string Name => name;
+        public List<Focusable> Focusables => focusables;
 
         public int CurrentIndex { get; private set; }
 
@@ -20,7 +23,13 @@ namespace UI
 
         public UILayer(string name)
         {
-            Name = name;
+            this.name = name;
+        }
+        
+        public UILayer(string name, List<Focusable> focusables)
+        {
+            this.name = name;
+            this.focusables = focusables;
         }
 
         public void Add(Focusable focusable)

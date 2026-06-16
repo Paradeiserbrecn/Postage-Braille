@@ -4,6 +4,7 @@ using Braille;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Utility;
 
 namespace UI
@@ -17,37 +18,31 @@ namespace UI
 
         [SerializeField] private GameObject optionsGrid;
         [SerializeField] private TextMeshProUGUI feedbackText;
+        [SerializeField] private TextMeshProUGUI _questionText;
+        [SerializeField] private List<UILayer> _layers;
 
-        [Header("Prefabs")] public GameObject optionParentPrefab;
+        [Header("Prefabs")] [SerializeField] private GameObject optionParentPrefab;
         public GameObject questionTextPrefab;
         [Header("Parameters")] public int optionsCount;
 
-        private TextMeshProUGUI _questionText;
 
         private int _currentOptionIndex;
 
         public Focusable CurrentlyFocusedOption => CurrentLayer?.Current;
 
-        public List<UILayer> Layers { get; } = new();
         private int _currentLayerIdx = 0;
-        private UILayer CurrentLayer => Layers.Count == 0 ? null : Layers[_currentLayerIdx];
+        private UILayer CurrentLayer => _layers.Count == 0 ? null : _layers[_currentLayerIdx];
 
-        public List<Focusable> CurrentOptions => Layers.Count == 0
+        public List<Focusable> CurrentOptions => _layers.Count == 0
             ? null
-            : Layers[_currentLayerIdx].Focusables;
+            : _layers[_currentLayerIdx].Focusables;
 
         private void Awake()
         {
             Instance = this;
-            Layers.Add(new UILayer("Base"));
+            _layers.Add(new UILayer("Base"));
         }
-
-        private void Start()
-        {
-            // Create question text once
-            _questionText = questionPosition.GetOrAddComponent<TextMeshProUGUI>();
-        }
-
+        
         public void DisplayQuestion()
         {
             if (GameManager.Instance.currentQuestionType == GameManager.QuestionType.CharBrailleToLatin)
@@ -62,6 +57,7 @@ namespace UI
             {
                 Debug.LogWarning("Tried to display unsupported question type.");
             }
+
             CurrentLayer.FocusFirst();
         }
 
@@ -147,7 +143,7 @@ namespace UI
             Debug.LogWarning("Highlighting for this Option type is not yet supported");
             return null;
         }
-        
+
         private Focusable HighlightNextFocusable()
         {
             return CurrentLayer.FocusNext();
