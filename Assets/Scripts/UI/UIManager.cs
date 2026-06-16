@@ -21,9 +21,6 @@ namespace UI
         [Header("Prefabs")] public GameObject optionParentPrefab;
         public GameObject questionTextPrefab;
 
-        private readonly List<GridTextObject> _optionBrailleTexts = new();
-        private readonly List<FocusableTextObject> _optionTexts = new();
-
         private TextMeshProUGUI _questionText;
 
         private int _currentOptionIndex;
@@ -31,10 +28,7 @@ namespace UI
         public Focusable HighlightedOption;
         [Header("Parameters")] public int optionsCount;
 
-        public List<Focusable> Options =>
-            _optionTexts.Cast<Focusable>()
-                .Concat(_optionBrailleTexts)
-                .ToList();
+        public List<Focusable> Options = new();
 
         private void Awake()
         {
@@ -67,8 +61,7 @@ namespace UI
         {
             ClearChildren(questionPosition.transform);
             ClearChildren(optionsGrid.transform);
-            _optionTexts.Clear();
-            _optionBrailleTexts.Clear();
+            Options.Clear();
             HighlightedOption = null;
         }
 
@@ -83,7 +76,7 @@ namespace UI
 
             foreach (var option in QuestionManager.Instance.currentOptions)
             {
-                _optionTexts.Add(GenerateFocusableTextObjectOption(option));
+                Options.Add(GenerateFocusableTextObjectOption(option));
             }
 
             feedbackText.text = "";
@@ -109,7 +102,7 @@ namespace UI
 
             foreach (var optionText in QuestionManager.Instance.currentOptions)
             {
-                _optionBrailleTexts.Add(GenerateBrailleOption(optionText));
+                Options.Add(GenerateBrailleOption(optionText));
             }
 
             feedbackText.text = "";
