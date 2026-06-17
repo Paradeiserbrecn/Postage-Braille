@@ -422,6 +422,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Switch UI Layer",
+                    "type": "Button",
+                    "id": "6367a5a5-48ff-44c7-a8e5-e805bca1c5da",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -523,6 +532,17 @@
                     "action": "confirm",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "aa2ddb05-b0d8-4995-969b-86eba284ee1e",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Switch UI Layer",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -531,7 +551,7 @@
             "id": "a38afec2-0230-4c6b-9698-7439f7c051d6",
             "actions": [
                 {
-                    "name": "a",
+                    "name": "A",
                     "type": "Button",
                     "id": "105e9708-a556-48df-a2b4-7a44ce06e03e",
                     "expectedControlType": "",
@@ -540,7 +560,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "b",
+                    "name": "B",
                     "type": "Button",
                     "id": "2def5a43-1b8f-4660-b271-f9da309271dc",
                     "expectedControlType": "",
@@ -549,7 +569,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "c",
+                    "name": "C",
                     "type": "Button",
                     "id": "a8f8e022-dd66-4955-8f77-e972da5eb4a7",
                     "expectedControlType": "",
@@ -558,7 +578,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "d",
+                    "name": "D",
                     "type": "Button",
                     "id": "a67db5d6-0574-4016-87ed-914def6736c2",
                     "expectedControlType": "",
@@ -567,7 +587,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "e",
+                    "name": "E",
                     "type": "Button",
                     "id": "c6b65567-c353-4b06-84a7-8f8ece3244c2",
                     "expectedControlType": "",
@@ -576,7 +596,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "f",
+                    "name": "F",
                     "type": "Button",
                     "id": "722ba0cc-d5e7-4395-96d0-1ace5ddef735",
                     "expectedControlType": "",
@@ -585,7 +605,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "g",
+                    "name": "G",
                     "type": "Button",
                     "id": "8c13fa7b-71cb-499a-94b0-0874674f9f49",
                     "expectedControlType": "",
@@ -594,7 +614,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "h",
+                    "name": "H",
                     "type": "Button",
                     "id": "06d3a5a5-781b-4f36-a71e-625184f0e746",
                     "expectedControlType": "",
@@ -603,7 +623,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "i",
+                    "name": "I",
                     "type": "Button",
                     "id": "f32623f2-31f6-4bd4-9d33-d72e6c4a646b",
                     "expectedControlType": "",
@@ -612,7 +632,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "j",
+                    "name": "J",
                     "type": "Button",
                     "id": "9f38059c-b7f8-4c17-8aea-aeac3c85e0fb",
                     "expectedControlType": "",
@@ -621,7 +641,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "k",
+                    "name": "K",
                     "type": "Button",
                     "id": "1dc1620a-80bf-4ab7-b1e0-b1c40b81c5c3",
                     "expectedControlType": "",
@@ -630,7 +650,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "l",
+                    "name": "L",
                     "type": "Button",
                     "id": "24ed051c-3a20-4495-85a4-3f59ca27b473",
                     "expectedControlType": "",
@@ -639,7 +659,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "m",
+                    "name": "M",
                     "type": "Button",
                     "id": "3b6ff53f-2fab-4cba-96d1-5e3fb2cbef44",
                     "expectedControlType": "",
@@ -648,7 +668,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "n",
+                    "name": "N",
                     "type": "Button",
                     "id": "4fc724a0-4640-47ad-aac2-fa02af246416",
                     "expectedControlType": "",
@@ -657,7 +677,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "o",
+                    "name": "O",
                     "type": "Button",
                     "id": "71de7879-3017-4946-8095-2761ced049ce",
                     "expectedControlType": "",
@@ -666,7 +686,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "p",
+                    "name": "P",
                     "type": "Button",
                     "id": "5b707f26-b2da-4b38-acb8-d13022b85d20",
                     "expectedControlType": "",
@@ -675,7 +695,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "q",
+                    "name": "Q",
                     "type": "Button",
                     "id": "87e87349-d610-4a37-b720-4f5717545b93",
                     "expectedControlType": "",
@@ -684,7 +704,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "r",
+                    "name": "R",
                     "type": "Button",
                     "id": "f7cfe884-7691-4a28-a8a0-6b36c81d91ac",
                     "expectedControlType": "",
@@ -693,7 +713,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "s",
+                    "name": "S",
                     "type": "Button",
                     "id": "b151bcfa-4f30-4670-9ba2-6694b7144bd9",
                     "expectedControlType": "",
@@ -702,7 +722,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "t",
+                    "name": "T",
                     "type": "Button",
                     "id": "7df68d32-0ae6-4e9d-a8f6-c9c7fef89907",
                     "expectedControlType": "",
@@ -711,7 +731,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "u",
+                    "name": "U",
                     "type": "Button",
                     "id": "4dcf05e4-8ff2-466b-8659-e8a73fd75fed",
                     "expectedControlType": "",
@@ -720,7 +740,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "v",
+                    "name": "V",
                     "type": "Button",
                     "id": "7a582522-f98b-45dd-aad1-86f496bd9a6c",
                     "expectedControlType": "",
@@ -729,7 +749,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "w",
+                    "name": "W",
                     "type": "Button",
                     "id": "3d7bd1a8-d22e-438d-af7f-6b1c16ce068d",
                     "expectedControlType": "",
@@ -738,7 +758,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "x",
+                    "name": "X",
                     "type": "Button",
                     "id": "b8118f9a-ba5f-47af-b9d2-7237f63b3b34",
                     "expectedControlType": "",
@@ -747,7 +767,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "y",
+                    "name": "Y",
                     "type": "Button",
                     "id": "407517e9-5b7e-4974-9da8-49d16092c567",
                     "expectedControlType": "",
@@ -756,7 +776,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "z",
+                    "name": "Z",
                     "type": "Button",
                     "id": "a70643bb-05dc-4e3c-a664-fc8d004258a8",
                     "expectedControlType": "",
@@ -765,7 +785,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "ä",
+                    "name": "Ä",
                     "type": "Button",
                     "id": "fe89266c-83a7-42db-b810-ceffcba4e817",
                     "expectedControlType": "",
@@ -774,7 +794,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "ö",
+                    "name": "Ö",
                     "type": "Button",
                     "id": "687d50e8-1f51-4005-b8a2-c65ad911584a",
                     "expectedControlType": "",
@@ -783,7 +803,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "ü",
+                    "name": "Ü",
                     "type": "Button",
                     "id": "bbf911cb-77e8-4d8a-87af-eed8c7612c64",
                     "expectedControlType": "",
@@ -801,7 +821,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "d1",
+                    "name": "D1",
                     "type": "Button",
                     "id": "d8df4303-e623-4d6d-8729-1d04611b3745",
                     "expectedControlType": "",
@@ -810,7 +830,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "d2",
+                    "name": "D2",
                     "type": "Button",
                     "id": "20e348a2-3c98-4742-a2c0-49ef3687f7b1",
                     "expectedControlType": "",
@@ -819,7 +839,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "d3",
+                    "name": "D3",
                     "type": "Button",
                     "id": "dc8c6ebd-cec2-4e03-820a-56410371d4d3",
                     "expectedControlType": "",
@@ -828,7 +848,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "d4",
+                    "name": "D4",
                     "type": "Button",
                     "id": "b15bbec6-5683-4dbe-9c29-7a794547f862",
                     "expectedControlType": "",
@@ -837,7 +857,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "d5",
+                    "name": "D5",
                     "type": "Button",
                     "id": "cdf7c8e4-26b8-4cf1-a9bc-a083bae6ff21",
                     "expectedControlType": "",
@@ -846,7 +866,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "d6",
+                    "name": "D6",
                     "type": "Button",
                     "id": "4a1ae8c5-f77f-4466-8b61-64b9f981d67c",
                     "expectedControlType": "",
@@ -855,7 +875,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "d7",
+                    "name": "D7",
                     "type": "Button",
                     "id": "3c39a206-73fb-49f0-8aab-b0f87ac0b3c8",
                     "expectedControlType": "",
@@ -864,7 +884,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "d8",
+                    "name": "D8",
                     "type": "Button",
                     "id": "56ed22c6-e44d-44fc-bf4b-96fac42f1f26",
                     "expectedControlType": "",
@@ -873,7 +893,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "d9",
+                    "name": "D9",
                     "type": "Button",
                     "id": "13685829-9303-4e44-8528-2facaf9f1ed8",
                     "expectedControlType": "",
@@ -882,7 +902,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "d0",
+                    "name": "D0",
                     "type": "Button",
                     "id": "f150f946-0fc1-4443-aa3e-13d34363318f",
                     "expectedControlType": "",
@@ -891,7 +911,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "comma",
+                    "name": "Comma",
                     "type": "Button",
                     "id": "404d9fc1-b856-4874-9b1d-c87c473fac40",
                     "expectedControlType": "",
@@ -900,7 +920,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "period",
+                    "name": "Period",
                     "type": "Button",
                     "id": "ea116f39-832e-4509-83f2-a2a1e4206d63",
                     "expectedControlType": "",
@@ -909,7 +929,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "dash",
+                    "name": "Dash",
                     "type": "Button",
                     "id": "6dc4f7c0-85cf-4305-ac55-dae85a5d34fb",
                     "expectedControlType": "",
@@ -918,7 +938,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "hashtag",
+                    "name": "Hashtag",
                     "type": "Button",
                     "id": "92daa5a6-9d41-4eeb-b473-657545ce646f",
                     "expectedControlType": "",
@@ -927,7 +947,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "space",
+                    "name": "Space",
                     "type": "Button",
                     "id": "4b16a0cc-fd24-450e-a2b3-9f4c6206d600",
                     "expectedControlType": "",
@@ -936,7 +956,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "delete",
+                    "name": "Delete",
                     "type": "Button",
                     "id": "f0ce34eb-487f-46e0-b01a-7c219f198afa",
                     "expectedControlType": "",
@@ -945,7 +965,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "shift",
+                    "name": "Shift",
                     "type": "Button",
                     "id": "0d2dd59b-ef72-4140-83a7-e18da93df7e4",
                     "expectedControlType": "",
@@ -954,9 +974,72 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "questionmark",
+                    "name": "Question",
                     "type": "Button",
                     "id": "05f7a50d-daea-4bd2-89d8-aac8a9659f18",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Exclamation",
+                    "type": "Button",
+                    "id": "5e3e014b-bfab-43ab-ae48-7d219f845a74",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Quote",
+                    "type": "Button",
+                    "id": "ae9a09c8-4886-4e8e-8135-9a4852d2870a",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Semicolon",
+                    "type": "Button",
+                    "id": "926a19e8-d55c-4ced-b3c9-892a9df3be3e",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Colon",
+                    "type": "Button",
+                    "id": "bf8d0ad5-7d21-4d04-88e8-33dcd9102608",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "LBrace",
+                    "type": "Button",
+                    "id": "c7ab8703-559b-4f1b-927d-eafbc339809a",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "RBrace",
+                    "type": "Button",
+                    "id": "1a3c1adf-e595-4a53-8292-cdf3a648086b",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Apostrophe",
+                    "type": "Button",
+                    "id": "48ea3890-0ec2-46c2-b12d-7c602563db42",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -971,7 +1054,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "a",
+                    "action": "A",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -982,7 +1065,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "b",
+                    "action": "B",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -993,7 +1076,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "c",
+                    "action": "C",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -1004,7 +1087,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "d",
+                    "action": "D",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -1015,7 +1098,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "e",
+                    "action": "E",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -1026,7 +1109,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "f",
+                    "action": "F",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -1037,7 +1120,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "g",
+                    "action": "G",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -1048,7 +1131,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "h",
+                    "action": "H",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -1059,7 +1142,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "i",
+                    "action": "I",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -1070,7 +1153,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "j",
+                    "action": "J",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -1081,7 +1164,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "k",
+                    "action": "K",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -1092,7 +1175,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "l",
+                    "action": "L",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -1103,7 +1186,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "m",
+                    "action": "M",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -1114,7 +1197,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "n",
+                    "action": "N",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -1125,7 +1208,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "o",
+                    "action": "O",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -1136,7 +1219,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "p",
+                    "action": "P",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -1147,7 +1230,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "q",
+                    "action": "Q",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -1158,7 +1241,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "r",
+                    "action": "R",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -1169,7 +1252,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "s",
+                    "action": "S",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -1180,7 +1263,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "t",
+                    "action": "T",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -1191,7 +1274,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "u",
+                    "action": "U",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -1202,7 +1285,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "v",
+                    "action": "V",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -1213,7 +1296,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "w",
+                    "action": "W",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -1224,7 +1307,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "x",
+                    "action": "X",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -1235,7 +1318,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "y",
+                    "action": "Y",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -1246,7 +1329,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "z",
+                    "action": "Z",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -1257,7 +1340,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "ä",
+                    "action": "Ä",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -1268,7 +1351,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "ö",
+                    "action": "Ö",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -1279,42 +1362,108 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "ü",
+                    "action": "Ü",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "",
-                    "id": "448f110e-11ec-45b6-b9ea-93e8ef7d4ee7",
+                    "name": "Button Without Modifier",
+                    "id": "93241726-0a96-40a7-8d47-da846f39f191",
+                    "path": "ButtonWithoutModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ß",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "Key",
+                    "id": "f945e67c-2e0f-45f9-836d-99f2a8e44d0d",
                     "path": "<Keyboard>/minus",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "ß",
                     "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "AndNotKey",
+                    "id": "cb0645e2-69d2-4aef-aeb1-648ff88c19ab",
+                    "path": "<Keyboard>/shift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ß",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Button Without Modifier",
+                    "id": "584f3f9c-d20f-4590-953c-a09a3ec193b4",
+                    "path": "ButtonWithoutModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "D1",
+                    "isComposite": true,
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "",
-                    "id": "7c633a29-fc55-46ba-b74e-1ffdb5c1a710",
+                    "name": "Key",
+                    "id": "2653e339-1edc-437f-b18b-2116aac0f852",
                     "path": "<Keyboard>/1",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "d1",
+                    "action": "D1",
                     "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "AndNotKey",
+                    "id": "134a2dd0-8dc5-4948-81e9-0bcac6e92d77",
+                    "path": "<Keyboard>/shift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "D1",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Button Without Modifier",
+                    "id": "6892b36d-9090-4267-a794-32ebe032841d",
+                    "path": "ButtonWithoutModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "D2",
+                    "isComposite": true,
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "",
-                    "id": "092db429-b2ab-44f3-b921-938f2fad8196",
+                    "name": "Key",
+                    "id": "681f42d9-0b5c-45fc-b702-239ac7a55543",
                     "path": "<Keyboard>/2",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "d2",
+                    "action": "D2",
                     "isComposite": false,
-                    "isPartOfComposite": false
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "AndNotKey",
+                    "id": "bacacf8a-258c-458d-b7a9-ffef1dc52d67",
+                    "path": "<Keyboard>/shift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "D2",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 },
                 {
                     "name": "",
@@ -1323,7 +1472,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "d3",
+                    "action": "D3",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -1334,7 +1483,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "d4",
+                    "action": "D4",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -1345,7 +1494,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "d5",
+                    "action": "D5",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -1356,7 +1505,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "d6",
+                    "action": "D6",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -1367,31 +1516,75 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "d7",
+                    "action": "D7",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "",
-                    "id": "e2ec0266-bd33-44e0-9ce0-ef8d289d8748",
+                    "name": "Button Without Modifier",
+                    "id": "7835a374-21e6-41e3-a7c3-59c3cf410a15",
+                    "path": "ButtonWithoutModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "D8",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "Key",
+                    "id": "cf8159db-8c73-4b12-beb5-7196067894d9",
                     "path": "<Keyboard>/8",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "d8",
+                    "action": "D8",
                     "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "AndNotKey",
+                    "id": "fe7b97aa-dd94-4d17-b2a6-6c6340177552",
+                    "path": "<Keyboard>/shift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "D8",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Button Without Modifier",
+                    "id": "415d367b-ee64-46be-96e2-701f5aa29e9e",
+                    "path": "ButtonWithoutModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "D9",
+                    "isComposite": true,
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "",
-                    "id": "85ef04f7-ad9f-4466-a3ae-8df7cefa6549",
+                    "name": "Key",
+                    "id": "f9c94059-b9b9-4df5-b98c-9196267bb49b",
                     "path": "<Keyboard>/9",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "d9",
+                    "action": "D9",
                     "isComposite": false,
-                    "isPartOfComposite": false
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "AndNotKey",
+                    "id": "1f94a557-d443-4735-9681-ffb2e2033529",
+                    "path": "<Keyboard>/shift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "D9",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 },
                 {
                     "name": "",
@@ -1400,31 +1593,75 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "d0",
+                    "action": "D0",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "",
-                    "id": "32201e93-fcb0-418e-ad2e-6ed1d6076647",
+                    "name": "Button Without Modifier",
+                    "id": "7d7cd1f7-6ada-42f9-b6ea-7a12ac2744df",
+                    "path": "ButtonWithoutModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Comma",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "Key",
+                    "id": "44b3a000-163b-4813-b08f-5069e3d64b9f",
                     "path": "<Keyboard>/comma",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "comma",
+                    "action": "Comma",
                     "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "AndNotKey",
+                    "id": "328e0590-da07-4be9-9448-c0ebc02c451f",
+                    "path": "<Keyboard>/shift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Comma",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Button Without Modifier",
+                    "id": "3c6970bf-2159-420a-95b6-78c58b8ecbc2",
+                    "path": "ButtonWithoutModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Period",
+                    "isComposite": true,
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "",
-                    "id": "f3755eae-f9da-41b7-ad2a-7a11ca6f582b",
+                    "name": "Key",
+                    "id": "d0d56839-b0e4-4659-97fb-1c0de1925c36",
                     "path": "<Keyboard>/period",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "period",
+                    "action": "Period",
                     "isComposite": false,
-                    "isPartOfComposite": false
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "AndNotKey",
+                    "id": "2ba076f3-c42b-4e79-8833-984aedbd1bfb",
+                    "path": "<Keyboard>/shift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Period",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 },
                 {
                     "name": "",
@@ -1433,20 +1670,42 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "dash",
+                    "action": "Dash",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "",
-                    "id": "2778c729-26ae-4dab-9d32-60de278aa30d",
+                    "name": "Button Without Modifier",
+                    "id": "50b29e33-7af1-4000-aee9-be31ab42fd9b",
+                    "path": "ButtonWithoutModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Hashtag",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "Key",
+                    "id": "ce9c4efb-8702-4c8e-9327-b3edcaa55151",
                     "path": "<Keyboard>/backslash",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "hashtag",
+                    "action": "Hashtag",
                     "isComposite": false,
-                    "isPartOfComposite": false
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "AndNotKey",
+                    "id": "4e8ceae6-9ad7-4ea3-acf0-49e4fd20787e",
+                    "path": "<Keyboard>/shift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Hashtag",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 },
                 {
                     "name": "",
@@ -1455,7 +1714,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "space",
+                    "action": "Space",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -1466,7 +1725,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "delete",
+                    "action": "Delete",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -1477,7 +1736,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "shift",
+                    "action": "Shift",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -1488,7 +1747,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "questionmark",
+                    "action": "Question",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
@@ -1499,7 +1758,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "questionmark",
+                    "action": "Question",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -1510,7 +1769,238 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "questionmark",
+                    "action": "Question",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "One Modifier",
+                    "id": "31b2056c-78d9-4d37-87f1-5da5c7c5f11d",
+                    "path": "OneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Exclamation",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "88a756d4-3498-490e-a33c-30ae80f79327",
+                    "path": "<Keyboard>/shift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Exclamation",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "20b1d425-faf3-4a5e-8100-2f00695fb6cf",
+                    "path": "<Keyboard>/1",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Exclamation",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "One Modifier",
+                    "id": "31acbc0a-8863-45af-8fae-7337b72af808",
+                    "path": "OneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Quote",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "d03fcaef-003b-468f-b2cd-8a3bb3380091",
+                    "path": "<Keyboard>/shift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Quote",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "10083b51-7bba-46f9-97fc-7f2548393f44",
+                    "path": "<Keyboard>/2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Quote",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "One Modifier",
+                    "id": "2180f4a2-6ccd-49da-9165-e245b75ada1a",
+                    "path": "OneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Semicolon",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "b293eeda-8fb5-4a3b-875a-ceb8e53d5494",
+                    "path": "<Keyboard>/shift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Semicolon",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "3fdc7d94-8ea0-4cba-b8fe-69e00335a1b9",
+                    "path": "<Keyboard>/comma",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Semicolon",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "One Modifier",
+                    "id": "baff732e-1126-4619-9c5e-b39111c240a8",
+                    "path": "OneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Colon",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "56dbf193-0762-41b8-a381-9d17e168c806",
+                    "path": "<Keyboard>/shift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Colon",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "2066e527-913a-443f-ac00-0d1da92524a2",
+                    "path": "<Keyboard>/period",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Colon",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "One Modifier",
+                    "id": "29d18d36-440c-4855-995b-6d6cb46c0427",
+                    "path": "OneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LBrace",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "afaf48a8-e673-4146-a35d-13b89b1aca7f",
+                    "path": "<Keyboard>/shift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LBrace",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "aaef74b3-7815-4083-857a-8a81ba83ab14",
+                    "path": "<Keyboard>/8",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LBrace",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "One Modifier",
+                    "id": "824e5a07-3b7d-4f37-8fd5-76e43fd2b8f3",
+                    "path": "OneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RBrace",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "1924b32c-b131-46d8-9d99-486e61fa9691",
+                    "path": "<Keyboard>/shift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RBrace",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "ff26b92f-4c03-4209-88c1-db31b0c3e1e2",
+                    "path": "<Keyboard>/9",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RBrace",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "One Modifier",
+                    "id": "9b7867ea-a361-44ad-a314-6a0a144bf90e",
+                    "path": "OneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Apostrophe",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "04b283a2-9e30-406a-98d4-30587cfe2da0",
+                    "path": "<Keyboard>/shift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Apostrophe",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "6e0cb11d-843e-498f-b164-f1bbff02c9b4",
+                    "path": "<Keyboard>/backslash",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Apostrophe",
                     "isComposite": false,
                     "isPartOfComposite": true
                 }

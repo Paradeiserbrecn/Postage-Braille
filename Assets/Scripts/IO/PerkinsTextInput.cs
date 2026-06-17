@@ -80,6 +80,7 @@ namespace IO
         {
             if (_pressedDots.SequenceEqual(Textbox.EmptyBrailleList))
             {
+                Textbox.AddCurrentBrailleListAsCharacter();
                 Textbox.NextBrailleCharacter();
             }
         }

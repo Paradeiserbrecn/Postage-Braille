@@ -26,13 +26,17 @@ namespace IO
 
         public void NextBrailleCharacter()
         {
-            _proceedingText.Append(GridBrailleConverter.Instance.ConvertBrailleToCharacter(currentBrailleList));
             text = _proceedingText.ToString();
             ResetCharacter();
             _currentBrailleObject =
                 Instantiate(brailleObjectPrefab, transform).GetComponent<BrailleObject>();
             _currentBrailleObject.SetBrailleCharacter(currentBrailleList);
             BrailleObjects.Add(_currentBrailleObject);
+        }
+
+        public void AddCurrentBrailleListAsCharacter()
+        {
+            _proceedingText.Append(GridBrailleConverter.Instance.ConvertBrailleToCharacter(currentBrailleList));
         }
 
         public void UpdateCurrentBrailleObject()
@@ -48,6 +52,7 @@ namespace IO
         public void AddCharacter(string character)
         {
             currentBrailleList = GridBrailleConverter.Instance.ConvertCharacterToBrailleList(character);
+            _proceedingText.Append(character);
             UpdateCurrentBrailleObject();
             NextBrailleCharacter();
         }

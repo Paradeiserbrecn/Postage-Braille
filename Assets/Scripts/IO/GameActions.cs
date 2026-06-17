@@ -510,6 +510,15 @@ namespace IO
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Switch UI Layer"",
+                    ""type"": ""Button"",
+                    ""id"": ""6367a5a5-48ff-44c7-a8e5-e805bca1c5da"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -611,6 +620,17 @@ namespace IO
                     ""action"": ""confirm"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""aa2ddb05-b0d8-4995-969b-86eba284ee1e"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Switch UI Layer"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -619,7 +639,7 @@ namespace IO
             ""id"": ""a38afec2-0230-4c6b-9698-7439f7c051d6"",
             ""actions"": [
                 {
-                    ""name"": ""a"",
+                    ""name"": ""A"",
                     ""type"": ""Button"",
                     ""id"": ""105e9708-a556-48df-a2b4-7a44ce06e03e"",
                     ""expectedControlType"": """",
@@ -628,7 +648,7 @@ namespace IO
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""b"",
+                    ""name"": ""B"",
                     ""type"": ""Button"",
                     ""id"": ""2def5a43-1b8f-4660-b271-f9da309271dc"",
                     ""expectedControlType"": """",
@@ -637,7 +657,7 @@ namespace IO
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""c"",
+                    ""name"": ""C"",
                     ""type"": ""Button"",
                     ""id"": ""a8f8e022-dd66-4955-8f77-e972da5eb4a7"",
                     ""expectedControlType"": """",
@@ -646,7 +666,7 @@ namespace IO
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""d"",
+                    ""name"": ""D"",
                     ""type"": ""Button"",
                     ""id"": ""a67db5d6-0574-4016-87ed-914def6736c2"",
                     ""expectedControlType"": """",
@@ -655,7 +675,7 @@ namespace IO
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""e"",
+                    ""name"": ""E"",
                     ""type"": ""Button"",
                     ""id"": ""c6b65567-c353-4b06-84a7-8f8ece3244c2"",
                     ""expectedControlType"": """",
@@ -664,7 +684,7 @@ namespace IO
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""f"",
+                    ""name"": ""F"",
                     ""type"": ""Button"",
                     ""id"": ""722ba0cc-d5e7-4395-96d0-1ace5ddef735"",
                     ""expectedControlType"": """",
@@ -673,7 +693,7 @@ namespace IO
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""g"",
+                    ""name"": ""G"",
                     ""type"": ""Button"",
                     ""id"": ""8c13fa7b-71cb-499a-94b0-0874674f9f49"",
                     ""expectedControlType"": """",
@@ -682,7 +702,7 @@ namespace IO
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""h"",
+                    ""name"": ""H"",
                     ""type"": ""Button"",
                     ""id"": ""06d3a5a5-781b-4f36-a71e-625184f0e746"",
                     ""expectedControlType"": """",
@@ -691,7 +711,7 @@ namespace IO
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""i"",
+                    ""name"": ""I"",
                     ""type"": ""Button"",
                     ""id"": ""f32623f2-31f6-4bd4-9d33-d72e6c4a646b"",
                     ""expectedControlType"": """",
@@ -700,7 +720,7 @@ namespace IO
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""j"",
+                    ""name"": ""J"",
                     ""type"": ""Button"",
                     ""id"": ""9f38059c-b7f8-4c17-8aea-aeac3c85e0fb"",
                     ""expectedControlType"": """",
@@ -709,7 +729,7 @@ namespace IO
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""k"",
+                    ""name"": ""K"",
                     ""type"": ""Button"",
                     ""id"": ""1dc1620a-80bf-4ab7-b1e0-b1c40b81c5c3"",
                     ""expectedControlType"": """",
@@ -718,7 +738,7 @@ namespace IO
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""l"",
+                    ""name"": ""L"",
                     ""type"": ""Button"",
                     ""id"": ""24ed051c-3a20-4495-85a4-3f59ca27b473"",
                     ""expectedControlType"": """",
@@ -727,7 +747,7 @@ namespace IO
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""m"",
+                    ""name"": ""M"",
                     ""type"": ""Button"",
                     ""id"": ""3b6ff53f-2fab-4cba-96d1-5e3fb2cbef44"",
                     ""expectedControlType"": """",
@@ -736,7 +756,7 @@ namespace IO
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""n"",
+                    ""name"": ""N"",
                     ""type"": ""Button"",
                     ""id"": ""4fc724a0-4640-47ad-aac2-fa02af246416"",
                     ""expectedControlType"": """",
@@ -745,7 +765,7 @@ namespace IO
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""o"",
+                    ""name"": ""O"",
                     ""type"": ""Button"",
                     ""id"": ""71de7879-3017-4946-8095-2761ced049ce"",
                     ""expectedControlType"": """",
@@ -754,7 +774,7 @@ namespace IO
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""p"",
+                    ""name"": ""P"",
                     ""type"": ""Button"",
                     ""id"": ""5b707f26-b2da-4b38-acb8-d13022b85d20"",
                     ""expectedControlType"": """",
@@ -763,7 +783,7 @@ namespace IO
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""q"",
+                    ""name"": ""Q"",
                     ""type"": ""Button"",
                     ""id"": ""87e87349-d610-4a37-b720-4f5717545b93"",
                     ""expectedControlType"": """",
@@ -772,7 +792,7 @@ namespace IO
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""r"",
+                    ""name"": ""R"",
                     ""type"": ""Button"",
                     ""id"": ""f7cfe884-7691-4a28-a8a0-6b36c81d91ac"",
                     ""expectedControlType"": """",
@@ -781,7 +801,7 @@ namespace IO
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""s"",
+                    ""name"": ""S"",
                     ""type"": ""Button"",
                     ""id"": ""b151bcfa-4f30-4670-9ba2-6694b7144bd9"",
                     ""expectedControlType"": """",
@@ -790,7 +810,7 @@ namespace IO
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""t"",
+                    ""name"": ""T"",
                     ""type"": ""Button"",
                     ""id"": ""7df68d32-0ae6-4e9d-a8f6-c9c7fef89907"",
                     ""expectedControlType"": """",
@@ -799,7 +819,7 @@ namespace IO
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""u"",
+                    ""name"": ""U"",
                     ""type"": ""Button"",
                     ""id"": ""4dcf05e4-8ff2-466b-8659-e8a73fd75fed"",
                     ""expectedControlType"": """",
@@ -808,7 +828,7 @@ namespace IO
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""v"",
+                    ""name"": ""V"",
                     ""type"": ""Button"",
                     ""id"": ""7a582522-f98b-45dd-aad1-86f496bd9a6c"",
                     ""expectedControlType"": """",
@@ -817,7 +837,7 @@ namespace IO
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""w"",
+                    ""name"": ""W"",
                     ""type"": ""Button"",
                     ""id"": ""3d7bd1a8-d22e-438d-af7f-6b1c16ce068d"",
                     ""expectedControlType"": """",
@@ -826,7 +846,7 @@ namespace IO
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""x"",
+                    ""name"": ""X"",
                     ""type"": ""Button"",
                     ""id"": ""b8118f9a-ba5f-47af-b9d2-7237f63b3b34"",
                     ""expectedControlType"": """",
@@ -835,7 +855,7 @@ namespace IO
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""y"",
+                    ""name"": ""Y"",
                     ""type"": ""Button"",
                     ""id"": ""407517e9-5b7e-4974-9da8-49d16092c567"",
                     ""expectedControlType"": """",
@@ -844,7 +864,7 @@ namespace IO
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""z"",
+                    ""name"": ""Z"",
                     ""type"": ""Button"",
                     ""id"": ""a70643bb-05dc-4e3c-a664-fc8d004258a8"",
                     ""expectedControlType"": """",
@@ -853,7 +873,7 @@ namespace IO
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""ä"",
+                    ""name"": ""Ä"",
                     ""type"": ""Button"",
                     ""id"": ""fe89266c-83a7-42db-b810-ceffcba4e817"",
                     ""expectedControlType"": """",
@@ -862,7 +882,7 @@ namespace IO
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""ö"",
+                    ""name"": ""Ö"",
                     ""type"": ""Button"",
                     ""id"": ""687d50e8-1f51-4005-b8a2-c65ad911584a"",
                     ""expectedControlType"": """",
@@ -871,7 +891,7 @@ namespace IO
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""ü"",
+                    ""name"": ""Ü"",
                     ""type"": ""Button"",
                     ""id"": ""bbf911cb-77e8-4d8a-87af-eed8c7612c64"",
                     ""expectedControlType"": """",
@@ -889,7 +909,7 @@ namespace IO
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""d1"",
+                    ""name"": ""D1"",
                     ""type"": ""Button"",
                     ""id"": ""d8df4303-e623-4d6d-8729-1d04611b3745"",
                     ""expectedControlType"": """",
@@ -898,7 +918,7 @@ namespace IO
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""d2"",
+                    ""name"": ""D2"",
                     ""type"": ""Button"",
                     ""id"": ""20e348a2-3c98-4742-a2c0-49ef3687f7b1"",
                     ""expectedControlType"": """",
@@ -907,7 +927,7 @@ namespace IO
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""d3"",
+                    ""name"": ""D3"",
                     ""type"": ""Button"",
                     ""id"": ""dc8c6ebd-cec2-4e03-820a-56410371d4d3"",
                     ""expectedControlType"": """",
@@ -916,7 +936,7 @@ namespace IO
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""d4"",
+                    ""name"": ""D4"",
                     ""type"": ""Button"",
                     ""id"": ""b15bbec6-5683-4dbe-9c29-7a794547f862"",
                     ""expectedControlType"": """",
@@ -925,7 +945,7 @@ namespace IO
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""d5"",
+                    ""name"": ""D5"",
                     ""type"": ""Button"",
                     ""id"": ""cdf7c8e4-26b8-4cf1-a9bc-a083bae6ff21"",
                     ""expectedControlType"": """",
@@ -934,7 +954,7 @@ namespace IO
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""d6"",
+                    ""name"": ""D6"",
                     ""type"": ""Button"",
                     ""id"": ""4a1ae8c5-f77f-4466-8b61-64b9f981d67c"",
                     ""expectedControlType"": """",
@@ -943,7 +963,7 @@ namespace IO
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""d7"",
+                    ""name"": ""D7"",
                     ""type"": ""Button"",
                     ""id"": ""3c39a206-73fb-49f0-8aab-b0f87ac0b3c8"",
                     ""expectedControlType"": """",
@@ -952,7 +972,7 @@ namespace IO
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""d8"",
+                    ""name"": ""D8"",
                     ""type"": ""Button"",
                     ""id"": ""56ed22c6-e44d-44fc-bf4b-96fac42f1f26"",
                     ""expectedControlType"": """",
@@ -961,7 +981,7 @@ namespace IO
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""d9"",
+                    ""name"": ""D9"",
                     ""type"": ""Button"",
                     ""id"": ""13685829-9303-4e44-8528-2facaf9f1ed8"",
                     ""expectedControlType"": """",
@@ -970,7 +990,7 @@ namespace IO
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""d0"",
+                    ""name"": ""D0"",
                     ""type"": ""Button"",
                     ""id"": ""f150f946-0fc1-4443-aa3e-13d34363318f"",
                     ""expectedControlType"": """",
@@ -979,7 +999,7 @@ namespace IO
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""comma"",
+                    ""name"": ""Comma"",
                     ""type"": ""Button"",
                     ""id"": ""404d9fc1-b856-4874-9b1d-c87c473fac40"",
                     ""expectedControlType"": """",
@@ -988,7 +1008,7 @@ namespace IO
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""period"",
+                    ""name"": ""Period"",
                     ""type"": ""Button"",
                     ""id"": ""ea116f39-832e-4509-83f2-a2a1e4206d63"",
                     ""expectedControlType"": """",
@@ -997,7 +1017,7 @@ namespace IO
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""dash"",
+                    ""name"": ""Dash"",
                     ""type"": ""Button"",
                     ""id"": ""6dc4f7c0-85cf-4305-ac55-dae85a5d34fb"",
                     ""expectedControlType"": """",
@@ -1006,7 +1026,7 @@ namespace IO
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""hashtag"",
+                    ""name"": ""Hashtag"",
                     ""type"": ""Button"",
                     ""id"": ""92daa5a6-9d41-4eeb-b473-657545ce646f"",
                     ""expectedControlType"": """",
@@ -1015,7 +1035,7 @@ namespace IO
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""space"",
+                    ""name"": ""Space"",
                     ""type"": ""Button"",
                     ""id"": ""4b16a0cc-fd24-450e-a2b3-9f4c6206d600"",
                     ""expectedControlType"": """",
@@ -1024,7 +1044,7 @@ namespace IO
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""delete"",
+                    ""name"": ""Delete"",
                     ""type"": ""Button"",
                     ""id"": ""f0ce34eb-487f-46e0-b01a-7c219f198afa"",
                     ""expectedControlType"": """",
@@ -1033,7 +1053,7 @@ namespace IO
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""shift"",
+                    ""name"": ""Shift"",
                     ""type"": ""Button"",
                     ""id"": ""0d2dd59b-ef72-4140-83a7-e18da93df7e4"",
                     ""expectedControlType"": """",
@@ -1042,9 +1062,72 @@ namespace IO
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""questionmark"",
+                    ""name"": ""Question"",
                     ""type"": ""Button"",
                     ""id"": ""05f7a50d-daea-4bd2-89d8-aac8a9659f18"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Exclamation"",
+                    ""type"": ""Button"",
+                    ""id"": ""5e3e014b-bfab-43ab-ae48-7d219f845a74"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Quote"",
+                    ""type"": ""Button"",
+                    ""id"": ""ae9a09c8-4886-4e8e-8135-9a4852d2870a"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Semicolon"",
+                    ""type"": ""Button"",
+                    ""id"": ""926a19e8-d55c-4ced-b3c9-892a9df3be3e"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Colon"",
+                    ""type"": ""Button"",
+                    ""id"": ""bf8d0ad5-7d21-4d04-88e8-33dcd9102608"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""LBrace"",
+                    ""type"": ""Button"",
+                    ""id"": ""c7ab8703-559b-4f1b-927d-eafbc339809a"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""RBrace"",
+                    ""type"": ""Button"",
+                    ""id"": ""1a3c1adf-e595-4a53-8292-cdf3a648086b"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Apostrophe"",
+                    ""type"": ""Button"",
+                    ""id"": ""48ea3890-0ec2-46c2-b12d-7c602563db42"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
@@ -1059,7 +1142,7 @@ namespace IO
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""a"",
+                    ""action"": ""A"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -1070,7 +1153,7 @@ namespace IO
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""b"",
+                    ""action"": ""B"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -1081,7 +1164,7 @@ namespace IO
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""c"",
+                    ""action"": ""C"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -1092,7 +1175,7 @@ namespace IO
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""d"",
+                    ""action"": ""D"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -1103,7 +1186,7 @@ namespace IO
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""e"",
+                    ""action"": ""E"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -1114,7 +1197,7 @@ namespace IO
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""f"",
+                    ""action"": ""F"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -1125,7 +1208,7 @@ namespace IO
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""g"",
+                    ""action"": ""G"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -1136,7 +1219,7 @@ namespace IO
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""h"",
+                    ""action"": ""H"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -1147,7 +1230,7 @@ namespace IO
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""i"",
+                    ""action"": ""I"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -1158,7 +1241,7 @@ namespace IO
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""j"",
+                    ""action"": ""J"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -1169,7 +1252,7 @@ namespace IO
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""k"",
+                    ""action"": ""K"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -1180,7 +1263,7 @@ namespace IO
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""l"",
+                    ""action"": ""L"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -1191,7 +1274,7 @@ namespace IO
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""m"",
+                    ""action"": ""M"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -1202,7 +1285,7 @@ namespace IO
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""n"",
+                    ""action"": ""N"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -1213,7 +1296,7 @@ namespace IO
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""o"",
+                    ""action"": ""O"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -1224,7 +1307,7 @@ namespace IO
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""p"",
+                    ""action"": ""P"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -1235,7 +1318,7 @@ namespace IO
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""q"",
+                    ""action"": ""Q"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -1246,7 +1329,7 @@ namespace IO
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""r"",
+                    ""action"": ""R"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -1257,7 +1340,7 @@ namespace IO
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""s"",
+                    ""action"": ""S"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -1268,7 +1351,7 @@ namespace IO
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""t"",
+                    ""action"": ""T"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -1279,7 +1362,7 @@ namespace IO
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""u"",
+                    ""action"": ""U"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -1290,7 +1373,7 @@ namespace IO
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""v"",
+                    ""action"": ""V"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -1301,7 +1384,7 @@ namespace IO
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""w"",
+                    ""action"": ""W"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -1312,7 +1395,7 @@ namespace IO
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""x"",
+                    ""action"": ""X"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -1323,7 +1406,7 @@ namespace IO
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""y"",
+                    ""action"": ""Y"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -1334,7 +1417,7 @@ namespace IO
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""z"",
+                    ""action"": ""Z"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -1345,7 +1428,7 @@ namespace IO
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""ä"",
+                    ""action"": ""Ä"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -1356,7 +1439,7 @@ namespace IO
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""ö"",
+                    ""action"": ""Ö"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -1367,42 +1450,108 @@ namespace IO
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""ü"",
+                    ""action"": ""Ü"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": """",
-                    ""id"": ""448f110e-11ec-45b6-b9ea-93e8ef7d4ee7"",
+                    ""name"": ""Button Without Modifier"",
+                    ""id"": ""93241726-0a96-40a7-8d47-da846f39f191"",
+                    ""path"": ""ButtonWithoutModifier"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ß"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""Key"",
+                    ""id"": ""f945e67c-2e0f-45f9-836d-99f2a8e44d0d"",
                     ""path"": ""<Keyboard>/minus"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""ß"",
                     ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""AndNotKey"",
+                    ""id"": ""cb0645e2-69d2-4aef-aeb1-648ff88c19ab"",
+                    ""path"": ""<Keyboard>/shift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ß"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Button Without Modifier"",
+                    ""id"": ""584f3f9c-d20f-4590-953c-a09a3ec193b4"",
+                    ""path"": ""ButtonWithoutModifier"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""D1"",
+                    ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": """",
-                    ""id"": ""7c633a29-fc55-46ba-b74e-1ffdb5c1a710"",
+                    ""name"": ""Key"",
+                    ""id"": ""2653e339-1edc-437f-b18b-2116aac0f852"",
                     ""path"": ""<Keyboard>/1"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""d1"",
+                    ""action"": ""D1"",
                     ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""AndNotKey"",
+                    ""id"": ""134a2dd0-8dc5-4948-81e9-0bcac6e92d77"",
+                    ""path"": ""<Keyboard>/shift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""D1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Button Without Modifier"",
+                    ""id"": ""6892b36d-9090-4267-a794-32ebe032841d"",
+                    ""path"": ""ButtonWithoutModifier"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""D2"",
+                    ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": """",
-                    ""id"": ""092db429-b2ab-44f3-b921-938f2fad8196"",
+                    ""name"": ""Key"",
+                    ""id"": ""681f42d9-0b5c-45fc-b702-239ac7a55543"",
                     ""path"": ""<Keyboard>/2"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""d2"",
+                    ""action"": ""D2"",
                     ""isComposite"": false,
-                    ""isPartOfComposite"": false
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""AndNotKey"",
+                    ""id"": ""bacacf8a-258c-458d-b7a9-ffef1dc52d67"",
+                    ""path"": ""<Keyboard>/shift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""D2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 },
                 {
                     ""name"": """",
@@ -1411,7 +1560,7 @@ namespace IO
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""d3"",
+                    ""action"": ""D3"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -1422,7 +1571,7 @@ namespace IO
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""d4"",
+                    ""action"": ""D4"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -1433,7 +1582,7 @@ namespace IO
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""d5"",
+                    ""action"": ""D5"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -1444,7 +1593,7 @@ namespace IO
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""d6"",
+                    ""action"": ""D6"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -1455,31 +1604,75 @@ namespace IO
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""d7"",
+                    ""action"": ""D7"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": """",
-                    ""id"": ""e2ec0266-bd33-44e0-9ce0-ef8d289d8748"",
+                    ""name"": ""Button Without Modifier"",
+                    ""id"": ""7835a374-21e6-41e3-a7c3-59c3cf410a15"",
+                    ""path"": ""ButtonWithoutModifier"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""D8"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""Key"",
+                    ""id"": ""cf8159db-8c73-4b12-beb5-7196067894d9"",
                     ""path"": ""<Keyboard>/8"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""d8"",
+                    ""action"": ""D8"",
                     ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""AndNotKey"",
+                    ""id"": ""fe7b97aa-dd94-4d17-b2a6-6c6340177552"",
+                    ""path"": ""<Keyboard>/shift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""D8"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Button Without Modifier"",
+                    ""id"": ""415d367b-ee64-46be-96e2-701f5aa29e9e"",
+                    ""path"": ""ButtonWithoutModifier"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""D9"",
+                    ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": """",
-                    ""id"": ""85ef04f7-ad9f-4466-a3ae-8df7cefa6549"",
+                    ""name"": ""Key"",
+                    ""id"": ""f9c94059-b9b9-4df5-b98c-9196267bb49b"",
                     ""path"": ""<Keyboard>/9"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""d9"",
+                    ""action"": ""D9"",
                     ""isComposite"": false,
-                    ""isPartOfComposite"": false
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""AndNotKey"",
+                    ""id"": ""1f94a557-d443-4735-9681-ffb2e2033529"",
+                    ""path"": ""<Keyboard>/shift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""D9"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 },
                 {
                     ""name"": """",
@@ -1488,31 +1681,75 @@ namespace IO
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""d0"",
+                    ""action"": ""D0"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": """",
-                    ""id"": ""32201e93-fcb0-418e-ad2e-6ed1d6076647"",
+                    ""name"": ""Button Without Modifier"",
+                    ""id"": ""7d7cd1f7-6ada-42f9-b6ea-7a12ac2744df"",
+                    ""path"": ""ButtonWithoutModifier"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Comma"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""Key"",
+                    ""id"": ""44b3a000-163b-4813-b08f-5069e3d64b9f"",
                     ""path"": ""<Keyboard>/comma"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""comma"",
+                    ""action"": ""Comma"",
                     ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""AndNotKey"",
+                    ""id"": ""328e0590-da07-4be9-9448-c0ebc02c451f"",
+                    ""path"": ""<Keyboard>/shift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Comma"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Button Without Modifier"",
+                    ""id"": ""3c6970bf-2159-420a-95b6-78c58b8ecbc2"",
+                    ""path"": ""ButtonWithoutModifier"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Period"",
+                    ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": """",
-                    ""id"": ""f3755eae-f9da-41b7-ad2a-7a11ca6f582b"",
+                    ""name"": ""Key"",
+                    ""id"": ""d0d56839-b0e4-4659-97fb-1c0de1925c36"",
                     ""path"": ""<Keyboard>/period"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""period"",
+                    ""action"": ""Period"",
                     ""isComposite"": false,
-                    ""isPartOfComposite"": false
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""AndNotKey"",
+                    ""id"": ""2ba076f3-c42b-4e79-8833-984aedbd1bfb"",
+                    ""path"": ""<Keyboard>/shift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Period"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 },
                 {
                     ""name"": """",
@@ -1521,20 +1758,42 @@ namespace IO
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""dash"",
+                    ""action"": ""Dash"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": """",
-                    ""id"": ""2778c729-26ae-4dab-9d32-60de278aa30d"",
+                    ""name"": ""Button Without Modifier"",
+                    ""id"": ""50b29e33-7af1-4000-aee9-be31ab42fd9b"",
+                    ""path"": ""ButtonWithoutModifier"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Hashtag"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""Key"",
+                    ""id"": ""ce9c4efb-8702-4c8e-9327-b3edcaa55151"",
                     ""path"": ""<Keyboard>/backslash"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""hashtag"",
+                    ""action"": ""Hashtag"",
                     ""isComposite"": false,
-                    ""isPartOfComposite"": false
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""AndNotKey"",
+                    ""id"": ""4e8ceae6-9ad7-4ea3-acf0-49e4fd20787e"",
+                    ""path"": ""<Keyboard>/shift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Hashtag"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 },
                 {
                     ""name"": """",
@@ -1543,7 +1802,7 @@ namespace IO
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""space"",
+                    ""action"": ""Space"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -1554,7 +1813,7 @@ namespace IO
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""delete"",
+                    ""action"": ""Delete"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -1565,7 +1824,7 @@ namespace IO
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""shift"",
+                    ""action"": ""Shift"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -1576,7 +1835,7 @@ namespace IO
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""questionmark"",
+                    ""action"": ""Question"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
@@ -1587,7 +1846,7 @@ namespace IO
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""questionmark"",
+                    ""action"": ""Question"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -1598,7 +1857,238 @@ namespace IO
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""questionmark"",
+                    ""action"": ""Question"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""One Modifier"",
+                    ""id"": ""31b2056c-78d9-4d37-87f1-5da5c7c5f11d"",
+                    ""path"": ""OneModifier"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Exclamation"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""modifier"",
+                    ""id"": ""88a756d4-3498-490e-a33c-30ae80f79327"",
+                    ""path"": ""<Keyboard>/shift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Exclamation"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""binding"",
+                    ""id"": ""20b1d425-faf3-4a5e-8100-2f00695fb6cf"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Exclamation"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""One Modifier"",
+                    ""id"": ""31acbc0a-8863-45af-8fae-7337b72af808"",
+                    ""path"": ""OneModifier"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Quote"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""modifier"",
+                    ""id"": ""d03fcaef-003b-468f-b2cd-8a3bb3380091"",
+                    ""path"": ""<Keyboard>/shift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Quote"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""binding"",
+                    ""id"": ""10083b51-7bba-46f9-97fc-7f2548393f44"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Quote"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""One Modifier"",
+                    ""id"": ""2180f4a2-6ccd-49da-9165-e245b75ada1a"",
+                    ""path"": ""OneModifier"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Semicolon"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""modifier"",
+                    ""id"": ""b293eeda-8fb5-4a3b-875a-ceb8e53d5494"",
+                    ""path"": ""<Keyboard>/shift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Semicolon"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""binding"",
+                    ""id"": ""3fdc7d94-8ea0-4cba-b8fe-69e00335a1b9"",
+                    ""path"": ""<Keyboard>/comma"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Semicolon"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""One Modifier"",
+                    ""id"": ""baff732e-1126-4619-9c5e-b39111c240a8"",
+                    ""path"": ""OneModifier"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Colon"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""modifier"",
+                    ""id"": ""56dbf193-0762-41b8-a381-9d17e168c806"",
+                    ""path"": ""<Keyboard>/shift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Colon"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""binding"",
+                    ""id"": ""2066e527-913a-443f-ac00-0d1da92524a2"",
+                    ""path"": ""<Keyboard>/period"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Colon"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""One Modifier"",
+                    ""id"": ""29d18d36-440c-4855-995b-6d6cb46c0427"",
+                    ""path"": ""OneModifier"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LBrace"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""modifier"",
+                    ""id"": ""afaf48a8-e673-4146-a35d-13b89b1aca7f"",
+                    ""path"": ""<Keyboard>/shift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LBrace"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""binding"",
+                    ""id"": ""aaef74b3-7815-4083-857a-8a81ba83ab14"",
+                    ""path"": ""<Keyboard>/8"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LBrace"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""One Modifier"",
+                    ""id"": ""824e5a07-3b7d-4f37-8fd5-76e43fd2b8f3"",
+                    ""path"": ""OneModifier"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RBrace"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""modifier"",
+                    ""id"": ""1924b32c-b131-46d8-9d99-486e61fa9691"",
+                    ""path"": ""<Keyboard>/shift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RBrace"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""binding"",
+                    ""id"": ""ff26b92f-4c03-4209-88c1-db31b0c3e1e2"",
+                    ""path"": ""<Keyboard>/9"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RBrace"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""One Modifier"",
+                    ""id"": ""9b7867ea-a361-44ad-a314-6a0a144bf90e"",
+                    ""path"": ""OneModifier"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Apostrophe"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""modifier"",
+                    ""id"": ""04b283a2-9e30-406a-98d4-30587cfe2da0"",
+                    ""path"": ""<Keyboard>/shift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Apostrophe"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""binding"",
+                    ""id"": ""6e0cb11d-843e-498f-b164-f1bbff02c9b4"",
+                    ""path"": ""<Keyboard>/backslash"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Apostrophe"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 }
@@ -1638,56 +2128,64 @@ namespace IO
             m_Navigation_answer4 = m_Navigation.FindAction("answer4", throwIfNotFound: true);
             m_Navigation_answer5 = m_Navigation.FindAction("answer5", throwIfNotFound: true);
             m_Navigation_confirm = m_Navigation.FindAction("confirm", throwIfNotFound: true);
+            m_Navigation_SwitchUILayer = m_Navigation.FindAction("Switch UI Layer", throwIfNotFound: true);
             // BrailleKeyboard
             m_BrailleKeyboard = asset.FindActionMap("BrailleKeyboard", throwIfNotFound: true);
-            m_BrailleKeyboard_a = m_BrailleKeyboard.FindAction("a", throwIfNotFound: true);
-            m_BrailleKeyboard_b = m_BrailleKeyboard.FindAction("b", throwIfNotFound: true);
-            m_BrailleKeyboard_c = m_BrailleKeyboard.FindAction("c", throwIfNotFound: true);
-            m_BrailleKeyboard_d = m_BrailleKeyboard.FindAction("d", throwIfNotFound: true);
-            m_BrailleKeyboard_e = m_BrailleKeyboard.FindAction("e", throwIfNotFound: true);
-            m_BrailleKeyboard_f = m_BrailleKeyboard.FindAction("f", throwIfNotFound: true);
-            m_BrailleKeyboard_g = m_BrailleKeyboard.FindAction("g", throwIfNotFound: true);
-            m_BrailleKeyboard_h = m_BrailleKeyboard.FindAction("h", throwIfNotFound: true);
-            m_BrailleKeyboard_i = m_BrailleKeyboard.FindAction("i", throwIfNotFound: true);
-            m_BrailleKeyboard_j = m_BrailleKeyboard.FindAction("j", throwIfNotFound: true);
-            m_BrailleKeyboard_k = m_BrailleKeyboard.FindAction("k", throwIfNotFound: true);
-            m_BrailleKeyboard_l = m_BrailleKeyboard.FindAction("l", throwIfNotFound: true);
-            m_BrailleKeyboard_m = m_BrailleKeyboard.FindAction("m", throwIfNotFound: true);
-            m_BrailleKeyboard_n = m_BrailleKeyboard.FindAction("n", throwIfNotFound: true);
-            m_BrailleKeyboard_o = m_BrailleKeyboard.FindAction("o", throwIfNotFound: true);
-            m_BrailleKeyboard_p = m_BrailleKeyboard.FindAction("p", throwIfNotFound: true);
-            m_BrailleKeyboard_q = m_BrailleKeyboard.FindAction("q", throwIfNotFound: true);
-            m_BrailleKeyboard_r = m_BrailleKeyboard.FindAction("r", throwIfNotFound: true);
-            m_BrailleKeyboard_s = m_BrailleKeyboard.FindAction("s", throwIfNotFound: true);
-            m_BrailleKeyboard_t = m_BrailleKeyboard.FindAction("t", throwIfNotFound: true);
-            m_BrailleKeyboard_u = m_BrailleKeyboard.FindAction("u", throwIfNotFound: true);
-            m_BrailleKeyboard_v = m_BrailleKeyboard.FindAction("v", throwIfNotFound: true);
-            m_BrailleKeyboard_w = m_BrailleKeyboard.FindAction("w", throwIfNotFound: true);
-            m_BrailleKeyboard_x = m_BrailleKeyboard.FindAction("x", throwIfNotFound: true);
-            m_BrailleKeyboard_y = m_BrailleKeyboard.FindAction("y", throwIfNotFound: true);
-            m_BrailleKeyboard_z = m_BrailleKeyboard.FindAction("z", throwIfNotFound: true);
-            m_BrailleKeyboard_ä = m_BrailleKeyboard.FindAction("ä", throwIfNotFound: true);
-            m_BrailleKeyboard_ö = m_BrailleKeyboard.FindAction("ö", throwIfNotFound: true);
-            m_BrailleKeyboard_ü = m_BrailleKeyboard.FindAction("ü", throwIfNotFound: true);
+            m_BrailleKeyboard_A = m_BrailleKeyboard.FindAction("A", throwIfNotFound: true);
+            m_BrailleKeyboard_B = m_BrailleKeyboard.FindAction("B", throwIfNotFound: true);
+            m_BrailleKeyboard_C = m_BrailleKeyboard.FindAction("C", throwIfNotFound: true);
+            m_BrailleKeyboard_D = m_BrailleKeyboard.FindAction("D", throwIfNotFound: true);
+            m_BrailleKeyboard_E = m_BrailleKeyboard.FindAction("E", throwIfNotFound: true);
+            m_BrailleKeyboard_F = m_BrailleKeyboard.FindAction("F", throwIfNotFound: true);
+            m_BrailleKeyboard_G = m_BrailleKeyboard.FindAction("G", throwIfNotFound: true);
+            m_BrailleKeyboard_H = m_BrailleKeyboard.FindAction("H", throwIfNotFound: true);
+            m_BrailleKeyboard_I = m_BrailleKeyboard.FindAction("I", throwIfNotFound: true);
+            m_BrailleKeyboard_J = m_BrailleKeyboard.FindAction("J", throwIfNotFound: true);
+            m_BrailleKeyboard_K = m_BrailleKeyboard.FindAction("K", throwIfNotFound: true);
+            m_BrailleKeyboard_L = m_BrailleKeyboard.FindAction("L", throwIfNotFound: true);
+            m_BrailleKeyboard_M = m_BrailleKeyboard.FindAction("M", throwIfNotFound: true);
+            m_BrailleKeyboard_N = m_BrailleKeyboard.FindAction("N", throwIfNotFound: true);
+            m_BrailleKeyboard_O = m_BrailleKeyboard.FindAction("O", throwIfNotFound: true);
+            m_BrailleKeyboard_P = m_BrailleKeyboard.FindAction("P", throwIfNotFound: true);
+            m_BrailleKeyboard_Q = m_BrailleKeyboard.FindAction("Q", throwIfNotFound: true);
+            m_BrailleKeyboard_R = m_BrailleKeyboard.FindAction("R", throwIfNotFound: true);
+            m_BrailleKeyboard_S = m_BrailleKeyboard.FindAction("S", throwIfNotFound: true);
+            m_BrailleKeyboard_T = m_BrailleKeyboard.FindAction("T", throwIfNotFound: true);
+            m_BrailleKeyboard_U = m_BrailleKeyboard.FindAction("U", throwIfNotFound: true);
+            m_BrailleKeyboard_V = m_BrailleKeyboard.FindAction("V", throwIfNotFound: true);
+            m_BrailleKeyboard_W = m_BrailleKeyboard.FindAction("W", throwIfNotFound: true);
+            m_BrailleKeyboard_X = m_BrailleKeyboard.FindAction("X", throwIfNotFound: true);
+            m_BrailleKeyboard_Y = m_BrailleKeyboard.FindAction("Y", throwIfNotFound: true);
+            m_BrailleKeyboard_Z = m_BrailleKeyboard.FindAction("Z", throwIfNotFound: true);
+            m_BrailleKeyboard_Ä = m_BrailleKeyboard.FindAction("Ä", throwIfNotFound: true);
+            m_BrailleKeyboard_Ö = m_BrailleKeyboard.FindAction("Ö", throwIfNotFound: true);
+            m_BrailleKeyboard_Ü = m_BrailleKeyboard.FindAction("Ü", throwIfNotFound: true);
             m_BrailleKeyboard_ß = m_BrailleKeyboard.FindAction("ß", throwIfNotFound: true);
-            m_BrailleKeyboard_d1 = m_BrailleKeyboard.FindAction("d1", throwIfNotFound: true);
-            m_BrailleKeyboard_d2 = m_BrailleKeyboard.FindAction("d2", throwIfNotFound: true);
-            m_BrailleKeyboard_d3 = m_BrailleKeyboard.FindAction("d3", throwIfNotFound: true);
-            m_BrailleKeyboard_d4 = m_BrailleKeyboard.FindAction("d4", throwIfNotFound: true);
-            m_BrailleKeyboard_d5 = m_BrailleKeyboard.FindAction("d5", throwIfNotFound: true);
-            m_BrailleKeyboard_d6 = m_BrailleKeyboard.FindAction("d6", throwIfNotFound: true);
-            m_BrailleKeyboard_d7 = m_BrailleKeyboard.FindAction("d7", throwIfNotFound: true);
-            m_BrailleKeyboard_d8 = m_BrailleKeyboard.FindAction("d8", throwIfNotFound: true);
-            m_BrailleKeyboard_d9 = m_BrailleKeyboard.FindAction("d9", throwIfNotFound: true);
-            m_BrailleKeyboard_d0 = m_BrailleKeyboard.FindAction("d0", throwIfNotFound: true);
-            m_BrailleKeyboard_comma = m_BrailleKeyboard.FindAction("comma", throwIfNotFound: true);
-            m_BrailleKeyboard_period = m_BrailleKeyboard.FindAction("period", throwIfNotFound: true);
-            m_BrailleKeyboard_dash = m_BrailleKeyboard.FindAction("dash", throwIfNotFound: true);
-            m_BrailleKeyboard_hashtag = m_BrailleKeyboard.FindAction("hashtag", throwIfNotFound: true);
-            m_BrailleKeyboard_space = m_BrailleKeyboard.FindAction("space", throwIfNotFound: true);
-            m_BrailleKeyboard_delete = m_BrailleKeyboard.FindAction("delete", throwIfNotFound: true);
-            m_BrailleKeyboard_shift = m_BrailleKeyboard.FindAction("shift", throwIfNotFound: true);
-            m_BrailleKeyboard_questionmark = m_BrailleKeyboard.FindAction("questionmark", throwIfNotFound: true);
+            m_BrailleKeyboard_D1 = m_BrailleKeyboard.FindAction("D1", throwIfNotFound: true);
+            m_BrailleKeyboard_D2 = m_BrailleKeyboard.FindAction("D2", throwIfNotFound: true);
+            m_BrailleKeyboard_D3 = m_BrailleKeyboard.FindAction("D3", throwIfNotFound: true);
+            m_BrailleKeyboard_D4 = m_BrailleKeyboard.FindAction("D4", throwIfNotFound: true);
+            m_BrailleKeyboard_D5 = m_BrailleKeyboard.FindAction("D5", throwIfNotFound: true);
+            m_BrailleKeyboard_D6 = m_BrailleKeyboard.FindAction("D6", throwIfNotFound: true);
+            m_BrailleKeyboard_D7 = m_BrailleKeyboard.FindAction("D7", throwIfNotFound: true);
+            m_BrailleKeyboard_D8 = m_BrailleKeyboard.FindAction("D8", throwIfNotFound: true);
+            m_BrailleKeyboard_D9 = m_BrailleKeyboard.FindAction("D9", throwIfNotFound: true);
+            m_BrailleKeyboard_D0 = m_BrailleKeyboard.FindAction("D0", throwIfNotFound: true);
+            m_BrailleKeyboard_Comma = m_BrailleKeyboard.FindAction("Comma", throwIfNotFound: true);
+            m_BrailleKeyboard_Period = m_BrailleKeyboard.FindAction("Period", throwIfNotFound: true);
+            m_BrailleKeyboard_Dash = m_BrailleKeyboard.FindAction("Dash", throwIfNotFound: true);
+            m_BrailleKeyboard_Hashtag = m_BrailleKeyboard.FindAction("Hashtag", throwIfNotFound: true);
+            m_BrailleKeyboard_Space = m_BrailleKeyboard.FindAction("Space", throwIfNotFound: true);
+            m_BrailleKeyboard_Delete = m_BrailleKeyboard.FindAction("Delete", throwIfNotFound: true);
+            m_BrailleKeyboard_Shift = m_BrailleKeyboard.FindAction("Shift", throwIfNotFound: true);
+            m_BrailleKeyboard_Question = m_BrailleKeyboard.FindAction("Question", throwIfNotFound: true);
+            m_BrailleKeyboard_Exclamation = m_BrailleKeyboard.FindAction("Exclamation", throwIfNotFound: true);
+            m_BrailleKeyboard_Quote = m_BrailleKeyboard.FindAction("Quote", throwIfNotFound: true);
+            m_BrailleKeyboard_Semicolon = m_BrailleKeyboard.FindAction("Semicolon", throwIfNotFound: true);
+            m_BrailleKeyboard_Colon = m_BrailleKeyboard.FindAction("Colon", throwIfNotFound: true);
+            m_BrailleKeyboard_LBrace = m_BrailleKeyboard.FindAction("LBrace", throwIfNotFound: true);
+            m_BrailleKeyboard_RBrace = m_BrailleKeyboard.FindAction("RBrace", throwIfNotFound: true);
+            m_BrailleKeyboard_Apostrophe = m_BrailleKeyboard.FindAction("Apostrophe", throwIfNotFound: true);
         }
 
         ~@GameActions()
@@ -2126,6 +2624,7 @@ namespace IO
         private readonly InputAction m_Navigation_answer4;
         private readonly InputAction m_Navigation_answer5;
         private readonly InputAction m_Navigation_confirm;
+        private readonly InputAction m_Navigation_SwitchUILayer;
         /// <summary>
         /// Provides access to input actions defined in input action map "Navigation".
         /// </summary>
@@ -2173,6 +2672,10 @@ namespace IO
             /// Provides access to the underlying input action "Navigation/confirm".
             /// </summary>
             public InputAction @confirm => m_Wrapper.m_Navigation_confirm;
+            /// <summary>
+            /// Provides access to the underlying input action "Navigation/SwitchUILayer".
+            /// </summary>
+            public InputAction @SwitchUILayer => m_Wrapper.m_Navigation_SwitchUILayer;
             /// <summary>
             /// Provides access to the underlying input action map instance.
             /// </summary>
@@ -2226,6 +2729,9 @@ namespace IO
                 @confirm.started += instance.OnConfirm;
                 @confirm.performed += instance.OnConfirm;
                 @confirm.canceled += instance.OnConfirm;
+                @SwitchUILayer.started += instance.OnSwitchUILayer;
+                @SwitchUILayer.performed += instance.OnSwitchUILayer;
+                @SwitchUILayer.canceled += instance.OnSwitchUILayer;
             }
 
             /// <summary>
@@ -2264,6 +2770,9 @@ namespace IO
                 @confirm.started -= instance.OnConfirm;
                 @confirm.performed -= instance.OnConfirm;
                 @confirm.canceled -= instance.OnConfirm;
+                @SwitchUILayer.started -= instance.OnSwitchUILayer;
+                @SwitchUILayer.performed -= instance.OnSwitchUILayer;
+                @SwitchUILayer.canceled -= instance.OnSwitchUILayer;
             }
 
             /// <summary>
@@ -2301,54 +2810,61 @@ namespace IO
         // BrailleKeyboard
         private readonly InputActionMap m_BrailleKeyboard;
         private List<IBrailleKeyboardActions> m_BrailleKeyboardActionsCallbackInterfaces = new List<IBrailleKeyboardActions>();
-        private readonly InputAction m_BrailleKeyboard_a;
-        private readonly InputAction m_BrailleKeyboard_b;
-        private readonly InputAction m_BrailleKeyboard_c;
-        private readonly InputAction m_BrailleKeyboard_d;
-        private readonly InputAction m_BrailleKeyboard_e;
-        private readonly InputAction m_BrailleKeyboard_f;
-        private readonly InputAction m_BrailleKeyboard_g;
-        private readonly InputAction m_BrailleKeyboard_h;
-        private readonly InputAction m_BrailleKeyboard_i;
-        private readonly InputAction m_BrailleKeyboard_j;
-        private readonly InputAction m_BrailleKeyboard_k;
-        private readonly InputAction m_BrailleKeyboard_l;
-        private readonly InputAction m_BrailleKeyboard_m;
-        private readonly InputAction m_BrailleKeyboard_n;
-        private readonly InputAction m_BrailleKeyboard_o;
-        private readonly InputAction m_BrailleKeyboard_p;
-        private readonly InputAction m_BrailleKeyboard_q;
-        private readonly InputAction m_BrailleKeyboard_r;
-        private readonly InputAction m_BrailleKeyboard_s;
-        private readonly InputAction m_BrailleKeyboard_t;
-        private readonly InputAction m_BrailleKeyboard_u;
-        private readonly InputAction m_BrailleKeyboard_v;
-        private readonly InputAction m_BrailleKeyboard_w;
-        private readonly InputAction m_BrailleKeyboard_x;
-        private readonly InputAction m_BrailleKeyboard_y;
-        private readonly InputAction m_BrailleKeyboard_z;
-        private readonly InputAction m_BrailleKeyboard_ä;
-        private readonly InputAction m_BrailleKeyboard_ö;
-        private readonly InputAction m_BrailleKeyboard_ü;
+        private readonly InputAction m_BrailleKeyboard_A;
+        private readonly InputAction m_BrailleKeyboard_B;
+        private readonly InputAction m_BrailleKeyboard_C;
+        private readonly InputAction m_BrailleKeyboard_D;
+        private readonly InputAction m_BrailleKeyboard_E;
+        private readonly InputAction m_BrailleKeyboard_F;
+        private readonly InputAction m_BrailleKeyboard_G;
+        private readonly InputAction m_BrailleKeyboard_H;
+        private readonly InputAction m_BrailleKeyboard_I;
+        private readonly InputAction m_BrailleKeyboard_J;
+        private readonly InputAction m_BrailleKeyboard_K;
+        private readonly InputAction m_BrailleKeyboard_L;
+        private readonly InputAction m_BrailleKeyboard_M;
+        private readonly InputAction m_BrailleKeyboard_N;
+        private readonly InputAction m_BrailleKeyboard_O;
+        private readonly InputAction m_BrailleKeyboard_P;
+        private readonly InputAction m_BrailleKeyboard_Q;
+        private readonly InputAction m_BrailleKeyboard_R;
+        private readonly InputAction m_BrailleKeyboard_S;
+        private readonly InputAction m_BrailleKeyboard_T;
+        private readonly InputAction m_BrailleKeyboard_U;
+        private readonly InputAction m_BrailleKeyboard_V;
+        private readonly InputAction m_BrailleKeyboard_W;
+        private readonly InputAction m_BrailleKeyboard_X;
+        private readonly InputAction m_BrailleKeyboard_Y;
+        private readonly InputAction m_BrailleKeyboard_Z;
+        private readonly InputAction m_BrailleKeyboard_Ä;
+        private readonly InputAction m_BrailleKeyboard_Ö;
+        private readonly InputAction m_BrailleKeyboard_Ü;
         private readonly InputAction m_BrailleKeyboard_ß;
-        private readonly InputAction m_BrailleKeyboard_d1;
-        private readonly InputAction m_BrailleKeyboard_d2;
-        private readonly InputAction m_BrailleKeyboard_d3;
-        private readonly InputAction m_BrailleKeyboard_d4;
-        private readonly InputAction m_BrailleKeyboard_d5;
-        private readonly InputAction m_BrailleKeyboard_d6;
-        private readonly InputAction m_BrailleKeyboard_d7;
-        private readonly InputAction m_BrailleKeyboard_d8;
-        private readonly InputAction m_BrailleKeyboard_d9;
-        private readonly InputAction m_BrailleKeyboard_d0;
-        private readonly InputAction m_BrailleKeyboard_comma;
-        private readonly InputAction m_BrailleKeyboard_period;
-        private readonly InputAction m_BrailleKeyboard_dash;
-        private readonly InputAction m_BrailleKeyboard_hashtag;
-        private readonly InputAction m_BrailleKeyboard_space;
-        private readonly InputAction m_BrailleKeyboard_delete;
-        private readonly InputAction m_BrailleKeyboard_shift;
-        private readonly InputAction m_BrailleKeyboard_questionmark;
+        private readonly InputAction m_BrailleKeyboard_D1;
+        private readonly InputAction m_BrailleKeyboard_D2;
+        private readonly InputAction m_BrailleKeyboard_D3;
+        private readonly InputAction m_BrailleKeyboard_D4;
+        private readonly InputAction m_BrailleKeyboard_D5;
+        private readonly InputAction m_BrailleKeyboard_D6;
+        private readonly InputAction m_BrailleKeyboard_D7;
+        private readonly InputAction m_BrailleKeyboard_D8;
+        private readonly InputAction m_BrailleKeyboard_D9;
+        private readonly InputAction m_BrailleKeyboard_D0;
+        private readonly InputAction m_BrailleKeyboard_Comma;
+        private readonly InputAction m_BrailleKeyboard_Period;
+        private readonly InputAction m_BrailleKeyboard_Dash;
+        private readonly InputAction m_BrailleKeyboard_Hashtag;
+        private readonly InputAction m_BrailleKeyboard_Space;
+        private readonly InputAction m_BrailleKeyboard_Delete;
+        private readonly InputAction m_BrailleKeyboard_Shift;
+        private readonly InputAction m_BrailleKeyboard_Question;
+        private readonly InputAction m_BrailleKeyboard_Exclamation;
+        private readonly InputAction m_BrailleKeyboard_Quote;
+        private readonly InputAction m_BrailleKeyboard_Semicolon;
+        private readonly InputAction m_BrailleKeyboard_Colon;
+        private readonly InputAction m_BrailleKeyboard_LBrace;
+        private readonly InputAction m_BrailleKeyboard_RBrace;
+        private readonly InputAction m_BrailleKeyboard_Apostrophe;
         /// <summary>
         /// Provides access to input actions defined in input action map "BrailleKeyboard".
         /// </summary>
@@ -2361,197 +2877,225 @@ namespace IO
             /// </summary>
             public BrailleKeyboardActions(@GameActions wrapper) { m_Wrapper = wrapper; }
             /// <summary>
-            /// Provides access to the underlying input action "BrailleKeyboard/a".
+            /// Provides access to the underlying input action "BrailleKeyboard/A".
             /// </summary>
-            public InputAction @a => m_Wrapper.m_BrailleKeyboard_a;
+            public InputAction @A => m_Wrapper.m_BrailleKeyboard_A;
             /// <summary>
-            /// Provides access to the underlying input action "BrailleKeyboard/b".
+            /// Provides access to the underlying input action "BrailleKeyboard/B".
             /// </summary>
-            public InputAction @b => m_Wrapper.m_BrailleKeyboard_b;
+            public InputAction @B => m_Wrapper.m_BrailleKeyboard_B;
             /// <summary>
-            /// Provides access to the underlying input action "BrailleKeyboard/c".
+            /// Provides access to the underlying input action "BrailleKeyboard/C".
             /// </summary>
-            public InputAction @c => m_Wrapper.m_BrailleKeyboard_c;
+            public InputAction @C => m_Wrapper.m_BrailleKeyboard_C;
             /// <summary>
-            /// Provides access to the underlying input action "BrailleKeyboard/d".
+            /// Provides access to the underlying input action "BrailleKeyboard/D".
             /// </summary>
-            public InputAction @d => m_Wrapper.m_BrailleKeyboard_d;
+            public InputAction @D => m_Wrapper.m_BrailleKeyboard_D;
             /// <summary>
-            /// Provides access to the underlying input action "BrailleKeyboard/e".
+            /// Provides access to the underlying input action "BrailleKeyboard/E".
             /// </summary>
-            public InputAction @e => m_Wrapper.m_BrailleKeyboard_e;
+            public InputAction @E => m_Wrapper.m_BrailleKeyboard_E;
             /// <summary>
-            /// Provides access to the underlying input action "BrailleKeyboard/f".
+            /// Provides access to the underlying input action "BrailleKeyboard/F".
             /// </summary>
-            public InputAction @f => m_Wrapper.m_BrailleKeyboard_f;
+            public InputAction @F => m_Wrapper.m_BrailleKeyboard_F;
             /// <summary>
-            /// Provides access to the underlying input action "BrailleKeyboard/g".
+            /// Provides access to the underlying input action "BrailleKeyboard/G".
             /// </summary>
-            public InputAction @g => m_Wrapper.m_BrailleKeyboard_g;
+            public InputAction @G => m_Wrapper.m_BrailleKeyboard_G;
             /// <summary>
-            /// Provides access to the underlying input action "BrailleKeyboard/h".
+            /// Provides access to the underlying input action "BrailleKeyboard/H".
             /// </summary>
-            public InputAction @h => m_Wrapper.m_BrailleKeyboard_h;
+            public InputAction @H => m_Wrapper.m_BrailleKeyboard_H;
             /// <summary>
-            /// Provides access to the underlying input action "BrailleKeyboard/i".
+            /// Provides access to the underlying input action "BrailleKeyboard/I".
             /// </summary>
-            public InputAction @i => m_Wrapper.m_BrailleKeyboard_i;
+            public InputAction @I => m_Wrapper.m_BrailleKeyboard_I;
             /// <summary>
-            /// Provides access to the underlying input action "BrailleKeyboard/j".
+            /// Provides access to the underlying input action "BrailleKeyboard/J".
             /// </summary>
-            public InputAction @j => m_Wrapper.m_BrailleKeyboard_j;
+            public InputAction @J => m_Wrapper.m_BrailleKeyboard_J;
             /// <summary>
-            /// Provides access to the underlying input action "BrailleKeyboard/k".
+            /// Provides access to the underlying input action "BrailleKeyboard/K".
             /// </summary>
-            public InputAction @k => m_Wrapper.m_BrailleKeyboard_k;
+            public InputAction @K => m_Wrapper.m_BrailleKeyboard_K;
             /// <summary>
-            /// Provides access to the underlying input action "BrailleKeyboard/l".
+            /// Provides access to the underlying input action "BrailleKeyboard/L".
             /// </summary>
-            public InputAction @l => m_Wrapper.m_BrailleKeyboard_l;
+            public InputAction @L => m_Wrapper.m_BrailleKeyboard_L;
             /// <summary>
-            /// Provides access to the underlying input action "BrailleKeyboard/m".
+            /// Provides access to the underlying input action "BrailleKeyboard/M".
             /// </summary>
-            public InputAction @m => m_Wrapper.m_BrailleKeyboard_m;
+            public InputAction @M => m_Wrapper.m_BrailleKeyboard_M;
             /// <summary>
-            /// Provides access to the underlying input action "BrailleKeyboard/n".
+            /// Provides access to the underlying input action "BrailleKeyboard/N".
             /// </summary>
-            public InputAction @n => m_Wrapper.m_BrailleKeyboard_n;
+            public InputAction @N => m_Wrapper.m_BrailleKeyboard_N;
             /// <summary>
-            /// Provides access to the underlying input action "BrailleKeyboard/o".
+            /// Provides access to the underlying input action "BrailleKeyboard/O".
             /// </summary>
-            public InputAction @o => m_Wrapper.m_BrailleKeyboard_o;
+            public InputAction @O => m_Wrapper.m_BrailleKeyboard_O;
             /// <summary>
-            /// Provides access to the underlying input action "BrailleKeyboard/p".
+            /// Provides access to the underlying input action "BrailleKeyboard/P".
             /// </summary>
-            public InputAction @p => m_Wrapper.m_BrailleKeyboard_p;
+            public InputAction @P => m_Wrapper.m_BrailleKeyboard_P;
             /// <summary>
-            /// Provides access to the underlying input action "BrailleKeyboard/q".
+            /// Provides access to the underlying input action "BrailleKeyboard/Q".
             /// </summary>
-            public InputAction @q => m_Wrapper.m_BrailleKeyboard_q;
+            public InputAction @Q => m_Wrapper.m_BrailleKeyboard_Q;
             /// <summary>
-            /// Provides access to the underlying input action "BrailleKeyboard/r".
+            /// Provides access to the underlying input action "BrailleKeyboard/R".
             /// </summary>
-            public InputAction @r => m_Wrapper.m_BrailleKeyboard_r;
+            public InputAction @R => m_Wrapper.m_BrailleKeyboard_R;
             /// <summary>
-            /// Provides access to the underlying input action "BrailleKeyboard/s".
+            /// Provides access to the underlying input action "BrailleKeyboard/S".
             /// </summary>
-            public InputAction @s => m_Wrapper.m_BrailleKeyboard_s;
+            public InputAction @S => m_Wrapper.m_BrailleKeyboard_S;
             /// <summary>
-            /// Provides access to the underlying input action "BrailleKeyboard/t".
+            /// Provides access to the underlying input action "BrailleKeyboard/T".
             /// </summary>
-            public InputAction @t => m_Wrapper.m_BrailleKeyboard_t;
+            public InputAction @T => m_Wrapper.m_BrailleKeyboard_T;
             /// <summary>
-            /// Provides access to the underlying input action "BrailleKeyboard/u".
+            /// Provides access to the underlying input action "BrailleKeyboard/U".
             /// </summary>
-            public InputAction @u => m_Wrapper.m_BrailleKeyboard_u;
+            public InputAction @U => m_Wrapper.m_BrailleKeyboard_U;
             /// <summary>
-            /// Provides access to the underlying input action "BrailleKeyboard/v".
+            /// Provides access to the underlying input action "BrailleKeyboard/V".
             /// </summary>
-            public InputAction @v => m_Wrapper.m_BrailleKeyboard_v;
+            public InputAction @V => m_Wrapper.m_BrailleKeyboard_V;
             /// <summary>
-            /// Provides access to the underlying input action "BrailleKeyboard/w".
+            /// Provides access to the underlying input action "BrailleKeyboard/W".
             /// </summary>
-            public InputAction @w => m_Wrapper.m_BrailleKeyboard_w;
+            public InputAction @W => m_Wrapper.m_BrailleKeyboard_W;
             /// <summary>
-            /// Provides access to the underlying input action "BrailleKeyboard/x".
+            /// Provides access to the underlying input action "BrailleKeyboard/X".
             /// </summary>
-            public InputAction @x => m_Wrapper.m_BrailleKeyboard_x;
+            public InputAction @X => m_Wrapper.m_BrailleKeyboard_X;
             /// <summary>
-            /// Provides access to the underlying input action "BrailleKeyboard/y".
+            /// Provides access to the underlying input action "BrailleKeyboard/Y".
             /// </summary>
-            public InputAction @y => m_Wrapper.m_BrailleKeyboard_y;
+            public InputAction @Y => m_Wrapper.m_BrailleKeyboard_Y;
             /// <summary>
-            /// Provides access to the underlying input action "BrailleKeyboard/z".
+            /// Provides access to the underlying input action "BrailleKeyboard/Z".
             /// </summary>
-            public InputAction @z => m_Wrapper.m_BrailleKeyboard_z;
+            public InputAction @Z => m_Wrapper.m_BrailleKeyboard_Z;
             /// <summary>
-            /// Provides access to the underlying input action "BrailleKeyboard/ä".
+            /// Provides access to the underlying input action "BrailleKeyboard/Ä".
             /// </summary>
-            public InputAction @ä => m_Wrapper.m_BrailleKeyboard_ä;
+            public InputAction @Ä => m_Wrapper.m_BrailleKeyboard_Ä;
             /// <summary>
-            /// Provides access to the underlying input action "BrailleKeyboard/ö".
+            /// Provides access to the underlying input action "BrailleKeyboard/Ö".
             /// </summary>
-            public InputAction @ö => m_Wrapper.m_BrailleKeyboard_ö;
+            public InputAction @Ö => m_Wrapper.m_BrailleKeyboard_Ö;
             /// <summary>
-            /// Provides access to the underlying input action "BrailleKeyboard/ü".
+            /// Provides access to the underlying input action "BrailleKeyboard/Ü".
             /// </summary>
-            public InputAction @ü => m_Wrapper.m_BrailleKeyboard_ü;
+            public InputAction @Ü => m_Wrapper.m_BrailleKeyboard_Ü;
             /// <summary>
             /// Provides access to the underlying input action "BrailleKeyboard/ß".
             /// </summary>
             public InputAction @ß => m_Wrapper.m_BrailleKeyboard_ß;
             /// <summary>
-            /// Provides access to the underlying input action "BrailleKeyboard/d1".
+            /// Provides access to the underlying input action "BrailleKeyboard/D1".
             /// </summary>
-            public InputAction @d1 => m_Wrapper.m_BrailleKeyboard_d1;
+            public InputAction @D1 => m_Wrapper.m_BrailleKeyboard_D1;
             /// <summary>
-            /// Provides access to the underlying input action "BrailleKeyboard/d2".
+            /// Provides access to the underlying input action "BrailleKeyboard/D2".
             /// </summary>
-            public InputAction @d2 => m_Wrapper.m_BrailleKeyboard_d2;
+            public InputAction @D2 => m_Wrapper.m_BrailleKeyboard_D2;
             /// <summary>
-            /// Provides access to the underlying input action "BrailleKeyboard/d3".
+            /// Provides access to the underlying input action "BrailleKeyboard/D3".
             /// </summary>
-            public InputAction @d3 => m_Wrapper.m_BrailleKeyboard_d3;
+            public InputAction @D3 => m_Wrapper.m_BrailleKeyboard_D3;
             /// <summary>
-            /// Provides access to the underlying input action "BrailleKeyboard/d4".
+            /// Provides access to the underlying input action "BrailleKeyboard/D4".
             /// </summary>
-            public InputAction @d4 => m_Wrapper.m_BrailleKeyboard_d4;
+            public InputAction @D4 => m_Wrapper.m_BrailleKeyboard_D4;
             /// <summary>
-            /// Provides access to the underlying input action "BrailleKeyboard/d5".
+            /// Provides access to the underlying input action "BrailleKeyboard/D5".
             /// </summary>
-            public InputAction @d5 => m_Wrapper.m_BrailleKeyboard_d5;
+            public InputAction @D5 => m_Wrapper.m_BrailleKeyboard_D5;
             /// <summary>
-            /// Provides access to the underlying input action "BrailleKeyboard/d6".
+            /// Provides access to the underlying input action "BrailleKeyboard/D6".
             /// </summary>
-            public InputAction @d6 => m_Wrapper.m_BrailleKeyboard_d6;
+            public InputAction @D6 => m_Wrapper.m_BrailleKeyboard_D6;
             /// <summary>
-            /// Provides access to the underlying input action "BrailleKeyboard/d7".
+            /// Provides access to the underlying input action "BrailleKeyboard/D7".
             /// </summary>
-            public InputAction @d7 => m_Wrapper.m_BrailleKeyboard_d7;
+            public InputAction @D7 => m_Wrapper.m_BrailleKeyboard_D7;
             /// <summary>
-            /// Provides access to the underlying input action "BrailleKeyboard/d8".
+            /// Provides access to the underlying input action "BrailleKeyboard/D8".
             /// </summary>
-            public InputAction @d8 => m_Wrapper.m_BrailleKeyboard_d8;
+            public InputAction @D8 => m_Wrapper.m_BrailleKeyboard_D8;
             /// <summary>
-            /// Provides access to the underlying input action "BrailleKeyboard/d9".
+            /// Provides access to the underlying input action "BrailleKeyboard/D9".
             /// </summary>
-            public InputAction @d9 => m_Wrapper.m_BrailleKeyboard_d9;
+            public InputAction @D9 => m_Wrapper.m_BrailleKeyboard_D9;
             /// <summary>
-            /// Provides access to the underlying input action "BrailleKeyboard/d0".
+            /// Provides access to the underlying input action "BrailleKeyboard/D0".
             /// </summary>
-            public InputAction @d0 => m_Wrapper.m_BrailleKeyboard_d0;
+            public InputAction @D0 => m_Wrapper.m_BrailleKeyboard_D0;
             /// <summary>
-            /// Provides access to the underlying input action "BrailleKeyboard/comma".
+            /// Provides access to the underlying input action "BrailleKeyboard/Comma".
             /// </summary>
-            public InputAction @comma => m_Wrapper.m_BrailleKeyboard_comma;
+            public InputAction @Comma => m_Wrapper.m_BrailleKeyboard_Comma;
             /// <summary>
-            /// Provides access to the underlying input action "BrailleKeyboard/period".
+            /// Provides access to the underlying input action "BrailleKeyboard/Period".
             /// </summary>
-            public InputAction @period => m_Wrapper.m_BrailleKeyboard_period;
+            public InputAction @Period => m_Wrapper.m_BrailleKeyboard_Period;
             /// <summary>
-            /// Provides access to the underlying input action "BrailleKeyboard/dash".
+            /// Provides access to the underlying input action "BrailleKeyboard/Dash".
             /// </summary>
-            public InputAction @dash => m_Wrapper.m_BrailleKeyboard_dash;
+            public InputAction @Dash => m_Wrapper.m_BrailleKeyboard_Dash;
             /// <summary>
-            /// Provides access to the underlying input action "BrailleKeyboard/hashtag".
+            /// Provides access to the underlying input action "BrailleKeyboard/Hashtag".
             /// </summary>
-            public InputAction @hashtag => m_Wrapper.m_BrailleKeyboard_hashtag;
+            public InputAction @Hashtag => m_Wrapper.m_BrailleKeyboard_Hashtag;
             /// <summary>
-            /// Provides access to the underlying input action "BrailleKeyboard/space".
+            /// Provides access to the underlying input action "BrailleKeyboard/Space".
             /// </summary>
-            public InputAction @space => m_Wrapper.m_BrailleKeyboard_space;
+            public InputAction @Space => m_Wrapper.m_BrailleKeyboard_Space;
             /// <summary>
-            /// Provides access to the underlying input action "BrailleKeyboard/delete".
+            /// Provides access to the underlying input action "BrailleKeyboard/Delete".
             /// </summary>
-            public InputAction @delete => m_Wrapper.m_BrailleKeyboard_delete;
+            public InputAction @Delete => m_Wrapper.m_BrailleKeyboard_Delete;
             /// <summary>
-            /// Provides access to the underlying input action "BrailleKeyboard/shift".
+            /// Provides access to the underlying input action "BrailleKeyboard/Shift".
             /// </summary>
-            public InputAction @shift => m_Wrapper.m_BrailleKeyboard_shift;
+            public InputAction @Shift => m_Wrapper.m_BrailleKeyboard_Shift;
             /// <summary>
-            /// Provides access to the underlying input action "BrailleKeyboard/questionmark".
+            /// Provides access to the underlying input action "BrailleKeyboard/Question".
             /// </summary>
-            public InputAction @questionmark => m_Wrapper.m_BrailleKeyboard_questionmark;
+            public InputAction @Question => m_Wrapper.m_BrailleKeyboard_Question;
+            /// <summary>
+            /// Provides access to the underlying input action "BrailleKeyboard/Exclamation".
+            /// </summary>
+            public InputAction @Exclamation => m_Wrapper.m_BrailleKeyboard_Exclamation;
+            /// <summary>
+            /// Provides access to the underlying input action "BrailleKeyboard/Quote".
+            /// </summary>
+            public InputAction @Quote => m_Wrapper.m_BrailleKeyboard_Quote;
+            /// <summary>
+            /// Provides access to the underlying input action "BrailleKeyboard/Semicolon".
+            /// </summary>
+            public InputAction @Semicolon => m_Wrapper.m_BrailleKeyboard_Semicolon;
+            /// <summary>
+            /// Provides access to the underlying input action "BrailleKeyboard/Colon".
+            /// </summary>
+            public InputAction @Colon => m_Wrapper.m_BrailleKeyboard_Colon;
+            /// <summary>
+            /// Provides access to the underlying input action "BrailleKeyboard/LBrace".
+            /// </summary>
+            public InputAction @LBrace => m_Wrapper.m_BrailleKeyboard_LBrace;
+            /// <summary>
+            /// Provides access to the underlying input action "BrailleKeyboard/RBrace".
+            /// </summary>
+            public InputAction @RBrace => m_Wrapper.m_BrailleKeyboard_RBrace;
+            /// <summary>
+            /// Provides access to the underlying input action "BrailleKeyboard/Apostrophe".
+            /// </summary>
+            public InputAction @Apostrophe => m_Wrapper.m_BrailleKeyboard_Apostrophe;
             /// <summary>
             /// Provides access to the underlying input action map instance.
             /// </summary>
@@ -2578,150 +3122,171 @@ namespace IO
             {
                 if (instance == null || m_Wrapper.m_BrailleKeyboardActionsCallbackInterfaces.Contains(instance)) return;
                 m_Wrapper.m_BrailleKeyboardActionsCallbackInterfaces.Add(instance);
-                @a.started += instance.OnA;
-                @a.performed += instance.OnA;
-                @a.canceled += instance.OnA;
-                @b.started += instance.OnB;
-                @b.performed += instance.OnB;
-                @b.canceled += instance.OnB;
-                @c.started += instance.OnC;
-                @c.performed += instance.OnC;
-                @c.canceled += instance.OnC;
-                @d.started += instance.OnD;
-                @d.performed += instance.OnD;
-                @d.canceled += instance.OnD;
-                @e.started += instance.OnE;
-                @e.performed += instance.OnE;
-                @e.canceled += instance.OnE;
-                @f.started += instance.OnF;
-                @f.performed += instance.OnF;
-                @f.canceled += instance.OnF;
-                @g.started += instance.OnG;
-                @g.performed += instance.OnG;
-                @g.canceled += instance.OnG;
-                @h.started += instance.OnH;
-                @h.performed += instance.OnH;
-                @h.canceled += instance.OnH;
-                @i.started += instance.OnI;
-                @i.performed += instance.OnI;
-                @i.canceled += instance.OnI;
-                @j.started += instance.OnJ;
-                @j.performed += instance.OnJ;
-                @j.canceled += instance.OnJ;
-                @k.started += instance.OnK;
-                @k.performed += instance.OnK;
-                @k.canceled += instance.OnK;
-                @l.started += instance.OnL;
-                @l.performed += instance.OnL;
-                @l.canceled += instance.OnL;
-                @m.started += instance.OnM;
-                @m.performed += instance.OnM;
-                @m.canceled += instance.OnM;
-                @n.started += instance.OnN;
-                @n.performed += instance.OnN;
-                @n.canceled += instance.OnN;
-                @o.started += instance.OnO;
-                @o.performed += instance.OnO;
-                @o.canceled += instance.OnO;
-                @p.started += instance.OnP;
-                @p.performed += instance.OnP;
-                @p.canceled += instance.OnP;
-                @q.started += instance.OnQ;
-                @q.performed += instance.OnQ;
-                @q.canceled += instance.OnQ;
-                @r.started += instance.OnR;
-                @r.performed += instance.OnR;
-                @r.canceled += instance.OnR;
-                @s.started += instance.OnS;
-                @s.performed += instance.OnS;
-                @s.canceled += instance.OnS;
-                @t.started += instance.OnT;
-                @t.performed += instance.OnT;
-                @t.canceled += instance.OnT;
-                @u.started += instance.OnU;
-                @u.performed += instance.OnU;
-                @u.canceled += instance.OnU;
-                @v.started += instance.OnV;
-                @v.performed += instance.OnV;
-                @v.canceled += instance.OnV;
-                @w.started += instance.OnW;
-                @w.performed += instance.OnW;
-                @w.canceled += instance.OnW;
-                @x.started += instance.OnX;
-                @x.performed += instance.OnX;
-                @x.canceled += instance.OnX;
-                @y.started += instance.OnY;
-                @y.performed += instance.OnY;
-                @y.canceled += instance.OnY;
-                @z.started += instance.OnZ;
-                @z.performed += instance.OnZ;
-                @z.canceled += instance.OnZ;
-                @ä.started += instance.OnÄ;
-                @ä.performed += instance.OnÄ;
-                @ä.canceled += instance.OnÄ;
-                @ö.started += instance.OnÖ;
-                @ö.performed += instance.OnÖ;
-                @ö.canceled += instance.OnÖ;
-                @ü.started += instance.OnÜ;
-                @ü.performed += instance.OnÜ;
-                @ü.canceled += instance.OnÜ;
+                @A.started += instance.OnA;
+                @A.performed += instance.OnA;
+                @A.canceled += instance.OnA;
+                @B.started += instance.OnB;
+                @B.performed += instance.OnB;
+                @B.canceled += instance.OnB;
+                @C.started += instance.OnC;
+                @C.performed += instance.OnC;
+                @C.canceled += instance.OnC;
+                @D.started += instance.OnD;
+                @D.performed += instance.OnD;
+                @D.canceled += instance.OnD;
+                @E.started += instance.OnE;
+                @E.performed += instance.OnE;
+                @E.canceled += instance.OnE;
+                @F.started += instance.OnF;
+                @F.performed += instance.OnF;
+                @F.canceled += instance.OnF;
+                @G.started += instance.OnG;
+                @G.performed += instance.OnG;
+                @G.canceled += instance.OnG;
+                @H.started += instance.OnH;
+                @H.performed += instance.OnH;
+                @H.canceled += instance.OnH;
+                @I.started += instance.OnI;
+                @I.performed += instance.OnI;
+                @I.canceled += instance.OnI;
+                @J.started += instance.OnJ;
+                @J.performed += instance.OnJ;
+                @J.canceled += instance.OnJ;
+                @K.started += instance.OnK;
+                @K.performed += instance.OnK;
+                @K.canceled += instance.OnK;
+                @L.started += instance.OnL;
+                @L.performed += instance.OnL;
+                @L.canceled += instance.OnL;
+                @M.started += instance.OnM;
+                @M.performed += instance.OnM;
+                @M.canceled += instance.OnM;
+                @N.started += instance.OnN;
+                @N.performed += instance.OnN;
+                @N.canceled += instance.OnN;
+                @O.started += instance.OnO;
+                @O.performed += instance.OnO;
+                @O.canceled += instance.OnO;
+                @P.started += instance.OnP;
+                @P.performed += instance.OnP;
+                @P.canceled += instance.OnP;
+                @Q.started += instance.OnQ;
+                @Q.performed += instance.OnQ;
+                @Q.canceled += instance.OnQ;
+                @R.started += instance.OnR;
+                @R.performed += instance.OnR;
+                @R.canceled += instance.OnR;
+                @S.started += instance.OnS;
+                @S.performed += instance.OnS;
+                @S.canceled += instance.OnS;
+                @T.started += instance.OnT;
+                @T.performed += instance.OnT;
+                @T.canceled += instance.OnT;
+                @U.started += instance.OnU;
+                @U.performed += instance.OnU;
+                @U.canceled += instance.OnU;
+                @V.started += instance.OnV;
+                @V.performed += instance.OnV;
+                @V.canceled += instance.OnV;
+                @W.started += instance.OnW;
+                @W.performed += instance.OnW;
+                @W.canceled += instance.OnW;
+                @X.started += instance.OnX;
+                @X.performed += instance.OnX;
+                @X.canceled += instance.OnX;
+                @Y.started += instance.OnY;
+                @Y.performed += instance.OnY;
+                @Y.canceled += instance.OnY;
+                @Z.started += instance.OnZ;
+                @Z.performed += instance.OnZ;
+                @Z.canceled += instance.OnZ;
+                @Ä.started += instance.OnÄ;
+                @Ä.performed += instance.OnÄ;
+                @Ä.canceled += instance.OnÄ;
+                @Ö.started += instance.OnÖ;
+                @Ö.performed += instance.OnÖ;
+                @Ö.canceled += instance.OnÖ;
+                @Ü.started += instance.OnÜ;
+                @Ü.performed += instance.OnÜ;
+                @Ü.canceled += instance.OnÜ;
                 @ß.started += instance.Onß;
                 @ß.performed += instance.Onß;
                 @ß.canceled += instance.Onß;
-                @d1.started += instance.OnD1;
-                @d1.performed += instance.OnD1;
-                @d1.canceled += instance.OnD1;
-                @d2.started += instance.OnD2;
-                @d2.performed += instance.OnD2;
-                @d2.canceled += instance.OnD2;
-                @d3.started += instance.OnD3;
-                @d3.performed += instance.OnD3;
-                @d3.canceled += instance.OnD3;
-                @d4.started += instance.OnD4;
-                @d4.performed += instance.OnD4;
-                @d4.canceled += instance.OnD4;
-                @d5.started += instance.OnD5;
-                @d5.performed += instance.OnD5;
-                @d5.canceled += instance.OnD5;
-                @d6.started += instance.OnD6;
-                @d6.performed += instance.OnD6;
-                @d6.canceled += instance.OnD6;
-                @d7.started += instance.OnD7;
-                @d7.performed += instance.OnD7;
-                @d7.canceled += instance.OnD7;
-                @d8.started += instance.OnD8;
-                @d8.performed += instance.OnD8;
-                @d8.canceled += instance.OnD8;
-                @d9.started += instance.OnD9;
-                @d9.performed += instance.OnD9;
-                @d9.canceled += instance.OnD9;
-                @d0.started += instance.OnD0;
-                @d0.performed += instance.OnD0;
-                @d0.canceled += instance.OnD0;
-                @comma.started += instance.OnComma;
-                @comma.performed += instance.OnComma;
-                @comma.canceled += instance.OnComma;
-                @period.started += instance.OnPeriod;
-                @period.performed += instance.OnPeriod;
-                @period.canceled += instance.OnPeriod;
-                @dash.started += instance.OnDash;
-                @dash.performed += instance.OnDash;
-                @dash.canceled += instance.OnDash;
-                @hashtag.started += instance.OnHashtag;
-                @hashtag.performed += instance.OnHashtag;
-                @hashtag.canceled += instance.OnHashtag;
-                @space.started += instance.OnSpace;
-                @space.performed += instance.OnSpace;
-                @space.canceled += instance.OnSpace;
-                @delete.started += instance.OnDelete;
-                @delete.performed += instance.OnDelete;
-                @delete.canceled += instance.OnDelete;
-                @shift.started += instance.OnShift;
-                @shift.performed += instance.OnShift;
-                @shift.canceled += instance.OnShift;
-                @questionmark.started += instance.OnQuestionmark;
-                @questionmark.performed += instance.OnQuestionmark;
-                @questionmark.canceled += instance.OnQuestionmark;
+                @D1.started += instance.OnD1;
+                @D1.performed += instance.OnD1;
+                @D1.canceled += instance.OnD1;
+                @D2.started += instance.OnD2;
+                @D2.performed += instance.OnD2;
+                @D2.canceled += instance.OnD2;
+                @D3.started += instance.OnD3;
+                @D3.performed += instance.OnD3;
+                @D3.canceled += instance.OnD3;
+                @D4.started += instance.OnD4;
+                @D4.performed += instance.OnD4;
+                @D4.canceled += instance.OnD4;
+                @D5.started += instance.OnD5;
+                @D5.performed += instance.OnD5;
+                @D5.canceled += instance.OnD5;
+                @D6.started += instance.OnD6;
+                @D6.performed += instance.OnD6;
+                @D6.canceled += instance.OnD6;
+                @D7.started += instance.OnD7;
+                @D7.performed += instance.OnD7;
+                @D7.canceled += instance.OnD7;
+                @D8.started += instance.OnD8;
+                @D8.performed += instance.OnD8;
+                @D8.canceled += instance.OnD8;
+                @D9.started += instance.OnD9;
+                @D9.performed += instance.OnD9;
+                @D9.canceled += instance.OnD9;
+                @D0.started += instance.OnD0;
+                @D0.performed += instance.OnD0;
+                @D0.canceled += instance.OnD0;
+                @Comma.started += instance.OnComma;
+                @Comma.performed += instance.OnComma;
+                @Comma.canceled += instance.OnComma;
+                @Period.started += instance.OnPeriod;
+                @Period.performed += instance.OnPeriod;
+                @Period.canceled += instance.OnPeriod;
+                @Dash.started += instance.OnDash;
+                @Dash.performed += instance.OnDash;
+                @Dash.canceled += instance.OnDash;
+                @Hashtag.started += instance.OnHashtag;
+                @Hashtag.performed += instance.OnHashtag;
+                @Hashtag.canceled += instance.OnHashtag;
+                @Space.started += instance.OnSpace;
+                @Space.performed += instance.OnSpace;
+                @Space.canceled += instance.OnSpace;
+                @Delete.started += instance.OnDelete;
+                @Delete.performed += instance.OnDelete;
+                @Delete.canceled += instance.OnDelete;
+                @Shift.started += instance.OnShift;
+                @Shift.performed += instance.OnShift;
+                @Shift.canceled += instance.OnShift;
+                @Question.started += instance.OnQuestion;
+                @Question.performed += instance.OnQuestion;
+                @Question.canceled += instance.OnQuestion;
+                @Exclamation.started += instance.OnExclamation;
+                @Exclamation.performed += instance.OnExclamation;
+                @Exclamation.canceled += instance.OnExclamation;
+                @Quote.started += instance.OnQuote;
+                @Quote.performed += instance.OnQuote;
+                @Quote.canceled += instance.OnQuote;
+                @Semicolon.started += instance.OnSemicolon;
+                @Semicolon.performed += instance.OnSemicolon;
+                @Semicolon.canceled += instance.OnSemicolon;
+                @Colon.started += instance.OnColon;
+                @Colon.performed += instance.OnColon;
+                @Colon.canceled += instance.OnColon;
+                @LBrace.started += instance.OnLBrace;
+                @LBrace.performed += instance.OnLBrace;
+                @LBrace.canceled += instance.OnLBrace;
+                @RBrace.started += instance.OnRBrace;
+                @RBrace.performed += instance.OnRBrace;
+                @RBrace.canceled += instance.OnRBrace;
+                @Apostrophe.started += instance.OnApostrophe;
+                @Apostrophe.performed += instance.OnApostrophe;
+                @Apostrophe.canceled += instance.OnApostrophe;
             }
 
             /// <summary>
@@ -2733,150 +3298,171 @@ namespace IO
             /// <seealso cref="BrailleKeyboardActions" />
             private void UnregisterCallbacks(IBrailleKeyboardActions instance)
             {
-                @a.started -= instance.OnA;
-                @a.performed -= instance.OnA;
-                @a.canceled -= instance.OnA;
-                @b.started -= instance.OnB;
-                @b.performed -= instance.OnB;
-                @b.canceled -= instance.OnB;
-                @c.started -= instance.OnC;
-                @c.performed -= instance.OnC;
-                @c.canceled -= instance.OnC;
-                @d.started -= instance.OnD;
-                @d.performed -= instance.OnD;
-                @d.canceled -= instance.OnD;
-                @e.started -= instance.OnE;
-                @e.performed -= instance.OnE;
-                @e.canceled -= instance.OnE;
-                @f.started -= instance.OnF;
-                @f.performed -= instance.OnF;
-                @f.canceled -= instance.OnF;
-                @g.started -= instance.OnG;
-                @g.performed -= instance.OnG;
-                @g.canceled -= instance.OnG;
-                @h.started -= instance.OnH;
-                @h.performed -= instance.OnH;
-                @h.canceled -= instance.OnH;
-                @i.started -= instance.OnI;
-                @i.performed -= instance.OnI;
-                @i.canceled -= instance.OnI;
-                @j.started -= instance.OnJ;
-                @j.performed -= instance.OnJ;
-                @j.canceled -= instance.OnJ;
-                @k.started -= instance.OnK;
-                @k.performed -= instance.OnK;
-                @k.canceled -= instance.OnK;
-                @l.started -= instance.OnL;
-                @l.performed -= instance.OnL;
-                @l.canceled -= instance.OnL;
-                @m.started -= instance.OnM;
-                @m.performed -= instance.OnM;
-                @m.canceled -= instance.OnM;
-                @n.started -= instance.OnN;
-                @n.performed -= instance.OnN;
-                @n.canceled -= instance.OnN;
-                @o.started -= instance.OnO;
-                @o.performed -= instance.OnO;
-                @o.canceled -= instance.OnO;
-                @p.started -= instance.OnP;
-                @p.performed -= instance.OnP;
-                @p.canceled -= instance.OnP;
-                @q.started -= instance.OnQ;
-                @q.performed -= instance.OnQ;
-                @q.canceled -= instance.OnQ;
-                @r.started -= instance.OnR;
-                @r.performed -= instance.OnR;
-                @r.canceled -= instance.OnR;
-                @s.started -= instance.OnS;
-                @s.performed -= instance.OnS;
-                @s.canceled -= instance.OnS;
-                @t.started -= instance.OnT;
-                @t.performed -= instance.OnT;
-                @t.canceled -= instance.OnT;
-                @u.started -= instance.OnU;
-                @u.performed -= instance.OnU;
-                @u.canceled -= instance.OnU;
-                @v.started -= instance.OnV;
-                @v.performed -= instance.OnV;
-                @v.canceled -= instance.OnV;
-                @w.started -= instance.OnW;
-                @w.performed -= instance.OnW;
-                @w.canceled -= instance.OnW;
-                @x.started -= instance.OnX;
-                @x.performed -= instance.OnX;
-                @x.canceled -= instance.OnX;
-                @y.started -= instance.OnY;
-                @y.performed -= instance.OnY;
-                @y.canceled -= instance.OnY;
-                @z.started -= instance.OnZ;
-                @z.performed -= instance.OnZ;
-                @z.canceled -= instance.OnZ;
-                @ä.started -= instance.OnÄ;
-                @ä.performed -= instance.OnÄ;
-                @ä.canceled -= instance.OnÄ;
-                @ö.started -= instance.OnÖ;
-                @ö.performed -= instance.OnÖ;
-                @ö.canceled -= instance.OnÖ;
-                @ü.started -= instance.OnÜ;
-                @ü.performed -= instance.OnÜ;
-                @ü.canceled -= instance.OnÜ;
+                @A.started -= instance.OnA;
+                @A.performed -= instance.OnA;
+                @A.canceled -= instance.OnA;
+                @B.started -= instance.OnB;
+                @B.performed -= instance.OnB;
+                @B.canceled -= instance.OnB;
+                @C.started -= instance.OnC;
+                @C.performed -= instance.OnC;
+                @C.canceled -= instance.OnC;
+                @D.started -= instance.OnD;
+                @D.performed -= instance.OnD;
+                @D.canceled -= instance.OnD;
+                @E.started -= instance.OnE;
+                @E.performed -= instance.OnE;
+                @E.canceled -= instance.OnE;
+                @F.started -= instance.OnF;
+                @F.performed -= instance.OnF;
+                @F.canceled -= instance.OnF;
+                @G.started -= instance.OnG;
+                @G.performed -= instance.OnG;
+                @G.canceled -= instance.OnG;
+                @H.started -= instance.OnH;
+                @H.performed -= instance.OnH;
+                @H.canceled -= instance.OnH;
+                @I.started -= instance.OnI;
+                @I.performed -= instance.OnI;
+                @I.canceled -= instance.OnI;
+                @J.started -= instance.OnJ;
+                @J.performed -= instance.OnJ;
+                @J.canceled -= instance.OnJ;
+                @K.started -= instance.OnK;
+                @K.performed -= instance.OnK;
+                @K.canceled -= instance.OnK;
+                @L.started -= instance.OnL;
+                @L.performed -= instance.OnL;
+                @L.canceled -= instance.OnL;
+                @M.started -= instance.OnM;
+                @M.performed -= instance.OnM;
+                @M.canceled -= instance.OnM;
+                @N.started -= instance.OnN;
+                @N.performed -= instance.OnN;
+                @N.canceled -= instance.OnN;
+                @O.started -= instance.OnO;
+                @O.performed -= instance.OnO;
+                @O.canceled -= instance.OnO;
+                @P.started -= instance.OnP;
+                @P.performed -= instance.OnP;
+                @P.canceled -= instance.OnP;
+                @Q.started -= instance.OnQ;
+                @Q.performed -= instance.OnQ;
+                @Q.canceled -= instance.OnQ;
+                @R.started -= instance.OnR;
+                @R.performed -= instance.OnR;
+                @R.canceled -= instance.OnR;
+                @S.started -= instance.OnS;
+                @S.performed -= instance.OnS;
+                @S.canceled -= instance.OnS;
+                @T.started -= instance.OnT;
+                @T.performed -= instance.OnT;
+                @T.canceled -= instance.OnT;
+                @U.started -= instance.OnU;
+                @U.performed -= instance.OnU;
+                @U.canceled -= instance.OnU;
+                @V.started -= instance.OnV;
+                @V.performed -= instance.OnV;
+                @V.canceled -= instance.OnV;
+                @W.started -= instance.OnW;
+                @W.performed -= instance.OnW;
+                @W.canceled -= instance.OnW;
+                @X.started -= instance.OnX;
+                @X.performed -= instance.OnX;
+                @X.canceled -= instance.OnX;
+                @Y.started -= instance.OnY;
+                @Y.performed -= instance.OnY;
+                @Y.canceled -= instance.OnY;
+                @Z.started -= instance.OnZ;
+                @Z.performed -= instance.OnZ;
+                @Z.canceled -= instance.OnZ;
+                @Ä.started -= instance.OnÄ;
+                @Ä.performed -= instance.OnÄ;
+                @Ä.canceled -= instance.OnÄ;
+                @Ö.started -= instance.OnÖ;
+                @Ö.performed -= instance.OnÖ;
+                @Ö.canceled -= instance.OnÖ;
+                @Ü.started -= instance.OnÜ;
+                @Ü.performed -= instance.OnÜ;
+                @Ü.canceled -= instance.OnÜ;
                 @ß.started -= instance.Onß;
                 @ß.performed -= instance.Onß;
                 @ß.canceled -= instance.Onß;
-                @d1.started -= instance.OnD1;
-                @d1.performed -= instance.OnD1;
-                @d1.canceled -= instance.OnD1;
-                @d2.started -= instance.OnD2;
-                @d2.performed -= instance.OnD2;
-                @d2.canceled -= instance.OnD2;
-                @d3.started -= instance.OnD3;
-                @d3.performed -= instance.OnD3;
-                @d3.canceled -= instance.OnD3;
-                @d4.started -= instance.OnD4;
-                @d4.performed -= instance.OnD4;
-                @d4.canceled -= instance.OnD4;
-                @d5.started -= instance.OnD5;
-                @d5.performed -= instance.OnD5;
-                @d5.canceled -= instance.OnD5;
-                @d6.started -= instance.OnD6;
-                @d6.performed -= instance.OnD6;
-                @d6.canceled -= instance.OnD6;
-                @d7.started -= instance.OnD7;
-                @d7.performed -= instance.OnD7;
-                @d7.canceled -= instance.OnD7;
-                @d8.started -= instance.OnD8;
-                @d8.performed -= instance.OnD8;
-                @d8.canceled -= instance.OnD8;
-                @d9.started -= instance.OnD9;
-                @d9.performed -= instance.OnD9;
-                @d9.canceled -= instance.OnD9;
-                @d0.started -= instance.OnD0;
-                @d0.performed -= instance.OnD0;
-                @d0.canceled -= instance.OnD0;
-                @comma.started -= instance.OnComma;
-                @comma.performed -= instance.OnComma;
-                @comma.canceled -= instance.OnComma;
-                @period.started -= instance.OnPeriod;
-                @period.performed -= instance.OnPeriod;
-                @period.canceled -= instance.OnPeriod;
-                @dash.started -= instance.OnDash;
-                @dash.performed -= instance.OnDash;
-                @dash.canceled -= instance.OnDash;
-                @hashtag.started -= instance.OnHashtag;
-                @hashtag.performed -= instance.OnHashtag;
-                @hashtag.canceled -= instance.OnHashtag;
-                @space.started -= instance.OnSpace;
-                @space.performed -= instance.OnSpace;
-                @space.canceled -= instance.OnSpace;
-                @delete.started -= instance.OnDelete;
-                @delete.performed -= instance.OnDelete;
-                @delete.canceled -= instance.OnDelete;
-                @shift.started -= instance.OnShift;
-                @shift.performed -= instance.OnShift;
-                @shift.canceled -= instance.OnShift;
-                @questionmark.started -= instance.OnQuestionmark;
-                @questionmark.performed -= instance.OnQuestionmark;
-                @questionmark.canceled -= instance.OnQuestionmark;
+                @D1.started -= instance.OnD1;
+                @D1.performed -= instance.OnD1;
+                @D1.canceled -= instance.OnD1;
+                @D2.started -= instance.OnD2;
+                @D2.performed -= instance.OnD2;
+                @D2.canceled -= instance.OnD2;
+                @D3.started -= instance.OnD3;
+                @D3.performed -= instance.OnD3;
+                @D3.canceled -= instance.OnD3;
+                @D4.started -= instance.OnD4;
+                @D4.performed -= instance.OnD4;
+                @D4.canceled -= instance.OnD4;
+                @D5.started -= instance.OnD5;
+                @D5.performed -= instance.OnD5;
+                @D5.canceled -= instance.OnD5;
+                @D6.started -= instance.OnD6;
+                @D6.performed -= instance.OnD6;
+                @D6.canceled -= instance.OnD6;
+                @D7.started -= instance.OnD7;
+                @D7.performed -= instance.OnD7;
+                @D7.canceled -= instance.OnD7;
+                @D8.started -= instance.OnD8;
+                @D8.performed -= instance.OnD8;
+                @D8.canceled -= instance.OnD8;
+                @D9.started -= instance.OnD9;
+                @D9.performed -= instance.OnD9;
+                @D9.canceled -= instance.OnD9;
+                @D0.started -= instance.OnD0;
+                @D0.performed -= instance.OnD0;
+                @D0.canceled -= instance.OnD0;
+                @Comma.started -= instance.OnComma;
+                @Comma.performed -= instance.OnComma;
+                @Comma.canceled -= instance.OnComma;
+                @Period.started -= instance.OnPeriod;
+                @Period.performed -= instance.OnPeriod;
+                @Period.canceled -= instance.OnPeriod;
+                @Dash.started -= instance.OnDash;
+                @Dash.performed -= instance.OnDash;
+                @Dash.canceled -= instance.OnDash;
+                @Hashtag.started -= instance.OnHashtag;
+                @Hashtag.performed -= instance.OnHashtag;
+                @Hashtag.canceled -= instance.OnHashtag;
+                @Space.started -= instance.OnSpace;
+                @Space.performed -= instance.OnSpace;
+                @Space.canceled -= instance.OnSpace;
+                @Delete.started -= instance.OnDelete;
+                @Delete.performed -= instance.OnDelete;
+                @Delete.canceled -= instance.OnDelete;
+                @Shift.started -= instance.OnShift;
+                @Shift.performed -= instance.OnShift;
+                @Shift.canceled -= instance.OnShift;
+                @Question.started -= instance.OnQuestion;
+                @Question.performed -= instance.OnQuestion;
+                @Question.canceled -= instance.OnQuestion;
+                @Exclamation.started -= instance.OnExclamation;
+                @Exclamation.performed -= instance.OnExclamation;
+                @Exclamation.canceled -= instance.OnExclamation;
+                @Quote.started -= instance.OnQuote;
+                @Quote.performed -= instance.OnQuote;
+                @Quote.canceled -= instance.OnQuote;
+                @Semicolon.started -= instance.OnSemicolon;
+                @Semicolon.performed -= instance.OnSemicolon;
+                @Semicolon.canceled -= instance.OnSemicolon;
+                @Colon.started -= instance.OnColon;
+                @Colon.performed -= instance.OnColon;
+                @Colon.canceled -= instance.OnColon;
+                @LBrace.started -= instance.OnLBrace;
+                @LBrace.performed -= instance.OnLBrace;
+                @LBrace.canceled -= instance.OnLBrace;
+                @RBrace.started -= instance.OnRBrace;
+                @RBrace.performed -= instance.OnRBrace;
+                @RBrace.canceled -= instance.OnRBrace;
+                @Apostrophe.started -= instance.OnApostrophe;
+                @Apostrophe.performed -= instance.OnApostrophe;
+                @Apostrophe.canceled -= instance.OnApostrophe;
             }
 
             /// <summary>
@@ -3108,6 +3694,13 @@ namespace IO
             /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
             void OnConfirm(InputAction.CallbackContext context);
+            /// <summary>
+            /// Method invoked when associated input action "Switch UI Layer" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// </summary>
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+            void OnSwitchUILayer(InputAction.CallbackContext context);
         }
         /// <summary>
         /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "BrailleKeyboard" which allows adding and removing callbacks.
@@ -3117,203 +3710,203 @@ namespace IO
         public interface IBrailleKeyboardActions
         {
             /// <summary>
-            /// Method invoked when associated input action "a" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// Method invoked when associated input action "A" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
             /// </summary>
             /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
             void OnA(InputAction.CallbackContext context);
             /// <summary>
-            /// Method invoked when associated input action "b" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// Method invoked when associated input action "B" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
             /// </summary>
             /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
             void OnB(InputAction.CallbackContext context);
             /// <summary>
-            /// Method invoked when associated input action "c" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// Method invoked when associated input action "C" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
             /// </summary>
             /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
             void OnC(InputAction.CallbackContext context);
             /// <summary>
-            /// Method invoked when associated input action "d" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// Method invoked when associated input action "D" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
             /// </summary>
             /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
             void OnD(InputAction.CallbackContext context);
             /// <summary>
-            /// Method invoked when associated input action "e" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// Method invoked when associated input action "E" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
             /// </summary>
             /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
             void OnE(InputAction.CallbackContext context);
             /// <summary>
-            /// Method invoked when associated input action "f" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// Method invoked when associated input action "F" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
             /// </summary>
             /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
             void OnF(InputAction.CallbackContext context);
             /// <summary>
-            /// Method invoked when associated input action "g" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// Method invoked when associated input action "G" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
             /// </summary>
             /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
             void OnG(InputAction.CallbackContext context);
             /// <summary>
-            /// Method invoked when associated input action "h" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// Method invoked when associated input action "H" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
             /// </summary>
             /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
             void OnH(InputAction.CallbackContext context);
             /// <summary>
-            /// Method invoked when associated input action "i" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// Method invoked when associated input action "I" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
             /// </summary>
             /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
             void OnI(InputAction.CallbackContext context);
             /// <summary>
-            /// Method invoked when associated input action "j" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// Method invoked when associated input action "J" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
             /// </summary>
             /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
             void OnJ(InputAction.CallbackContext context);
             /// <summary>
-            /// Method invoked when associated input action "k" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// Method invoked when associated input action "K" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
             /// </summary>
             /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
             void OnK(InputAction.CallbackContext context);
             /// <summary>
-            /// Method invoked when associated input action "l" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// Method invoked when associated input action "L" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
             /// </summary>
             /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
             void OnL(InputAction.CallbackContext context);
             /// <summary>
-            /// Method invoked when associated input action "m" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// Method invoked when associated input action "M" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
             /// </summary>
             /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
             void OnM(InputAction.CallbackContext context);
             /// <summary>
-            /// Method invoked when associated input action "n" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// Method invoked when associated input action "N" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
             /// </summary>
             /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
             void OnN(InputAction.CallbackContext context);
             /// <summary>
-            /// Method invoked when associated input action "o" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// Method invoked when associated input action "O" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
             /// </summary>
             /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
             void OnO(InputAction.CallbackContext context);
             /// <summary>
-            /// Method invoked when associated input action "p" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// Method invoked when associated input action "P" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
             /// </summary>
             /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
             void OnP(InputAction.CallbackContext context);
             /// <summary>
-            /// Method invoked when associated input action "q" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// Method invoked when associated input action "Q" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
             /// </summary>
             /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
             void OnQ(InputAction.CallbackContext context);
             /// <summary>
-            /// Method invoked when associated input action "r" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// Method invoked when associated input action "R" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
             /// </summary>
             /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
             void OnR(InputAction.CallbackContext context);
             /// <summary>
-            /// Method invoked when associated input action "s" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// Method invoked when associated input action "S" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
             /// </summary>
             /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
             void OnS(InputAction.CallbackContext context);
             /// <summary>
-            /// Method invoked when associated input action "t" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// Method invoked when associated input action "T" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
             /// </summary>
             /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
             void OnT(InputAction.CallbackContext context);
             /// <summary>
-            /// Method invoked when associated input action "u" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// Method invoked when associated input action "U" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
             /// </summary>
             /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
             void OnU(InputAction.CallbackContext context);
             /// <summary>
-            /// Method invoked when associated input action "v" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// Method invoked when associated input action "V" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
             /// </summary>
             /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
             void OnV(InputAction.CallbackContext context);
             /// <summary>
-            /// Method invoked when associated input action "w" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// Method invoked when associated input action "W" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
             /// </summary>
             /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
             void OnW(InputAction.CallbackContext context);
             /// <summary>
-            /// Method invoked when associated input action "x" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// Method invoked when associated input action "X" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
             /// </summary>
             /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
             void OnX(InputAction.CallbackContext context);
             /// <summary>
-            /// Method invoked when associated input action "y" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// Method invoked when associated input action "Y" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
             /// </summary>
             /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
             void OnY(InputAction.CallbackContext context);
             /// <summary>
-            /// Method invoked when associated input action "z" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// Method invoked when associated input action "Z" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
             /// </summary>
             /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
             void OnZ(InputAction.CallbackContext context);
             /// <summary>
-            /// Method invoked when associated input action "ä" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// Method invoked when associated input action "Ä" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
             /// </summary>
             /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
             void OnÄ(InputAction.CallbackContext context);
             /// <summary>
-            /// Method invoked when associated input action "ö" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// Method invoked when associated input action "Ö" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
             /// </summary>
             /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
             void OnÖ(InputAction.CallbackContext context);
             /// <summary>
-            /// Method invoked when associated input action "ü" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// Method invoked when associated input action "Ü" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
             /// </summary>
             /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
@@ -3327,131 +3920,180 @@ namespace IO
             /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
             void Onß(InputAction.CallbackContext context);
             /// <summary>
-            /// Method invoked when associated input action "d1" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// Method invoked when associated input action "D1" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
             /// </summary>
             /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
             void OnD1(InputAction.CallbackContext context);
             /// <summary>
-            /// Method invoked when associated input action "d2" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// Method invoked when associated input action "D2" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
             /// </summary>
             /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
             void OnD2(InputAction.CallbackContext context);
             /// <summary>
-            /// Method invoked when associated input action "d3" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// Method invoked when associated input action "D3" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
             /// </summary>
             /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
             void OnD3(InputAction.CallbackContext context);
             /// <summary>
-            /// Method invoked when associated input action "d4" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// Method invoked when associated input action "D4" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
             /// </summary>
             /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
             void OnD4(InputAction.CallbackContext context);
             /// <summary>
-            /// Method invoked when associated input action "d5" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// Method invoked when associated input action "D5" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
             /// </summary>
             /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
             void OnD5(InputAction.CallbackContext context);
             /// <summary>
-            /// Method invoked when associated input action "d6" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// Method invoked when associated input action "D6" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
             /// </summary>
             /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
             void OnD6(InputAction.CallbackContext context);
             /// <summary>
-            /// Method invoked when associated input action "d7" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// Method invoked when associated input action "D7" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
             /// </summary>
             /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
             void OnD7(InputAction.CallbackContext context);
             /// <summary>
-            /// Method invoked when associated input action "d8" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// Method invoked when associated input action "D8" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
             /// </summary>
             /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
             void OnD8(InputAction.CallbackContext context);
             /// <summary>
-            /// Method invoked when associated input action "d9" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// Method invoked when associated input action "D9" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
             /// </summary>
             /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
             void OnD9(InputAction.CallbackContext context);
             /// <summary>
-            /// Method invoked when associated input action "d0" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// Method invoked when associated input action "D0" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
             /// </summary>
             /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
             void OnD0(InputAction.CallbackContext context);
             /// <summary>
-            /// Method invoked when associated input action "comma" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// Method invoked when associated input action "Comma" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
             /// </summary>
             /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
             void OnComma(InputAction.CallbackContext context);
             /// <summary>
-            /// Method invoked when associated input action "period" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// Method invoked when associated input action "Period" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
             /// </summary>
             /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
             void OnPeriod(InputAction.CallbackContext context);
             /// <summary>
-            /// Method invoked when associated input action "dash" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// Method invoked when associated input action "Dash" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
             /// </summary>
             /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
             void OnDash(InputAction.CallbackContext context);
             /// <summary>
-            /// Method invoked when associated input action "hashtag" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// Method invoked when associated input action "Hashtag" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
             /// </summary>
             /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
             void OnHashtag(InputAction.CallbackContext context);
             /// <summary>
-            /// Method invoked when associated input action "space" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// Method invoked when associated input action "Space" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
             /// </summary>
             /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
             void OnSpace(InputAction.CallbackContext context);
             /// <summary>
-            /// Method invoked when associated input action "delete" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// Method invoked when associated input action "Delete" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
             /// </summary>
             /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
             void OnDelete(InputAction.CallbackContext context);
             /// <summary>
-            /// Method invoked when associated input action "shift" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// Method invoked when associated input action "Shift" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
             /// </summary>
             /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
             void OnShift(InputAction.CallbackContext context);
             /// <summary>
-            /// Method invoked when associated input action "questionmark" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// Method invoked when associated input action "Question" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
             /// </summary>
             /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-            void OnQuestionmark(InputAction.CallbackContext context);
+            void OnQuestion(InputAction.CallbackContext context);
+            /// <summary>
+            /// Method invoked when associated input action "Exclamation" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// </summary>
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+            void OnExclamation(InputAction.CallbackContext context);
+            /// <summary>
+            /// Method invoked when associated input action "Quote" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// </summary>
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+            void OnQuote(InputAction.CallbackContext context);
+            /// <summary>
+            /// Method invoked when associated input action "Semicolon" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// </summary>
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+            void OnSemicolon(InputAction.CallbackContext context);
+            /// <summary>
+            /// Method invoked when associated input action "Colon" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// </summary>
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+            void OnColon(InputAction.CallbackContext context);
+            /// <summary>
+            /// Method invoked when associated input action "LBrace" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// </summary>
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+            void OnLBrace(InputAction.CallbackContext context);
+            /// <summary>
+            /// Method invoked when associated input action "RBrace" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// </summary>
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+            void OnRBrace(InputAction.CallbackContext context);
+            /// <summary>
+            /// Method invoked when associated input action "Apostrophe" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// </summary>
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+            void OnApostrophe(InputAction.CallbackContext context);
         }
     }
 }

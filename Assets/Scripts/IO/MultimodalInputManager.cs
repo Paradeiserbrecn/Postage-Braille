@@ -43,7 +43,7 @@ namespace IO
             
             _textInputs[TextInputType.Perkins] = new PerkinsTextInput();
             _textInputs[TextInputType.Keyboard] = new KeyboardTextInput();
-            EnableTextInput(TextInputType.Perkins, defaultTextbox);
+            EnableTextInput(TextInputType.Keyboard, defaultTextbox);
         }
 
         public void EnableTextInput(TextInputType textInputType, InputHandledBrailleTextObject textBox)
