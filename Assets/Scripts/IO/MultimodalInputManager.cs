@@ -5,23 +5,27 @@ namespace IO
 {
     public class MultimodalInputManager : MonoBehaviour
     {
-        private NavigationInput _navigation;
-        private BrailleSettingsInput _brailleSettingsInput;
-        
         private InputHandledBrailleTextObject _currentTextbox;
+        
         private Dictionary<TextInputType, AbstractTextInput> _textInputs = new();
+        private Dictionary<InputType, AbstractInput> _inputs = new();
         
         private GameActions _actions;
         
         [SerializeField] private InputHandledBrailleTextObject defaultTextbox;
         
-        private ActionRebinder _actionRebinder;
         [SerializeField] private RebindUI rebindUI;
 
         public enum TextInputType
         {
             Perkins,
             Keyboard
+        }
+
+        public enum InputType
+        {
+            Navigation,
+            BrailleSettings
         }
         
         public static MultimodalInputManager Instance;
@@ -33,17 +37,25 @@ namespace IO
     
         private void Start()
         {
-            _actionRebinder = new ActionRebinder(_actions, rebindUI);
+            _inputs[InputType.Navigation] = new NavigationInput();
+            EnableInput(InputType.Navigation);
             
-            _navigation = new NavigationInput();
-            //_navigation.Enable();
-            
-            _brailleSettingsInput = new BrailleSettingsInput();
-            _brailleSettingsInput.Enable();
+            _inputs[InputType.BrailleSettings] = new BrailleSettingsInput();
+            EnableInput(InputType.BrailleSettings);
             
             _textInputs[TextInputType.Perkins] = new PerkinsTextInput();
             _textInputs[TextInputType.Keyboard] = new KeyboardTextInput();
             EnableTextInput(TextInputType.Keyboard, defaultTextbox);
+        }
+
+        public void EnableInput(InputType inputType)
+        {
+            _inputs[inputType].Enable();
+        }
+
+        public void DisableInput(InputType inputType)
+        {
+            _inputs[inputType].Disable();
         }
 
         public void EnableTextInput(TextInputType textInputType, InputHandledBrailleTextObject textBox)
