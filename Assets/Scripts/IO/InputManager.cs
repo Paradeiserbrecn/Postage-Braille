@@ -21,6 +21,8 @@ namespace IO
             if (Keyboard.current.leftArrowKey.wasPressedThisFrame) UIManager.Instance.HighlightPreviousOption();
             if (Keyboard.current.rightArrowKey.wasPressedThisFrame) UIManager.Instance.HighlightNextOption();
             if (Keyboard.current.enterKey.wasPressedThisFrame) SelectOption();
+            
+            if (Keyboard.current.tabKey.wasPressedThisFrame) UIManager.Instance.SwitchLayer();
         }
 
         private void SelectOption(int index)

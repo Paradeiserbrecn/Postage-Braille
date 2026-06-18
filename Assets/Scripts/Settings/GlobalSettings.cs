@@ -34,5 +34,6 @@ namespace Settings
         public static Color BrailleColor = Color.white;
         public static Color HighlightedColor = Color.red;
         public static Color TextColor = Color.white;
+        public static Color MenuOptionColor = Color.white;
     }
 }

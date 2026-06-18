@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Braille;
@@ -12,6 +13,8 @@ namespace UI
     public class UIManager : MonoBehaviour
     {
         public static UIManager Instance;
+        private const int QUESTIONLAYERINDEX = 0;
+        private const string QUESTIONLAYERNAME = "QuestionLayer";
 
         [Header("Scene References")] [SerializeField]
         private GameObject questionPosition;
@@ -30,7 +33,7 @@ namespace UI
 
         public Focusable CurrentlyFocusedOption => CurrentLayer?.Current;
 
-        private int _currentLayerIdx = 0;
+        private int _currentLayerIdx;
         private UILayer CurrentLayer => _layers.Count == 0 ? null : _layers[_currentLayerIdx];
 
         public List<Focusable> CurrentOptions => _layers.Count == 0
@@ -40,11 +43,16 @@ namespace UI
         private void Awake()
         {
             Instance = this;
-            _layers.Add(new UILayer("Base"));
+            
+            _layers.Insert(QUESTIONLAYERINDEX,new UILayer(QUESTIONLAYERNAME));
+            _currentLayerIdx = 0;
         }
-        
+
         public void DisplayQuestion()
         {
+            CurrentLayer?.Unfocus();
+            _currentLayerIdx = QUESTIONLAYERINDEX;
+            
             if (GameManager.Instance.currentQuestionType == GameManager.QuestionType.CharBrailleToLatin)
             {
                 DisplayBrailleToLatinQuestion();
@@ -58,7 +66,7 @@ namespace UI
                 Debug.LogWarning("Tried to display unsupported question type.");
             }
 
-            CurrentLayer.FocusFirst();
+            CurrentLayer?.FocusFirst();
         }
 
         private void ClearQuestionCanvas()
@@ -167,6 +175,14 @@ namespace UI
             }
 
             parent.DetachChildren();
+        }
+
+        public void SwitchLayer()
+        {
+            CurrentLayer.Unfocus();
+            _currentLayerIdx = (_currentLayerIdx + 1) % _layers.Count;
+            CurrentLayer.FocusFirst();
+
         }
     }
 }
