@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: d8d16bed636af8848bdd1eca2c449afd
+guid: e6a2fecb25167a840a723c0088ac3777
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2150818349226102052
-    second: tileableUI_0
+      213: -7624062448064899581
+    second: tileableUI 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,10 +126,10 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 42d8302a4ed39dd10800000000000000
-      internalID: 2150818349226102052
+      spriteID: d342cc879a145524593ae72c25b80c2e
+      internalID: -1244531085
       vertices: []
       indices: 
       edges: []
@@ -150,8 +150,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 00b9e232c247077459c32d1b0331f773
-      internalID: 412293669
+      spriteID: 98c9751161716a043b9e3cd4dab340c9
+      internalID: -639507959
       vertices: []
       indices: 
       edges: []
@@ -166,14 +166,14 @@ TextureImporter:
         height: 30
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 11, y: 11, z: 11, w: 11}
+      border: {x: 3, y: 3, z: 3, w: 3}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d4190e90e6965ac4a91caf7e37ea8d41
-      internalID: 853078206
+      spriteID: 9d8179231345f6348970f9b0076c1460
+      internalID: 1563447804
       vertices: []
       indices: 
       edges: []
@@ -188,14 +188,14 @@ TextureImporter:
         height: 30
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 11, y: 11, z: 11, w: 11}
+      border: {x: 3, y: 3, z: 3, w: 3}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5ae9ef9cff202e642a1346cda70cd15c
-      internalID: -868888658
+      spriteID: 0c42a24a9f1e07841be495d15fd05cb8
+      internalID: -786544847
       vertices: []
       indices: 
       edges: []
@@ -216,8 +216,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 74fbd8dedb0a3e049899b990e56bc5d8
-      internalID: -1500731547
+      spriteID: 34d959ccf7588534d8cbff8aa0228494
+      internalID: -1111433157
       vertices: []
       indices: 
       edges: []
@@ -238,8 +238,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1b42368adf0eeaa48852e0540175d17d
-      internalID: -1472438664
+      spriteID: 5ac1f9cc823554340a16a8a5bd35df85
+      internalID: -1630018230
       vertices: []
       indices: 
       edges: []
@@ -260,8 +260,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 76f66ad0ba533a3409f11518570152ee
-      internalID: 1235975989
+      spriteID: 049fc98e85c82984382e3d30a9900ef2
+      internalID: -414176923
       vertices: []
       indices: 
       edges: []
@@ -270,7 +270,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: a3acb1f0ee1b1784bbf51e3447ef74bd
+    spriteID: 73d92b4d691a4f14dac42a4f53ba4d8f
     internalID: 0
     vertices: []
     indices: 
@@ -280,15 +280,15 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":7.0,"y":1.0},"gridSpriteSize":{"x":30.0,"y":30.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":30.0,"y":30.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      tileableUI_0: 2150818349226102052
-      tileableUI_1: 412293669
-      tileableUI_2: 853078206
-      tileableUI_3: -868888658
-      tileableUI_4: -1500731547
-      tileableUI_5: -1472438664
-      tileableUI_6: 1235975989
+      tileableUI_0: -1244531085
+      tileableUI_1: -639507959
+      tileableUI_2: 1563447804
+      tileableUI_3: -786544847
+      tileableUI_4: -1111433157
+      tileableUI_5: -1630018230
+      tileableUI_6: -414176923
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
