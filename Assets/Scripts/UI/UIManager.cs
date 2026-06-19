@@ -295,6 +295,41 @@ namespace UI
             return newLayerIdx;
         }
 
+        
+        
+        /// <summary>
+        /// Creates a new UI layer and optionally transfers focus to it.
+        /// </summary>
+        /// <param name="layer">The layer to add to the UIManager</param>
+        /// <param name="focusImmediately">
+        /// If true, the current layer is unfocused and the first element in the
+        /// newly added layer is focused.
+        /// If the focusables is empty, focus is not changed
+        /// </param>
+        /// <returns></returns>
+        public int AddLayer(UILayer layer, bool focusImmediately = true)
+        {
+            if (layer == null)
+            {
+                Debug.LogWarning("Tried to add a null layer to UIManager. Returning -1");
+                return -1;
+            }
+
+            layers.Add(layer);
+
+            var newLayerIdx = layers.Count - 1;
+
+
+            if (focusImmediately && layer.Focusables.Count > 0)
+            {
+                CurrentLayer?.Unfocus();
+                _currentLayerIdx = newLayerIdx;
+                CurrentLayer?.FocusFirst();
+            }
+
+            return newLayerIdx;
+        }
+
         /// <summary>
         /// Removes the specified UI layer.
         /// </summary>

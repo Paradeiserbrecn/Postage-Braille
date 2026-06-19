@@ -70,6 +70,7 @@ namespace UI
         /// </summary>
         public void Clear()
         {
+            Current?.Unfocus();
             Focusables.Clear();
             CurrentIndex = 0;
         }
