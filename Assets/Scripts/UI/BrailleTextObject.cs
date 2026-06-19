@@ -8,7 +8,7 @@ using Utility;
 
 namespace UI
 {
-    public class GridTextObject : Focusable
+    public class BrailleTextObject : Focusable
     {
         [SerializeField] private GridLayoutGroup _layoutGroup;
         public string text;

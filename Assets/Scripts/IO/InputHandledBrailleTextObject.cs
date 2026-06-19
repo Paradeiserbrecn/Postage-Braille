@@ -3,12 +3,14 @@ using System.Text;
 using Braille;
 using UI;
 using UnityEngine;
+using Utility;
 
 namespace IO
 {
     public class InputHandledBrailleTextObject : BrailleTextObject
     {
         [SerializeField] private GameObject brailleObjectPrefab;
+        public DestroyDisableNotifier destroyDisableNotifier;
         public List<bool> currentBrailleList;
 
         public readonly List<BrailleObject> BrailleObjects = new();

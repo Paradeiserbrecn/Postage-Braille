@@ -1,5 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+using Utility;
 
 namespace IO
 {
@@ -45,7 +47,11 @@ namespace IO
             
             _textInputs[TextInputType.Perkins] = new PerkinsTextInput();
             _textInputs[TextInputType.Keyboard] = new KeyboardTextInput();
-            EnableTextInput(TextInputType.Keyboard, defaultTextbox);
+            if (defaultTextbox != null)
+            {
+                EnableTextInput(TextInputType.Keyboard, defaultTextbox);
+            }
+            
         }
 
         public void EnableInput(InputType inputType)
@@ -61,9 +67,18 @@ namespace IO
         public void EnableTextInput(TextInputType textInputType, InputHandledBrailleTextObject textBox)
         {
             DisableTextInput();
+            
             _textInputs[textInputType].Textbox = textBox;
             _textInputs[textInputType].Enable();
             _currentTextbox = textBox;
+            
+            var notifier = _currentTextbox.destroyDisableNotifier;
+            if (notifier == null)
+            {
+                notifier = _currentTextbox.destroyDisableNotifier;
+            }
+            notifier.Destroyed += DisableTextInput;
+            notifier.Disabled += DisableTextInput;
         }
 
         public void DisableTextInput()
@@ -71,6 +86,17 @@ namespace IO
             foreach (var input in _textInputs.Keys)
             {
                 _textInputs[input].Disable();
+            }
+
+            if (_currentTextbox != null)
+            {
+                var notifier = _currentTextbox.destroyDisableNotifier;
+                if (notifier != null)
+                {
+                    notifier.Destroyed -= DisableTextInput;
+                    notifier.Disabled -= DisableTextInput;
+                }
+                _currentTextbox = null;
             }
         }
     }

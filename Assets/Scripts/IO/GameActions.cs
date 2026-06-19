@@ -624,7 +624,7 @@ namespace IO
                 {
                     ""name"": """",
                     ""id"": ""aa2ddb05-b0d8-4995-969b-86eba284ee1e"",
-                    ""path"": """",
+                    ""path"": ""<Keyboard>/tab"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

@@ -66,7 +66,6 @@ public class KeyboardTextInput: AbstractTextInput
         Actions.BrailleKeyboard.LBrace.started += LBracePressed;
         Actions.BrailleKeyboard.RBrace.started += RBracePressed;
         Actions.BrailleKeyboard.Apostrophe.started += ApostrophePressed;
-        Debug.Log("Keyboard text input");
     }
     
     
@@ -130,6 +129,60 @@ public class KeyboardTextInput: AbstractTextInput
 
     public override void Disable()
     {
+                Actions.BrailleKeyboard.A.started -= APressed;
+        Actions.BrailleKeyboard.B.started -= BPressed;
+        Actions.BrailleKeyboard.C.started -= CPressed;
+        Actions.BrailleKeyboard.D.started -= DPressed;
+        Actions.BrailleKeyboard.E.started -= EPressed;
+        Actions.BrailleKeyboard.F.started -= FPressed;
+        Actions.BrailleKeyboard.G.started -= GPressed;
+        Actions.BrailleKeyboard.H.started -= HPressed;
+        Actions.BrailleKeyboard.I.started -= IPressed;
+        Actions.BrailleKeyboard.J.started -= JPressed;
+        Actions.BrailleKeyboard.K.started -= KPressed;
+        Actions.BrailleKeyboard.L.started -= LPressed;
+        Actions.BrailleKeyboard.M.started -= MPressed;
+        Actions.BrailleKeyboard.N.started -= NPressed;
+        Actions.BrailleKeyboard.O.started -= OPressed;
+        Actions.BrailleKeyboard.P.started -= PPressed;
+        Actions.BrailleKeyboard.Q.started -= QPressed;
+        Actions.BrailleKeyboard.R.started -= RPressed;
+        Actions.BrailleKeyboard.S.started -= SPressed;
+        Actions.BrailleKeyboard.T.started -= TPressed;
+        Actions.BrailleKeyboard.U.started -= UPressed;
+        Actions.BrailleKeyboard.V.started -= VPressed;
+        Actions.BrailleKeyboard.W.started -= WPressed;
+        Actions.BrailleKeyboard.X.started -= XPressed;
+        Actions.BrailleKeyboard.Y.started -= YPressed;
+        Actions.BrailleKeyboard.Z.started -= ZPressed;
+        Actions.BrailleKeyboard.Ä.started -= ÄPressed;
+        Actions.BrailleKeyboard.Ö.started -= ÖPressed;
+        Actions.BrailleKeyboard.Ü.started -= ÜPressed;
+        Actions.BrailleKeyboard.ß.started -= ßPressed;
+        Actions.BrailleKeyboard.D1.started -= D1Pressed;
+        Actions.BrailleKeyboard.D2.started -= D2Pressed;
+        Actions.BrailleKeyboard.D3.started -= D3Pressed;
+        Actions.BrailleKeyboard.D4.started -= D4Pressed;
+        Actions.BrailleKeyboard.D5.started -= D5Pressed;
+        Actions.BrailleKeyboard.D6.started -= D6Pressed;
+        Actions.BrailleKeyboard.D7.started -= D7Pressed;
+        Actions.BrailleKeyboard.D8.started -= D8Pressed;
+        Actions.BrailleKeyboard.D9.started -= D9Pressed;
+        Actions.BrailleKeyboard.D0.started -= D0Pressed;
+        Actions.BrailleKeyboard.Comma.started -= CommaPressed;
+        Actions.BrailleKeyboard.Period.started -= PeriodPressed;
+        Actions.BrailleKeyboard.Dash.started -= DashPressed;
+        Actions.BrailleKeyboard.Hashtag.started -= HashtagPressed;
+        Actions.BrailleKeyboard.Space.started -= SpacePressed;
+        Actions.BrailleKeyboard.Delete.started -= OnDeleteCharacter;
+        Actions.BrailleKeyboard.Exclamation.started -= ExclamationPressed;
+        Actions.BrailleKeyboard.Quote.started -= QuotePressed;
+        Actions.BrailleKeyboard.Semicolon.started -= SemicolonPressed;
+        Actions.BrailleKeyboard.Colon.started -= ColonPressed;
+        Actions.BrailleKeyboard.Question.started -= QuestionPressed;
+        Actions.BrailleKeyboard.LBrace.started -= LBracePressed;
+        Actions.BrailleKeyboard.RBrace.started -= RBracePressed;
+        Actions.BrailleKeyboard.Apostrophe.started -= ApostrophePressed;
         Actions.BrailleKeyboard.Disable();
     }
 
@@ -171,6 +224,5 @@ public class KeyboardTextInput: AbstractTextInput
     public void OnDeleteCharacter(InputAction.CallbackContext context)
     {
         Textbox.DeleteCharacter();
-        Debug.Log(Textbox.text);
     }
 }

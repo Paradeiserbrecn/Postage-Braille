@@ -14,6 +14,7 @@ namespace IO
             Actions.Navigation.answer3.started += OnAnswer3;
             Actions.Navigation.answer4.started += OnAnswer4;
             Actions.Navigation.answer5.started += OnAnswer5;
+            Actions.Navigation.SwitchUILayer.started += OnSwitchUILayer;
             Actions.Navigation.next.started += OnNext;
             Actions.Navigation.prev.started += OnPrev;
             Actions.Navigation.confirm.started += OnConfirm;
@@ -27,8 +28,10 @@ namespace IO
             Actions.Navigation.answer3.started -= OnAnswer3;
             Actions.Navigation.answer4.started -= OnAnswer4;
             Actions.Navigation.answer5.started -= OnAnswer5;
+            Actions.Navigation.SwitchUILayer.started -= OnSwitchUILayer;
             Actions.Navigation.next.started -= OnNext;
             Actions.Navigation.prev.started -= OnPrev;
+            
             Actions.Navigation.confirm.started -= OnConfirm;
             Actions.Navigation.Disable();
         }
@@ -43,12 +46,17 @@ namespace IO
         private void OnConfirm(InputAction.CallbackContext context) { SelectOption();}
         private void SelectOption(int index)
         {
-            var selected = UIManager.Instance.Options[index];
+            var selected = UIManager.Instance.CurrentOptions[index];
             selected.ConfirmAction();
         }
         private void SelectOption()
         {
-            UIManager.Instance.HighlightedOption.ConfirmAction();
+            UIManager.Instance.CurrentlyFocusedOption.ConfirmAction();
+        }
+        
+        private void OnSwitchUILayer(InputAction.CallbackContext context)
+        {
+            UIManager.Instance.SwitchLayer();
         }
     }
 }

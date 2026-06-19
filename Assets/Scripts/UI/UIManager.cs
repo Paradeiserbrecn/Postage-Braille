@@ -151,14 +151,14 @@ namespace UI
         /// </summary>
         /// <param name="optionText">The text to convert into Braille.</param>
         /// <returns>The generated Braille grid text object.</returns>
-        private GridTextObject GenerateBrailleOption(string optionText)
+        private BrailleTextObject GenerateBrailleOption(string optionText)
         {
             var parent = Instantiate(optionParentPrefab, optionsGrid.transform, false);
 
             var optionBraille = GridBrailleConverter.Instance
                 .ConvertTextToBraille(optionText, parent: parent.transform);
 
-            return optionBraille.GetComponent<GridTextObject>();
+            return optionBraille.GetComponent<BrailleTextObject>();
         }
 
         /// <summary>
