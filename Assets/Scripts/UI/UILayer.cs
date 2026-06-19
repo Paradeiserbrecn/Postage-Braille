@@ -143,8 +143,8 @@ namespace UI
         /// </summary>
         public void Unfocus()
         {
-            CurrentIndex = 0;
             Current?.Unfocus();
+            CurrentIndex = 0;
         }
 
         /// <summary>
