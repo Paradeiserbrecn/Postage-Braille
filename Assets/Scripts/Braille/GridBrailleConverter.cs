@@ -249,11 +249,11 @@ namespace Braille
 
             return processedText.ToString();
         }
-
+        
         public GameObject ConvertTextToBraille(string s,
-            AssistiveOutput.OutputType outputType = AssistiveOutput.OutputType.Both)
+            AssistiveOutput.OutputType outputType = AssistiveOutput.OutputType.Both, Transform parent = null)
         {
-            var textObject = Instantiate(textObjectPrefab, transform);
+            var textObject = Instantiate(textObjectPrefab, parent ?? transform);
             textObject.GetComponent<GridTextObject>().text = s;
             textObject.GetComponent<GridTextObject>().outputType = outputType;
 
@@ -261,7 +261,6 @@ namespace Braille
 
             return textObject.gameObject;
         }
-
 
         //takes a single digit and converts it into its corresponding character for braille representation
         private Char ConvertNumberToChar(char c)
