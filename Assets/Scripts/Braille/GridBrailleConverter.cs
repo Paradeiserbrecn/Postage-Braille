@@ -257,19 +257,18 @@ namespace Braille
 
             return processedText.ToString();
         }
-
+        
         public GameObject ConvertTextToBraille(string s,
-            AssistiveOutput.OutputType outputType = AssistiveOutput.OutputType.Both)
+            AssistiveOutput.OutputType outputType = AssistiveOutput.OutputType.Both, Transform parent = null)
         {
-            var textObject = Instantiate(textObjectPrefab, transform);
-            textObject.GetComponent<BrailleTextObject>().text = s;
-            textObject.GetComponent<BrailleTextObject>().outputType = outputType;
+            var textObject = Instantiate(textObjectPrefab, parent ?? transform);
+            textObject.GetComponent<GridTextObject>().text = s;
+            textObject.GetComponent<GridTextObject>().outputType = outputType;
 
             GenerateBrailleObjects(PreprocessText(s), textObject.gameObject);
 
             return textObject.gameObject;
         }
-
 
         //takes a single digit and converts it into its corresponding character for braille representation
         public Char ConvertNumberToChar(char c)

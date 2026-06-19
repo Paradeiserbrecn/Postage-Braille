@@ -11,26 +11,19 @@ namespace Braille
     public class BrailleObject : MonoBehaviour
     {
         [SerializeField] private List<GameObject> dots = new();
-        private readonly List<Image> _dotImages = new();
-        private readonly List<RectTransform> _dotRects = new();
-        private GridLayoutGroup _gridLayoutGroup;
+        [SerializeField] private List<Image> _dotImages = new();
+        [SerializeField] private List<RectTransform> _dotRects = new();
+        [SerializeField] private GridLayoutGroup _gridLayoutGroup;
 
         public List<bool> DotBools { get; private set; } = new() { false, false, false, false, false, false };
 
-        private void Start()
+        private void Awake()
         {
-            foreach (GameObject dot in dots)
-            {
-                _dotRects.Add(dot.GetComponent<RectTransform>());
-                _dotImages.Add(dot.GetComponent<Image>());
-            }
-
-            _gridLayoutGroup = transform.GetComponent<GridLayoutGroup>();
-
             UpdateDotSize();
             UpdateDotColor();
             UpdateCharacterSize();
-
+            
+            
             IOEventManager.BrailleSizeChanged += UpdateCharacterSize;
             IOEventManager.DotSizeChanged += UpdateDotSize;
             IOEventManager.BrailleColorChanged += UpdateDotColor;

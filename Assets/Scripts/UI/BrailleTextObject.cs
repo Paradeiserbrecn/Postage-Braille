@@ -8,18 +8,14 @@ using Utility;
 
 namespace UI
 {
-    public class BrailleTextObject : MonoBehaviour, IFocusable
+    public class GridTextObject : Focusable
     {
-        private GridLayoutGroup _layoutGroup;
-        /// <summary>
-        /// actual latin characters behind the brailleObjects
-        /// </summary>
+        [SerializeField] private GridLayoutGroup _layoutGroup;
         public string text;
         [FormerlySerializedAs("type")] public AssistiveOutput.OutputType outputType = AssistiveOutput.OutputType.Both;
 
-        void Start()
+        void Awake()
         {
-            _layoutGroup = GetComponent<GridLayoutGroup>();
             UpdateSpacing();
             UpdateCharacterSize();
 
@@ -32,7 +28,6 @@ namespace UI
 
         void UpdateSpacing()
         {
-            
             _layoutGroup.spacing = new Vector2(GlobalSettings.BrailleSpacing, GlobalSettings.LineSpacing);
         }
 
@@ -41,10 +36,10 @@ namespace UI
             Vector2 scale = Vector2.one * GlobalSettings.BrailleSize;
             scale.x *= 2; //two dots horizontally
             scale.y *= 3; //three dots vertically
-            transform.GetComponent<GridLayoutGroup>().cellSize = scale;
+            _layoutGroup.cellSize = scale;
         }
 
-        public virtual void Focus()
+        public override void Focus()
         {
             if (text != null) IOEventManager.InvokeAssistiveOutput(text, outputType);
             foreach (var brailleObject in GetComponentsInChildren<BrailleObject>())
@@ -53,7 +48,7 @@ namespace UI
             }
         }
 
-        public virtual void Unfocus()
+        public override void Unfocus()
         {
             if (text != null) IOEventManager.InvokeAssistiveOutput(text, outputType);
             foreach (var brailleObject in GetComponentsInChildren<BrailleObject>())
@@ -62,7 +57,7 @@ namespace UI
             }
         }
 
-        public void ConfirmAction()
+        public override void ConfirmAction()
         {
             switch (GameManager.Instance.currentState)
             {

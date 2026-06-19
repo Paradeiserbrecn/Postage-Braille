@@ -44,7 +44,8 @@ public class GameManager : MonoBehaviour
         currentState = GameState.ShowQuestion;
 
         QuestionManager.Instance.GenerateQuestion();
-        // TODO Add a reverse display thing, so you can decide whether to do a braille to latin question or vice versa, Should be done inside of UIManager -- The rest should stay the same probably
+        // TODO Add a reverse display thing, so you can decide whether to do a braille to latin question or vice versa,
+        // Should be done inside of UIManager -- The rest should stay the same probably
         UIManager.Instance.DisplayQuestion();
         
         currentState = GameState.WaitingForInput;
@@ -53,7 +54,6 @@ public class GameManager : MonoBehaviour
     public void SubmitAnswer(string answer)
     {
         if (currentState != GameState.WaitingForInput) return;
-        
         
         var correct = QuestionManager.Instance.CheckAnswer(answer);
         
