@@ -75,7 +75,7 @@ namespace Braille
             { "'", new List<bool> { false, false, false, false, false, true } },
 
             // number indicator 
-            { "#", new List<bool> { false, true, true, true, true, true } },
+            { "#", new List<bool> { false, true, false, true, true, true } },
 
             //space
             { " ", new List<bool> { false, false, false, false, false, false } },
@@ -92,7 +92,19 @@ namespace Braille
         /// </summary>
         /// <param name="s">character to convert (type string to support character combinations)</param>
         /// <returns>BrailleObject</returns>
-        public GameObject ConvertCharacterToBraille(string s)
+        public GameObject ConvertCharacterToBrailleObject(string s)
+        {
+            List<bool> pattern = ConvertCharacterToBrailleList(s);
+            if(pattern == null) return null;
+            
+            var brailleObject = Instantiate(brailleCharacterPrefab).GetComponent<BrailleObject>();
+            brailleObject.gameObject.name = s;
+            brailleObject.SetBrailleCharacter(pattern);
+            
+            return brailleObject.gameObject;
+        }
+
+        public List<bool> ConvertCharacterToBrailleList(string s)
         {
             if (!_german.TryGetValue(s, out var pattern))
             {
@@ -100,11 +112,7 @@ namespace Braille
                 return null;
             }
 
-            var brailleObject = Instantiate(brailleCharacterPrefab).GetComponent<BrailleObject>();
-            brailleObject.gameObject.name = s;
-            brailleObject.SetBrailleCharacter(pattern);
-
-            return brailleObject.gameObject;
+            return pattern;
         }
 
         public string ConvertBrailleToCharacter(List<bool> brailleList)
@@ -200,7 +208,7 @@ namespace Braille
                         break;
                 }
 
-                var brailleObject = ConvertCharacterToBraille(character.ToString());
+                var brailleObject = ConvertCharacterToBrailleObject(character.ToString());
                 text.Next();
                 if (brailleObject != null)
                 {
@@ -254,8 +262,8 @@ namespace Braille
             AssistiveOutput.OutputType outputType = AssistiveOutput.OutputType.Both, Transform parent = null)
         {
             var textObject = Instantiate(textObjectPrefab, parent ?? transform);
-            textObject.GetComponent<GridTextObject>().text = s;
-            textObject.GetComponent<GridTextObject>().outputType = outputType;
+            textObject.GetComponent<BrailleTextObject>().text = s;
+            textObject.GetComponent<BrailleTextObject>().outputType = outputType;
 
             GenerateBrailleObjects(PreprocessText(s), textObject.gameObject);
 
@@ -263,7 +271,7 @@ namespace Braille
         }
 
         //takes a single digit and converts it into its corresponding character for braille representation
-        private Char ConvertNumberToChar(char c)
+        public Char ConvertNumberToChar(char c)
         {
             switch (c)
             {

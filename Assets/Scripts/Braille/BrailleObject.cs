@@ -29,6 +29,13 @@ namespace Braille
             IOEventManager.BrailleColorChanged += UpdateDotColor;
         }
 
+        private void OnDestroy()
+        {
+            IOEventManager.BrailleSizeChanged -= UpdateCharacterSize;
+            IOEventManager.DotSizeChanged -= UpdateDotSize;
+            IOEventManager.BrailleColorChanged -= UpdateDotColor;
+        }
+
         private void UpdateDotSize()
         {
             foreach (RectTransform rect in _dotRects)
