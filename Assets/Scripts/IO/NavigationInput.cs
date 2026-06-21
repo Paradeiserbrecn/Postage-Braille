@@ -50,7 +50,7 @@ namespace IO
         private void OnConfirm(InputAction.CallbackContext context) { SelectOption();}
         private void SelectOption(int index)
         {
-            var selected = UIManager.Instance.CurrentOptions[index];
+            var selected = UIManager.Instance.CurrentFocusables[index];
             selected.ConfirmAction();
         }
         private void SelectOption()
