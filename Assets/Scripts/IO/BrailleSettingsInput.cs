@@ -6,6 +6,10 @@ namespace IO
 {
     public class BrailleSettingsInput : AbstractInput
     {
+        public BrailleSettingsInput(GameActions gameActions) : base(gameActions)
+        {
+            this.Actions = gameActions;
+        }
         public override void Enable()
         {
             Actions.BrailleSettings.BrailleSizeUp.started += OnBrailleSizeUp;
