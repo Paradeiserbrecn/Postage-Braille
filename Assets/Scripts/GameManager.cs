@@ -1,4 +1,5 @@
 using System;
+using IO;
 using UI;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -42,6 +43,7 @@ public class GameManager : MonoBehaviour
     public void NextQuestion()
     {
         currentState = GameState.ShowQuestion;
+        MultimodalInputManager.Instance.EnableInput(MultimodalInputManager.InputType.Navigation);
 
         QuestionManager.Instance.GenerateQuestion();
         // TODO Add a reverse display thing, so you can decide whether to do a braille to latin question or vice versa,
@@ -58,6 +60,7 @@ public class GameManager : MonoBehaviour
         var correct = QuestionManager.Instance.CheckAnswer(answer);
         
         currentState = GameState.ShowFeedback;
+        MultimodalInputManager.Instance.DisableInput(MultimodalInputManager.InputType.Navigation);
         UIManager.Instance.ShowFeedback(correct);
 
         _invoke(nameof(NextQuestion), 1.5f);

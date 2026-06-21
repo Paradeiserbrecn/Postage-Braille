@@ -49,9 +49,12 @@ namespace UI
         private void Awake()
         {
             Instance = this;
-
-            layers.Insert(QuestionLayerIndex, new UILayer(QuestionLayerName));
             _currentLayerIdx = 0;
+        }
+
+        private void Start()
+        {
+            CurrentLayer?.FocusFirst();
         }
 
         /// <summary>
@@ -165,40 +168,15 @@ namespace UI
         /// Highlights the next available option in the current layer.
         /// </summary>
         /// <returns>The newly focused option, or null if no option could be focused.</returns>
-        public Focusable HighlightNextOption() => HighlightOption();
+        public Focusable HighlightNextOption() => HighlightNextFocusable();
 
         /// <summary>
         /// Highlights the previous available option in the current layer.
         /// </summary>
         /// <returns>The newly focused option, or null if no option could be focused.</returns>
-        public Focusable HighlightPreviousOption() => HighlightOption(false);
+        public Focusable HighlightPreviousOption() => HighlightPreviousFocusable();
 
-        /// <summary>
-        /// Moves focus to the next or previous option depending on the direction specified.
-        /// </summary>
-        /// <param name="next">
-        /// True to move to the next option; false to move to the previous option.
-        /// </param>
-        /// <returns>The newly focused option, or null if highlighting is unavailable.</returns>
-        private Focusable HighlightOption(bool next = true)
-        {
-            if (GameManager.Instance.currentState != GameManager.GameState.WaitingForInput)
-            {
-                Debug.LogWarning("Tried to highlight a braille text object while not waiting for input.");
-                return null;
-            }
 
-            // This will be expanded once we have different menu options.
-            switch (GameManager.Instance.currentQuestionType)
-            {
-                case GameManager.QuestionType.CharBrailleToLatin:
-                case GameManager.QuestionType.CharLatinToBraille:
-                    return next ? HighlightNextFocusable() : HighlightPreviousFocusable();
-            }
-
-            Debug.LogWarning("Highlighting for this Option type is not yet supported");
-            return null;
-        }
 
         /// <summary>
         /// Moves focus to the next focusable element in the current layer.
