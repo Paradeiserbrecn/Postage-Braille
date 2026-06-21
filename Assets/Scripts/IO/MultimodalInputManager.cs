@@ -35,10 +35,7 @@ namespace IO
         {
             Instance = this;
             _actions = new GameActions();
-        }
-    
-        private void Start()
-        {
+            
             _inputs[InputType.Navigation] = new NavigationInput();
             EnableInput(InputType.Navigation);
             
@@ -51,9 +48,8 @@ namespace IO
             {
                 EnableTextInput(TextInputType.Keyboard, defaultTextbox);
             }
-            
         }
-
+    
         public void EnableInput(InputType inputType)
         {
             _inputs[inputType].Enable();

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Braille;
 using TMPro;
@@ -9,30 +10,17 @@ namespace UI
     public class UIManager : MonoBehaviour
     {
         public static UIManager Instance;
-        private const int QuestionLayerIndex = 0;
-        private const string QuestionLayerName = "QuestionLayer";
 
-        [Header("Scene References")] [SerializeField]
-        private GameObject questionPosition;
-
-        [SerializeField] private GameObject optionsGrid;
-        [SerializeField] private TextMeshProUGUI feedbackText;
-        [SerializeField] private TextMeshProUGUI questionText;
-        [SerializeField] private List<UILayer> layers;
-
-        [Header("Prefabs")] [SerializeField] private GameObject optionParentPrefab;
-        public GameObject questionTextPrefab;
-        [Header("Parameters")] public int optionsCount;
+        public List<UILayer> layers = new();
 
 
+        private int _currentLayerIdx;
         private int _currentOptionIndex;
 
         /// <summary>
         /// The focused option in the currently selected layer
         /// </summary>
         public Focusable CurrentlyFocusedOption => CurrentLayer?.Current;
-
-        private int _currentLayerIdx;
 
         /// <summary>
         /// The currently selected layer. Switching between different layers is possibe via .SwitchLayer()
@@ -42,126 +30,13 @@ namespace UI
         /// <summary>
         /// The Focusables inside the currently selected layer.
         /// </summary>
-        public List<Focusable> CurrentOptions => layers.Count == 0
+        public List<Focusable> CurrentFocusables => layers.Count == 0
             ? null
             : layers[_currentLayerIdx].Focusables;
 
         private void Awake()
         {
             Instance = this;
-            _currentLayerIdx = 0;
-        }
-
-        private void Start()
-        {
-            CurrentLayer?.FocusFirst();
-        }
-
-        /// <summary>
-        /// Generates GridTextObjects/FocusableTextObjects based on QuestionManager.Instance.currentOptions,
-        /// sets the current layer to the question-layer, and then focuses the first option in that layer
-        /// </summary>
-        public void DisplayQuestion()
-        {
-            CurrentLayer?.Unfocus();
-            _currentLayerIdx = QuestionLayerIndex;
-
-            if (GameManager.Instance.currentQuestionType == GameManager.QuestionType.CharBrailleToLatin)
-            {
-                DisplayBrailleToLatinQuestion();
-            }
-            else if (GameManager.Instance.currentQuestionType == GameManager.QuestionType.CharLatinToBraille)
-            {
-                DisplayLatinToBrailleQuestion();
-            }
-            else
-            {
-                Debug.LogWarning("Tried to display unsupported question type.");
-            }
-
-            CurrentLayer?.FocusFirst();
-        }
-
-        /// <summary>
-        /// Removes all currently displayed question content, option content,
-        /// and registered focusable elements from the active layer.
-        /// </summary>
-        private void ClearQuestionCanvas()
-        {
-            ClearChildren(questionPosition.transform);
-            ClearChildren(optionsGrid.transform);
-            CurrentLayer?.Clear();
-        }
-
-        /// <summary>
-        /// Displays a Braille-to-Latin question by rendering the correct answer
-        /// in Braille and creating text-based answer options.
-        /// </summary>
-        private void DisplayBrailleToLatinQuestion()
-        {
-            ClearQuestionCanvas();
-            questionText.text = "";
-
-            // Generate the question braille and set it to the correct position
-            GridBrailleConverter.Instance
-                .ConvertTextToBraille(QuestionManager.Instance.correctAnswer, parent: questionPosition.transform);
-
-            foreach (var option in QuestionManager.Instance.currentOptions)
-            {
-                CurrentLayer.Add(GenerateFocusableTextObjectOption(option));
-            }
-
-            feedbackText.text = "";
-        }
-
-        /// <summary>
-        /// Creates a focusable text option and adds it to the options grid.
-        /// </summary>
-        /// <param name="optionText">The text displayed for the option.</param>
-        /// <returns>The created focusable text object.</returns>
-        private FocusableTextObject GenerateFocusableTextObjectOption(string optionText)
-        {
-            var parent = Instantiate(optionParentPrefab, optionsGrid.transform, false);
-
-            var focusableText = Instantiate(questionTextPrefab, parent.transform)
-                .GetComponent<FocusableTextObject>();
-
-            focusableText.Text = optionText;
-
-            return focusableText;
-        }
-
-        /// <summary>
-        /// Displays a Latin-to-Braille question by showing the answer as text
-        /// and generating Braille answer options.
-        /// </summary>
-        private void DisplayLatinToBrailleQuestion()
-        {
-            ClearQuestionCanvas();
-
-            questionText.text = QuestionManager.Instance.correctAnswer;
-
-            foreach (var optionText in QuestionManager.Instance.currentOptions)
-            {
-                CurrentLayer.Add(GenerateBrailleOption(optionText));
-            }
-
-            feedbackText.text = "";
-        }
-
-        /// <summary>
-        /// Creates a Braille option and adds it to the options grid.
-        /// </summary>
-        /// <param name="optionText">The text to convert into Braille.</param>
-        /// <returns>The generated Braille grid text object.</returns>
-        private BrailleTextObject GenerateBrailleOption(string optionText)
-        {
-            var parent = Instantiate(optionParentPrefab, optionsGrid.transform, false);
-
-            var optionBraille = GridBrailleConverter.Instance
-                .ConvertTextToBraille(optionText, parent: parent.transform);
-
-            return optionBraille.GetComponent<BrailleTextObject>();
         }
 
         /// <summary>
@@ -176,15 +51,13 @@ namespace UI
         /// <returns>The newly focused option, or null if no option could be focused.</returns>
         public Focusable HighlightPreviousOption() => HighlightPreviousFocusable();
 
-
-
         /// <summary>
         /// Moves focus to the next focusable element in the current layer.
         /// </summary>
         /// <returns>The newly focused element.</returns>
         private Focusable HighlightNextFocusable()
         {
-            return CurrentLayer.FocusNext();
+            return CurrentLayer?.FocusNext();
         }
 
         /// <summary>
@@ -193,25 +66,14 @@ namespace UI
         /// <returns>The newly focused element.</returns>
         private Focusable HighlightPreviousFocusable()
         {
-            return CurrentLayer.FocusPrevious();
-        }
-
-        /// <summary>
-        /// Displays feedback indicating whether the user's answer was correct.
-        /// </summary>
-        /// <param name="correct">
-        /// True to display positive feedback; otherwise displays negative feedback.
-        /// </param>
-        public void ShowFeedback(bool correct)
-        {
-            feedbackText.text = correct ? "Correct!" : "Wrong!";
+            return CurrentLayer?.FocusPrevious();
         }
 
         /// <summary>
         /// Destroys all child GameObjects of the specified transform and detaches them.
         /// </summary>
         /// <param name="parent">The transform whose children should be removed.</param>
-        private void ClearChildren(Transform parent)
+        public void ClearChildren(Transform parent)
         {
             for (var i = parent.childCount - 1; i >= 0; i--)
             {
@@ -226,9 +88,29 @@ namespace UI
         /// </summary>
         public void SwitchLayer()
         {
-            CurrentLayer.Unfocus();
+            CurrentLayer?.Unfocus();
             _currentLayerIdx = (_currentLayerIdx + 1) % layers.Count;
-            CurrentLayer.FocusFirst();
+            CurrentLayer?.FocusFirst();
+        }
+
+        /// <summary>
+        /// Switches focus to a layer with the specified index.
+        /// <param name="layerIdx">The index of the layer to switch to</param>
+        /// <remarks>If the requested layer is already CurrentLayer, it does nothing</remarks>
+        /// </summary>
+        public void SwitchLayer(int layerIdx)
+        {
+            if (layerIdx < 0 || layerIdx >= layers.Count)
+            {
+                Debug.LogWarning("Tried switching to layer out of range");
+                return;
+            }
+
+            if (layerIdx == _currentLayerIdx) return;
+
+            CurrentLayer?.Unfocus();
+            _currentLayerIdx = layerIdx;
+            CurrentLayer?.FocusFirst();
         }
 
         /// <summary>
@@ -273,8 +155,7 @@ namespace UI
             return newLayerIdx;
         }
 
-        
-        
+
         /// <summary>
         /// Creates a new UI layer and optionally transfers focus to it.
         /// </summary>
@@ -326,12 +207,6 @@ namespace UI
                 return;
             }
 
-            if (layerIdx == QuestionLayerIndex)
-            {
-                Debug.LogWarning("Trying to illegally remove questions-layer.");
-                return;
-            }
-
             if (layerIdx < _currentLayerIdx)
             {
                 _currentLayerIdx--;
@@ -339,8 +214,8 @@ namespace UI
 
             if (layerIdx == _currentLayerIdx)
             {
-                CurrentLayer.Unfocus();
-                _currentLayerIdx = QuestionLayerIndex;
+                CurrentLayer?.Unfocus();
+                _currentLayerIdx = 0;
                 CurrentLayer?.FocusFirst();
             }
 
