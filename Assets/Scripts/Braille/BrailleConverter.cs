@@ -15,7 +15,7 @@ namespace Braille
 
         public GameObject ConvertCharacterToBraille(string s)
         {
-            var obj = Instantiate(UIManager.Instance.questionTextPrefab);
+            var obj = Instantiate(QuestionManager.Instance.questionTextPrefab);
             var text = obj.GetComponent<TextMeshProUGUI>();
             text.text = "BRAILLE: " + s;
 

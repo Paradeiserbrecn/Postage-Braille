@@ -1,4 +1,5 @@
 using System;
+using IO;
 using UI;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -6,13 +7,7 @@ using UnityEngine.Serialization;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-    public QuestionType currentQuestionType = QuestionType.CharBrailleToLatin;
 
-    public enum QuestionType
-    {
-        CharBrailleToLatin,
-        CharLatinToBraille
-    }
     public enum GameState
     {
         ShowQuestion,
@@ -42,11 +37,10 @@ public class GameManager : MonoBehaviour
     public void NextQuestion()
     {
         currentState = GameState.ShowQuestion;
+        MultimodalInputManager.Instance.EnableInput(MultimodalInputManager.InputType.Navigation);
 
-        QuestionManager.Instance.GenerateQuestion();
-        // TODO Add a reverse display thing, so you can decide whether to do a braille to latin question or vice versa,
-        // Should be done inside of UIManager -- The rest should stay the same probably
-        UIManager.Instance.DisplayQuestion();
+        QuestionManager.Instance.PopulateCurrentOptions();
+        QuestionManager.Instance.DisplayQuestion();
         
         currentState = GameState.WaitingForInput;
     }
@@ -58,7 +52,8 @@ public class GameManager : MonoBehaviour
         var correct = QuestionManager.Instance.CheckAnswer(answer);
         
         currentState = GameState.ShowFeedback;
-        UIManager.Instance.ShowFeedback(correct);
+        MultimodalInputManager.Instance.DisableInput(MultimodalInputManager.InputType.Navigation);
+        QuestionManager.Instance.ShowFeedback(correct);
 
         _invoke(nameof(NextQuestion), 1.5f);
     }
