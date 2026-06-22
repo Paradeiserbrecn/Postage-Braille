@@ -44,13 +44,12 @@ public class QuestionManager : MonoBehaviour
     [Header("Parameters")] public int optionsCount;
 
     [Header("Scene References")] [SerializeField]
-    private GameObject questionPosition;
+    private FocusableQuestionLetter letterObject;
 
     [SerializeField] private GameObject optionsGrid;
     [SerializeField] private TextMeshProUGUI feedbackText;
-    [SerializeField] private TextMeshProUGUI questionText;
 
-    [Header("Prefabs")] [SerializeField] private GameObject optionParentPrefab;
+    [Header("Prefabs")] [SerializeField] private GameObject SortingBoxPrefab;
     [SerializeField] public GameObject questionTextPrefab;
 
     /// <summary>
@@ -73,6 +72,7 @@ public class QuestionManager : MonoBehaviour
     {
         Instance = this;
         _questionLayerIndex = UIManager.Instance.AddLayer(new UILayer(QuestionLayerName));
+        
     }
 
     /// <summary>
@@ -128,6 +128,7 @@ public class QuestionManager : MonoBehaviour
         }
 
         UIManager.Instance.SwitchLayer(_questionLayerIndex);
+        letterObject.text = correctAnswer;
         QuestionLayer.FocusFirst();
     }
 
@@ -139,12 +140,13 @@ public class QuestionManager : MonoBehaviour
     private void DisplayBrailleToLatinQuestion()
     {
         ClearQuestionCanvas();
-        questionText.text = "";
+        letterObject.letterText.text = "";
 
         // Generate the question braille and set it to the correct position
-        GridBrailleConverter.Instance
-            .ConvertTextToBraille(correctAnswer, parent: questionPosition.transform);
-
+        var braille = GridBrailleConverter.Instance
+            .ConvertTextToBraille(correctAnswer, parent: letterObject.wordbox.transform).GetComponentInChildren<BrailleObject>();
+        braille.UpdateDotColor(GlobalSettings.QuestionBrailleColor);
+        
         foreach (var option in currentOptions)
         {
             QuestionLayer
@@ -160,16 +162,19 @@ public class QuestionManager : MonoBehaviour
     /// </summary>
     /// <param name="optionText">The text displayed for the option.</param>
     /// <returns>The created focusable text object.</returns>
-    private FocusableTextObject GenerateFocusableTextObjectOption(string optionText)
+    private SortingBoxMenuButton GenerateFocusableTextObjectOption(string optionText)
     {
-        var parent = Instantiate(optionParentPrefab, optionsGrid.transform, false);
+        var parent = Instantiate(SortingBoxPrefab, optionsGrid.transform, false).GetComponent<SortingBoxMenuButton>();
 
-        var focusableText = Instantiate(questionTextPrefab, parent.transform)
+        var focusableText = Instantiate(questionTextPrefab, parent.boxContent.transform)
             .GetComponent<FocusableTextObject>();
 
-        focusableText.Text = optionText;
+        focusableText.tmpText.color = GlobalSettings.QuestionTextColor;
 
-        return focusableText;
+        focusableText.Text = optionText;
+        parent.text = optionText;
+
+        return parent;
     }
 
     /// <summary>
@@ -192,7 +197,8 @@ public class QuestionManager : MonoBehaviour
     {
         ClearQuestionCanvas();
 
-        questionText.text = correctAnswer;
+        letterObject.letterText.text = correctAnswer;
+        letterObject.letterText.color = GlobalSettings.QuestionTextColor;
 
         foreach (var optionText in currentOptions)
         {
@@ -207,14 +213,17 @@ public class QuestionManager : MonoBehaviour
     /// </summary>
     /// <param name="optionText">The text to convert into Braille.</param>
     /// <returns>The generated Braille grid text object.</returns>
-    private BrailleTextObject GenerateBrailleOption(string optionText)
+    private SortingBoxMenuButton GenerateBrailleOption(string optionText)
     {
-        var parent = Instantiate(optionParentPrefab, optionsGrid.transform, false);
+        var parent = Instantiate(SortingBoxPrefab, optionsGrid.transform, false).GetComponent<SortingBoxMenuButton>();
+        parent.text = optionText;
 
-        var optionBraille = GridBrailleConverter.Instance
-            .ConvertTextToBraille(optionText, parent: parent.transform);
+        var braille = GridBrailleConverter.Instance
+            .ConvertTextToBraille(optionText, parent: parent.boxContent.transform).GetComponent<BrailleObject>();
 
-        return optionBraille.GetComponent<BrailleTextObject>();
+        braille.UpdateDotColor(GlobalSettings.QuestionBrailleColor);
+
+        return parent;
     }
 
     /// <summary>
@@ -223,7 +232,7 @@ public class QuestionManager : MonoBehaviour
     /// </summary>
     private void ClearQuestionCanvas()
     {
-        UIManager.Instance.ClearChildren(questionPosition.transform);
+        UIManager.Instance.ClearChildren(letterObject.wordbox.transform);
         UIManager.Instance.ClearChildren(optionsGrid.transform);
         QuestionLayer.Clear();
     }
@@ -240,5 +249,11 @@ public class QuestionManager : MonoBehaviour
     {
         Debug.Log("Answered with: " + answer + " and correct: " + correctAnswer);
         return answer == correctAnswer;
+    }
+
+
+    public static bool CheckAnswer()
+    {
+        return Instance.CheckAnswer("Dei mama");
     }
 }

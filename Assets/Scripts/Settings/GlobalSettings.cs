@@ -1,9 +1,12 @@
+using Braille;
 using Color = UnityEngine.Color;
 
 namespace Settings
 {
     public static class GlobalSettings
     {
+        public const AssistiveOutput.OutputType standardOutputType = AssistiveOutput.OutputType.Both;
+        public const AssistiveOutput.OutputType questionOutputType = AssistiveOutput.OutputType.Braille;
         public const float MinBrailleSize = 30f;
         public const float BaseBrailleSize = 50f;
         public const float MaxBrailleSize = 70f;
@@ -35,5 +38,8 @@ namespace Settings
         public static Color HighlightedColor = Color.red;
         public static Color TextColor = Color.white;
         public static Color MenuOptionColor = Color.white;
+        public static Color SortingBoxColor = Color.white;
+        public static Color QuestionBrailleColor = Color.black;
+        public static Color QuestionTextColor = Color.black;
     }
 }

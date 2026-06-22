@@ -53,7 +53,7 @@ namespace Braille
         // <param name="type">If the text is supposed to be output in speech, in braille, or both.</param>
         public void Output(string text, OutputType type = OutputType.Both)
         {
-            // Debug.Log("Tolk Output (" + type + "): " + text);
+            Debug.Log("Tolk Output (" + type + "): " + text);
 
             bool success = false;
 

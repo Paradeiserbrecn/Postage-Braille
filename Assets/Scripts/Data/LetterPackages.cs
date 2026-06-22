@@ -79,21 +79,21 @@ namespace Data
                 {
                     Letters = new List<string>
                     {
-                        "e", "n", "i", "s", "t"
+                        "E", "N", "I", "S", "T"
                     },
 
                     Words = new List<string>
                     {
-                        "ist",
-                        "ein",
-                        "seite",
-                        "essen",
-                        "see",
-                        "tee",
-                        "nest",
-                        "seine",
-                        "nein",
-                        "seit"
+                        "IST",
+                        "EIN",
+                        "SEITE",
+                        "ESSEN",
+                        "SEE",
+                        "TEE",
+                        "NEST",
+                        "SEINE",
+                        "NEIN",
+                        "SEIT"
                     }
                 }
             },
@@ -104,21 +104,21 @@ namespace Data
                 {
                     Letters = new List<string>
                     {
-                        "a", "r", "d", "h", "l"
+                        "A", "R", "D", "H", "L"
                     },
 
                     Words = new List<string>
                     {
-                        "der",
-                        "die",
-                        "lernen",
-                        "lesen",
-                        "leider",
-                        "laden",
-                        "land",
-                        "halle",
-                        "reden",
-                        "alle"
+                        "DER",
+                        "DIE",
+                        "LERNEN",
+                        "LESEN",
+                        "LEIDER",
+                        "LADEN",
+                        "LAND",
+                        "HALLE",
+                        "REDEN",
+                        "ALLE"
                     }
                 }
             },
@@ -129,21 +129,21 @@ namespace Data
                 {
                     Letters = new List<string>
                     {
-                        "m", "u", "o", "g", "b"
+                        "M", "U", "O", "G", "B"
                     },
 
                     Words = new List<string>
                     {
-                        "hund",
-                        "haus",
-                        "baum",
-                        "morgen",
-                        "haben",
-                        "boot",
-                        "boden",
-                        "gut",
-                        "bauen",
-                        "oben"
+                        "HUND",
+                        "HAUS",
+                        "BAUM",
+                        "MORGEN",
+                        "HABEN",
+                        "BOOT",
+                        "BODEN",
+                        "GUT",
+                        "BAUEN",
+                        "OBEN"
                     }
                 }
             },
@@ -154,21 +154,21 @@ namespace Data
                 {
                     Letters = new List<string>
                     {
-                        "w", "f", "k", "z", "p"
+                        "W", "F", "K", "Z", "P"
                     },
 
                     Words = new List<string>
                     {
-                        "wasser",
-                        "katze",
-                        "kopf",
-                        "platz",
-                        "weg",
-                        "paket",
-                        "zug",
-                        "fenster",
-                        "wolke",
-                        "pflanze"
+                        "WASSER",
+                        "KATZE",
+                        "KOPF",
+                        "PLATZ",
+                        "WEG",
+                        "PAKET",
+                        "ZUG",
+                        "FENSTER",
+                        "WOLKE",
+                        "PFLANZE"
                     }
                 }
             },
@@ -179,21 +179,21 @@ namespace Data
                 {
                     Letters = new List<string>
                     {
-                        "ä", "ö", "ü", "ß", "äu"
+                        "Ä", "Ö", "Ü", "ß", "ÄU"
                     },
 
                     Words = new List<string>
                     {
-                        "für",
-                        "fünf",
-                        "groß",
-                        "schön",
-                        "häuser",
-                        "bär",
-                        "grüßen",
-                        "mäßig",
-                        "löwe",
-                        "bäume"
+                        "FÜR",
+                        "FÜNF",
+                        "GROß",
+                        "SCHÖN",
+                        "HÄUSER",
+                        "BÄR",
+                        "GRÜßEN",
+                        "MÄßIG",
+                        "LÖWE",
+                        "BÄUME"
                     }
                 }
             },
@@ -204,21 +204,21 @@ namespace Data
                 {
                     Letters = new List<string>
                     {
-                        "c", "j", "v", "y", "x"
+                        "C", "J", "V", "Y", "X"
                     },
 
                     Words = new List<string>
                     {
-                        "clown",
-                        "jacke",
-                        "vase",
-                        "yoga",
-                        "taxi",
-                        "video",
-                        "computer",
-                        "xylophon",
-                        "januar",
-                        "café"
+                        "CLOWN",
+                        "JACKE",
+                        "VASE",
+                        "YOGA",
+                        "TAXI",
+                        "VIDEO",
+                        "COMPUTER",
+                        "XYLOPHON",
+                        "JANUAR",
+                        "CAFÉ"
                     }
                 }
             },
@@ -229,21 +229,21 @@ namespace Data
                 {
                     Letters = new List<string>
                     {
-                        "ch", "sch", "ei", "ie", "eu"
+                        "CH", "SCH", "EI", "IE", "EU"
                     },
 
                     Words = new List<string>
                     {
-                        "schule",
-                        "schreiben",
-                        "eis",
-                        "liebe",
-                        "freund",
-                        "deutsch",
-                        "eule",
-                        "schiff",
-                        "heiß",
-                        "schokolade"
+                        "SCHULE",
+                        "SCHREIBEN",
+                        "EIS",
+                        "LIEBE",
+                        "FREUND",
+                        "DEUTSCH",
+                        "EULE",
+                        "SCHIFF",
+                        "HEIß",
+                        "SCHOKOLADE"
                     }
                 }
             }
