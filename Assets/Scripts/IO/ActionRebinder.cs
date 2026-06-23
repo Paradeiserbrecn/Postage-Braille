@@ -3,6 +3,7 @@ using UI;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Utility;
+using Braille;
 
 namespace IO
 {
@@ -57,6 +58,7 @@ namespace IO
             if(!_rebinding)
             {
                 _rebinding = true;
+                IOEventManager.AssistiveOutput("Neuen Knopf drücken", AssistiveOutput.OutputType.Both);
                 MultimodalInputManager.Instance.DisableInput(MultimodalInputManager.InputType.Navigation);
                 button.SetBindingText("Click any button");
                 _rebindingOperation =
@@ -69,11 +71,9 @@ namespace IO
             Debug.Log("RebindCompleted");
             _rebindingOperation.Dispose();
             button.SetBindingText(inputAction.bindings[0].effectivePath);
-            Debug.Log(inputAction.bindings[0].path);
-            Debug.Log(inputAction.bindings[0].overridePath);
-            Debug.Log(inputAction.bindings[0].effectivePath);
             MultimodalInputManager.Instance.EnableInput(MultimodalInputManager.InputType.Navigation);
             _rebinding = false;
+            IOEventManager.AssistiveOutput("Neuer knopf ist " + inputAction.bindings[0].effectivePath, AssistiveOutput.OutputType.Both);
         }
     }
 }

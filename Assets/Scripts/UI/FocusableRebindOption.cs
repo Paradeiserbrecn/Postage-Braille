@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Utility;
 using System.Collections.Generic;
+using Braille;
 using IO;
 using UnityEngine.InputSystem;
 
@@ -20,6 +21,7 @@ namespace UI
 
         public override void Focus()
         {
+            IOEventManager.AssistiveOutput(nameText.text + ": " +  bindingText.text, AssistiveOutput.OutputType.Both);
             background.color = GlobalSettings.HighlightedButtonColor;
             Debug.Log(InputAction);
         }
