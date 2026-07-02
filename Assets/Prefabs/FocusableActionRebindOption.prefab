@@ -413,6 +413,8 @@ MonoBehaviour:
   nameText: {fileID: 1724857522251748824}
   bindingText: {fileID: 5107273103477068672}
   background: {fileID: 6866306815396931851}
+  rectTransform: {fileID: 1451635440673723658}
+  inputActionsPanel: {fileID: 0}
   InputAction:
     m_Name: Input
     m_Type: 0

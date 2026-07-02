@@ -16,6 +16,8 @@ namespace UI
         [SerializeField] private TextMeshProUGUI nameText;
         [SerializeField] private TextMeshProUGUI bindingText;
         [SerializeField] private Image background;
+        [SerializeField] private RectTransform rectTransform;
+        public InputActionsPanel inputActionsPanel;
         
         public InputAction InputAction;
 
@@ -23,6 +25,7 @@ namespace UI
         {
             IOEventManager.AssistiveOutput(nameText.text + ": " +  bindingText.text, AssistiveOutput.OutputType.Both);
             background.color = GlobalSettings.HighlightedButtonColor;
+            if (inputActionsPanel != null) inputActionsPanel.ScrollTo(rectTransform);
             Debug.Log(InputAction);
         }
 

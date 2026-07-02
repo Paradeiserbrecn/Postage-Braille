@@ -241,7 +241,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InputActionsPanel
   rebindButtonPrefab: {fileID: 4370029525066094423, guid: 287d681b57dad2f458ea38a83bf69ece, type: 3}
-  ScrollRectContent: {fileID: 1747607617}
+  scrollRectContent: {fileID: 1747607617}
+  scrollRect: {fileID: 450573007}
 --- !u!114 &450573007
 MonoBehaviour:
   m_ObjectHideFlags: 0
