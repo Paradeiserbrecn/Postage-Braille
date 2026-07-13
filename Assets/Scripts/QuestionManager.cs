@@ -277,6 +277,7 @@ public class QuestionManager : MonoBehaviour
     /// <summary>
     /// If the current QuestionType is BrailleToLatin - changes it to LatinToBraille
     /// If the current QuestionType is LatinToBraille - changes it to BrailleToLatin
+    /// -- In both cases it re-populates the questioncanvas as if a new question is generated
     /// If the current QuestionType is anything else - disregards the call
     /// </summary>
     public static void ToggleBrailleToLatin()
@@ -288,6 +289,19 @@ public class QuestionManager : MonoBehaviour
         Instance.currentQuestionDirection = Instance.currentQuestionDirection == QuestionDirection.CharBrailleToLatin
             ? QuestionDirection.CharLatinToBraille
             : QuestionDirection.CharBrailleToLatin;
+        
+        GameManager.Instance.NextQuestion();
+    }
+
+    /// <summary>
+    /// Toggles between the two QuestionTypes [Words, Letters] and re-populates the questioncanvas
+    /// as if a new question is generated
+    /// </summary>
+    public static void ToggleQuestionType()
+    {
+        Instance.CurrentQuestionType = Instance.CurrentQuestionType == QuestionType.Letters
+            ? QuestionType.Words
+            : QuestionType.Letters;
         
         GameManager.Instance.NextQuestion();
     }

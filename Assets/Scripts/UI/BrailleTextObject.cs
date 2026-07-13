@@ -11,7 +11,7 @@ namespace UI
     public class BrailleTextObject : Focusable
     {
         [SerializeField] private GridLayoutGroup _layoutGroup;
-        [FormerlySerializedAs("type")] public AssistiveOutput.OutputType outputType = AssistiveOutput.OutputType.Both;
+        public AssistiveOutput.OutputType outputType = AssistiveOutput.OutputType.Both;
 
         void Awake()
         {
