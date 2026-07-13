@@ -153,8 +153,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 50, y: 50}
-  m_SizeDelta: {x: 400, y: 250}
+  m_AnchoredPosition: {x: 27.48, y: 50}
+  m_SizeDelta: {x: 486.34, y: 250}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &113316107
 MonoBehaviour:
@@ -1793,7 +1793,7 @@ GameObject:
   - component: {fileID: 1371874286}
   - component: {fileID: 1371874285}
   m_Layer: 5
-  m_Name: Toggle QuestionType
+  m_Name: Toggle QuestionDirection
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1869,7 +1869,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73a99e931e014f14784c6a37335d791a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UI.FocusableMenuOption
-  text: "Fragetyp \xE4ndern"
+  text: "Fragerichtung \xE4ndern"
   image: {fileID: 1371874285}
   iconImage: {fileID: 383436075}
   action:
@@ -1984,8 +1984,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 247b3700be285e34c8be6653ba43fae2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::QuestionManager
-  currentQuestionType: 1
-  optionsCount: 3
+  currentQuestionDirection: 0
+  CurrentQuestionType: 1
   letterObject: {fileID: 217568392}
   optionsGrid: {fileID: 2129736004}
   feedbackText: {fileID: 625592600}

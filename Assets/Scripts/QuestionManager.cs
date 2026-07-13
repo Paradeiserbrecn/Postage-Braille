@@ -8,6 +8,7 @@ using Settings;
 using TMPro;
 using UI;
 using Unity.Collections;
+using UnityEngine.Serialization;
 using Utility;
 using Random = UnityEngine.Random;
 
@@ -21,7 +22,7 @@ public class QuestionManager : MonoBehaviour
     /// <summary>
     /// Defines the supported question directions.
     /// </summary>
-    public enum QuestionType
+    public enum QuestionDirection
     {
         /// <summary>
         /// Display a Braille character and ask the user
@@ -36,12 +37,19 @@ public class QuestionManager : MonoBehaviour
         CharLatinToBraille
     }
 
+    public enum QuestionType
+    {
+        Words,
+        Letters
+    }
+
     private const string QuestionLayerName = "QuestionLayer";
+    private const int OptionsCount = 3;
+
     public static QuestionManager Instance;
 
-    public QuestionType currentQuestionType = QuestionType.CharBrailleToLatin;
-
-    [Header("Parameters")] public int optionsCount;
+    public QuestionDirection currentQuestionDirection = QuestionDirection.CharBrailleToLatin;
+    public QuestionType CurrentQuestionType = QuestionType.Letters;
 
     [Header("Scene References")] [SerializeField]
     private FocusableQuestionLetter letterObject;
@@ -82,22 +90,25 @@ public class QuestionManager : MonoBehaviour
     /// </summary>
     public void PopulateCurrentOptions()
     {
+        var options = CurrentQuestionType == QuestionType.Letters ? LetterPackages.Instance.CurrentPackageProgresses.Letters : LetterPackages.Instance.CurrentPackageProgresses.Words;
+
+
         // Because we take 4 option anchors as SerializedFields in the UIManager Component
-        if (LetterPackages.Instance.CurrentPackageProgresses.Letters.Count < optionsCount)
+        if (options.Count < OptionsCount)
             throw new InvalidOperationException("Not enough possible letters to generate options.");
 
         currentOptions.Clear();
 
         // Pick correct answer
         correctAnswer =
-            LetterPackages.Instance.CurrentPackageProgresses.Letters[
-                Random.Range(0, LetterPackages.Instance.CurrentPackageProgresses.Letters.Count)];
+            options[
+                Random.Range(0, options.Count)];
 
         // Create a pool of wrong answers
-        var wrongOptions = LetterPackages.Instance.CurrentPackageProgresses.Letters
+        var wrongOptions = options
             .Where(letter => letter != correctAnswer)
             .OrderBy(_ => Random.value)
-            .Take(optionsCount - 1)
+            .Take(OptionsCount - 1)
             .ToList();
 
         // Combine correct + wrong
@@ -114,11 +125,11 @@ public class QuestionManager : MonoBehaviour
     /// </summary>
     public void DisplayQuestion()
     {
-        if (currentQuestionType == QuestionType.CharBrailleToLatin)
+        if (currentQuestionDirection == QuestionDirection.CharBrailleToLatin)
         {
             DisplayBrailleToLatinQuestion();
         }
-        else if (currentQuestionType == QuestionType.CharLatinToBraille)
+        else if (currentQuestionDirection == QuestionDirection.CharLatinToBraille)
         {
             DisplayLatinToBrailleQuestion();
         }
@@ -270,13 +281,13 @@ public class QuestionManager : MonoBehaviour
     /// </summary>
     public static void ToggleBrailleToLatin()
     {
-        if (Instance.currentQuestionType != QuestionType.CharBrailleToLatin &&
-            Instance.currentQuestionType != QuestionType.CharLatinToBraille)
+        if (Instance.currentQuestionDirection != QuestionDirection.CharBrailleToLatin &&
+            Instance.currentQuestionDirection != QuestionDirection.CharLatinToBraille)
             return;
 
-        Instance.currentQuestionType = Instance.currentQuestionType == QuestionType.CharBrailleToLatin
-            ? QuestionType.CharLatinToBraille
-            : QuestionType.CharBrailleToLatin;
+        Instance.currentQuestionDirection = Instance.currentQuestionDirection == QuestionDirection.CharBrailleToLatin
+            ? QuestionDirection.CharLatinToBraille
+            : QuestionDirection.CharBrailleToLatin;
         
         GameManager.Instance.NextQuestion();
     }
