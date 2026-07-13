@@ -15,6 +15,7 @@ namespace UI
     {
         [SerializeField] internal Image image;
         [SerializeField] internal Image iconImage;
+        [SerializeField] internal UnityEvent action;
 
         private void Awake()
         {
@@ -34,7 +35,7 @@ namespace UI
 
         public override void ConfirmAction()
         {
-            Debug.Log("Confirm Action");
+            action.Invoke();
         }
     }
 }

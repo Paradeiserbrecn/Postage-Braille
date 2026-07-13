@@ -12,7 +12,6 @@ namespace UI
     {
         [SerializeField] public Image image;
         [SerializeField] public GameObject wordbox;
-        [SerializeField] public TextMeshProUGUI letterText;
 
         private void Awake()
         {
