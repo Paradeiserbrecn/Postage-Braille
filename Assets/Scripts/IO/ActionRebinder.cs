@@ -17,10 +17,8 @@ namespace IO
         private InputActionsPanel _inputActionsPanel;
         
         private InputActionRebindingExtensions.RebindingOperation _rebindingOperation;
-        //private 
         
-        
-        public ActionRebinder(GameActions actions)
+        public ActionRebinder(GameActions actions) 
         {
             _actions = actions;
             
@@ -31,14 +29,24 @@ namespace IO
             }
         }
 
-        public void ListActions(InputActionMap actionMap)
+        //when we have implemented scene changes InputActionsPanel should be specified using this method instead of the find in the constructor
+        public void SpecifyInputActionsPanel(InputActionsPanel panel)
         {
-            //debugging solution
             if (_inputActionsPanel == null)
             {
+                Debug.LogWarning("InputActionsPanel is null");
                 return;
             }
-            //end
+            _inputActionsPanel = panel;
+        }
+
+        public void ListActions(InputActionMap actionMap)
+        {
+            if (_inputActionsPanel == null)
+            {
+                Debug.LogWarning("no InputActionsPanel found");
+                return;
+            }
             
             _inputActionsPanel.ClearAll();
             

@@ -17,8 +17,6 @@ namespace IO
         public ActionRebinder ActionRebinder { get; private set; }
         
         [SerializeField] private InputHandledBrailleTextObject defaultTextbox;
-        
-        [SerializeField] private RebindUI rebindUI;
 
         public enum TextInputType
         {
@@ -56,7 +54,7 @@ namespace IO
         {
             ActionRebinder = new ActionRebinder(_actions);
             
-            /////// The following is for testing only!!
+            /////// The following is for testing only. ListActions should later be called when opening the menu
             ActionRebinder.ListActions(_actions.Navigation);
             /////// end of testing section
         }
