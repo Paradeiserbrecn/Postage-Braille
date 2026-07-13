@@ -15,8 +15,8 @@ namespace Settings
         public const float DotSizeIncrement = 0.1f;
     
         public const float MinBrailleSpacing = 0f;
-        public const float BaseBrailleSpacing = 50f;
-        public const float MaxBrailleSpacing = 100f;
+        public const float BaseBrailleSpacing = 5f;
+        public const float MaxBrailleSpacing = 50f;
         public const float BrailleSpacingIncrement = 5f;
     
         public const float MinLineSpacing = 20f;
@@ -27,10 +27,10 @@ namespace Settings
     
         
         
-        public static float BrailleSize = 50f;
-        public static float DotSize = 0.7f;
-        public static float BrailleSpacing = 50f;
-        public static float LineSpacing = 100f;
+        public static float BrailleSize = BaseBrailleSize;
+        public static float DotSize = BaseDotSize;
+        public static float BrailleSpacing = BaseBrailleSpacing;
+        public static float LineSpacing = BaseLineSpacing;
         public static Color BrailleColor = Color.white;
         public static Color HighlightedColor = Color.red;
         public static Color TextColor = Color.white;
