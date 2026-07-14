@@ -165,7 +165,9 @@ namespace UI
         /// newly added layer is focused.
         /// If the focusables is empty, focus is not changed
         /// </param>
-        /// <returns></returns>
+        /// <returns>
+        /// The index of the newly added layer, or -1 if the layer could not be created.
+        /// </returns>
         public int AddLayer(UILayer layer, bool focusImmediately = true)
         {
             if (layer == null)

@@ -15,32 +15,36 @@ namespace UI
         public TextMeshProUGUI tmpText;
 
         private bool _focused = false;
-        private string _text;
         private string _displayTextOverride;
 
         public string Text
         {
-            get => _text;
+            get => text;
             set
             {
-                _text = value;
-                tmpText.text = _text;
+                text = value;
+                tmpText.text = text;
             }
         }
 
         /// <summary>
-        /// Overrides the displayed text.
-        /// Set to null to display <see cref="Text"/> again.
-        /// </summary>
-        public string DisplayText
+            /// Overrides the displayed text.
+            /// Set to null to display <see cref="Text"/> again.
+            /// </summary>
+            public string DisplayText
         {
             get => tmpText.text;
             set => tmpText.text = value;
         }
 
+        private void Awake()
+        {
+            tmpText.color = GlobalSettings.TextColor;
+        }
+
         private void RefreshDisplayedText()
         {
-            tmpText.text = _displayTextOverride ?? _text;
+            tmpText.text = _displayTextOverride ?? text;
         }
 
         public void Initialize(TextMeshProUGUI textMesh)

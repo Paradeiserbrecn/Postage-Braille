@@ -8,6 +8,7 @@ using Settings;
 using TMPro;
 using UI;
 using Unity.Collections;
+using UnityEngine.Serialization;
 using Utility;
 using Random = UnityEngine.Random;
 
@@ -21,7 +22,7 @@ public class QuestionManager : MonoBehaviour
     /// <summary>
     /// Defines the supported question directions.
     /// </summary>
-    public enum QuestionType
+    public enum QuestionDirection
     {
         /// <summary>
         /// Display a Braille character and ask the user
@@ -36,22 +37,29 @@ public class QuestionManager : MonoBehaviour
         CharLatinToBraille
     }
 
+    public enum QuestionType
+    {
+        Words,
+        Letters
+    }
+
     private const string QuestionLayerName = "QuestionLayer";
+    private const int OptionsCount = 3;
+
     public static QuestionManager Instance;
 
-    public QuestionType currentQuestionType = QuestionType.CharBrailleToLatin;
-
-    [Header("Parameters")] public int optionsCount;
+    public QuestionDirection currentQuestionDirection = QuestionDirection.CharBrailleToLatin;
+    public QuestionType CurrentQuestionType = QuestionType.Letters;
 
     [Header("Scene References")] [SerializeField]
-    private GameObject questionPosition;
+    private FocusableQuestionLetter letterObject;
 
     [SerializeField] private GameObject optionsGrid;
     [SerializeField] private TextMeshProUGUI feedbackText;
-    [SerializeField] private TextMeshProUGUI questionText;
 
-    [Header("Prefabs")] [SerializeField] private GameObject optionParentPrefab;
+    [Header("Prefabs")] [SerializeField] private GameObject SortingBoxPrefab;
     [SerializeField] public GameObject questionTextPrefab;
+    [SerializeField] private GameObject LetterTextPrefab;
 
     /// <summary>
     /// The currently active question UI layer.
@@ -82,22 +90,27 @@ public class QuestionManager : MonoBehaviour
     /// </summary>
     public void PopulateCurrentOptions()
     {
+        var options = CurrentQuestionType == QuestionType.Letters
+            ? LetterPackages.Instance.CurrentPackageProgresses.Letters
+            : LetterPackages.Instance.CurrentPackageProgresses.Words;
+
+
         // Because we take 4 option anchors as SerializedFields in the UIManager Component
-        if (LetterPackages.Instance.CurrentPackageProgresses.Letters.Count < optionsCount)
+        if (options.Count < OptionsCount)
             throw new InvalidOperationException("Not enough possible letters to generate options.");
 
         currentOptions.Clear();
 
         // Pick correct answer
         correctAnswer =
-            LetterPackages.Instance.CurrentPackageProgresses.Letters[
-                Random.Range(0, LetterPackages.Instance.CurrentPackageProgresses.Letters.Count)];
+            options[
+                Random.Range(0, options.Count)];
 
         // Create a pool of wrong answers
-        var wrongOptions = LetterPackages.Instance.CurrentPackageProgresses.Letters
+        var wrongOptions = options
             .Where(letter => letter != correctAnswer)
             .OrderBy(_ => Random.value)
-            .Take(optionsCount - 1)
+            .Take(OptionsCount - 1)
             .ToList();
 
         // Combine correct + wrong
@@ -114,11 +127,11 @@ public class QuestionManager : MonoBehaviour
     /// </summary>
     public void DisplayQuestion()
     {
-        if (currentQuestionType == QuestionType.CharBrailleToLatin)
+        if (currentQuestionDirection == QuestionDirection.CharBrailleToLatin)
         {
             DisplayBrailleToLatinQuestion();
         }
-        else if (currentQuestionType == QuestionType.CharLatinToBraille)
+        else if (currentQuestionDirection == QuestionDirection.CharLatinToBraille)
         {
             DisplayLatinToBrailleQuestion();
         }
@@ -128,6 +141,7 @@ public class QuestionManager : MonoBehaviour
         }
 
         UIManager.Instance.SwitchLayer(_questionLayerIndex);
+        letterObject.text = correctAnswer;
         QuestionLayer.FocusFirst();
     }
 
@@ -139,11 +153,13 @@ public class QuestionManager : MonoBehaviour
     private void DisplayBrailleToLatinQuestion()
     {
         ClearQuestionCanvas();
-        questionText.text = "";
+        letterObject.text = correctAnswer;
 
         // Generate the question braille and set it to the correct position
-        GridBrailleConverter.Instance
-            .ConvertTextToBraille(correctAnswer, parent: questionPosition.transform);
+        var braille = GridBrailleConverter.Instance
+            .ConvertTextToBraille(correctAnswer, parent: letterObject.wordbox.transform)
+            .GetComponentInChildren<BrailleObject>();
+        braille.UpdateDotColor(GlobalSettings.QuestionBrailleColor);
 
         foreach (var option in currentOptions)
         {
@@ -160,16 +176,19 @@ public class QuestionManager : MonoBehaviour
     /// </summary>
     /// <param name="optionText">The text displayed for the option.</param>
     /// <returns>The created focusable text object.</returns>
-    private FocusableTextObject GenerateFocusableTextObjectOption(string optionText)
+    private SortingBoxMenuButton GenerateFocusableTextObjectOption(string optionText)
     {
-        var parent = Instantiate(optionParentPrefab, optionsGrid.transform, false);
+        var parent = Instantiate(SortingBoxPrefab, optionsGrid.transform, false).GetComponent<SortingBoxMenuButton>();
 
-        var focusableText = Instantiate(questionTextPrefab, parent.transform)
+        var focusableText = Instantiate(questionTextPrefab, parent.boxContent.transform)
             .GetComponent<FocusableTextObject>();
 
-        focusableText.Text = optionText;
+        focusableText.tmpText.color = GlobalSettings.QuestionTextColor;
 
-        return focusableText;
+        focusableText.Text = optionText;
+        parent.text = optionText;
+
+        return parent;
     }
 
     /// <summary>
@@ -183,7 +202,6 @@ public class QuestionManager : MonoBehaviour
         feedbackText.text = correct ? "Correct!" : "Wrong!";
     }
 
-
     /// <summary>
     /// Displays a Latin-to-Braille question by showing the answer as text
     /// and generating Braille answer options.
@@ -192,7 +210,12 @@ public class QuestionManager : MonoBehaviour
     {
         ClearQuestionCanvas();
 
-        questionText.text = correctAnswer;
+        var letterText = Instantiate(LetterTextPrefab, letterObject.wordbox.transform).GetComponent<TextMeshProUGUI>();
+
+        letterText.text = correctAnswer;
+        letterText.color = GlobalSettings.QuestionTextColor;
+        // For assistive output
+        letterObject.text = correctAnswer;
 
         foreach (var optionText in currentOptions)
         {
@@ -207,14 +230,19 @@ public class QuestionManager : MonoBehaviour
     /// </summary>
     /// <param name="optionText">The text to convert into Braille.</param>
     /// <returns>The generated Braille grid text object.</returns>
-    private BrailleTextObject GenerateBrailleOption(string optionText)
+    private SortingBoxMenuButton GenerateBrailleOption(string optionText)
     {
-        var parent = Instantiate(optionParentPrefab, optionsGrid.transform, false);
+        var parent = Instantiate(SortingBoxPrefab, optionsGrid.transform, false).GetComponent<SortingBoxMenuButton>();
+        parent.text = optionText;
 
-        var optionBraille = GridBrailleConverter.Instance
-            .ConvertTextToBraille(optionText, parent: parent.transform);
+        var braille = GridBrailleConverter.Instance
+            .ConvertTextToBraille(optionText, parent: parent.boxContent.transform);
 
-        return optionBraille.GetComponent<BrailleTextObject>();
+        var brailleObject = braille.GetComponentInChildren<BrailleObject>();
+
+        brailleObject.UpdateDotColor(GlobalSettings.QuestionBrailleColor);
+
+        return parent;
     }
 
     /// <summary>
@@ -223,7 +251,7 @@ public class QuestionManager : MonoBehaviour
     /// </summary>
     private void ClearQuestionCanvas()
     {
-        UIManager.Instance.ClearChildren(questionPosition.transform);
+        UIManager.Instance.ClearChildren(letterObject.wordbox.transform);
         UIManager.Instance.ClearChildren(optionsGrid.transform);
         QuestionLayer.Clear();
     }
@@ -240,5 +268,43 @@ public class QuestionManager : MonoBehaviour
     {
         Debug.Log("Answered with: " + answer + " and correct: " + correctAnswer);
         return answer == correctAnswer;
+    }
+
+
+    public static bool CheckAnswer()
+    {
+        return Instance.CheckAnswer("Dei mama");
+    }
+
+    /// <summary>
+    /// If the current QuestionType is BrailleToLatin - changes it to LatinToBraille
+    /// If the current QuestionType is LatinToBraille - changes it to BrailleToLatin
+    /// -- In both cases it re-populates the questioncanvas as if a new question is generated
+    /// If the current QuestionType is anything else - disregards the call
+    /// </summary>
+    public static void ToggleBrailleToLatin()
+    {
+        if (Instance.currentQuestionDirection != QuestionDirection.CharBrailleToLatin &&
+            Instance.currentQuestionDirection != QuestionDirection.CharLatinToBraille)
+            return;
+
+        Instance.currentQuestionDirection = Instance.currentQuestionDirection == QuestionDirection.CharBrailleToLatin
+            ? QuestionDirection.CharLatinToBraille
+            : QuestionDirection.CharBrailleToLatin;
+
+        GameManager.Instance.NextQuestion();
+    }
+
+    /// <summary>
+    /// Toggles between the two QuestionTypes [Words, Letters] and re-populates the questioncanvas
+    /// as if a new question is generated
+    /// </summary>
+    public static void ToggleQuestionType()
+    {
+        Instance.CurrentQuestionType = Instance.CurrentQuestionType == QuestionType.Letters
+            ? QuestionType.Words
+            : QuestionType.Letters;
+
+        GameManager.Instance.NextQuestion();
     }
 }

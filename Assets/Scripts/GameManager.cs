@@ -34,6 +34,12 @@ public class GameManager : MonoBehaviour
         NextQuestion();
     }
 
+    public void ExitGame()
+    {
+        Application.Quit();
+        Debug.Log("Application.Quit() Called (Will not work in Editor");
+    }
+
     public void NextQuestion()
     {
         currentState = GameState.ShowQuestion;

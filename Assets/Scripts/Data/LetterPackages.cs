@@ -6,7 +6,7 @@ namespace Data
 {
     public enum SupportedLanguage
     {
-        de
+        De
     }
 
     public class LetterUnit
@@ -24,7 +24,7 @@ namespace Data
 
         public LetterUnit CurrentPackageProgresses => CurrentLanguagePackage[LanguageProgress[currentLanguage]];
 
-        public SupportedLanguage currentLanguage = SupportedLanguage.de;
+        public SupportedLanguage currentLanguage = SupportedLanguage.De;
 
         public static readonly Dictionary<SupportedLanguage, int> LanguageProgress = new();
         public static LetterPackages Instance;
@@ -36,7 +36,7 @@ namespace Data
                 Instance = this;
             }
 
-            LanguageProgress.Add(SupportedLanguage.de, startingPackageProgress);
+            LanguageProgress.Add(SupportedLanguage.De, startingPackageProgress);
         }
 
 
@@ -60,9 +60,9 @@ namespace Data
         {
             switch (language)
             {
-                case SupportedLanguage.de:
+                case SupportedLanguage.De:
                     CurrentLanguagePackage = GermanPackage;
-                    currentLanguage = SupportedLanguage.de;
+                    currentLanguage = SupportedLanguage.De;
                     break;
                 default:
                     throw new UnexpectedEnumValueException<SupportedLanguage>(language);
@@ -71,7 +71,7 @@ namespace Data
             return CurrentLanguagePackage;
         }
 
-        public static readonly Dictionary<int, LetterUnit> GermanPackage = new()
+        private static readonly Dictionary<int, LetterUnit> GermanPackage = new()
         {
             {
                 1,
@@ -79,21 +79,26 @@ namespace Data
                 {
                     Letters = new List<string>
                     {
-                        "e", "n", "i", "s", "t"
+                        "E", "N", "I", "S", "T"
                     },
 
                     Words = new List<string>
                     {
-                        "ist",
-                        "ein",
-                        "seite",
-                        "essen",
-                        "see",
-                        "tee",
-                        "nest",
-                        "seine",
-                        "nein",
-                        "seit"
+                        "EINE",
+                        "SEIN",
+                        "NEIN",
+                        "NEST",
+                        "SINN",
+                        "SEEN",
+                        "TEES",
+                        "TEST",
+                        "INNE",
+                        "SEIT",
+                        "TIEN",
+                        "SENE",
+                        "NIET",
+                        "TEIN",
+                        "ENST"
                     }
                 }
             },
@@ -104,21 +109,31 @@ namespace Data
                 {
                     Letters = new List<string>
                     {
-                        "a", "r", "d", "h", "l"
+                        "A", "R", "D", "H", "L"
                     },
 
                     Words = new List<string>
                     {
-                        "der",
-                        "die",
-                        "lernen",
-                        "lesen",
-                        "leider",
-                        "laden",
-                        "land",
-                        "halle",
-                        "reden",
-                        "alle"
+                        "AALD",
+                        "ADER",
+                        "AHNE",
+                        "AHND",
+                        "ALTE",
+                        "ALER",
+                        "ARTE",
+                        "DAHL",
+                        "DASE",
+                        "DEIN",
+                        "DIEN",
+                        "HALT",
+                        "HAND",
+                        "HASE",
+                        "HASE",
+                        "HEIL",
+                        "LAND",
+                        "LAST",
+                        "RATE",
+                        "SEIT"
                     }
                 }
             },
@@ -129,21 +144,51 @@ namespace Data
                 {
                     Letters = new List<string>
                     {
-                        "m", "u", "o", "g", "b"
+                        "M", "U", "O", "G", "B"
                     },
 
                     Words = new List<string>
                     {
-                        "hund",
-                        "haus",
-                        "baum",
-                        "morgen",
-                        "haben",
-                        "boot",
-                        "boden",
-                        "gut",
-                        "bauen",
-                        "oben"
+                        "ABER",
+                        "ADER",
+                        "AHNE",
+                        "AHNT",
+                        "ALTE",
+                        "ARME",
+                        "ARTE",
+                        "AUGE",
+                        "BADE",
+                        "BAHN",
+                        "BARE",
+                        "BAST",
+                        "BAUM",
+                        "BERG",
+                        "BOTE",
+                        "BUND",
+                        "DAME",
+                        "DANK",
+                        "DASE",
+                        "DEIN",
+                        "DIEN",
+                        "DORN",
+                        "DRAN",
+                        "GABE",
+                        "GARN",
+                        "GAST",
+                        "GELD",
+                        "GENAU",
+                        "HALT",
+                        "HAND",
+                        "HAUS",
+                        "HEIL",
+                        "HUND",
+                        "LAND",
+                        "LAST",
+                        "LESE",
+                        "MANN",
+                        "MAUS",
+                        "MEER",
+                        "MUTE"
                     }
                 }
             },
@@ -154,21 +199,71 @@ namespace Data
                 {
                     Letters = new List<string>
                     {
-                        "w", "f", "k", "z", "p"
+                        "W", "F", "K", "Z", "P"
                     },
 
                     Words = new List<string>
                     {
-                        "wasser",
-                        "katze",
-                        "kopf",
-                        "platz",
-                        "weg",
-                        "paket",
-                        "zug",
-                        "fenster",
-                        "wolke",
-                        "pflanze"
+                        "PARK",
+                        "PAKT",
+                        "POST",
+                        "POSE",
+                        "PFER",
+                        "PFAD",
+                        "PFEIL",
+                        "PULS",
+                        "PUST",
+                        "PAAR",
+                        "PEIN",
+                        "PORE",
+                        "PUNK",
+                        "PINK",
+                        "PFER",
+                        "KALT",
+                        "KARL",
+                        "KERN",
+                        "KIES",
+                        "KIEL",
+                        "KINO",
+                        "KIND",
+                        "KNIE",
+                        "KORN",
+                        "KOST",
+                        "KURS",
+                        "KUHE",
+                        "KLEE",
+                        "KLAR",
+                        "KLAM",
+                        "WAND",
+                        "WARN",
+                        "WARE",
+                        "WARE",
+                        "WEIN",
+                        "WEST",
+                        "WORT",
+                        "WALD",
+                        "WELT",
+                        "WEGE",
+                        "WIES",
+                        "WIND",
+                        "WIRT",
+                        "WURM",
+                        "WOHN",
+                        "FALL",
+                        "FAST",
+                        "FEST",
+                        "FERN",
+                        "FELS",
+                        "FEIN",
+                        "FLUR",
+                        "FORM",
+                        "FRAG",
+                        "FRAN",
+                        "ZART",
+                        "ZEIT",
+                        "ZIEL",
+                        "ZORN",
+                        "ZONE"
                     }
                 }
             },
@@ -179,21 +274,41 @@ namespace Data
                 {
                     Letters = new List<string>
                     {
-                        "ä", "ö", "ü", "ß", "äu"
+                        "C", "J", "V", "Y", "X"
                     },
 
                     Words = new List<string>
                     {
-                        "für",
-                        "fünf",
-                        "groß",
-                        "schön",
-                        "häuser",
-                        "bär",
-                        "grüßen",
-                        "mäßig",
-                        "löwe",
-                        "bäume"
+                        "CITY",
+                        "COUP",
+                        "CAMP",
+                        "CODE",
+                        "CHEF",
+                        "CHOR",
+                        "CLAN",
+                        "CLUB",
+                        "COCK",
+                        "COOL",
+                        "COPY",
+                        "JAHR",
+                        "JADE",
+                        "JAZZ",
+                        "JEDE",
+                        "JENE",
+                        "JOJO",
+                        "JUDO",
+                        "JURY",
+                        "VASE",
+                        "VETO",
+                        "VIER",
+                        "VIEL",
+                        "VOGT",
+                        "VOLT",
+                        "VORN",
+                        "VOKE",
+                        "YOGA",
+                        "YETI",
+                        "XYLO"
                     }
                 }
             },
@@ -204,49 +319,54 @@ namespace Data
                 {
                     Letters = new List<string>
                     {
-                        "c", "j", "v", "y", "x"
+                        "Ä", "Ö", "Ü", "ß", "ÄU"
                     },
 
                     Words = new List<string>
                     {
-                        "clown",
-                        "jacke",
-                        "vase",
-                        "yoga",
-                        "taxi",
-                        "video",
-                        "computer",
-                        "xylophon",
-                        "januar",
-                        "café"
+                        "ÄSTE",
+                        "ÄSER",
+                        "ÄUGE",
+                        "ÄRME",
+                        "ÄHRE",
+                        "ÖLEN",
+                        "ÖDEM",
+                        "ÖFEN",
+                        "ÖSES",
+                        "ÜBEL",
+                        "ÜBEN",
+                        "ÜBER",
+                        "ÜBER",
+                        "ÜBTE",
+                        "ÜBLE",
+                        "ÜBEN",
+                        "SÜDE",
+                        "SÜSS",
+                        "MAßE",
+                        "MAßT",
+                        "GRÜN",
+                        "FRÜH",
+                        "KÜHE",
+                        "KÜHL",
+                        "KÜRE",
+                        "LÖSE",
+                        "LÖST",
+                        "LÖWE",
+                        "MÖGE",
+                        "MÖGT",
+                        "RÖTE",
+                        "RÜBE",
+                        "WÄRE",
+                        "ZÄHE",
+                        "ZÄHL",
+                        "BÄRE",
+                        "BÄKE",
+                        "DÜNE",
+                        "FÜGE",
+                        "FÜGT"
                     }
                 }
             },
-
-            {
-                7,
-                new LetterUnit
-                {
-                    Letters = new List<string>
-                    {
-                        "ch", "sch", "ei", "ie", "eu"
-                    },
-
-                    Words = new List<string>
-                    {
-                        "schule",
-                        "schreiben",
-                        "eis",
-                        "liebe",
-                        "freund",
-                        "deutsch",
-                        "eule",
-                        "schiff",
-                        "heiß",
-                        "schokolade"
-                    }
-                }
-            }
         };
     }
 }

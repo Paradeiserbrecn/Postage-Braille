@@ -56,6 +56,17 @@ namespace Braille
         }
 
         /// <summary>
+        /// Sets the Dot Color to the default dot color specified in GlobalSettings.BrailleColor
+        /// </summary>
+        public void UpdateDotColor(Color color)
+        {
+            foreach (var image in _dotImages)
+            {
+                image.color = color;
+            }
+        }
+        
+        /// <summary>
         /// Sets the Dot Color to the highlighted dot color specified in GlobalSettings.HighlightedColor
         /// </summary>
         public void HighlightDots()
