@@ -6,6 +6,11 @@ namespace IO
 {
     public class NavigationInput: AbstractInput
     {
+
+        public NavigationInput(GameActions gameActions) : base(gameActions)
+        {
+            this.Actions = gameActions;
+        }
         public override void Enable()
         {
             Actions.Navigation.answer0.started += OnAnswer0;
@@ -31,7 +36,6 @@ namespace IO
             Actions.Navigation.SwitchUILayer.started -= OnSwitchUILayer;
             Actions.Navigation.next.started -= OnNext;
             Actions.Navigation.prev.started -= OnPrev;
-            
             Actions.Navigation.confirm.started -= OnConfirm;
             Actions.Navigation.Disable();
         }

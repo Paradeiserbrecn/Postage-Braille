@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -12,11 +13,10 @@ namespace IO
         private Dictionary<TextInputType, AbstractTextInput> _textInputs = new();
         private Dictionary<InputType, AbstractInput> _inputs = new();
         
-        private GameActions _actions;
+        public GameActions Actions { get; private set; }
+        public ActionRebinder ActionRebinder { get; private set; }
         
         [SerializeField] private InputHandledBrailleTextObject defaultTextbox;
-        
-        [SerializeField] private RebindUI rebindUI;
 
         public enum TextInputType
         {
@@ -34,22 +34,26 @@ namespace IO
         private void Awake()
         {
             Instance = this;
-            _actions = new GameActions();
+            Actions = new GameActions();
             
-            _inputs[InputType.Navigation] = new NavigationInput();
+            ActionRebinder = new ActionRebinder(Actions);
+            
+            _inputs[InputType.Navigation] = new NavigationInput(Actions);
             EnableInput(InputType.Navigation);
             
-            _inputs[InputType.BrailleSettings] = new BrailleSettingsInput();
+            _inputs[InputType.BrailleSettings] = new BrailleSettingsInput(Actions);
             EnableInput(InputType.BrailleSettings);
             
-            _textInputs[TextInputType.Perkins] = new PerkinsTextInput();
-            _textInputs[TextInputType.Keyboard] = new KeyboardTextInput();
+            _textInputs[TextInputType.Perkins] = new PerkinsTextInput(Actions);
+            _textInputs[TextInputType.Keyboard] = new KeyboardTextInput(Actions);
             if (defaultTextbox != null)
             {
                 EnableTextInput(TextInputType.Keyboard, defaultTextbox);
             }
         }
-    
+        
+
+
         public void EnableInput(InputType inputType)
         {
             _inputs[inputType].Enable();
