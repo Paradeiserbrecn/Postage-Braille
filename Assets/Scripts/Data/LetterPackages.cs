@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -9,6 +10,7 @@ namespace Data
         De
     }
 
+    [Serializable]
     public class LetterUnit
     {
         public List<string> Letters { get; set; } = new();
@@ -20,7 +22,7 @@ namespace Data
         [SerializeField] private int startingPackageProgress = 1;
         public int PackageProgress => LanguageProgress[currentLanguage];
 
-        public Dictionary<int, LetterUnit> CurrentLanguagePackage = GermanPackage;
+        public List<LetterUnit> CurrentLanguagePackage =  GermanPackage;
 
         public LetterUnit CurrentPackageProgresses => CurrentLanguagePackage[LanguageProgress[currentLanguage]];
 
@@ -56,7 +58,7 @@ namespace Data
         /// <param name="language"></param>
         /// <returns></returns>
         /// <exception cref="UnexpectedEnumValueException{SupportedLanguages}"></exception>
-        public Dictionary<int, LetterUnit> ChangePackageLanguage(SupportedLanguage language)
+        public List<LetterUnit> ChangePackageLanguage(SupportedLanguage language)
         {
             switch (language)
             {
@@ -71,10 +73,9 @@ namespace Data
             return CurrentLanguagePackage;
         }
 
-        private static readonly Dictionary<int, LetterUnit> GermanPackage = new()
+        private static readonly List<LetterUnit> GermanPackage = new()
         {
             {
-                1,
                 new LetterUnit
                 {
                     Letters = new List<string>
@@ -104,7 +105,6 @@ namespace Data
             },
 
             {
-                2,
                 new LetterUnit
                 {
                     Letters = new List<string>
@@ -139,7 +139,6 @@ namespace Data
             },
 
             {
-                3,
                 new LetterUnit
                 {
                     Letters = new List<string>
@@ -194,7 +193,6 @@ namespace Data
             },
 
             {
-                4,
                 new LetterUnit
                 {
                     Letters = new List<string>
@@ -269,7 +267,6 @@ namespace Data
             },
 
             {
-                5,
                 new LetterUnit
                 {
                     Letters = new List<string>
@@ -314,7 +311,6 @@ namespace Data
             },
 
             {
-                6,
                 new LetterUnit
                 {
                     Letters = new List<string>
