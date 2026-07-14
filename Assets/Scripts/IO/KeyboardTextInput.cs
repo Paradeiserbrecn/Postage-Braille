@@ -9,6 +9,11 @@ using System.Linq;
 public class KeyboardTextInput: AbstractTextInput
 {
     private bool _shiftActive, _typingNumber = false;
+    
+    public KeyboardTextInput(GameActions gameActions) : base(gameActions)
+    {
+        this.Actions = gameActions;
+    }
     public override void Enable()
     {
         Actions.BrailleKeyboard.Enable();

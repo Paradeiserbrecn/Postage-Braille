@@ -12,6 +12,10 @@ namespace IO
     public class PerkinsTextInput: AbstractTextInput
     {
         private List<bool> _pressedDots;
+        public PerkinsTextInput(GameActions gameActions) : base(gameActions)
+        {
+            this.Actions = gameActions;
+        }
         public override void Enable()
         {
             _pressedDots = new List<bool>(Textbox.EmptyBrailleList);

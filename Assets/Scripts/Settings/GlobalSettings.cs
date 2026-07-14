@@ -33,6 +33,7 @@ namespace Settings
         public static float LineSpacing = BaseLineSpacing;
         public static Color BrailleColor = Color.white;
         public static Color HighlightedColor = Color.red;
+        public static Color HighlightedButtonColor = Color.brown;
         public static Color TextColor = Color.white;
         public static Color MenuOptionColor = Color.white;
     }
