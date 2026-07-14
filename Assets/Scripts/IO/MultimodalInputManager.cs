@@ -13,7 +13,7 @@ namespace IO
         private Dictionary<TextInputType, AbstractTextInput> _textInputs = new();
         private Dictionary<InputType, AbstractInput> _inputs = new();
         
-        private GameActions _actions;
+        public GameActions Actions { get; private set; }
         public ActionRebinder ActionRebinder { get; private set; }
         
         [SerializeField] private InputHandledBrailleTextObject defaultTextbox;
@@ -34,30 +34,24 @@ namespace IO
         private void Awake()
         {
             Instance = this;
-            _actions = new GameActions();
+            Actions = new GameActions();
             
-            _inputs[InputType.Navigation] = new NavigationInput(_actions);
+            ActionRebinder = new ActionRebinder(Actions);
+            
+            _inputs[InputType.Navigation] = new NavigationInput(Actions);
             EnableInput(InputType.Navigation);
             
-            _inputs[InputType.BrailleSettings] = new BrailleSettingsInput(_actions);
+            _inputs[InputType.BrailleSettings] = new BrailleSettingsInput(Actions);
             EnableInput(InputType.BrailleSettings);
             
-            _textInputs[TextInputType.Perkins] = new PerkinsTextInput(_actions);
-            _textInputs[TextInputType.Keyboard] = new KeyboardTextInput(_actions);
+            _textInputs[TextInputType.Perkins] = new PerkinsTextInput(Actions);
+            _textInputs[TextInputType.Keyboard] = new KeyboardTextInput(Actions);
             if (defaultTextbox != null)
             {
                 EnableTextInput(TextInputType.Keyboard, defaultTextbox);
             }
         }
-
-        private void Start()
-        {
-            ActionRebinder = new ActionRebinder(_actions);
-            
-            /////// The following is for testing only. ListActions should later be called when opening the menu
-            ActionRebinder.ListActions(_actions.Navigation);
-            /////// end of testing section
-        }
+        
 
 
         public void EnableInput(InputType inputType)

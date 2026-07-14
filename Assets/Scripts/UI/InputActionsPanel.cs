@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using IO;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -12,6 +13,14 @@ namespace UI
         [SerializeField] private GameObject scrollRectContent;
         [SerializeField] private ScrollRect scrollRect;
         private readonly List<FocusableRebindOption> _rebindButtons = new List<FocusableRebindOption>();
+
+
+        private void Start()
+        {
+            MultimodalInputManager.Instance.ActionRebinder?.SpecifyInputActionsPanel(this);
+            /////////  TODO: The following is for testing only. ListActions should later be called via a FocusableMenuOption
+            MultimodalInputManager.Instance.ActionRebinder?.ListActions(MultimodalInputManager.Instance.Actions.Navigation);
+        }
 
         public FocusableRebindOption AddButton(InputAction inputAction,
             Action<InputAction, FocusableRebindOption> action)
@@ -26,6 +35,10 @@ namespace UI
             return newButton;
         }
 
+        /// <summary>
+        /// Scrolls in such a way that the selected option is at the top unless there aren't enough options below to facilitate that
+        /// </summary>
+        /// <param name="targetRectTransform"></param>
         public void ScrollTo(RectTransform targetRectTransform)
         {
             Canvas.ForceUpdateCanvases();
@@ -52,6 +65,11 @@ namespace UI
             }
 
             _rebindButtons.Clear();
+        }
+
+        private void OnDestroy()
+        {
+            MultimodalInputManager.Instance.ActionRebinder?.SpecifyInputActionsPanel(null);
         }
     }
 }

@@ -13,38 +13,37 @@ namespace IO
         private bool _rebinding = false;
         private UILayer _actionLayer;
         
-        
         private InputActionsPanel _inputActionsPanel;
         
         private InputActionRebindingExtensions.RebindingOperation _rebindingOperation;
+
+        private int _actionLayerIndex = -1;
         
         public ActionRebinder(GameActions actions) 
         {
             _actions = actions;
-            
-            _inputActionsPanel = GameObject.FindAnyObjectByType<InputActionsPanel>();
-            if (_inputActionsPanel == null)
-            {
-                Debug.LogWarning("No InputActionsPanel found");
-            }
         }
-
-        //when we have implemented scene changes InputActionsPanel should be specified using this method instead of the find in the constructor
+        
         public void SpecifyInputActionsPanel(InputActionsPanel panel)
         {
-            if (_inputActionsPanel == null)
-            {
-                Debug.LogWarning("InputActionsPanel is null");
-                return;
-            }
             _inputActionsPanel = panel;
         }
 
+        /// <summary>
+        /// Adds a FocusableRebindOption for each action in the passed InputActionMap. 
+        /// </summary>
+        /// <param name="actionMap"></param>
         public void ListActions(InputActionMap actionMap)
         {
             if (_inputActionsPanel == null)
             {
                 Debug.LogWarning("no InputActionsPanel found");
+                return;
+            }
+
+            if (actionMap == null)
+            {
+                Debug.LogWarning("ActionMap is null");
                 return;
             }
             
@@ -57,8 +56,9 @@ namespace IO
                 var button = _inputActionsPanel.AddButton(inputAction, RebindAction);
                 buttons.Add(button);
             }
+            if (_actionLayerIndex >= 0) UIManager.Instance.RemoveLayer(_actionLayerIndex);
             _actionLayer = new UILayer("ActionLayer", buttons);
-            UIManager.Instance.AddLayer(_actionLayer);
+            _actionLayerIndex = UIManager.Instance.AddLayer(_actionLayer);
         }
 
         public void RebindAction(InputAction inputAction, FocusableRebindOption button)
