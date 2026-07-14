@@ -6,7 +6,7 @@ namespace Data
 {
     public enum SupportedLanguage
     {
-        de
+        De
     }
 
     public class LetterUnit
@@ -24,7 +24,7 @@ namespace Data
 
         public LetterUnit CurrentPackageProgresses => CurrentLanguagePackage[LanguageProgress[currentLanguage]];
 
-        public SupportedLanguage currentLanguage = SupportedLanguage.de;
+        public SupportedLanguage currentLanguage = SupportedLanguage.De;
 
         public static readonly Dictionary<SupportedLanguage, int> LanguageProgress = new();
         public static LetterPackages Instance;
@@ -36,7 +36,7 @@ namespace Data
                 Instance = this;
             }
 
-            LanguageProgress.Add(SupportedLanguage.de, startingPackageProgress);
+            LanguageProgress.Add(SupportedLanguage.De, startingPackageProgress);
         }
 
 
@@ -60,9 +60,9 @@ namespace Data
         {
             switch (language)
             {
-                case SupportedLanguage.de:
+                case SupportedLanguage.De:
                     CurrentLanguagePackage = GermanPackage;
-                    currentLanguage = SupportedLanguage.de;
+                    currentLanguage = SupportedLanguage.De;
                     break;
                 default:
                     throw new UnexpectedEnumValueException<SupportedLanguage>(language);
@@ -71,7 +71,7 @@ namespace Data
             return CurrentLanguagePackage;
         }
 
-        public static readonly Dictionary<int, LetterUnit> GermanPackage = new()
+        private static readonly Dictionary<int, LetterUnit> GermanPackage = new()
         {
             {
                 1,

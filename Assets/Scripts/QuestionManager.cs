@@ -90,7 +90,9 @@ public class QuestionManager : MonoBehaviour
     /// </summary>
     public void PopulateCurrentOptions()
     {
-        var options = CurrentQuestionType == QuestionType.Letters ? LetterPackages.Instance.CurrentPackageProgresses.Letters : LetterPackages.Instance.CurrentPackageProgresses.Words;
+        var options = CurrentQuestionType == QuestionType.Letters
+            ? LetterPackages.Instance.CurrentPackageProgresses.Letters
+            : LetterPackages.Instance.CurrentPackageProgresses.Words;
 
 
         // Because we take 4 option anchors as SerializedFields in the UIManager Component
@@ -151,7 +153,7 @@ public class QuestionManager : MonoBehaviour
     private void DisplayBrailleToLatinQuestion()
     {
         ClearQuestionCanvas();
-        letterObject. text = correctAnswer;
+        letterObject.text = correctAnswer;
 
         // Generate the question braille and set it to the correct position
         var braille = GridBrailleConverter.Instance
@@ -289,7 +291,7 @@ public class QuestionManager : MonoBehaviour
         Instance.currentQuestionDirection = Instance.currentQuestionDirection == QuestionDirection.CharBrailleToLatin
             ? QuestionDirection.CharLatinToBraille
             : QuestionDirection.CharBrailleToLatin;
-        
+
         GameManager.Instance.NextQuestion();
     }
 
@@ -302,7 +304,7 @@ public class QuestionManager : MonoBehaviour
         Instance.CurrentQuestionType = Instance.CurrentQuestionType == QuestionType.Letters
             ? QuestionType.Words
             : QuestionType.Letters;
-        
+
         GameManager.Instance.NextQuestion();
     }
 }
