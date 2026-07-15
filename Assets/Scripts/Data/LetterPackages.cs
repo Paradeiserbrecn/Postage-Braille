@@ -17,8 +17,8 @@ namespace Data
         public int unitIndex;
         public List<string> Letters { get; set; } = new();
         public List<string> Words { get; set; } = new();
-        public int attempts = 0;
-        public int successes = 0;
+        public int attempts;
+        public int successes;
 
         public double SuccessPercentage =>
             attempts == 0 ? 0 : Math.Round((double)successes / attempts * 100, 2);

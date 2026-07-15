@@ -11,11 +11,11 @@ namespace UI
 {
     public class FocusableLetterUnit : Focusable
     {
-        [SerializeField] private Image image;
-        [SerializeField] private TextMeshProUGUI indexTMP;
-        [SerializeField] private TextMeshProUGUI lettersTMP;
-        [SerializeField] private TextMeshProUGUI attemptsTMP;
-        [SerializeField] private TextMeshProUGUI percentageTMP;
+        [SerializeField] public Image image;
+        [SerializeField] public TextMeshProUGUI indexTMP;
+        [SerializeField] public TextMeshProUGUI lettersTMP;
+        [SerializeField] public TextMeshProUGUI attemptsTMP;
+        [SerializeField] public TextMeshProUGUI percentageTMP;
 
         public LetterUnit letterUnit;
         
@@ -27,25 +27,6 @@ namespace UI
                 text = letterUnit.unitIndex + " : " + letterUnit.Letters + " : " + letterUnit.attempts + " : " +
                        letterUnit.SuccessPercentage;
             }
-        }
-
-        private void Start()
-        {
-            if (letterUnit == null)
-            {
-                Debug.Log("You forgot to set the letter unit of the FocusableLetterUnit");
-                return;
-            }
-
-            indexTMP.text = letterUnit.unitIndex.ToString();
-            lettersTMP.text = letterUnit.Letters.ToString();
-            attemptsTMP.text = letterUnit.attempts.ToString();
-            percentageTMP.text = percentageTMP.text = letterUnit.SuccessPercentage + "%";
-            
-            indexTMP.color = GlobalSettings.PackageTextColor;
-            lettersTMP.color = GlobalSettings.PackageTextColor;
-            attemptsTMP.color = GlobalSettings.PackageTextColor;
-            percentageTMP.color = GlobalSettings.PackageTextColor;
         }
 
         public override void Focus()
