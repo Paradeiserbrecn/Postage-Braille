@@ -6,38 +6,108 @@ using UnityEngine.Serialization;
 
 namespace Data
 {
+    /// <summary>
+    /// Represents the languages currently supported by the letter package system.
+    /// </summary>
     public enum SupportedLanguage
     {
         De
     }
 
+    /// <summary>
+    /// Represents a single learning unit containing a set of letters,
+    /// associated practice words, and the player's progress statistics.
+    /// </summary>
     [Serializable]
     public class LetterUnit
     {
-        public int unitIndex;
+        private static int nextUnitIndex = 1;
+
+        /// <summary>
+        /// Gets the unique index assigned to this letter unit.
+        /// </summary>
+        public readonly int unitIndex;
+
+        /// <summary>
+        /// Gets or sets the letters introduced in this unit.
+        /// </summary>
         public List<string> Letters { get; set; } = new();
+
+        /// <summary>
+        /// Gets or sets the practice words for this unit.
+        /// </summary>
         public List<string> Words { get; set; } = new();
+
+        /// <summary>
+        /// The total number of attempts made for this unit.
+        /// </summary>
         public int attempts;
+
+        /// <summary>
+        /// The total number of successful attempts for this unit.
+        /// </summary>
         public int successes;
 
+        /// <summary>
+        /// Gets the success rate as a percentage.
+        /// Returns 50% if no attempts have been made.
+        /// </summary>
         public double SuccessPercentage =>
-            attempts == 0 ? 0 : Math.Round((double)successes / attempts * 100, 2);
+            attempts == 0 ? 50 : Math.Round((double)successes / attempts * 100, 2);
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="LetterUnit"/> class.
+        /// </summary>
+        /// <param name="Letters">The letters introduced in this unit.</param>
+        /// <param name="Words">The practice words for this unit.</param>
+        internal LetterUnit(List<string> Letters, List<string> Words)
+        {
+            unitIndex = nextUnitIndex;
+            nextUnitIndex++;
+            this.Letters = Letters;
+            this.Words = Words;
+            attempts = 0;
+            successes = 0;
+        }
     }
 
-    [Serializable]
+    /// <summary>
+    /// Manages language-specific letter packages and tracks the player's
+    /// progression through each learning unit.
+    /// </summary>
     public class LetterPackages : MonoBehaviour
     {
         [SerializeField] private int startingPackageProgress = 1;
-        public int PackageProgress => LanguageProgress[currentLanguage];
 
-        [FormerlySerializedAs("CurrentLanguagePackage")]
+        /// <summary>
+        /// Gets the currently selected unit index for the active language.
+        /// </summary>
+        public int PackageProgress => CurrentUnitForCurrentLanguage[currentLanguage];
+
+        /// <summary>
+        /// Gets the currently loaded package for the active language.
+        /// </summary>
         public List<LetterUnit> currentLanguagePackage = GermanPackage;
 
-        public LetterUnit CurrentPackageProgresses => currentLanguagePackage[LanguageProgress[currentLanguage]];
+        /// <summary>
+        /// Gets the currently selected letter unit.
+        /// </summary>
+        public LetterUnit CurrentPackageProgresses =>
+            currentLanguagePackage[CurrentUnitForCurrentLanguage[currentLanguage]];
 
+        /// <summary>
+        /// Gets or sets the currently selected language.
+        /// </summary>
         public SupportedLanguage currentLanguage = SupportedLanguage.De;
 
-        public static readonly Dictionary<SupportedLanguage, int> LanguageProgress = new();
+        /// <summary>
+        /// Stores the current unit index for each supported language.
+        /// </summary>
+        public static readonly Dictionary<SupportedLanguage, int> CurrentUnitForCurrentLanguage = new();
+
+        /// <summary>
+        /// Singleton instance of the <see cref="LetterPackages"/> component.
+        /// </summary>
         public static LetterPackages Instance;
 
         private void Awake()
@@ -47,30 +117,44 @@ namespace Data
                 Instance = this;
             }
 
-            LanguageProgress.Add(SupportedLanguage.De, startingPackageProgress);
+            CurrentUnitForCurrentLanguage.Add(SupportedLanguage.De, startingPackageProgress);
         }
 
-
+        /// <summary>
+        /// Advances to the next letter unit if one exists.
+        /// </summary>
+        /// <returns>The newly selected <see cref="LetterUnit"/>.</returns>
         public LetterUnit ProgressLetterPackage()
         {
-            if (LanguageProgress[currentLanguage] < currentLanguagePackage.Count - 1)
+            if (CurrentUnitForCurrentLanguage[currentLanguage] < currentLanguagePackage.Count - 1)
             {
-                LanguageProgress[currentLanguage]++;
+                CurrentUnitForCurrentLanguage[currentLanguage]++;
             }
 
-            return currentLanguagePackage[LanguageProgress[currentLanguage]];
+            return currentLanguagePackage[CurrentUnitForCurrentLanguage[currentLanguage]];
         }
 
+        /// <summary>
+        /// Selects the specified letter unit.
+        /// </summary>
+        /// <param name="unit">The letter unit to select.</param>
+        /// <returns>The index of the selected unit.</returns>
         public int SelectLetterUnit(LetterUnit unit)
         {
             var unitIndex = currentLanguagePackage.IndexOf(unit);
-            LanguageProgress[currentLanguage] = unitIndex;
+            CurrentUnitForCurrentLanguage[currentLanguage] = unitIndex;
 
             return unitIndex;
         }
 
+        /// <summary>
+        /// Selects a letter unit by its index.
+        /// </summary>
+        /// <param name="unitIndex">The index of the unit to select.</param>
+        /// <returns>The selected <see cref="LetterUnit"/>.</returns>
         public LetterUnit SelectLetterUnit(int unitIndex)
         {
+            CurrentUnitForCurrentLanguage[currentLanguage] = unitIndex;
             return currentLanguagePackage[unitIndex];
         }
 
@@ -95,18 +179,18 @@ namespace Data
             return currentLanguagePackage;
         }
 
+        /// <summary>
+        /// The predefined German letter learning package.
+        /// </summary>
         private static readonly List<LetterUnit> GermanPackage = new()
         {
             new LetterUnit
-            {
-                unitIndex = 1,
-                
-                Letters = new List<string>
+            (
+                new List<string>
                 {
                     "E", "N", "I", "S", "T"
                 },
-
-                Words = new List<string>
+                new List<string>
                 {
                     "EINE",
                     "SEIN",
@@ -124,17 +208,14 @@ namespace Data
                     "TEIN",
                     "ENST"
                 }
-            },
+            ),
 
             new LetterUnit
-            {
-                unitIndex = 2,
-                Letters = new List<string>
+            (new List<string>
                 {
                     "A", "R", "D", "H", "L"
                 },
-
-                Words = new List<string>
+                new List<string>
                 {
                     "AALD",
                     "ADER",
@@ -157,17 +238,14 @@ namespace Data
                     "RATE",
                     "SEIT"
                 }
-            },
+            ),
 
             new LetterUnit
-            {
-                unitIndex = 3,
-                Letters = new List<string>
+            (new List<string>
                 {
                     "M", "U", "O", "G", "B"
                 },
-
-                Words = new List<string>
+                new List<string>
                 {
                     "ABER",
                     "ADER",
@@ -210,17 +288,14 @@ namespace Data
                     "MEER",
                     "MUTE"
                 }
-            },
+            ),
 
             new LetterUnit
-            {
-                unitIndex = 4,
-                Letters = new List<string>
+            (new List<string>
                 {
                     "W", "F", "K", "Z", "P"
                 },
-
-                Words = new List<string>
+                new List<string>
                 {
                     "PARK",
                     "PAKT",
@@ -283,17 +358,14 @@ namespace Data
                     "ZORN",
                     "ZONE"
                 }
-            },
+            ),
 
             new LetterUnit
-            {
-                unitIndex = 5,
-                Letters = new List<string>
+            (new List<string>
                 {
                     "C", "J", "V", "Y", "X"
                 },
-
-                Words = new List<string>
+                new List<string>
                 {
                     "CITY",
                     "COUP",
@@ -326,17 +398,14 @@ namespace Data
                     "YETI",
                     "XYLO"
                 }
-            },
+            ),
 
             new LetterUnit
-            {
-                unitIndex = 6,
-                Letters = new List<string>
+            (new List<string>
                 {
                     "Ä", "Ö", "Ü", "ß", "ÄU"
                 },
-
-                Words = new List<string>
+                new List<string>
                 {
                     "ÄSTE",
                     "ÄSER",
@@ -379,7 +448,7 @@ namespace Data
                     "FÜGE",
                     "FÜGT"
                 }
-            },
+            ),
         };
     }
 }

@@ -16,22 +16,14 @@ namespace UI
         [SerializeField] public TextMeshProUGUI lettersTMP;
         [SerializeField] public TextMeshProUGUI attemptsTMP;
         [SerializeField] public TextMeshProUGUI percentageTMP;
+        [SerializeField] public RectTransform rectTransform;
 
         public LetterUnit letterUnit;
-        
-        private void Awake()
-        {
-            image.color = GlobalSettings.MenuOptionColor;
-            if (letterUnit != null)
-            {
-                text = letterUnit.unitIndex + " : " + letterUnit.Letters + " : " + letterUnit.attempts + " : " +
-                       letterUnit.SuccessPercentage;
-            }
-        }
 
         public override void Focus()
         {
             if (text != null) IOEventManager.InvokeAssistiveOutput(text, GlobalSettings.standardOutputType);
+            if (LetterPackagePicker.Instance != null) LetterPackagePicker.Instance.ScrollTo(rectTransform);
             image.color = GlobalSettings.HighlightedColor;
         }
 
