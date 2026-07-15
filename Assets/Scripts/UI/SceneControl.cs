@@ -44,6 +44,7 @@ namespace UI
             Instance.currentScreen = Screen.GameScreen;
             CurrentUI.CurrentLayer.FocusFirst();
             Instance.mainCamera.transform.position = Instance.gameCameraTransform.position;
+            GameManager.Instance.NextQuestion();
         }
 
         public static void TransitionToSettingsScreen()
@@ -60,6 +61,8 @@ namespace UI
             Instance.currentScreen = Screen.PackagePickerScreen;
             CurrentUI.CurrentLayer.FocusFirst();
             Instance.mainCamera.transform.position = Instance.packagePickerCameraTransform.position;
+            
+            LetterPackagePicker.Instance.PopulateWithCurrentLanguagePackage();
         }
 
 

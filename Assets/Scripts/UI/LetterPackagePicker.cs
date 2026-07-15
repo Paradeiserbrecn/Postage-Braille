@@ -41,6 +41,8 @@ namespace UI
         /// </summary>
         public void PopulateWithCurrentLanguagePackage()
         {
+            PackageLayer.Clear();
+            UIManager.Instance.ClearChildren(packageListObject.transform);
             foreach (var letterUnit in LetterPackages.Instance.currentLanguagePackage)
             {
                 PackageLayer.Add(GenerateFocusableLetterUnit(letterUnit));

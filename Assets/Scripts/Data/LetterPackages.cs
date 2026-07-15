@@ -53,7 +53,7 @@ namespace Data
         /// Returns 50% if no attempts have been made.
         /// </summary>
         public double SuccessPercentage =>
-            attempts == 0 ? 50 : Math.Round((double)successes / attempts * 100, 2);
+            attempts == 0 ? 50 : Math.Round((double)successes / attempts * 100);
 
         /// <summary>
         /// Initializes a new instance of the <see cref="LetterUnit"/> class.
