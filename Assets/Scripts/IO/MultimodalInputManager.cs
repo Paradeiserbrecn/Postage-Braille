@@ -8,7 +8,7 @@ namespace IO
 {
     public class MultimodalInputManager : MonoBehaviour
     {
-        private InputHandledBrailleTextObject _currentTextbox;
+        private InputHandledUITextObject _currentTextbox;
         
         private Dictionary<TextInputType, AbstractTextInput> _textInputs = new();
         private Dictionary<InputType, AbstractInput> _inputs = new();
@@ -16,7 +16,7 @@ namespace IO
         public GameActions Actions { get; private set; }
         public ActionRebinder ActionRebinder { get; private set; }
         
-        [SerializeField] private InputHandledBrailleTextObject defaultTextbox;
+        [SerializeField] private InputHandledUITextObject defaultTextbox;
 
         public enum TextInputType
         {
@@ -64,7 +64,7 @@ namespace IO
             _inputs[inputType].Disable();
         }
 
-        public void EnableTextInput(TextInputType textInputType, InputHandledBrailleTextObject textBox)
+        public void EnableTextInput(TextInputType textInputType, InputHandledUITextObject textBox)
         {
             DisableTextInput();
             

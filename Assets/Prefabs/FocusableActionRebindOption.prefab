@@ -410,16 +410,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dd5b28718c47f7478a4744efea83fa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UI.FocusableRebindOption
+  text: 
   nameText: {fileID: 1724857522251748824}
   bindingText: {fileID: 5107273103477068672}
   background: {fileID: 6866306815396931851}
   rectTransform: {fileID: 1451635440673723658}
   inputActionsPanel: {fileID: 0}
-  InputAction:
+  inputAction:
     m_Name: Input
     m_Type: 0
     m_ExpectedControlType: 
-    m_Id: fca165e7-3a43-467c-8605-b32672daa741
+    m_Id: f61449dd-477a-4b02-ab2a-463beee900c6
     m_Processors: 
     m_Interactions: 
     m_SingletonActionBindings: []

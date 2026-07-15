@@ -9,7 +9,7 @@ namespace IO
             this.Actions = gameActions;
         }
         
-        public InputHandledBrailleTextObject Textbox;
+        public InputHandledUITextObject Textbox;
     }
 }
 

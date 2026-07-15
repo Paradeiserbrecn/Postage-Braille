@@ -7,7 +7,7 @@ using Utility;
 
 namespace IO
 {
-    public class InputHandledBrailleTextObject : BrailleTextObject
+    public class InputHandledUITextObject : UITextObject
     {
         [SerializeField] private GameObject brailleObjectPrefab;
         public DestroyDisableNotifier destroyDisableNotifier;
@@ -29,6 +29,7 @@ namespace IO
         public void NextBrailleCharacter()
         {
             text = _proceedingText.ToString();
+            _textMeshPro.text = text;
             ResetCharacter();
             _currentBrailleObject =
                 Instantiate(brailleObjectPrefab, transform).GetComponent<BrailleObject>();
@@ -69,6 +70,7 @@ namespace IO
                 BrailleObjects.Remove(BrailleObjects[^2]);
                 _proceedingText.Remove(_proceedingText.Length - lastBrailleLength, lastBrailleLength);
                 text = _proceedingText.ToString();
+                _textMeshPro.text = text;
             }
         }
 

@@ -58,8 +58,7 @@ public class QuestionManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI feedbackText;
 
     [Header("Prefabs")] [SerializeField] private GameObject SortingBoxPrefab;
-    [SerializeField] public GameObject questionTextPrefab;
-    [SerializeField] private GameObject LetterTextPrefab;
+    [SerializeField] private GameObject brailleTextPrefab;
 
     /// <summary>
     /// The currently active question UI layer.
@@ -157,8 +156,8 @@ public class QuestionManager : MonoBehaviour
 
         // Generate the question braille and set it to the correct position
         var braille = GridBrailleConverter.Instance
-            .ConvertTextToBraille(correctAnswer, parent: letterObject.wordbox.transform)
-            .GetComponentInChildren<BrailleObject>();
+            .ConvertTextToBraille(correctAnswer, parent: letterObject.wordbox.transform, outputType:AssistiveOutput.OutputType.Braille)
+            .GetComponent<UITextObject>();
         braille.UpdateDotColor(GlobalSettings.QuestionBrailleColor);
 
         foreach (var option in currentOptions)
@@ -180,12 +179,12 @@ public class QuestionManager : MonoBehaviour
     {
         var parent = Instantiate(SortingBoxPrefab, optionsGrid.transform, false).GetComponent<SortingBoxMenuButton>();
 
-        var focusableText = Instantiate(questionTextPrefab, parent.boxContent.transform)
-            .GetComponent<FocusableTextObject>();
+        var focusableText = GridBrailleConverter.Instance
+            .ConvertTextToBraille(optionText, parent: parent.boxContent.transform, outputType:AssistiveOutput.OutputType.Braille, displayMode: UITextObject.DisplayMode.InkPrint)
+            .GetComponent<UITextObject>();
 
-        focusableText.tmpText.color = GlobalSettings.QuestionTextColor;
+        focusableText.UpdateDotColor(GlobalSettings.QuestionTextColor); 
 
-        focusableText.Text = optionText;
         parent.text = optionText;
 
         return parent;
@@ -209,13 +208,13 @@ public class QuestionManager : MonoBehaviour
     private void DisplayLatinToBrailleQuestion()
     {
         ClearQuestionCanvas();
-
-        var letterText = Instantiate(LetterTextPrefab, letterObject.wordbox.transform).GetComponent<TextMeshProUGUI>();
-
-        letterText.text = correctAnswer;
-        letterText.color = GlobalSettings.QuestionTextColor;
-        // For assistive output
         letterObject.text = correctAnswer;
+
+        // Generate the question braille and set it to the correct position
+        var braille = GridBrailleConverter.Instance
+            .ConvertTextToBraille(correctAnswer, parent: letterObject.wordbox.transform, outputType:AssistiveOutput.OutputType.Braille, displayMode: UITextObject.DisplayMode.InkPrint)
+            .GetComponent<UITextObject>();
+        braille.UpdateDotColor(GlobalSettings.QuestionBrailleColor);
 
         foreach (var optionText in currentOptions)
         {
@@ -236,9 +235,9 @@ public class QuestionManager : MonoBehaviour
         parent.text = optionText;
 
         var braille = GridBrailleConverter.Instance
-            .ConvertTextToBraille(optionText, parent: parent.boxContent.transform);
+            .ConvertTextToBraille(optionText, parent: parent.boxContent.transform, outputType:AssistiveOutput.OutputType.Braille);
 
-        var brailleObject = braille.GetComponentInChildren<BrailleObject>();
+        var brailleObject = braille.GetComponent<UITextObject>();
 
         brailleObject.UpdateDotColor(GlobalSettings.QuestionBrailleColor);
 
