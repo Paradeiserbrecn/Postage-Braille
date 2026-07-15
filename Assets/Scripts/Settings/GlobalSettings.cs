@@ -40,6 +40,5 @@ namespace Settings
         public static Color SortingBoxColor = Color.white;
         public static Color QuestionBrailleColor = Color.black;
         public static Color QuestionTextColor = Color.black;
-        public static Color PackageTextColor = Color.black;
     }
 }
