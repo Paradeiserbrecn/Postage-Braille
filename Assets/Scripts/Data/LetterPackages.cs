@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Data
 {
@@ -16,23 +15,16 @@ namespace Data
     {
         public List<string> Letters { get; set; } = new();
         public List<string> Words { get; set; } = new();
-        public int attempts = 0;
-        public int successes = 0;
-
-        public double SuccessPercentage =>
-            attempts == 0 ? 0 : Math.Round((double)successes / attempts * 100, 2);
     }
 
-    [Serializable]
     public class LetterPackages : MonoBehaviour
     {
         [SerializeField] private int startingPackageProgress = 1;
         public int PackageProgress => LanguageProgress[currentLanguage];
 
-        [FormerlySerializedAs("CurrentLanguagePackage")]
-        public List<LetterUnit> currentLanguagePackage = GermanPackage;
+        public List<LetterUnit> CurrentLanguagePackage =  GermanPackage;
 
-        public LetterUnit CurrentPackageProgresses => currentLanguagePackage[LanguageProgress[currentLanguage]];
+        public LetterUnit CurrentPackageProgresses => CurrentLanguagePackage[LanguageProgress[currentLanguage]];
 
         public SupportedLanguage currentLanguage = SupportedLanguage.De;
 
@@ -52,12 +44,12 @@ namespace Data
 
         public LetterUnit ProgressLetterPackage()
         {
-            if (LanguageProgress[currentLanguage] < currentLanguagePackage.Count - 1)
+            if (LanguageProgress[currentLanguage] < CurrentLanguagePackage.Count - 1)
             {
                 LanguageProgress[currentLanguage]++;
             }
 
-            return currentLanguagePackage[LanguageProgress[currentLanguage]];
+            return CurrentLanguagePackage[LanguageProgress[currentLanguage]];
         }
 
         /// <summary>
@@ -71,14 +63,14 @@ namespace Data
             switch (language)
             {
                 case SupportedLanguage.De:
-                    currentLanguagePackage = GermanPackage;
+                    CurrentLanguagePackage = GermanPackage;
                     currentLanguage = SupportedLanguage.De;
                     break;
                 default:
                     throw new UnexpectedEnumValueException<SupportedLanguage>(language);
             }
 
-            return currentLanguagePackage;
+            return CurrentLanguagePackage;
         }
 
         private static readonly List<LetterUnit> GermanPackage = new()
