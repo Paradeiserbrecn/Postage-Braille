@@ -10,7 +10,7 @@ namespace UI
     {
         private const string PackageLayerName = "PackageLayer";
         private int _packageLayerIndex;
-        private UILayer PackageLayer => UIManager.Instance.layers[_packageLayerIndex];
+        private UILayer PackageLayer => SceneControl.Instance.packagePickerUI.layers[_packageLayerIndex];
 
         [SerializeField] private GameObject packageListObject;
         [SerializeField] private GameObject packagePrefab;
@@ -26,13 +26,13 @@ namespace UI
 
         void Start()
         {
-            _packageLayerIndex = UIManager.Instance.AddLayer(new UILayer(PackageLayerName));
+            _packageLayerIndex = SceneControl.Instance.packagePickerUI.AddLayer(new UILayer(PackageLayerName));
             PopulateWithCurrentLanguagePackage();
         }
 
         private void OnDestroy()
         {
-            UIManager.Instance.RemoveLayer(_packageLayerIndex);
+            SceneControl.Instance.packagePickerUI.RemoveLayer(_packageLayerIndex);
         }
 
         /// <summary>

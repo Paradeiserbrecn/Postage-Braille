@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using IO;
 using UI;
 using UnityEngine;
@@ -24,20 +25,16 @@ public class GameManager : MonoBehaviour
         _invoke = Invoke;
     }
 
-    private void Start()
+    private IEnumerator Start()
     {
+        yield return new WaitUntil(() => SceneControl.Instance != null && 
+                                         QuestionManager.Instance != null);
         StartGame();
     }
 
     private void StartGame()
     {
         NextQuestion();
-    }
-
-    public void ExitGame()
-    {
-        Application.Quit();
-        Debug.Log("Application.Quit() Called (Will not work in Editor");
     }
 
     public void NextQuestion()
