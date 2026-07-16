@@ -63,11 +63,13 @@ public class QuestionManager : MonoBehaviour
     [SerializeField] private GameObject brailleTextPrefab;
 
     private int _questionLayerIndex = -1;
+
     /// <summary>
     /// The currently active question UI layer.
     /// </summary>
     /// <remarks>Mainly used as a shorthand for SceneControl.Instance.gameUI.layers[_questionLayerIndex]</remarks>
-    public UILayer QuestionLayer => _questionLayerIndex == -1 ? null : SceneControl.Instance.gameUI.layers[_questionLayerIndex];
+    public UILayer QuestionLayer =>
+        _questionLayerIndex == -1 ? null : SceneControl.Instance.gameUI.layers[_questionLayerIndex];
 
     public string correctAnswer;
 
@@ -128,11 +130,12 @@ public class QuestionManager : MonoBehaviour
     /// </summary>
     public void DisplayQuestion()
     {
-        if (currentQuestionDirection == QuestionDirection.CharBrailleToLatin || currentQuestionDirection == QuestionDirection.CharLatinToBraille)
+        if (currentQuestionDirection == QuestionDirection.CharBrailleToLatin ||
+            currentQuestionDirection == QuestionDirection.CharLatinToBraille)
         {
             ClearQuestionCanvas();
             letterObject.text = correctAnswer;
-            
+
 
             // Generate the question and sets it to the correct position
             UITextObject braille;
@@ -145,11 +148,12 @@ public class QuestionManager : MonoBehaviour
             }
             else
             {
-                braille = GridBrailleConverter.Instance.ConvertTextToBraille(correctAnswer, parent: letterObject.wordbox.transform, 
+                braille = GridBrailleConverter.Instance.ConvertTextToBraille(correctAnswer,
+                        parent: letterObject.wordbox.transform,
                         outputType: AssistiveOutput.OutputType.Speak, displayMode: UITextObject.DisplayMode.InkPrint)
                     .GetComponent<UITextObject>();
             }
-            
+
             braille.UpdateDotColor(GlobalSettings.QuestionBrailleColor);
 
             foreach (var option in currentOptions)
@@ -181,16 +185,23 @@ public class QuestionManager : MonoBehaviour
     {
         var parent = Instantiate(SortingBoxPrefab, optionsGrid.transform, false).GetComponent<SortingBoxMenuButton>();
 
-        var focusableText = currentQuestionDirection == QuestionDirection.CharBrailleToLatin
-            ? GridBrailleConverter.Instance.ConvertTextToBraille(optionText, parent: parent.boxContent.transform,
+        UITextObject focusableText;
+        if (currentQuestionDirection == QuestionDirection.CharBrailleToLatin)
+        {
+            focusableText = GridBrailleConverter.Instance.ConvertTextToBraille(optionText,
+                    parent: parent.boxContent.transform,
                     outputType: AssistiveOutput.OutputType.Speak, displayMode: UITextObject.DisplayMode.InkPrint)
-                .GetComponent<UITextObject>():
-            
-            GridBrailleConverter.Instance.ConvertTextToBraille(optionText, parent: parent.boxContent.transform, 
-                outputType: AssistiveOutput.OutputType.Braille, displayMode: UITextObject.DisplayMode.Braille )
                 .GetComponent<UITextObject>();
-            
-        focusableText.UpdateDotColor(GlobalSettings.QuestionTextColor); 
+        }
+        else
+        {
+            focusableText = GridBrailleConverter.Instance.ConvertTextToBraille(optionText,
+                    parent: parent.boxContent.transform,
+                    outputType: AssistiveOutput.OutputType.Braille, displayMode: UITextObject.DisplayMode.Braille)
+                .GetComponent<UITextObject>();
+        }
+
+        focusableText.UpdateDotColor(GlobalSettings.QuestionTextColor);
         parent.text = optionText;
         return parent;
     }
