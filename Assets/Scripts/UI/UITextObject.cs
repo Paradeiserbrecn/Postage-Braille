@@ -29,32 +29,17 @@ namespace UI
         {
             UpdateSpacing();
             UpdateCharacterSize();
-            SubscribeToEvents();
         }
 
         private void OnEnable()
-        {
-            SubscribeToEvents();
-        }
-
-        private void SubscribeToEvents()
         {
             IOEventManager.BrailleSpacingChanged += UpdateSpacing;
             IOEventManager.LineSpacingChanged += UpdateSpacing;
             IOEventManager.BrailleSizeChanged += UpdateCharacterSize;
             IOEventManager.BrailleColorChanged += UpdateDotColor;
         }
+
         private void OnDisable()
-        {
-            UnsubscribeFromEvents();
-        }
-
-        private void OnDestroy()
-        {
-            UnsubscribeFromEvents();
-        }
-
-        private void UnsubscribeFromEvents()
         {
             IOEventManager.BrailleSpacingChanged -= UpdateSpacing;
             IOEventManager.LineSpacingChanged -= UpdateSpacing;
@@ -86,7 +71,6 @@ namespace UI
                 return;
             }
             CurrentDisplayMode = displayMode;
-            Debug.Log(text + " display mode is " + displayMode + "and the text was enabled?" + _textMeshPro.enabled);
         }
 
         public void UpdateBlackletterText()
