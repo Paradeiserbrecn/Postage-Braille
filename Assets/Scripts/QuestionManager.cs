@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +9,7 @@ using Settings;
 using TMPro;
 using UI;
 using Unity.Collections;
+using Unity.VisualScripting;
 using UnityEngine.Serialization;
 using Utility;
 using Random = UnityEngine.Random;
@@ -60,11 +62,12 @@ public class QuestionManager : MonoBehaviour
     [Header("Prefabs")] [SerializeField] private GameObject SortingBoxPrefab;
     [SerializeField] private GameObject brailleTextPrefab;
 
+    private int _questionLayerIndex = -1;
     /// <summary>
     /// The currently active question UI layer.
     /// </summary>
-    /// <remarks>Mainly used as a shorthand for UIManager.Instance.layers[_questionLayerIndex]</remarks>
-    public UILayer QuestionLayer => UIManager.Instance.layers[_questionLayerIndex];
+    /// <remarks>Mainly used as a shorthand for SceneControl.Instance.gameUI.layers[_questionLayerIndex]</remarks>
+    public UILayer QuestionLayer => _questionLayerIndex == -1 ? null : SceneControl.Instance.gameUI.layers[_questionLayerIndex];
 
     public string correctAnswer;
 
@@ -74,12 +77,12 @@ public class QuestionManager : MonoBehaviour
     /// </summary>
     public List<string> currentOptions = new();
 
-    private int _questionLayerIndex;
 
-    private void Awake()
+    private IEnumerator Start()
     {
+        yield return new WaitUntil(() => SceneControl.Instance != null && letterObject.LetterLayer != null);
+        _questionLayerIndex = SceneControl.Instance.gameUI.AddLayer(new UILayer(QuestionLayerName));
         Instance = this;
-        _questionLayerIndex = UIManager.Instance.AddLayer(new UILayer(QuestionLayerName));
     }
 
     /// <summary>
@@ -94,7 +97,6 @@ public class QuestionManager : MonoBehaviour
             : LetterPackages.Instance.CurrentPackageProgresses.Words;
 
 
-        // Because we take 4 option anchors as SerializedFields in the UIManager Component
         if (options.Count < OptionsCount)
             throw new InvalidOperationException("Not enough possible letters to generate options.");
 
@@ -139,9 +141,9 @@ public class QuestionManager : MonoBehaviour
             Debug.LogWarning("Tried to display unsupported question type.");
         }
 
-        UIManager.Instance.SwitchLayer(_questionLayerIndex);
+        SceneControl.Instance.gameUI.SwitchLayer(letterObject.LetterLayerIndex);
         letterObject.text = correctAnswer;
-        QuestionLayer.FocusFirst();
+        letterObject.LetterLayer.FocusFirst();
     }
 
 
@@ -250,8 +252,8 @@ public class QuestionManager : MonoBehaviour
     /// </summary>
     private void ClearQuestionCanvas()
     {
-        UIManager.Instance.ClearChildren(letterObject.wordbox.transform);
-        UIManager.Instance.ClearChildren(optionsGrid.transform);
+        SceneControl.Instance.gameUI.ClearChildren(letterObject.wordbox.transform);
+        SceneControl.Instance.gameUI.ClearChildren(optionsGrid.transform);
         QuestionLayer.Clear();
     }
 
@@ -265,14 +267,14 @@ public class QuestionManager : MonoBehaviour
     /// </returns>
     public bool CheckAnswer(string answer)
     {
-        Debug.Log("Answered with: " + answer + " and correct: " + correctAnswer);
+        LetterPackages.Instance.CurrentPackageProgresses.attempts++;
+
+        if (answer == correctAnswer)
+            LetterPackages.Instance.CurrentPackageProgresses.successes++;
+        Debug.Log("Answered with: " + answer + " and correct: " + correctAnswer + "  attempts: " +
+                  LetterPackages.Instance.CurrentPackageProgresses.attempts + " in %: " +
+                  LetterPackages.Instance.CurrentPackageProgresses.SuccessPercentage);
         return answer == correctAnswer;
-    }
-
-
-    public static bool CheckAnswer()
-    {
-        return Instance.CheckAnswer("Dei mama");
     }
 
     /// <summary>

@@ -11,6 +11,7 @@ namespace UI
     {
         public static UIManager Instance;
 
+        [SerializeField] private string UIName;
         public List<UILayer> layers = new();
 
 
@@ -25,7 +26,7 @@ namespace UI
         /// <summary>
         /// The currently selected layer. Switching between different layers is possibe via .SwitchLayer()
         /// </summary>
-        private UILayer CurrentLayer => layers.Count == 0 ? null : layers[_currentLayerIdx];
+        public UILayer CurrentLayer => layers.Count == 0 ? null : layers[_currentLayerIdx];
 
         /// <summary>
         /// The Focusables inside the currently selected layer.

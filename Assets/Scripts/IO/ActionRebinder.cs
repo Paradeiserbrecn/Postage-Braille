@@ -56,9 +56,9 @@ namespace IO
                 var button = _inputActionsPanel.AddButton(inputAction, RebindAction);
                 buttons.Add(button);
             }
-            if (_actionLayerIndex >= 0) UIManager.Instance.RemoveLayer(_actionLayerIndex);
+            if (_actionLayerIndex >= 0) SceneControl.Instance.settingsUI.RemoveLayer(_actionLayerIndex);
             _actionLayer = new UILayer("ActionLayer", buttons);
-            _actionLayerIndex = UIManager.Instance.AddLayer(_actionLayer);
+            _actionLayerIndex = SceneControl.Instance.settingsUI.AddLayer(_actionLayer);
         }
 
         public void RebindAction(InputAction inputAction, FocusableRebindOption button)
