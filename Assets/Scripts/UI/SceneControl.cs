@@ -1,4 +1,5 @@
 ﻿using System;
+using Data;
 using UnityEngine;
 
 namespace UI
@@ -62,7 +63,9 @@ namespace UI
             CurrentUI.CurrentLayer.FocusFirst();
             Instance.mainCamera.transform.position = Instance.packagePickerCameraTransform.position;
             
+            LetterPackagePicker.Instance.ScrollToTop();
             LetterPackagePicker.Instance.PopulateWithCurrentLanguagePackage();
+            LetterPackagePicker.Instance.SelectLetterUnit(LetterPackages.Instance.CurrentPackageProgresses);
         }
 
 

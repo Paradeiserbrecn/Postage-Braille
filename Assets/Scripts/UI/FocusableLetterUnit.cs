@@ -42,6 +42,9 @@ namespace UI
             
             var idx = LetterPackages.Instance.SelectLetterUnit(letterUnit);
             Debug.Log("Letter unit selected: " + idx);
+            LetterPackagePicker.Instance.SelectLetterUnit(letterUnit);
+            
+            IOEventManager.InvokeAssistiveOutput("Einheit gewechselt.", GlobalSettings.standardOutputType);
             // GameManager.Instance.NextQuestion();
         }
     }

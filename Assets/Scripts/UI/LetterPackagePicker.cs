@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using Data;
 using Settings;
 using UnityEngine;
@@ -15,7 +16,8 @@ namespace UI
         [SerializeField] private GameObject packageListObject;
         [SerializeField] private GameObject packagePrefab;
         [SerializeField] private ScrollRect scrollRect;
-        private const float TopOffset = 100f;
+        [SerializeField] private SelectedUnitDisplay selectedUnitDisplayGameObject;
+        private const float TopOffset = 160f;
 
         public static LetterPackagePicker Instance { get; private set; }
 
@@ -24,10 +26,13 @@ namespace UI
             Instance = this;
         }
 
-        void Start()
+        private IEnumerator Start()
         {
             _packageLayerIndex = SceneControl.Instance.packagePickerUI.AddLayer(new UILayer(PackageLayerName));
             PopulateWithCurrentLanguagePackage();
+            yield return new WaitUntil(() => LetterPackages.Instance.CurrentPackageProgresses != null);
+            
+            selectedUnitDisplayGameObject.ChangeLetterUnit(LetterPackages.Instance.CurrentPackageProgresses);
         }
 
         private void OnDestroy()
@@ -120,6 +125,16 @@ namespace UI
             Vector2 pos = content.anchoredPosition;
             pos.y = desiredY;
             content.anchoredPosition = pos;
+        }
+
+        public void ScrollToTop()
+        {
+            scrollRect.content.anchoredPosition = Vector2.zero;
+        }
+
+        public void SelectLetterUnit(LetterUnit letterUnit)
+        {
+            selectedUnitDisplayGameObject.ChangeLetterUnit(letterUnit);
         }
     }
 }
