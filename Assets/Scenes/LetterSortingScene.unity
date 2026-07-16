@@ -3692,9 +3692,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UI.UIManager
   UIName: GameUI
   layers:
-  - name: Letter
-    focusables:
-    - {fileID: 217568392}
   - name: Menu
     focusables:
     - {fileID: 1261329857}

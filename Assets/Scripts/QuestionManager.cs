@@ -63,11 +63,12 @@ public class QuestionManager : MonoBehaviour
     [SerializeField] public GameObject questionTextPrefab;
     [SerializeField] private GameObject LetterTextPrefab;
 
+    private int _questionLayerIndex = -1;
     /// <summary>
     /// The currently active question UI layer.
     /// </summary>
     /// <remarks>Mainly used as a shorthand for SceneControl.Instance.gameUI.layers[_questionLayerIndex]</remarks>
-    public UILayer QuestionLayer => SceneControl.Instance.gameUI.layers[_questionLayerIndex];
+    public UILayer QuestionLayer => _questionLayerIndex == -1 ? null : SceneControl.Instance.gameUI.layers[_questionLayerIndex];
 
     public string correctAnswer;
 
@@ -77,17 +78,12 @@ public class QuestionManager : MonoBehaviour
     /// </summary>
     public List<string> currentOptions = new();
 
-    private int _questionLayerIndex = -1;
-
-    private void Awake()
-    {
-        Instance = this;
-    }
 
     private IEnumerator Start()
     {
-        yield return new WaitUntil(() => SceneControl.Instance != null);
+        yield return new WaitUntil(() => SceneControl.Instance != null && letterObject.LetterLayer != null);
         _questionLayerIndex = SceneControl.Instance.gameUI.AddLayer(new UILayer(QuestionLayerName));
+        Instance = this;
     }
 
     /// <summary>
@@ -146,9 +142,9 @@ public class QuestionManager : MonoBehaviour
             Debug.LogWarning("Tried to display unsupported question type.");
         }
 
-        SceneControl.Instance.gameUI.SwitchLayer(_questionLayerIndex);
+        SceneControl.Instance.gameUI.SwitchLayer(letterObject.LetterLayerIndex);
         letterObject.text = correctAnswer;
-        QuestionLayer.FocusFirst();
+        letterObject.LetterLayer.FocusFirst();
     }
 
 
