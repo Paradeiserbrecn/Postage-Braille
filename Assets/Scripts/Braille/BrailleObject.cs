@@ -22,18 +22,19 @@ namespace Braille
             UpdateDotSize();
             UpdateDotColor();
             UpdateCharacterSize();
-            
-            
-            IOEventManager.BrailleSizeChanged += UpdateCharacterSize;
-            IOEventManager.DotSizeChanged += UpdateDotSize;
-            IOEventManager.BrailleColorChanged += UpdateDotColor;
         }
 
-        private void OnDestroy()
+        private void OnEnable()
+        {
+            IOEventManager.BrailleSizeChanged += UpdateCharacterSize;
+            IOEventManager.DotSizeChanged += UpdateDotSize;
+        }
+
+
+        private void OnDisable()
         {
             IOEventManager.BrailleSizeChanged -= UpdateCharacterSize;
             IOEventManager.DotSizeChanged -= UpdateDotSize;
-            IOEventManager.BrailleColorChanged -= UpdateDotColor;
         }
 
         private void UpdateDotSize()

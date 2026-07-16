@@ -86,6 +86,23 @@ namespace Braille
         {
             Instance = this;
         }
+                
+        public GameObject ConvertTextToBraille(string s,
+            AssistiveOutput.OutputType outputType = AssistiveOutput.OutputType.Both, UITextObject.DisplayMode displayMode = UITextObject.DisplayMode.Braille, Transform parent = null)
+        {
+            var textObject = Instantiate(textObjectPrefab, parent ?? transform);
+            var brailleTextObject = textObject.GetComponent<UITextObject>();
+            brailleTextObject.text = s;
+            brailleTextObject.outputType = outputType;
+            brailleTextObject.UpdateBlackletterText();
+            
+
+            GenerateBrailleObjects(PreprocessText(s), textObject.gameObject);
+
+
+            brailleTextObject.SetDisplayMode(displayMode);
+            return textObject.gameObject;
+        }
 
         /// <summary>
         ///    The gameObject generated with this method does not support accessibility features, only ConvertTextToBraille does that
@@ -257,18 +274,7 @@ namespace Braille
 
             return processedText.ToString();
         }
-        
-        public GameObject ConvertTextToBraille(string s,
-            AssistiveOutput.OutputType outputType = AssistiveOutput.OutputType.Both, Transform parent = null)
-        {
-            var textObject = Instantiate(textObjectPrefab, parent ?? transform);
-            textObject.GetComponent<BrailleTextObject>().text = s;
-            textObject.GetComponent<BrailleTextObject>().outputType = outputType;
 
-            GenerateBrailleObjects(PreprocessText(s), textObject.gameObject);
-
-            return textObject.gameObject;
-        }
 
         //takes a single digit and converts it into its corresponding character for braille representation
         public Char ConvertNumberToChar(char c)

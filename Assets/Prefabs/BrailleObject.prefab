@@ -86,6 +86,7 @@ GameObject:
   - component: {fileID: 2745024839813646189}
   - component: {fileID: 4830452561518380755}
   - component: {fileID: 5800561002932660366}
+  - component: {fileID: -8126483915851195536}
   m_Layer: 0
   m_Name: BrailleObject
   m_TagString: Untagged
@@ -176,6 +177,14 @@ MonoBehaviour:
   - {fileID: 3119338398928127201}
   - {fileID: 2271416275568614522}
   _gridLayoutGroup: {fileID: 4830452561518380755}
+--- !u!222 &-8126483915851195536
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1004382091453081510}
+  m_CullTransparentMesh: 1
 --- !u!1 &3121712781140295154
 GameObject:
   m_ObjectHideFlags: 0
