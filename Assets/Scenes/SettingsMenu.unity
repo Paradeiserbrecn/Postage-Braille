@@ -439,9 +439,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ComponentVersion: 2
+  m_ComponentVersion: 4
   m_LightType: 4
   m_BlendStyleIndex: 0
+  m_Light2DProvider:
+    rid: -2
+  m_SelectionSources:
+    rid: 4722756857955090432
   m_FalloffIntensity: 0.5
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 1
@@ -479,6 +483,19 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 4722756857955090432
+      type: {class: Light2DProviderSources, ns: UnityEngine.Rendering.Universal, asm: Unity.RenderPipelines.Universal.2D.Runtime}
+      data:
+        m_SelectedHashCode: 4
+        m_SelectedSource:
+          rid: -2
+        m_Provider2DCache:
+          rid: -2
 --- !u!4 &619394802
 Transform:
   m_ObjectHideFlags: 0
@@ -733,6 +750,7 @@ GameObject:
   - component: {fileID: 1526424201}
   - component: {fileID: 1526424203}
   - component: {fileID: 1526424206}
+  - component: {fileID: 1526424207}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -767,6 +785,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18425ff43aa0c43448fd1621fac09cbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIManager
+  UIName: 
   layers: []
 --- !u!114 &1526424206
 MonoBehaviour:
@@ -781,6 +800,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::IO.MultimodalInputManager
   defaultTextbox: {fileID: 0}
+--- !u!114 &1526424207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1526424199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01298080a573424a89d5ea86c9bf31b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UI.SceneControl
+  currentScreen: 0
+  mainCamera: {fileID: 519420031}
+  gameUI: {fileID: 1526424203}
+  settingsUI: {fileID: 1526424203}
+  packagePickerUI: {fileID: 1526424203}
+  gameCameraTransform: {fileID: 519420032}
+  settingsCameraTransform: {fileID: 519420032}
+  packagePickerCameraTransform: {fileID: 519420032}
 --- !u!1 &1674759381
 GameObject:
   m_ObjectHideFlags: 0

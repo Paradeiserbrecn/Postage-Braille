@@ -19,6 +19,10 @@ namespace UI
         {
             MultimodalInputManager.Instance.ActionRebinder?.SpecifyInputActionsPanel(this);
             /////////  TODO: The following is for testing only. ListActions should later be called via a FocusableMenuOption
+            Debug.Log("Test: " + MultimodalInputManager.Instance);
+            Debug.Log("Test: " + MultimodalInputManager.Instance.Actions);
+            Debug.Log("Test: " + MultimodalInputManager.Instance.Actions.Navigation);
+            Debug.Log("Test: " + MultimodalInputManager.Instance.ActionRebinder);
             MultimodalInputManager.Instance.ActionRebinder?.ListActions(MultimodalInputManager.Instance.Actions.Navigation);
         }
 
