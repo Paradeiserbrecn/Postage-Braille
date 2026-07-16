@@ -1,4 +1,5 @@
 using Braille;
+using UI;
 using Color = UnityEngine.Color;
 
 namespace Settings
@@ -7,6 +8,7 @@ namespace Settings
     {
         public const AssistiveOutput.OutputType standardOutputType = AssistiveOutput.OutputType.Both;
         public const AssistiveOutput.OutputType questionOutputType = AssistiveOutput.OutputType.Braille;
+        public const UITextObject.DisplayMode standardDisplayMode = UITextObject.DisplayMode.Braille;
         public const float MinBrailleSize = 30f;
         public const float BaseBrailleSize = 50f;
         public const float MaxBrailleSize = 70f;

@@ -99,7 +99,7 @@ namespace Braille
 
             GenerateBrailleObjects(PreprocessText(s), textObject.gameObject);
 
-            
+
             brailleTextObject.SetDisplayMode(displayMode);
             return textObject.gameObject;
         }

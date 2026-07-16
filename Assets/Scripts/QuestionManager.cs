@@ -123,18 +123,36 @@ public class QuestionManager : MonoBehaviour
 
 
     /// <summary>
-    /// Generates GridTextObjects/FocusableTextObjects based on QuestionManager.Instance.currentOptions,
+    /// Generates GridTextObjects based on QuestionManager.Instance.currentOptions and adjusts their display modes according to currentQuestionDirection,
     /// sets the current layer to the question-layer, and then focuses the first option in that layer
     /// </summary>
     public void DisplayQuestion()
     {
-        if (currentQuestionDirection == QuestionDirection.CharBrailleToLatin)
+        if (currentQuestionDirection == QuestionDirection.CharBrailleToLatin || currentQuestionDirection == QuestionDirection.CharLatinToBraille)
         {
-            DisplayBrailleToLatinQuestion();
-        }
-        else if (currentQuestionDirection == QuestionDirection.CharLatinToBraille)
-        {
-            DisplayLatinToBrailleQuestion();
+            ClearQuestionCanvas();
+            letterObject.text = correctAnswer;
+            
+
+            // Generate the question and sets it to the correct position
+            var braille = currentQuestionDirection == QuestionDirection.CharBrailleToLatin ?
+                GridBrailleConverter.Instance.ConvertTextToBraille(correctAnswer, parent: letterObject.wordbox.transform, 
+                        outputType: AssistiveOutput.OutputType.Braille, displayMode: UITextObject.DisplayMode.Braille)
+                    .GetComponent<UITextObject>():
+                
+                GridBrailleConverter.Instance.ConvertTextToBraille(correctAnswer, parent: letterObject.wordbox.transform, 
+                        outputType: AssistiveOutput.OutputType.Speak, displayMode: UITextObject.DisplayMode.InkPrint)
+                    .GetComponent<UITextObject>();
+            
+            braille.UpdateDotColor(GlobalSettings.QuestionBrailleColor);
+
+            foreach (var option in currentOptions)
+            {
+                QuestionLayer
+                    .Add(GenerateUITextObjectOption(option));
+            }
+
+            feedbackText.text = "";
         }
         else
         {
@@ -148,47 +166,26 @@ public class QuestionManager : MonoBehaviour
 
 
     /// <summary>
-    /// Displays a Braille-to-Latin question by rendering the correct answer
-    /// in Braille and creating text-based answer options.
-    /// </summary>
-    private void DisplayBrailleToLatinQuestion()
-    {
-        ClearQuestionCanvas();
-        letterObject.text = correctAnswer;
-
-        // Generate the question braille and set it to the correct position
-        var braille = GridBrailleConverter.Instance
-            .ConvertTextToBraille(correctAnswer, parent: letterObject.wordbox.transform, outputType:AssistiveOutput.OutputType.Braille)
-            .GetComponent<UITextObject>();
-        braille.UpdateDotColor(GlobalSettings.QuestionBrailleColor);
-
-        foreach (var option in currentOptions)
-        {
-            QuestionLayer
-                .Add(GenerateFocusableTextObjectOption(option));
-        }
-
-        feedbackText.text = "";
-    }
-
-
-    /// <summary>
-    /// Creates a focusable text option and adds it to the options grid.
+    /// Creates a UI text object and adds it to the options grid.
     /// </summary>
     /// <param name="optionText">The text displayed for the option.</param>
+    /// <param name="brailleToLatin">Question Direction as bool</param>
     /// <returns>The created focusable text object.</returns>
-    private SortingBoxMenuButton GenerateFocusableTextObjectOption(string optionText)
+    private SortingBoxMenuButton GenerateUITextObjectOption(string optionText)
     {
         var parent = Instantiate(SortingBoxPrefab, optionsGrid.transform, false).GetComponent<SortingBoxMenuButton>();
 
-        var focusableText = GridBrailleConverter.Instance
-            .ConvertTextToBraille(optionText, parent: parent.boxContent.transform, outputType:AssistiveOutput.OutputType.Braille, displayMode: UITextObject.DisplayMode.InkPrint)
-            .GetComponent<UITextObject>();
-
+        var focusableText = currentQuestionDirection == QuestionDirection.CharBrailleToLatin
+            ? GridBrailleConverter.Instance.ConvertTextToBraille(optionText, parent: parent.boxContent.transform,
+                    outputType: AssistiveOutput.OutputType.Speak, displayMode: UITextObject.DisplayMode.InkPrint)
+                .GetComponent<UITextObject>():
+            
+            GridBrailleConverter.Instance.ConvertTextToBraille(optionText, parent: parent.boxContent.transform, 
+                outputType: AssistiveOutput.OutputType.Braille, displayMode: UITextObject.DisplayMode.Braille )
+                .GetComponent<UITextObject>();
+            
         focusableText.UpdateDotColor(GlobalSettings.QuestionTextColor); 
-
         parent.text = optionText;
-
         return parent;
     }
 
@@ -203,48 +200,6 @@ public class QuestionManager : MonoBehaviour
         feedbackText.text = correct ? "Correct!" : "Wrong!";
     }
 
-    /// <summary>
-    /// Displays a Latin-to-Braille question by showing the answer as text
-    /// and generating Braille answer options.
-    /// </summary>
-    private void DisplayLatinToBrailleQuestion()
-    {
-        ClearQuestionCanvas();
-        letterObject.text = correctAnswer;
-
-        // Generate the question braille and set it to the correct position
-        var braille = GridBrailleConverter.Instance
-            .ConvertTextToBraille(correctAnswer, parent: letterObject.wordbox.transform, outputType:AssistiveOutput.OutputType.Braille, displayMode: UITextObject.DisplayMode.InkPrint)
-            .GetComponent<UITextObject>();
-        braille.UpdateDotColor(GlobalSettings.QuestionBrailleColor);
-
-        foreach (var optionText in currentOptions)
-        {
-            QuestionLayer.Add(GenerateBrailleOption(optionText));
-        }
-
-        feedbackText.text = "";
-    }
-
-    /// <summary>
-    /// Creates a Braille option and adds it to the options grid.
-    /// </summary>
-    /// <param name="optionText">The text to convert into Braille.</param>
-    /// <returns>The generated Braille grid text object.</returns>
-    private SortingBoxMenuButton GenerateBrailleOption(string optionText)
-    {
-        var parent = Instantiate(SortingBoxPrefab, optionsGrid.transform, false).GetComponent<SortingBoxMenuButton>();
-        parent.text = optionText;
-
-        var braille = GridBrailleConverter.Instance
-            .ConvertTextToBraille(optionText, parent: parent.boxContent.transform, outputType:AssistiveOutput.OutputType.Braille);
-
-        var brailleObject = braille.GetComponent<UITextObject>();
-
-        brailleObject.UpdateDotColor(GlobalSettings.QuestionBrailleColor);
-
-        return parent;
-    }
 
     /// <summary>
     /// Removes all currently displayed question content, option content,

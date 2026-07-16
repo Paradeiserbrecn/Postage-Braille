@@ -15,9 +15,10 @@ namespace UI
     {
         [SerializeField] private GridLayoutGroup _layoutGroup;
         [SerializeField] protected TextMeshProUGUI _textMeshPro;
-        public AssistiveOutput.OutputType outputType = AssistiveOutput.OutputType.Both;
-        
-        private DisplayMode _displayMode;
+        public AssistiveOutput.OutputType outputType = GlobalSettings.standardOutputType;
+
+        public DisplayMode CurrentDisplayMode { get; private set; } = GlobalSettings.standardDisplayMode;
+
         public enum DisplayMode
         {
             Braille,
@@ -28,33 +29,37 @@ namespace UI
         {
             UpdateSpacing();
             UpdateCharacterSize();
+            SubscribeToEvents();
+        }
 
+        private void OnEnable()
+        {
+            SubscribeToEvents();
+        }
+
+        private void SubscribeToEvents()
+        {
             IOEventManager.BrailleSpacingChanged += UpdateSpacing;
             IOEventManager.LineSpacingChanged += UpdateSpacing;
             IOEventManager.BrailleSizeChanged += UpdateCharacterSize;
             IOEventManager.BrailleColorChanged += UpdateDotColor;
         }
-
-        private void OnEnable()
-        {
-            Awake();
-        }
-        
         private void OnDisable()
         {
-            OnDestroy();
+            UnsubscribeFromEvents();
         }
 
         private void OnDestroy()
         {
+            UnsubscribeFromEvents();
+        }
+
+        private void UnsubscribeFromEvents()
+        {
             IOEventManager.BrailleSpacingChanged -= UpdateSpacing;
             IOEventManager.LineSpacingChanged -= UpdateSpacing;
             IOEventManager.BrailleSizeChanged -= UpdateCharacterSize;
-        }
-
-        public void SetOutputType(AssistiveOutput.OutputType outputType)
-        {
-            this.outputType = outputType;
+            IOEventManager.BrailleColorChanged -= UpdateDotColor;
         }
 
         public void SetDisplayMode(DisplayMode displayMode)
@@ -80,7 +85,7 @@ namespace UI
                 Debug.LogWarning("Tried to switch to unsupported display mode.");
                 return;
             }
-            _displayMode = displayMode;
+            CurrentDisplayMode = displayMode;
             Debug.Log(text + " display mode is " + displayMode + "and the text was enabled?" + _textMeshPro.enabled);
         }
 
@@ -89,7 +94,7 @@ namespace UI
             _textMeshPro.text = text;
         }
 
-        void UpdateSpacing()
+        private void UpdateSpacing()
         {
             _layoutGroup.spacing = new Vector2(GlobalSettings.BrailleSpacing, GlobalSettings.LineSpacing);
             _textMeshPro.characterSpacing = GlobalSettings.BrailleSpacing;
