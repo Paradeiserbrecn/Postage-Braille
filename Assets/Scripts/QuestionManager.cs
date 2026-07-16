@@ -272,14 +272,14 @@ public class QuestionManager : MonoBehaviour
     /// </returns>
     public bool CheckAnswer(string answer)
     {
-        Debug.Log("Answered with: " + answer + " and correct: " + correctAnswer);
+        LetterPackages.Instance.CurrentPackageProgresses.attempts++;
+
+        if (answer == correctAnswer)
+            LetterPackages.Instance.CurrentPackageProgresses.successes++;
+        Debug.Log("Answered with: " + answer + " and correct: " + correctAnswer + "  attempts: " +
+                  LetterPackages.Instance.CurrentPackageProgresses.attempts + " in %: " +
+                  LetterPackages.Instance.CurrentPackageProgresses.SuccessPercentage);
         return answer == correctAnswer;
-    }
-
-
-    public static bool CheckAnswer()
-    {
-        return Instance.CheckAnswer("Dei mama");
     }
 
     /// <summary>
