@@ -135,14 +135,20 @@ public class QuestionManager : MonoBehaviour
             
 
             // Generate the question and sets it to the correct position
-            var braille = currentQuestionDirection == QuestionDirection.CharBrailleToLatin ?
-                GridBrailleConverter.Instance.ConvertTextToBraille(correctAnswer, parent: letterObject.wordbox.transform, 
+            UITextObject braille;
+            if (currentQuestionDirection == QuestionDirection.CharBrailleToLatin)
+            {
+                braille = GridBrailleConverter.Instance.ConvertTextToBraille(correctAnswer,
+                        parent: letterObject.wordbox.transform,
                         outputType: AssistiveOutput.OutputType.Braille, displayMode: UITextObject.DisplayMode.Braille)
-                    .GetComponent<UITextObject>():
-                
-                GridBrailleConverter.Instance.ConvertTextToBraille(correctAnswer, parent: letterObject.wordbox.transform, 
+                    .GetComponent<UITextObject>();
+            }
+            else
+            {
+                braille = GridBrailleConverter.Instance.ConvertTextToBraille(correctAnswer, parent: letterObject.wordbox.transform, 
                         outputType: AssistiveOutput.OutputType.Speak, displayMode: UITextObject.DisplayMode.InkPrint)
                     .GetComponent<UITextObject>();
+            }
             
             braille.UpdateDotColor(GlobalSettings.QuestionBrailleColor);
 
