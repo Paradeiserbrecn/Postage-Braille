@@ -152,6 +152,7 @@ RectTransform:
   - {fileID: 374637683}
   - {fileID: 2065772804}
   - {fileID: 1562511276}
+  - {fileID: 312680820}
   m_Father: {fileID: 1623441939}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -229,7 +230,11 @@ MonoBehaviour:
   UIName: PackageUI
   layers:
   - name: ActionMaps
-    focusables: []
+    focusables:
+    - {fileID: 374637686}
+    - {fileID: 2065772807}
+    - {fileID: 1562511279}
+    - {fileID: 312680823}
 --- !u!4 &93009882
 Transform:
   m_ObjectHideFlags: 0
@@ -849,6 +854,113 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 270244404}
   m_CullTransparentMesh: 1
+--- !u!1 &312680819
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 312680820}
+  - component: {fileID: 312680823}
+  - component: {fileID: 312680822}
+  - component: {fileID: 312680821}
+  m_Layer: 5
+  m_Name: PerkinsBrailler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &312680820
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 312680819}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 62.69999}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1808623183}
+  m_Father: {fileID: 67903677}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 744.6, y: 125.15}
+  m_SizeDelta: {x: 175, y: 150}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &312680821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 312680819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 1563447804, guid: e6a2fecb25167a840a723c0088ac3777, type: 3}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 0.15
+--- !u!222 &312680822
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 312680819}
+  m_CullTransparentMesh: 1
+--- !u!114 &312680823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 312680819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73a99e931e014f14784c6a37335d791a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UI.FocusableMenuOption
+  text: Tastenbelegung Perkins Brailler
+  image: {fileID: 312680821}
+  iconImage: {fileID: 1808623184}
+  action:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1964044113}
+        m_TargetAssemblyTypeName: IO.ActionRebinder, Assembly-CSharp
+        m_MethodName: ListActions
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: PerkinsBrailler
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &336384896
 GameObject:
   m_ObjectHideFlags: 0
@@ -998,7 +1110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73a99e931e014f14784c6a37335d791a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UI.FocusableMenuOption
-  text: "Einheit ausw\xE4hlen"
+  text: "Zur\xFCck"
   image: {fileID: 374637684}
   iconImage: {fileID: 270244406}
   action:
@@ -1006,7 +1118,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1975903113}
         m_TargetAssemblyTypeName: UI.SceneControl, Assembly-CSharp
-        m_MethodName: TransitionToPackagePickerScreen
+        m_MethodName: TransitionToGameScreen
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3880,22 +3992,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73a99e931e014f14784c6a37335d791a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UI.FocusableMenuOption
-  text: "Einheit ausw\xE4hlen"
+  text: Tastenbelegung Text-Einstellungen
   image: {fileID: 1562511277}
   iconImage: {fileID: 1819613563}
   action:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1975903113}
-        m_TargetAssemblyTypeName: UI.SceneControl, Assembly-CSharp
-        m_MethodName: TransitionToPackagePickerScreen
-        m_Mode: 1
+      - m_Target: {fileID: 1964044113}
+        m_TargetAssemblyTypeName: IO.ActionRebinder, Assembly-CSharp
+        m_MethodName: ListActions
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: BrailleSettings
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &1591885636
@@ -4010,6 +4122,7 @@ Transform:
   - {fileID: 165807743}
   - {fileID: 572929763}
   - {fileID: 1155749906}
+  - {fileID: 1964044112}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1623441933
@@ -4404,6 +4517,81 @@ MonoBehaviour:
   indexTMP: {fileID: 846328815}
   lettersTMP: {fileID: 1233319987}
   percentageTMP: {fileID: 833380256}
+--- !u!1 &1808623182
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1808623183}
+  - component: {fileID: 1808623185}
+  - component: {fileID: 1808623184}
+  m_Layer: 5
+  m_Name: Icon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1808623183
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1808623182}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -0.0000038146973}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 312680820}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -0.76329803, y: 0}
+  m_SizeDelta: {x: 42.5323, y: 36.4562}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1808623184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1808623182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 534860fa7bf885c4696eaf7b2a816e5f, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1808623185
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1808623182}
+  m_CullTransparentMesh: 1
 --- !u!1 &1819613561
 GameObject:
   m_ObjectHideFlags: 0
@@ -4461,7 +4649,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 41d03bfb79c275841b1b2321602c0911, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6fad8e8ed997712409b772c629d4e2d5, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -4538,6 +4726,50 @@ MonoBehaviour:
   - attempts: 0
     successes: 0
   currentLanguage: 0
+--- !u!1 &1964044111
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1964044112}
+  - component: {fileID: 1964044113}
+  m_Layer: 0
+  m_Name: ActionRebinder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1964044112
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1964044111}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2411.4531, y: 88.10365, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1617397922}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1964044113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1964044111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9f39c9dc335662458de807951689a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::IO.ActionRebinder
 --- !u!1 &1968362486
 GameObject:
   m_ObjectHideFlags: 0
@@ -4810,22 +5042,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73a99e931e014f14784c6a37335d791a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UI.FocusableMenuOption
-  text: "Einheit ausw\xE4hlen"
+  text: Tastenbelegung Navigation
   image: {fileID: 2065772805}
   iconImage: {fileID: 1050225422}
   action:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1975903113}
-        m_TargetAssemblyTypeName: UI.SceneControl, Assembly-CSharp
-        m_MethodName: TransitionToPackagePickerScreen
-        m_Mode: 1
+      - m_Target: {fileID: 1964044113}
+        m_TargetAssemblyTypeName: IO.ActionRebinder, Assembly-CSharp
+        m_MethodName: ListActions
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Navigation
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &2082483660

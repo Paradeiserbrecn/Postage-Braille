@@ -17,9 +17,7 @@ namespace UI
 
         private void Start()
         {
-            MultimodalInputManager.Instance.ActionRebinder?.SpecifyInputActionsPanel(this);
-            /////////  TODO: The following is for testing only. ListActions should later be called via a FocusableMenuOption
-            MultimodalInputManager.Instance.ActionRebinder?.ListActions(MultimodalInputManager.Instance.Actions.Navigation);
+            ActionRebinder.Instance.SpecifyInputActionsPanel(this);
         }
 
         public FocusableRebindOption AddButton(InputAction inputAction,
@@ -41,6 +39,11 @@ namespace UI
         /// <param name="targetRectTransform"></param>
         public void ScrollTo(RectTransform targetRectTransform)
         {
+            Debug.Log("target pos: " + targetRectTransform.localPosition);
+            Debug.Log(scrollRect.viewport.localPosition);
+            Debug.Log(scrollRectContent.transform.localPosition);
+            
+            
             Canvas.ForceUpdateCanvases();
             Vector2 viewportLocalPosition = scrollRect.viewport.localPosition;
 
@@ -57,6 +60,19 @@ namespace UI
             scrollRectContent.transform.localPosition = newTargetLocalPosition;
         }
 
+        public void ScrollToFirst()
+        {
+            if (_rebindButtons.Count > 0)
+            {
+                var rectTransform = _rebindButtons[0].GetComponent<RectTransform>();
+                if (rectTransform != null)
+                {
+                    ScrollTo(rectTransform);
+                    Debug.Log("scrolled to " + _rebindButtons[0].text);
+                }
+            }
+        }
+
         public void ClearAll()
         {
             foreach (var button in _rebindButtons)
@@ -69,7 +85,7 @@ namespace UI
 
         private void OnDestroy()
         {
-            MultimodalInputManager.Instance.ActionRebinder?.SpecifyInputActionsPanel(null);
+            ActionRebinder.Instance.SpecifyInputActionsPanel(null);
         }
     }
 }

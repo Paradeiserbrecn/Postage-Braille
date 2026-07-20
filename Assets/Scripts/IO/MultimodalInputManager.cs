@@ -1,7 +1,9 @@
 using System;
 using UnityEngine;
 using System.Collections.Generic;
+using NUnit.Framework.Internal;
 using Unity.VisualScripting;
+using UnityEngine.InputSystem;
 using Utility;
 
 namespace IO
@@ -14,9 +16,9 @@ namespace IO
         private Dictionary<InputType, AbstractInput> _inputs = new();
         
         public GameActions Actions { get; private set; }
-        public ActionRebinder ActionRebinder { get; private set; }
         
         [SerializeField] private InputHandledUITextObject defaultTextbox;
+        
 
         public enum TextInputType
         {
@@ -33,10 +35,8 @@ namespace IO
         public static MultimodalInputManager Instance;
         private void Awake()
         {
-            Instance = this;
             Actions = new GameActions();
-            
-            ActionRebinder = new ActionRebinder(Actions);
+            Instance = this;
             
             _inputs[InputType.Navigation] = new NavigationInput(Actions);
             EnableInput(InputType.Navigation);
@@ -52,8 +52,6 @@ namespace IO
             }
         }
         
-
-
         public void EnableInput(InputType inputType)
         {
             _inputs[inputType].Enable();
