@@ -4125,7 +4125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LetterPackages
   currentLanguagePackage: []
-  currentLanguage: 0
+  currentLanguage: 1
   packageProgress: 0
 --- !u!1 &1968362486
 GameObject:

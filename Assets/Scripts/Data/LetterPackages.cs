@@ -15,7 +15,8 @@ namespace Data
     /// </summary>
     public enum SupportedLanguage
     {
-        De
+        De,
+        En
     }
 
     /// <summary>
@@ -32,7 +33,7 @@ namespace Data
         /// <summary>
         /// Gets the currently selected letter unit.
         /// </summary>
-        public LetterUnit CurrentPackageProgresses =>
+        public LetterUnit CurrentPackageUnit =>
             packageProgress >= currentLanguagePackage.Count ? null : currentLanguagePackage[packageProgress];
 
         /// <summary>
@@ -82,9 +83,10 @@ namespace Data
 
             List<LetterUnit> runtimePackage = new();
 
-            foreach (var unit in package.units)
+            for (var index = 0; index < package.units.Count; index++)
             {
-                runtimePackage.Add(new LetterUnit(unit.letters, unit.words));
+                var unit = package.units[index];
+                runtimePackage.Add(new LetterUnit(unit.letters, unit.words, index + 1));
             }
 
             Packages.Add(language, runtimePackage);
@@ -141,6 +143,10 @@ namespace Data
                 case SupportedLanguage.De:
                     currentLanguagePackage = Packages[SupportedLanguage.De];
                     currentLanguage = SupportedLanguage.De;
+                    break;
+                case SupportedLanguage.En:
+                    currentLanguagePackage = Packages[SupportedLanguage.En];
+                    currentLanguage = SupportedLanguage.En;
                     break;
                 default:
                     throw new UnexpectedEnumValueException<SupportedLanguage>(language);

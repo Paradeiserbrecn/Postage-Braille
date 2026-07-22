@@ -30,9 +30,9 @@ namespace UI
         {
             _packageLayerIndex = SceneControl.Instance.packagePickerUI.AddLayer(new UILayer(PackageLayerName));
             PopulateWithCurrentLanguagePackage();
-            yield return new WaitUntil(() => LetterPackages.Instance.CurrentPackageProgresses != null);
+            yield return new WaitUntil(() => LetterPackages.Instance.CurrentPackageUnit != null);
             
-            selectedUnitDisplayGameObject.ChangeLetterUnit(LetterPackages.Instance.CurrentPackageProgresses);
+            selectedUnitDisplayGameObject.ChangeLetterUnit(LetterPackages.Instance.CurrentPackageUnit);
         }
 
         private void OnDestroy()

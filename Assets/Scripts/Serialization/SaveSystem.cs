@@ -26,13 +26,13 @@ namespace Serialization
             string json = JsonUtility.ToJson(save, true);
 
             File.WriteAllText(
-                Path.Combine(Application.persistentDataPath, "save.json"),
+                Path.Combine(Application.persistentDataPath, packages.currentLanguage + "_save.json"),
                 json);
         }
 
         public static void LoadPackageProgress(LetterPackages packages)
         {
-            string path = Path.Combine(Application.persistentDataPath, "save.json");
+            var path = Path.Combine(Application.persistentDataPath, packages.currentLanguage + "_save.json");
 
             if (!File.Exists(path))
                 return;
@@ -51,8 +51,6 @@ namespace Serialization
                 packages.Packages[save.currentLanguage][i].successes =
                     save.progress[i].successes;
             }
-
-            packages.SelectLetterUnit(save.currentUnit);
         }
     }
 }

@@ -65,7 +65,7 @@ namespace UI
             
             LetterPackagePicker.Instance.ScrollToTop();
             LetterPackagePicker.Instance.PopulateWithCurrentLanguagePackage();
-            LetterPackagePicker.Instance.SelectLetterUnit(LetterPackages.Instance.CurrentPackageProgresses);
+            LetterPackagePicker.Instance.SelectLetterUnit(LetterPackages.Instance.CurrentPackageUnit);
         }
 
 

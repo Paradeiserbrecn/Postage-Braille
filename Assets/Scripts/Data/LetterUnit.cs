@@ -10,22 +10,20 @@ namespace Data
     [Serializable]
     public class LetterUnit
     {
-        private static int _nextUnitIndex = 1;
-
         /// <summary>
-        /// Gets the unique index assigned to this letter unit.
+        /// Gets the unique index assigned to this letter unit. This is only used in displaying the index to the user, thus should be 1-indexed
         /// </summary>
         public readonly int UnitIndex;
 
         /// <summary>
         /// Gets or sets the letters introduced in this unit.
         /// </summary>
-        public List<string> Letters { get; set; } = new();
+        public List<string> Letters { get; set; }
 
         /// <summary>
         /// Gets or sets the practice words for this unit.
         /// </summary>
-        public List<string> Words { get; set; } = new();
+        public List<string> Words { get; set; }
 
         /// <summary>
         /// The total number of attempts made for this unit.
@@ -47,14 +45,14 @@ namespace Data
         /// <summary>
         /// Initializes a new instance of the <see cref="LetterUnit"/> class.
         /// </summary>
-        /// <param name="Letters">The letters introduced in this unit.</param>
-        /// <param name="Words">The practice words for this unit.</param>
-        internal LetterUnit(List<string> Letters, List<string> Words)
+        /// <param name="letters">The letters introduced in this unit.</param>
+        /// <param name="words">The practice words for this unit.</param>
+        /// <param name="unitIndex">The index of the unit.</param>
+        internal LetterUnit(List<string> letters, List<string> words, int unitIndex)
         {
-            UnitIndex = _nextUnitIndex;
-            _nextUnitIndex++;
-            this.Letters = Letters;
-            this.Words = Words;
+            UnitIndex = unitIndex;
+            Letters = letters;
+            Words = words;
             attempts = 0;
             successes = 0;
         }
