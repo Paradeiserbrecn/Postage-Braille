@@ -607,6 +607,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  confirmText: 
 --- !u!1 &217568390
 GameObject:
   m_ObjectHideFlags: 0
@@ -1370,6 +1371,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  confirmText: 
 --- !u!1 &572929762
 GameObject:
   m_ObjectHideFlags: 0
@@ -2385,6 +2387,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  confirmText: Gespeichert
 --- !u!1 &1056616378
 GameObject:
   m_ObjectHideFlags: 0
@@ -2756,6 +2759,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  confirmText: 
 --- !u!1 &1180412044
 GameObject:
   m_ObjectHideFlags: 0
@@ -3099,6 +3103,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  confirmText: 
 --- !u!114 &1261329858
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3395,6 +3400,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  confirmText: 
 --- !u!1 &1426375349
 GameObject:
   m_ObjectHideFlags: 0
