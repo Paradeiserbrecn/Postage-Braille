@@ -1,5 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
+using JetBrains.Annotations;
+using Serialization;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -11,64 +15,8 @@ namespace Data
     /// </summary>
     public enum SupportedLanguage
     {
-        De
-    }
-
-    /// <summary>
-    /// Represents a single learning unit containing a set of letters,
-    /// associated practice words, and the player's progress statistics.
-    /// </summary>
-    [Serializable]
-    public class LetterUnit
-    {
-        private static int nextUnitIndex = 1;
-
-        /// <summary>
-        /// Gets the unique index assigned to this letter unit.
-        /// </summary>
-        public readonly int unitIndex;
-
-        /// <summary>
-        /// Gets or sets the letters introduced in this unit.
-        /// </summary>
-        public List<string> Letters { get; set; } = new();
-
-        /// <summary>
-        /// Gets or sets the practice words for this unit.
-        /// </summary>
-        public List<string> Words { get; set; } = new();
-
-        /// <summary>
-        /// The total number of attempts made for this unit.
-        /// </summary>
-        public int attempts;
-
-        /// <summary>
-        /// The total number of successful attempts for this unit.
-        /// </summary>
-        public int successes;
-
-        /// <summary>
-        /// Gets the success rate as a percentage.
-        /// Returns 50% if no attempts have been made.
-        /// </summary>
-        public double SuccessPercentage =>
-            attempts == 0 ? 50 : Math.Round((double)successes / attempts * 100);
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="LetterUnit"/> class.
-        /// </summary>
-        /// <param name="Letters">The letters introduced in this unit.</param>
-        /// <param name="Words">The practice words for this unit.</param>
-        internal LetterUnit(List<string> Letters, List<string> Words)
-        {
-            unitIndex = nextUnitIndex;
-            nextUnitIndex++;
-            this.Letters = Letters;
-            this.Words = Words;
-            attempts = 0;
-            successes = 0;
-        }
+        De,
+        En
     }
 
     /// <summary>
@@ -77,23 +25,16 @@ namespace Data
     /// </summary>
     public class LetterPackages : MonoBehaviour
     {
-        [SerializeField] private int startingPackageProgress = 1;
-
-        /// <summary>
-        /// Gets the currently selected unit index for the active language.
-        /// </summary>
-        public int PackageProgress => CurrentUnitForCurrentLanguage[currentLanguage];
-
         /// <summary>
         /// Gets the currently loaded package for the active language.
         /// </summary>
-        public List<LetterUnit> currentLanguagePackage = GermanPackage;
+        [HideInInspector] public List<LetterUnit> currentLanguagePackage;
 
         /// <summary>
         /// Gets the currently selected letter unit.
         /// </summary>
-        public LetterUnit CurrentPackageProgresses =>
-            currentLanguagePackage[CurrentUnitForCurrentLanguage[currentLanguage]];
+        public LetterUnit CurrentPackageUnit =>
+            packageProgress >= currentLanguagePackage.Count ? null : currentLanguagePackage[packageProgress];
 
         /// <summary>
         /// Gets or sets the currently selected language.
@@ -101,14 +42,19 @@ namespace Data
         public SupportedLanguage currentLanguage = SupportedLanguage.De;
 
         /// <summary>
-        /// Stores the current unit index for each supported language.
+        /// The currently selected unit index for the active language.
         /// </summary>
-        public static readonly Dictionary<SupportedLanguage, int> CurrentUnitForCurrentLanguage = new();
+        public int packageProgress = 1;
 
         /// <summary>
         /// Singleton instance of the <see cref="LetterPackages"/> component.
         /// </summary>
         public static LetterPackages Instance;
+
+        /// <summary>
+        /// The packages loaded from Resources/LetterPackages
+        /// </summary>
+        public readonly Dictionary<SupportedLanguage, List<LetterUnit>> Packages = new();
 
         private void Awake()
         {
@@ -117,7 +63,33 @@ namespace Data
                 Instance = this;
             }
 
-            CurrentUnitForCurrentLanguage.Add(SupportedLanguage.De, startingPackageProgress);
+            foreach (var language in Enum.GetValues(typeof(SupportedLanguage)).Cast<SupportedLanguage>())
+            {
+                LoadLetterPackageData(language);
+            }
+
+            SaveSystem.LoadPackageProgress(Instance);
+
+            ChangePackageLanguage(currentLanguage);
+        }
+
+        private void LoadLetterPackageData(SupportedLanguage language)
+        {
+            TextAsset json = Resources.Load<TextAsset>("LetterPackages/" + language.HumanName());
+
+            LetterPackageData package =
+                JsonUtility.FromJson<LetterPackageData>(json.text);
+
+
+            List<LetterUnit> runtimePackage = new();
+
+            for (var index = 0; index < package.units.Count; index++)
+            {
+                var unit = package.units[index];
+                runtimePackage.Add(new LetterUnit(unit.letters, unit.words, index + 1));
+            }
+
+            Packages.Add(language, runtimePackage);
         }
 
         /// <summary>
@@ -126,12 +98,12 @@ namespace Data
         /// <returns>The newly selected <see cref="LetterUnit"/>.</returns>
         public LetterUnit ProgressLetterPackage()
         {
-            if (CurrentUnitForCurrentLanguage[currentLanguage] < currentLanguagePackage.Count - 1)
+            if (packageProgress < currentLanguagePackage.Count - 1)
             {
-                CurrentUnitForCurrentLanguage[currentLanguage]++;
+                packageProgress++;
             }
 
-            return currentLanguagePackage[CurrentUnitForCurrentLanguage[currentLanguage]];
+            return currentLanguagePackage[packageProgress];
         }
 
         /// <summary>
@@ -142,7 +114,7 @@ namespace Data
         public int SelectLetterUnit(LetterUnit unit)
         {
             var unitIndex = currentLanguagePackage.IndexOf(unit);
-            CurrentUnitForCurrentLanguage[currentLanguage] = unitIndex;
+            packageProgress = unitIndex;
 
             return unitIndex;
         }
@@ -154,7 +126,7 @@ namespace Data
         /// <returns>The selected <see cref="LetterUnit"/>.</returns>
         public LetterUnit SelectLetterUnit(int unitIndex)
         {
-            CurrentUnitForCurrentLanguage[currentLanguage] = unitIndex;
+            packageProgress = unitIndex;
             return currentLanguagePackage[unitIndex];
         }
 
@@ -169,8 +141,12 @@ namespace Data
             switch (language)
             {
                 case SupportedLanguage.De:
-                    currentLanguagePackage = GermanPackage;
+                    currentLanguagePackage = Packages[SupportedLanguage.De];
                     currentLanguage = SupportedLanguage.De;
+                    break;
+                case SupportedLanguage.En:
+                    currentLanguagePackage = Packages[SupportedLanguage.En];
+                    currentLanguage = SupportedLanguage.En;
                     break;
                 default:
                     throw new UnexpectedEnumValueException<SupportedLanguage>(language);
@@ -179,276 +155,15 @@ namespace Data
             return currentLanguagePackage;
         }
 
-        /// <summary>
-        /// The predefined German letter learning package.
-        /// </summary>
-        private static readonly List<LetterUnit> GermanPackage = new()
+
+        public static void SaveCurrentLetterPackagesProgress()
         {
-            new LetterUnit
-            (
-                new List<string>
-                {
-                    "E", "N", "I", "S", "T"
-                },
-                new List<string>
-                {
-                    "EINE",
-                    "SEIN",
-                    "NEIN",
-                    "NEST",
-                    "SINN",
-                    "SEEN",
-                    "TEES",
-                    "TEST",
-                    "INNE",
-                    "SEIT",
-                    "TIEN",
-                    "SENE",
-                    "NIET",
-                    "TEIN",
-                    "ENST"
-                }
-            ),
+            SaveSystem.SavePackageProgress(LetterPackages.Instance);
+        }
 
-            new LetterUnit
-            (new List<string>
-                {
-                    "A", "R", "D", "H", "L"
-                },
-                new List<string>
-                {
-                    "AALD",
-                    "ADER",
-                    "AHNE",
-                    "AHND",
-                    "ALTE",
-                    "ALER",
-                    "ARTE",
-                    "DAHL",
-                    "DASE",
-                    "DEIN",
-                    "DIEN",
-                    "HALT",
-                    "HAND",
-                    "HASE",
-                    "HASE",
-                    "HEIL",
-                    "LAND",
-                    "LAST",
-                    "RATE",
-                    "SEIT"
-                }
-            ),
-
-            new LetterUnit
-            (new List<string>
-                {
-                    "M", "U", "O", "G", "B"
-                },
-                new List<string>
-                {
-                    "ABER",
-                    "ADER",
-                    "AHNE",
-                    "AHNT",
-                    "ALTE",
-                    "ARME",
-                    "ARTE",
-                    "AUGE",
-                    "BADE",
-                    "BAHN",
-                    "BARE",
-                    "BAST",
-                    "BAUM",
-                    "BERG",
-                    "BOTE",
-                    "BUND",
-                    "DAME",
-                    "DANK",
-                    "DASE",
-                    "DEIN",
-                    "DIEN",
-                    "DORN",
-                    "DRAN",
-                    "GABE",
-                    "GARN",
-                    "GAST",
-                    "GELD",
-                    "GENAU",
-                    "HALT",
-                    "HAND",
-                    "HAUS",
-                    "HEIL",
-                    "HUND",
-                    "LAND",
-                    "LAST",
-                    "LESE",
-                    "MANN",
-                    "MAUS",
-                    "MEER",
-                    "MUTE"
-                }
-            ),
-
-            new LetterUnit
-            (new List<string>
-                {
-                    "W", "F", "K", "Z", "P"
-                },
-                new List<string>
-                {
-                    "PARK",
-                    "PAKT",
-                    "POST",
-                    "POSE",
-                    "PFER",
-                    "PFAD",
-                    "PFEIL",
-                    "PULS",
-                    "PUST",
-                    "PAAR",
-                    "PEIN",
-                    "PORE",
-                    "PUNK",
-                    "PINK",
-                    "PFER",
-                    "KALT",
-                    "KARL",
-                    "KERN",
-                    "KIES",
-                    "KIEL",
-                    "KINO",
-                    "KIND",
-                    "KNIE",
-                    "KORN",
-                    "KOST",
-                    "KURS",
-                    "KUHE",
-                    "KLEE",
-                    "KLAR",
-                    "KLAM",
-                    "WAND",
-                    "WARN",
-                    "WARE",
-                    "WARE",
-                    "WEIN",
-                    "WEST",
-                    "WORT",
-                    "WALD",
-                    "WELT",
-                    "WEGE",
-                    "WIES",
-                    "WIND",
-                    "WIRT",
-                    "WURM",
-                    "WOHN",
-                    "FALL",
-                    "FAST",
-                    "FEST",
-                    "FERN",
-                    "FELS",
-                    "FEIN",
-                    "FLUR",
-                    "FORM",
-                    "FRAG",
-                    "FRAN",
-                    "ZART",
-                    "ZEIT",
-                    "ZIEL",
-                    "ZORN",
-                    "ZONE"
-                }
-            ),
-
-            new LetterUnit
-            (new List<string>
-                {
-                    "C", "J", "V", "Y", "X"
-                },
-                new List<string>
-                {
-                    "CITY",
-                    "COUP",
-                    "CAMP",
-                    "CODE",
-                    "CHEF",
-                    "CHOR",
-                    "CLAN",
-                    "CLUB",
-                    "COCK",
-                    "COOL",
-                    "COPY",
-                    "JAHR",
-                    "JADE",
-                    "JAZZ",
-                    "JEDE",
-                    "JENE",
-                    "JOJO",
-                    "JUDO",
-                    "JURY",
-                    "VASE",
-                    "VETO",
-                    "VIER",
-                    "VIEL",
-                    "VOGT",
-                    "VOLT",
-                    "VORN",
-                    "VOKE",
-                    "YOGA",
-                    "YETI",
-                    "XYLO"
-                }
-            ),
-
-            new LetterUnit
-            (new List<string>
-                {
-                    "Ä", "Ö", "Ü", "ß", "ÄU"
-                },
-                new List<string>
-                {
-                    "ÄSTE",
-                    "ÄSER",
-                    "ÄUGE",
-                    "ÄRME",
-                    "ÄHRE",
-                    "ÖLEN",
-                    "ÖDEM",
-                    "ÖFEN",
-                    "ÖSES",
-                    "ÜBEL",
-                    "ÜBEN",
-                    "ÜBER",
-                    "ÜBER",
-                    "ÜBTE",
-                    "ÜBLE",
-                    "ÜBEN",
-                    "SÜDE",
-                    "SÜSS",
-                    "MAßE",
-                    "MAßT",
-                    "GRÜN",
-                    "FRÜH",
-                    "KÜHE",
-                    "KÜHL",
-                    "KÜRE",
-                    "LÖSE",
-                    "LÖST",
-                    "LÖWE",
-                    "MÖGE",
-                    "MÖGT",
-                    "RÖTE",
-                    "RÜBE",
-                    "WÄRE",
-                    "ZÄHE",
-                    "ZÄHL",
-                    "BÄRE",
-                    "BÄKE",
-                    "DÜNE",
-                    "FÜGE",
-                    "FÜGT"
-                }
-            ),
-        };
+        public static void LoadCurrentLetterPackagesProgress()
+        {
+            SaveSystem.LoadPackageProgress(LetterPackages.Instance);
+        }
     }
 }

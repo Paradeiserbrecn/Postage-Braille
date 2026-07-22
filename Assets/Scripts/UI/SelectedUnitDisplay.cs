@@ -28,12 +28,12 @@ namespace UI
         public void ChangeLetterUnit(LetterUnit letterUnit)
         {
             this.LetterUnit = letterUnit;
-            indexTMP.text = letterUnit.unitIndex.ToString();
+            indexTMP.text = letterUnit.UnitIndex.ToString();
             lettersTMP.text = string.Join(", ", letterUnit.Letters);
             percentageTMP.text = letterUnit.SuccessPercentage + "%";
 
             text =
-                $"Unit:     {letterUnit.unitIndex}\n" +
+                $"Unit:     {letterUnit.UnitIndex}\n" +
                 $"Letters:  {string.Join(", ", letterUnit.Letters)}\n" +
                 $"Attempts: {letterUnit.attempts}\n" +
                 $"Success:  {letterUnit.SuccessPercentage}%";

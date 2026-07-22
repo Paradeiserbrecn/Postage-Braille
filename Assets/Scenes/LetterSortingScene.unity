@@ -497,8 +497,7 @@ MonoBehaviour:
   optionsGrid: {fileID: 2129736004}
   feedbackText: {fileID: 625592600}
   SortingBoxPrefab: {fileID: 6014711651894696537, guid: c36bb3b9b3d024444b6e074c575a7a91, type: 3}
-  questionTextPrefab: {fileID: 4462799027721514223, guid: b4c78f2293e673d4ebf416c0b0992e7a, type: 3}
-  LetterTextPrefab: {fileID: 634884101310975089, guid: 9e71000f774e7554cbd8108b81d578ea, type: 3}
+  brailleTextPrefab: {fileID: 0}
   correctAnswer: 
   currentOptions: []
 --- !u!1 &200901685
@@ -2374,9 +2373,9 @@ MonoBehaviour:
   action:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: QuestionManager, Assembly-CSharp
-        m_MethodName: ToggleBrailleToLatin
+      - m_Target: {fileID: 1930958266}
+        m_TargetAssemblyTypeName: Data.LetterPackages, Assembly-CSharp
+        m_MethodName: SaveCurrentLetterPackagesProgress
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4125,21 +4124,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd9f7a1a75444445a7d7b1e6a4eadee8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LetterPackages
-  startingPackageProgress: 5
-  currentLanguagePackage:
-  - attempts: 0
-    successes: 0
-  - attempts: 0
-    successes: 0
-  - attempts: 0
-    successes: 0
-  - attempts: 0
-    successes: 0
-  - attempts: 0
-    successes: 0
-  - attempts: 0
-    successes: 0
-  currentLanguage: 0
+  currentLanguagePackage: []
+  currentLanguage: 1
+  packageProgress: 0
 --- !u!1 &1968362486
 GameObject:
   m_ObjectHideFlags: 0
