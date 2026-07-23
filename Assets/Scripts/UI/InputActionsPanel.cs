@@ -37,40 +37,34 @@ namespace UI
         /// Scrolls in such a way that the selected option is at the top unless there aren't enough options below to facilitate that
         /// </summary>
         /// <param name="targetRectTransform"></param>
-        public void ScrollTo(RectTransform targetRectTransform)
+        public void ScrollTo(RectTransform target)
         {
-            Debug.Log("target pos: " + targetRectTransform.localPosition);
-            Debug.Log(scrollRect.viewport.localPosition);
-            Debug.Log(scrollRectContent.transform.localPosition);
-            
-            
+            Debug.Log("scroll");
             Canvas.ForceUpdateCanvases();
-            Vector2 viewportLocalPosition = scrollRect.viewport.localPosition;
 
-            Vector2 targetLocalPosition = targetRectTransform.localPosition;
+            RectTransform content = scrollRect.content;
+            RectTransform viewport = scrollRect.viewport;
 
-            Vector2 newTargetLocalPosition = new Vector2(
-                0 - (viewportLocalPosition.x + targetLocalPosition.x),
-                Math.Min(
-                    0 - (viewportLocalPosition.y + targetLocalPosition.y) + (scrollRect.viewport.rect.height / 2) -
-                    (targetRectTransform.rect.height * 1.3f),
-                    viewportLocalPosition.y + scrollRect.viewport.rect.height - targetRectTransform.rect.height / 2.5f)
-            );
+            float viewportHeight = viewport.rect.height;
+            float contentHeight = content.rect.height;
 
-            scrollRectContent.transform.localPosition = newTargetLocalPosition;
+            float desiredY = -target.localPosition.y 
+                             - (1 - target.pivot.y) * target.rect.height;
+
+            float maxOffset = Mathf.Max(0, contentHeight - viewportHeight) / 2f;
+            desiredY = Mathf.Clamp(desiredY, -maxOffset, maxOffset);
+
+            Vector2 pos = content.anchoredPosition;
+            pos.y = desiredY;
+            content.anchoredPosition = pos;
         }
-
-        public void ScrollToFirst()
+        
+        public void ScrollToTop()
         {
-            if (_rebindButtons.Count > 0)
-            {
-                var rectTransform = _rebindButtons[0].GetComponent<RectTransform>();
-                if (rectTransform != null)
-                {
-                    ScrollTo(rectTransform);
-                    Debug.Log("scrolled to " + _rebindButtons[0].text);
-                }
-            }
+            if (scrollRect.content.childCount == 0)
+                return;
+
+            ScrollTo(scrollRect.content.GetChild(0) as RectTransform);
         }
 
         public void ClearAll()

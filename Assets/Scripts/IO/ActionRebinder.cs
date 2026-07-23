@@ -82,6 +82,7 @@ namespace IO
             _actionLayerIndex = SceneControl.Instance.settingsUI.AddLayer(_actionLayer);
             
             Canvas.ForceUpdateCanvases();
+            _inputActionsPanel.ScrollToTop();
         }
 
         public void RebindAction(InputAction inputAction, FocusableRebindOption button)
