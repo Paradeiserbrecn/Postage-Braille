@@ -30,9 +30,9 @@ namespace UI
         {
             _packageLayerIndex = SceneControl.Instance.packagePickerUI.AddLayer(new UILayer(PackageLayerName));
             PopulateWithCurrentLanguagePackage();
-            yield return new WaitUntil(() => LetterPackages.Instance.CurrentPackageProgresses != null);
+            yield return new WaitUntil(() => LetterPackages.Instance.CurrentPackageUnit != null);
             
-            selectedUnitDisplayGameObject.ChangeLetterUnit(LetterPackages.Instance.CurrentPackageProgresses);
+            selectedUnitDisplayGameObject.ChangeLetterUnit(LetterPackages.Instance.CurrentPackageUnit);
         }
 
         private void OnDestroy()
@@ -74,12 +74,12 @@ namespace UI
 
             focusableUnit.image.color = GlobalSettings.MenuOptionColor;
             focusableUnit.text =
-                $"Unit:     {letterUnit.unitIndex}\n" +
+                $"Unit:     {letterUnit.UnitIndex}\n" +
                 $"Letters:  {string.Join(", ", letterUnit.Letters)}\n" +
                 $"Attempts: {letterUnit.attempts}\n" +
                 $"Success:  {letterUnit.SuccessPercentage}%";
 
-            focusableUnit.indexTMP.text = letterUnit.unitIndex.ToString();
+            focusableUnit.indexTMP.text = letterUnit.UnitIndex.ToString();
             focusableUnit.lettersTMP.text = string.Join(", ", letterUnit.Letters);
             focusableUnit.attemptsTMP.text = letterUnit.attempts.ToString();
             focusableUnit.percentageTMP.text = letterUnit.SuccessPercentage + "%";

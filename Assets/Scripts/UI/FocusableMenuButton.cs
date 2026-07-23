@@ -16,6 +16,7 @@ namespace UI
         [SerializeField] internal Image image;
         [SerializeField] internal Image iconImage;
         [SerializeField] internal UnityEvent action;
+        [SerializeField] internal string confirmText;
 
         private void Awake()
         {
@@ -35,6 +36,7 @@ namespace UI
 
         public override void ConfirmAction()
         {
+            if (confirmText != "") IOEventManager.InvokeAssistiveOutput(confirmText, GlobalSettings.standardOutputType);
             action.Invoke();
         }
     }

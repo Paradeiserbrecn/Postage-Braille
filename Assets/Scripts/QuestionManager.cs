@@ -95,8 +95,8 @@ public class QuestionManager : MonoBehaviour
     public void PopulateCurrentOptions()
     {
         var options = CurrentQuestionType == QuestionType.Letters
-            ? LetterPackages.Instance.CurrentPackageProgresses.Letters
-            : LetterPackages.Instance.CurrentPackageProgresses.Words;
+            ? LetterPackages.Instance.CurrentPackageUnit.Letters
+            : LetterPackages.Instance.CurrentPackageUnit.Words;
 
 
         if (options.Count < OptionsCount)
@@ -239,13 +239,13 @@ public class QuestionManager : MonoBehaviour
     /// </returns>
     public bool CheckAnswer(string answer)
     {
-        LetterPackages.Instance.CurrentPackageProgresses.attempts++;
+        LetterPackages.Instance.CurrentPackageUnit.attempts++;
 
         if (answer == correctAnswer)
-            LetterPackages.Instance.CurrentPackageProgresses.successes++;
+            LetterPackages.Instance.CurrentPackageUnit.successes++;
         Debug.Log("Answered with: " + answer + " and correct: " + correctAnswer + "  attempts: " +
-                  LetterPackages.Instance.CurrentPackageProgresses.attempts + " in %: " +
-                  LetterPackages.Instance.CurrentPackageProgresses.SuccessPercentage);
+                  LetterPackages.Instance.CurrentPackageUnit.attempts + " in %: " +
+                  LetterPackages.Instance.CurrentPackageUnit.SuccessPercentage);
         return answer == correctAnswer;
     }
 
