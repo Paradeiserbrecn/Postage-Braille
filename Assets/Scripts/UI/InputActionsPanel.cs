@@ -13,7 +13,7 @@ namespace UI
         [SerializeField] private GameObject scrollRectContent;
         [SerializeField] private ScrollRect scrollRect;
         private readonly List<FocusableRebindOption> _rebindButtons = new List<FocusableRebindOption>();
-        private const float TopOffset = 210f;
+        private const float TopOffset = 250f;
 
 
         private void Start()
