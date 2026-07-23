@@ -13,6 +13,7 @@ namespace UI
         [SerializeField] private GameObject scrollRectContent;
         [SerializeField] private ScrollRect scrollRect;
         private readonly List<FocusableRebindOption> _rebindButtons = new List<FocusableRebindOption>();
+        private const float TopOffset = 210f;
 
 
         private void Start()
@@ -39,7 +40,6 @@ namespace UI
         /// <param name="targetRectTransform"></param>
         public void ScrollTo(RectTransform target)
         {
-            Debug.Log("scroll");
             Canvas.ForceUpdateCanvases();
 
             RectTransform content = scrollRect.content;
@@ -48,11 +48,14 @@ namespace UI
             float viewportHeight = viewport.rect.height;
             float contentHeight = content.rect.height;
 
-            float desiredY = -target.localPosition.y 
-                             - (1 - target.pivot.y) * target.rect.height;
+            // Position of the target from the top of the content
+            float targetTop = -target.anchoredPosition.y;
 
-            float maxOffset = Mathf.Max(0, contentHeight - viewportHeight) / 2f;
-            desiredY = Mathf.Clamp(desiredY, -maxOffset, maxOffset);
+            // Desired content position so target is at the top
+            float desiredY = targetTop - TopOffset;
+
+            // Clamp so we don't scroll past the bottom
+            desiredY = Mathf.Clamp(desiredY, 0, contentHeight - viewportHeight);
 
             Vector2 pos = content.anchoredPosition;
             pos.y = desiredY;

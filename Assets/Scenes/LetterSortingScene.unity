@@ -3667,8 +3667,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1426375350}
   - component: {fileID: 1426375354}
-  - component: {fileID: 1426375352}
   - component: {fileID: 1426375351}
+  - component: {fileID: 1426375352}
   m_Layer: 5
   m_Name: Actions
   m_TagString: Untagged
@@ -3692,9 +3692,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.00039672852}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1426375351
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3707,7 +3707,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.ContentSizeFitter
-  m_HorizontalFit: 0
+  m_HorizontalFit: 2
   m_VerticalFit: 2
 --- !u!114 &1426375352
 MonoBehaviour:
