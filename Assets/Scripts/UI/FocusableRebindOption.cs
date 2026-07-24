@@ -27,7 +27,6 @@ namespace UI
             IOEventManager.AssistiveOutput(nameText.text + ": " + bindingText.text, AssistiveOutput.OutputType.Both);
             background.color = GlobalSettings.HighlightedButtonColor;
             if (inputActionsPanel != null) inputActionsPanel.ScrollTo(rectTransform);
-            Debug.Log(inputAction);
         }
 
         public override void Unfocus()
@@ -37,7 +36,7 @@ namespace UI
 
         public override void ConfirmAction()
         {
-            MultimodalInputManager.Instance.ActionRebinder?.RebindAction(inputAction, this);
+            ActionRebinder.Instance.RebindAction(inputAction, this);
         }
 
         public void SetActionName(string text)

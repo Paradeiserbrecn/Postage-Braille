@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UI;
 using UnityEngine;
@@ -7,9 +8,8 @@ using Braille;
 
 namespace IO
 {
-    public class ActionRebinder
+    public class ActionRebinder:MonoBehaviour
     {
-        private GameActions _actions;
         private bool _rebinding = false;
         private UILayer _actionLayer;
         
@@ -19,14 +19,35 @@ namespace IO
 
         private int _actionLayerIndex = -1;
         
-        public ActionRebinder(GameActions actions) 
+        private Dictionary<string, InputActionMap> _rebindableActionMaps = new();
+
+
+        public static ActionRebinder Instance;
+        private void Awake()
         {
-            _actions = actions;
+            Instance = this;
         }
-        
+
+        private void Start()
+        {
+            _rebindableActionMaps.Add("Navigation", MultimodalInputManager.Instance.Actions.Navigation);
+            _rebindableActionMaps.Add("BrailleSettings", MultimodalInputManager.Instance.Actions.BrailleSettings);
+            _rebindableActionMaps.Add("PerkinsBrailler", MultimodalInputManager.Instance.Actions.PerkinsBrailer);
+        }
+
         public void SpecifyInputActionsPanel(InputActionsPanel panel)
         {
             _inputActionsPanel = panel;
+        }
+
+        public void ListActions(String actionMapName)
+        {
+            if (!_rebindableActionMaps.ContainsKey(actionMapName))
+            {
+                Debug.LogError($"ActionMap {actionMapName} not found");
+                return;
+            }
+            ListActions(_rebindableActionMaps[actionMapName]);
         }
 
         /// <summary>
@@ -59,6 +80,9 @@ namespace IO
             if (_actionLayerIndex >= 0) SceneControl.Instance.settingsUI.RemoveLayer(_actionLayerIndex);
             _actionLayer = new UILayer("ActionLayer", buttons);
             _actionLayerIndex = SceneControl.Instance.settingsUI.AddLayer(_actionLayer);
+            
+            Canvas.ForceUpdateCanvases();
+            _inputActionsPanel.ScrollToTop();
         }
 
         public void RebindAction(InputAction inputAction, FocusableRebindOption button)
@@ -73,7 +97,6 @@ namespace IO
                     inputAction.PerformInteractiveRebinding().OnComplete(operation => RebindCompleted(inputAction, button)).Start();
             }
         }
-
         private void RebindCompleted(InputAction inputAction, FocusableRebindOption button)
         {
             Debug.Log("RebindCompleted");
@@ -82,6 +105,13 @@ namespace IO
             MultimodalInputManager.Instance.EnableInput(MultimodalInputManager.InputType.Navigation);
             _rebinding = false;
             IOEventManager.AssistiveOutput("Neuer knopf ist " + inputAction.bindings[0].effectivePath, AssistiveOutput.OutputType.Both);
+        }
+
+        public void ClearLayer()
+        {
+            _inputActionsPanel.ClearAll();
+            if (_actionLayerIndex >= 0) SceneControl.Instance.settingsUI.RemoveLayer(_actionLayerIndex);
+            _actionLayerIndex = -1;
         }
     }
 }

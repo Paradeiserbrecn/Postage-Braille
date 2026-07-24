@@ -13,13 +13,12 @@ namespace UI
         [SerializeField] private GameObject scrollRectContent;
         [SerializeField] private ScrollRect scrollRect;
         private readonly List<FocusableRebindOption> _rebindButtons = new List<FocusableRebindOption>();
+        private const float TopOffset = 250f;
 
 
         private void Start()
         {
-            MultimodalInputManager.Instance.ActionRebinder?.SpecifyInputActionsPanel(this);
-            /////////  TODO: The following is for testing only. ListActions should later be called via a FocusableMenuOption
-            MultimodalInputManager.Instance.ActionRebinder?.ListActions(MultimodalInputManager.Instance.Actions.Navigation);
+            ActionRebinder.Instance.SpecifyInputActionsPanel(this);
         }
 
         public FocusableRebindOption AddButton(InputAction inputAction,
@@ -39,22 +38,36 @@ namespace UI
         /// Scrolls in such a way that the selected option is at the top unless there aren't enough options below to facilitate that
         /// </summary>
         /// <param name="targetRectTransform"></param>
-        public void ScrollTo(RectTransform targetRectTransform)
+        public void ScrollTo(RectTransform target)
         {
             Canvas.ForceUpdateCanvases();
-            Vector2 viewportLocalPosition = scrollRect.viewport.localPosition;
 
-            Vector2 targetLocalPosition = targetRectTransform.localPosition;
+            RectTransform content = scrollRect.content;
+            RectTransform viewport = scrollRect.viewport;
 
-            Vector2 newTargetLocalPosition = new Vector2(
-                0 - (viewportLocalPosition.x + targetLocalPosition.x),
-                Math.Min(
-                    0 - (viewportLocalPosition.y + targetLocalPosition.y) + (scrollRect.viewport.rect.height / 2) -
-                    (targetRectTransform.rect.height * 1.3f),
-                    viewportLocalPosition.y + scrollRect.viewport.rect.height - targetRectTransform.rect.height / 2.5f)
-            );
+            float viewportHeight = viewport.rect.height;
+            float contentHeight = content.rect.height;
 
-            scrollRectContent.transform.localPosition = newTargetLocalPosition;
+            // Position of the target from the top of the content
+            float targetTop = -target.anchoredPosition.y;
+
+            // Desired content position so target is at the top
+            float desiredY = targetTop - TopOffset;
+
+            // Clamp so we don't scroll past the bottom
+            desiredY = Mathf.Clamp(desiredY, 0, contentHeight - viewportHeight);
+
+            Vector2 pos = content.anchoredPosition;
+            pos.y = desiredY;
+            content.anchoredPosition = pos;
+        }
+        
+        public void ScrollToTop()
+        {
+            if (scrollRect.content.childCount == 0)
+                return;
+
+            ScrollTo(scrollRect.content.GetChild(0) as RectTransform);
         }
 
         public void ClearAll()
@@ -69,7 +82,7 @@ namespace UI
 
         private void OnDestroy()
         {
-            MultimodalInputManager.Instance.ActionRebinder?.SpecifyInputActionsPanel(null);
+            ActionRebinder.Instance.SpecifyInputActionsPanel(null);
         }
     }
 }
