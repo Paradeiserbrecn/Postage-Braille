@@ -1,0 +1,273 @@
+{
+  "brailleConversions": [
+    {
+      "printCharacters": "a",
+      "brailleCharacter": [true, false, false, false, false, false],
+      "priority": 0,
+      "conversionConditions": []
+    },
+    {
+      "printCharacters": "b",
+      "brailleCharacter": [true, false, true, false, false, false],
+      "priority": 0,
+      "conversionConditions": []
+    },
+    {
+      "printCharacters": "c",
+      "brailleCharacter": [true, true, false, false, false, false],
+      "priority": 0,
+      "conversionConditions": []
+    },
+    {
+      "printCharacters": "d",
+      "brailleCharacter": [true, true, false, true, false, false],
+      "priority": 0,
+      "conversionConditions": []
+    },
+    {
+      "printCharacters": "e",
+      "brailleCharacter": [true, false, false, true, false, false],
+      "priority": 0,
+      "conversionConditions": []
+    },
+    {
+      "printCharacters": "f",
+      "brailleCharacter": [true, true, true, false, false, false],
+      "priority": 0,
+      "conversionConditions": []
+    },
+    {
+      "printCharacters": "g",
+      "brailleCharacter": [true, true, true, true, false, false],
+      "priority": 0,
+      "conversionConditions": []
+    },
+    {
+      "printCharacters": "h",
+      "brailleCharacter": [true, false, true, true, false, false],
+      "priority": 0,
+      "conversionConditions": []
+    },
+    {
+      "printCharacters": "i",
+      "brailleCharacter": [false, true, true, false, false, false],
+      "priority": 0,
+      "conversionConditions": []
+    },
+    {
+      "printCharacters": "j",
+      "brailleCharacter": [false, true, true, true, false, false],
+      "priority": 0,
+      "conversionConditions": []
+    },
+    {
+      "printCharacters": "k",
+      "brailleCharacter": [true, false, false, false, true, false],
+      "priority": 0,
+      "conversionConditions": []
+    },
+    {
+      "printCharacters": "l",
+      "brailleCharacter": [true, false, true, false, true, false],
+      "priority": 0,
+      "conversionConditions": []
+    },
+    {
+      "printCharacters": "m",
+      "brailleCharacter": [true, true, false, false, true, false],
+      "priority": 0,
+      "conversionConditions": []
+    },
+    {
+      "printCharacters": "n",
+      "brailleCharacter": [true, true, false, true, true, false],
+      "priority": 0,
+      "conversionConditions": []
+    },
+    {
+      "printCharacters": "o",
+      "brailleCharacter": [true, false, false, true, true, false],
+      "priority": 0,
+      "conversionConditions": []
+    },
+    {
+      "printCharacters": "p",
+      "brailleCharacter": [true, true, true, false, true, false],
+      "priority": 0,
+      "conversionConditions": []
+    },
+    {
+      "printCharacters": "q",
+      "brailleCharacter": [true, true, true, true, true, false],
+      "priority": 0,
+      "conversionConditions": []
+    },
+    {
+      "printCharacters": "r",
+      "brailleCharacter": [true, false, true, true, true, false],
+      "priority": 0,
+      "conversionConditions": []
+    },
+    {
+      "printCharacters": "s",
+      "brailleCharacter": [false, true, true, false, true, false],
+      "priority": 0,
+      "conversionConditions": []
+    },
+    {
+      "printCharacters": "t",
+      "brailleCharacter": [false, true, true, true, true, false],
+      "priority": 0,
+      "conversionConditions": []
+    },
+    {
+      "printCharacters": "u",
+      "brailleCharacter": [true, false, false, false, true, true],
+      "priority": 0,
+      "conversionConditions": []
+    },
+    {
+      "printCharacters": "v",
+      "brailleCharacter": [true, false, true, false, true, true],
+      "priority": 0,
+      "conversionConditions": []
+    },
+    {
+      "printCharacters": "w",
+      "brailleCharacter": [false, true, true, true, false, true],
+      "priority": 0,
+      "conversionConditions": []
+    },
+    {
+      "printCharacters": "x",
+      "brailleCharacter": [true, true, false, false, true, true],
+      "priority": 0,
+      "conversionConditions": []
+    },
+    {
+      "printCharacters": "y",
+      "brailleCharacter": [true, true, false, true, true, true],
+      "priority": 0,
+      "conversionConditions": []
+    },
+    {
+      "printCharacters": "z",
+      "brailleCharacter": [true, false, false, true, true, true],
+      "priority": 0,
+      "conversionConditions": []
+    },
+    {
+      "printCharacters": "ä",
+      "brailleCharacter": [false, true, false, true, true, false],
+      "priority": 0,
+      "conversionConditions": []
+    },
+    {
+      "printCharacters": "ö",
+      "brailleCharacter": [false, true, true, false, false, true],
+      "priority": 0,
+      "conversionConditions": []
+    },
+    {
+      "printCharacters": "ü",
+      "brailleCharacter": [true, false, true, true, false, true],
+      "priority": 0,
+      "conversionConditions": []
+    },
+    {
+      "printCharacters": "ß",
+      "brailleCharacter": [false, true, true, false, true, true],
+      "priority": 0,
+      "conversionConditions": []
+    },
+    {
+      "printCharacters": ",",
+      "brailleCharacter": [false, false, true, false, false, false],
+      "priority": 0,
+      "conversionConditions": []
+    },
+    {
+      "printCharacters": ".",
+      "brailleCharacter": [false, false, false, false, true, false],
+      "priority": 0,
+      "conversionConditions": []
+    },
+    {
+      "printCharacters": ";",
+      "brailleCharacter": [false, false, true, false, true, false],
+      "priority": 0,
+      "conversionConditions": []
+    },
+    {
+      "printCharacters": ":",
+      "brailleCharacter": [false, false, true, true, false, false],
+      "priority": 0,
+      "conversionConditions": []
+    },
+    {
+      "printCharacters": "?",
+      "brailleCharacter": [false, false, true, false, false, true],
+      "priority": 0,
+      "conversionConditions": []
+    },
+    {
+      "printCharacters": "!",
+      "brailleCharacter": [false, false, true, true, true, false],
+      "priority": 0,
+      "conversionConditions": []
+    },
+    {
+      "printCharacters": "(",
+      "brailleCharacter": [false, false, true, true, true, true],
+      "priority": 0,
+      "conversionConditions": [
+            {
+                "direction": false,
+                "type": 0
+            }
+        ]
+    },
+    {
+      "printCharacters": ")",
+      "brailleCharacter": [false, false, true, true, true, true],
+      "priority": 0,
+      "conversionConditions": []
+    },
+    {
+      "printCharacters": "„",
+      "brailleCharacter": [false, false, true, false, true, true],
+      "priority": 0,
+      "conversionConditions": []
+    },
+    {
+      "printCharacters": "“",
+      "brailleCharacter": [false, false, false, true, true, true],
+      "priority": 0,
+      "conversionConditions": []
+    },
+    {
+      "printCharacters": "-",
+      "brailleCharacter": [false, false, false, false, true, true],
+      "priority": 0,
+      "conversionConditions": []
+    },
+    {
+      "printCharacters": "'",
+      "brailleCharacter": [false, false, false, false, false, true],
+      "priority": 0,
+      "conversionConditions": []
+    },
+    {
+      "printCharacters": "#",
+      "brailleCharacter": [false, true, false, true, true, true],
+      "priority": 0,
+      "conversionConditions": []
+    },
+    {
+      "printCharacters": " ",
+      "brailleCharacter": [false, false, false, false, false, false],
+      "priority": 0,
+      "conversionConditions": []
+    }
+  ]
+}

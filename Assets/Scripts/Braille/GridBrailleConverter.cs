@@ -2,9 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Data;
 using UI;
 using UnityEngine;
 using Utility;
+using Unity.VisualScripting;
 
 namespace Braille
 {
@@ -13,78 +15,39 @@ namespace Braille
         public static GridBrailleConverter Instance;
 
         [SerializeField] private GameObject brailleCharacterPrefab, textObjectPrefab;
+        
+        public readonly Dictionary<SupportedLanguage, List<BrailleLanguage>> Packages = new();
 
-        //temporary Dictionary for Braille conversion
-        private readonly Dictionary<string, List<bool>> _german = new()
+        public enum ConditionType
         {
-            { "a", new List<bool> { true, false, false, false, false, false } },
-            { "b", new List<bool> { true, false, true, false, false, false } },
-            { "c", new List<bool> { true, true, false, false, false, false } },
-            { "d", new List<bool> { true, true, false, true, false, false } },
-            { "e", new List<bool> { true, false, false, true, false, false } },
-            { "f", new List<bool> { true, true, true, false, false, false } },
-            { "g", new List<bool> { true, true, true, true, false, false } },
-            { "h", new List<bool> { true, false, true, true, false, false } },
-            { "i", new List<bool> { false, true, true, false, false, false } },
-            { "j", new List<bool> { false, true, true, true, false, false } },
-            { "k", new List<bool> { true, false, false, false, true, false } },
-            { "l", new List<bool> { true, false, true, false, true, false } },
-            { "m", new List<bool> { true, true, false, false, true, false } },
-            { "n", new List<bool> { true, true, false, true, true, false } },
-            { "o", new List<bool> { true, false, false, true, true, false } },
-            { "p", new List<bool> { true, true, true, false, true, false } },
-            { "q", new List<bool> { true, true, true, true, true, false } },
-            { "r", new List<bool> { true, false, true, true, true, false } },
-            { "s", new List<bool> { false, true, true, false, true, false } },
-            { "t", new List<bool> { false, true, true, true, true, false } },
-            { "u", new List<bool> { true, false, false, false, true, true } },
-            { "v", new List<bool> { true, false, true, false, true, true } },
-            { "w", new List<bool> { false, true, true, true, false, true } },
-            { "x", new List<bool> { true, true, false, false, true, true } },
-            { "y", new List<bool> { true, true, false, true, true, true } },
-            { "z", new List<bool> { true, false, false, true, true, true } },
-
-            // Umlaute
-            { "ä", new List<bool> { false, true, false, true, true, false } },
-            { "ö", new List<bool> { false, true, true, false, false, true } },
-            { "ü", new List<bool> { true, false, true, true, false, true } },
-            { "ß", new List<bool> { false, true, true, false, true, true } },
-
-            // Kurzschrift characters
-            { "au", new List<bool> { true, false, false, false, false, true } },
-            { "äu", new List<bool> { false, true, false, false, true, false } },
-            { "eu", new List<bool> { true, false, true, false, false, true } },
-            { "ei", new List<bool> { true, true, false, false, false, true } },
-            { "ie", new List<bool> { false, true, false, false, true, true } },
-            { "ch", new List<bool> { true, true, false, true, false, true } },
-            { "sch", new List<bool> { true, false, false, true, false, true } },
-            { "st", new List<bool> { false, true, true, true, true, true } },
-
-            // punctuation
-            { ",", new List<bool> { false, false, true, false, false, false } },
-            { ".", new List<bool> { false, false, false, false, true, false } },
-            { ";", new List<bool> { false, false, true, false, true, false } },
-            { ":", new List<bool> { false, false, true, true, false, false } },
-            { "?", new List<bool> { false, false, true, false, false, true } },
-            { "!", new List<bool> { false, false, true, true, true, false } },
-            { "(", new List<bool> { false, false, true, true, true, true } },
-            { ")", new List<bool> { false, false, true, true, true, true } },
-            { "„", new List<bool> { false, false, true, false, true, true } },
-            { "“", new List<bool> { false, false, false, true, true, true } },
-            { "-", new List<bool> { false, false, false, false, true, true } },
-            { "'", new List<bool> { false, false, false, false, false, true } },
-
-            // number indicator 
-            { "#", new List<bool> { false, true, false, true, true, true } },
-
-            //space
-            { " ", new List<bool> { false, false, false, false, false, false } },
-        };
+            BeforeWord,
+            AfterWord
+        }
 
 
         private void Awake()
         {
-            Instance = this;
+            if (Instance == null)
+            {
+                Instance = this;
+            }
+            /*
+            foreach (var language in Enum.GetValues(typeof(SupportedLanguage)).Cast<SupportedLanguage>())
+            {
+                LoadBrailleConversionData(language);
+            }
+            */
+            LoadBrailleConversionData((SupportedLanguage.De));
+        }
+        
+        private void LoadBrailleConversionData(SupportedLanguage language)
+        {
+            TextAsset json = Resources.Load<TextAsset>("BrailleLanguages/" + language.HumanName());
+
+             BrailleLanguage brailleLanguage =
+                JsonUtility.FromJson<BrailleLanguage>(json.text);
+             
+             Debug.Log(brailleLanguage.brailleConversions.Count);
         }
                 
         public GameObject ConvertTextToBraille(string s,
