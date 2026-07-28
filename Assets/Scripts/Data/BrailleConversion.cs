@@ -13,16 +13,7 @@ namespace Data
     [Serializable]
     public class BrailleConversion
     {
-        public string printCharacters;
+        public string printCharacter;
         public List<bool> brailleCharacter;
-        public int priority;
-        public List<ConversionCondition> conversionConditions;
-    }
-
-    [Serializable]
-    public class ConversionCondition
-    {
-        public bool direction;
-        public GridBrailleConverter.ConditionType type;
     }
 }

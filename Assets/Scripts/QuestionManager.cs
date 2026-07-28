@@ -141,14 +141,14 @@ public class QuestionManager : MonoBehaviour
             UITextObject braille;
             if (currentQuestionDirection == QuestionDirection.CharBrailleToLatin)
             {
-                braille = GridBrailleConverter.Instance.ConvertTextToBraille(correctAnswer,
+                braille = BrailleConverter.Instance.ConvertTextToBraille(correctAnswer,
                         parent: letterObject.wordbox.transform,
                         outputType: AssistiveOutput.OutputType.Braille, displayMode: UITextObject.DisplayMode.Braille)
                     .GetComponent<UITextObject>();
             }
             else
             {
-                braille = GridBrailleConverter.Instance.ConvertTextToBraille(correctAnswer,
+                braille = BrailleConverter.Instance.ConvertTextToBraille(correctAnswer,
                         parent: letterObject.wordbox.transform,
                         outputType: AssistiveOutput.OutputType.Speak, displayMode: UITextObject.DisplayMode.InkPrint)
                     .GetComponent<UITextObject>();
@@ -188,14 +188,14 @@ public class QuestionManager : MonoBehaviour
         UITextObject focusableText;
         if (currentQuestionDirection == QuestionDirection.CharBrailleToLatin)
         {
-            focusableText = GridBrailleConverter.Instance.ConvertTextToBraille(optionText,
+            focusableText = BrailleConverter.Instance.ConvertTextToBraille(optionText,
                     parent: parent.boxContent.transform,
                     outputType: AssistiveOutput.OutputType.Speak, displayMode: UITextObject.DisplayMode.InkPrint)
                 .GetComponent<UITextObject>();
         }
         else
         {
-            focusableText = GridBrailleConverter.Instance.ConvertTextToBraille(optionText,
+            focusableText = BrailleConverter.Instance.ConvertTextToBraille(optionText,
                     parent: parent.boxContent.transform,
                     outputType: AssistiveOutput.OutputType.Braille, displayMode: UITextObject.DisplayMode.Braille)
                 .GetComponent<UITextObject>();

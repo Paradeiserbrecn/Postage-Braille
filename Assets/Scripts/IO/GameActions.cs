@@ -1080,15 +1080,6 @@ namespace IO
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Quote"",
-                    ""type"": ""Button"",
-                    ""id"": ""ae9a09c8-4886-4e8e-8135-9a4852d2870a"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""Semicolon"",
                     ""type"": ""Button"",
                     ""id"": ""926a19e8-d55c-4ced-b3c9-892a9df3be3e"",
@@ -1101,24 +1092,6 @@ namespace IO
                     ""name"": ""Colon"",
                     ""type"": ""Button"",
                     ""id"": ""bf8d0ad5-7d21-4d04-88e8-33dcd9102608"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""LBrace"",
-                    ""type"": ""Button"",
-                    ""id"": ""c7ab8703-559b-4f1b-927d-eafbc339809a"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""RBrace"",
-                    ""type"": ""Button"",
-                    ""id"": ""1a3c1adf-e595-4a53-8292-cdf3a648086b"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
@@ -1896,39 +1869,6 @@ namespace IO
                 },
                 {
                     ""name"": ""One Modifier"",
-                    ""id"": ""31acbc0a-8863-45af-8fae-7337b72af808"",
-                    ""path"": ""OneModifier"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Quote"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""modifier"",
-                    ""id"": ""d03fcaef-003b-468f-b2cd-8a3bb3380091"",
-                    ""path"": ""<Keyboard>/shift"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Quote"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""binding"",
-                    ""id"": ""10083b51-7bba-46f9-97fc-7f2548393f44"",
-                    ""path"": ""<Keyboard>/2"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Quote"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""One Modifier"",
                     ""id"": ""2180f4a2-6ccd-49da-9165-e245b75ada1a"",
                     ""path"": ""OneModifier"",
                     ""interactions"": """",
@@ -1990,72 +1930,6 @@ namespace IO
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Colon"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""One Modifier"",
-                    ""id"": ""29d18d36-440c-4855-995b-6d6cb46c0427"",
-                    ""path"": ""OneModifier"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""LBrace"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""modifier"",
-                    ""id"": ""afaf48a8-e673-4146-a35d-13b89b1aca7f"",
-                    ""path"": ""<Keyboard>/shift"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""LBrace"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""binding"",
-                    ""id"": ""aaef74b3-7815-4083-857a-8a81ba83ab14"",
-                    ""path"": ""<Keyboard>/8"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""LBrace"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""One Modifier"",
-                    ""id"": ""824e5a07-3b7d-4f37-8fd5-76e43fd2b8f3"",
-                    ""path"": ""OneModifier"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""RBrace"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""modifier"",
-                    ""id"": ""1924b32c-b131-46d8-9d99-486e61fa9691"",
-                    ""path"": ""<Keyboard>/shift"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""RBrace"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""binding"",
-                    ""id"": ""ff26b92f-4c03-4209-88c1-db31b0c3e1e2"",
-                    ""path"": ""<Keyboard>/9"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""RBrace"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -2180,11 +2054,8 @@ namespace IO
             m_BrailleKeyboard_Shift = m_BrailleKeyboard.FindAction("Shift", throwIfNotFound: true);
             m_BrailleKeyboard_Question = m_BrailleKeyboard.FindAction("Question", throwIfNotFound: true);
             m_BrailleKeyboard_Exclamation = m_BrailleKeyboard.FindAction("Exclamation", throwIfNotFound: true);
-            m_BrailleKeyboard_Quote = m_BrailleKeyboard.FindAction("Quote", throwIfNotFound: true);
             m_BrailleKeyboard_Semicolon = m_BrailleKeyboard.FindAction("Semicolon", throwIfNotFound: true);
             m_BrailleKeyboard_Colon = m_BrailleKeyboard.FindAction("Colon", throwIfNotFound: true);
-            m_BrailleKeyboard_LBrace = m_BrailleKeyboard.FindAction("LBrace", throwIfNotFound: true);
-            m_BrailleKeyboard_RBrace = m_BrailleKeyboard.FindAction("RBrace", throwIfNotFound: true);
             m_BrailleKeyboard_Apostrophe = m_BrailleKeyboard.FindAction("Apostrophe", throwIfNotFound: true);
         }
 
@@ -2859,11 +2730,8 @@ namespace IO
         private readonly InputAction m_BrailleKeyboard_Shift;
         private readonly InputAction m_BrailleKeyboard_Question;
         private readonly InputAction m_BrailleKeyboard_Exclamation;
-        private readonly InputAction m_BrailleKeyboard_Quote;
         private readonly InputAction m_BrailleKeyboard_Semicolon;
         private readonly InputAction m_BrailleKeyboard_Colon;
-        private readonly InputAction m_BrailleKeyboard_LBrace;
-        private readonly InputAction m_BrailleKeyboard_RBrace;
         private readonly InputAction m_BrailleKeyboard_Apostrophe;
         /// <summary>
         /// Provides access to input actions defined in input action map "BrailleKeyboard".
@@ -3073,10 +2941,6 @@ namespace IO
             /// </summary>
             public InputAction @Exclamation => m_Wrapper.m_BrailleKeyboard_Exclamation;
             /// <summary>
-            /// Provides access to the underlying input action "BrailleKeyboard/Quote".
-            /// </summary>
-            public InputAction @Quote => m_Wrapper.m_BrailleKeyboard_Quote;
-            /// <summary>
             /// Provides access to the underlying input action "BrailleKeyboard/Semicolon".
             /// </summary>
             public InputAction @Semicolon => m_Wrapper.m_BrailleKeyboard_Semicolon;
@@ -3084,14 +2948,6 @@ namespace IO
             /// Provides access to the underlying input action "BrailleKeyboard/Colon".
             /// </summary>
             public InputAction @Colon => m_Wrapper.m_BrailleKeyboard_Colon;
-            /// <summary>
-            /// Provides access to the underlying input action "BrailleKeyboard/LBrace".
-            /// </summary>
-            public InputAction @LBrace => m_Wrapper.m_BrailleKeyboard_LBrace;
-            /// <summary>
-            /// Provides access to the underlying input action "BrailleKeyboard/RBrace".
-            /// </summary>
-            public InputAction @RBrace => m_Wrapper.m_BrailleKeyboard_RBrace;
             /// <summary>
             /// Provides access to the underlying input action "BrailleKeyboard/Apostrophe".
             /// </summary>
@@ -3269,21 +3125,12 @@ namespace IO
                 @Exclamation.started += instance.OnExclamation;
                 @Exclamation.performed += instance.OnExclamation;
                 @Exclamation.canceled += instance.OnExclamation;
-                @Quote.started += instance.OnQuote;
-                @Quote.performed += instance.OnQuote;
-                @Quote.canceled += instance.OnQuote;
                 @Semicolon.started += instance.OnSemicolon;
                 @Semicolon.performed += instance.OnSemicolon;
                 @Semicolon.canceled += instance.OnSemicolon;
                 @Colon.started += instance.OnColon;
                 @Colon.performed += instance.OnColon;
                 @Colon.canceled += instance.OnColon;
-                @LBrace.started += instance.OnLBrace;
-                @LBrace.performed += instance.OnLBrace;
-                @LBrace.canceled += instance.OnLBrace;
-                @RBrace.started += instance.OnRBrace;
-                @RBrace.performed += instance.OnRBrace;
-                @RBrace.canceled += instance.OnRBrace;
                 @Apostrophe.started += instance.OnApostrophe;
                 @Apostrophe.performed += instance.OnApostrophe;
                 @Apostrophe.canceled += instance.OnApostrophe;
@@ -3445,21 +3292,12 @@ namespace IO
                 @Exclamation.started -= instance.OnExclamation;
                 @Exclamation.performed -= instance.OnExclamation;
                 @Exclamation.canceled -= instance.OnExclamation;
-                @Quote.started -= instance.OnQuote;
-                @Quote.performed -= instance.OnQuote;
-                @Quote.canceled -= instance.OnQuote;
                 @Semicolon.started -= instance.OnSemicolon;
                 @Semicolon.performed -= instance.OnSemicolon;
                 @Semicolon.canceled -= instance.OnSemicolon;
                 @Colon.started -= instance.OnColon;
                 @Colon.performed -= instance.OnColon;
                 @Colon.canceled -= instance.OnColon;
-                @LBrace.started -= instance.OnLBrace;
-                @LBrace.performed -= instance.OnLBrace;
-                @LBrace.canceled -= instance.OnLBrace;
-                @RBrace.started -= instance.OnRBrace;
-                @RBrace.performed -= instance.OnRBrace;
-                @RBrace.canceled -= instance.OnRBrace;
                 @Apostrophe.started -= instance.OnApostrophe;
                 @Apostrophe.performed -= instance.OnApostrophe;
                 @Apostrophe.canceled -= instance.OnApostrophe;
@@ -4053,13 +3891,6 @@ namespace IO
             /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
             void OnExclamation(InputAction.CallbackContext context);
             /// <summary>
-            /// Method invoked when associated input action "Quote" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-            /// </summary>
-            /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-            /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-            /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-            void OnQuote(InputAction.CallbackContext context);
-            /// <summary>
             /// Method invoked when associated input action "Semicolon" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
             /// </summary>
             /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
@@ -4073,20 +3904,6 @@ namespace IO
             /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
             void OnColon(InputAction.CallbackContext context);
-            /// <summary>
-            /// Method invoked when associated input action "LBrace" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-            /// </summary>
-            /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-            /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-            /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-            void OnLBrace(InputAction.CallbackContext context);
-            /// <summary>
-            /// Method invoked when associated input action "RBrace" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-            /// </summary>
-            /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-            /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-            /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-            void OnRBrace(InputAction.CallbackContext context);
             /// <summary>
             /// Method invoked when associated input action "Apostrophe" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
             /// </summary>

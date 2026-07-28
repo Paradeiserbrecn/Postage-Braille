@@ -39,7 +39,7 @@ namespace IO
 
         public void AddCurrentBrailleListAsCharacter()
         {
-            _proceedingText.Append(GridBrailleConverter.Instance.ConvertBrailleToCharacter(currentBrailleList));
+            _proceedingText.Append(BrailleConverter.Instance.ConvertBrailleToCharacter(currentBrailleList));
         }
 
         public void UpdateCurrentBrailleObject()
@@ -54,7 +54,7 @@ namespace IO
 
         public void AddCharacter(string character)
         {
-            currentBrailleList = GridBrailleConverter.Instance.ConvertCharacterToBrailleList(character);
+            currentBrailleList = BrailleConverter.Instance.ConvertCharacterToBrailleList(character).brailleCharacter;
             _proceedingText.Append(character);
             UpdateCurrentBrailleObject();
             NextBrailleCharacter();
@@ -64,7 +64,7 @@ namespace IO
         {
             if (BrailleObjects.Count > 1)
             {
-                int lastBrailleLength = GridBrailleConverter.Instance
+                int lastBrailleLength = BrailleConverter.Instance
                     .ConvertBrailleToCharacter(BrailleObjects[^2].DotBools).Length;
                 Destroy(BrailleObjects[^2].gameObject);
                 BrailleObjects.Remove(BrailleObjects[^2]);
