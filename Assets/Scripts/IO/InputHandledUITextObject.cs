@@ -54,7 +54,7 @@ namespace IO
 
         public void AddCharacter(string character)
         {
-            currentBrailleList = BrailleConverter.Instance.ConvertCharacterToBrailleList(character).brailleCharacter;
+            currentBrailleList = BrailleConverter.Instance.ConvertCharacterToConversion(character).brailleCharacter;
             _proceedingText.Append(character);
             UpdateCurrentBrailleObject();
             NextBrailleCharacter();

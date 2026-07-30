@@ -75,11 +75,12 @@ namespace Braille
             StringBuilder text = new StringBuilder(s);
             while (text.Length > 0)
             {
-                var result = ConvertCharacterToBrailleObject(text.ToString());
-                if (result.brailleObject != null)
+                var conversion = ConvertCharacterToConversion(text.ToString());
+                if (conversion != null)
                 {
-                    result.Item1.transform.SetParent(textObject.transform, false);
-                    text.Remove(0, result.usedPrintCharacters);
+                    var brailleObject = ConvertConversionToBrailleObject(conversion);
+                    brailleObject.transform.SetParent(textObject.transform, false);
+                    text.Remove(0, conversion.printCharacter.Length);
                 }
                 else
                 {
@@ -91,26 +92,25 @@ namespace Braille
         /// <summary>
         ///  The gameObject generated with this method does not support accessibility features, only ConvertTextToBraille does that
         /// </summary>
-        /// <param name="s">character to convert (type string to support character combinations)</param>
-        /// <returns>BrailleObject</returns>
-        public (GameObject brailleObject, int usedPrintCharacters) ConvertCharacterToBrailleObject(string s)
+        /// <param name="brailleConversion">BrailleConversion picked by ConvertCharacterToConversion</param>
+        /// <returns>BrailleObject prefab</returns>
+        private GameObject ConvertConversionToBrailleObject(BrailleConversion brailleConversion)
         {
-            var result = ConvertCharacterToBrailleList(s);
-            if(result.brailleCharacter == null) return (null, result.usedPrintCharacters);
+            if(brailleConversion == null) return null;
             
             var brailleObject = Instantiate(brailleCharacterPrefab).GetComponent<BrailleObject>();
-            brailleObject.gameObject.name = s;
-            brailleObject.SetBrailleCharacter(result.brailleCharacter);
+            brailleObject.gameObject.name = brailleConversion.printCharacter;
+            brailleObject.SetBrailleCharacter(brailleConversion.brailleCharacter);
             
-            return (brailleObject.gameObject, result.usedPrintCharacters);
+            return brailleObject.gameObject;
         }
 
         /// <summary>
-        /// Converts characters to one braille character
+        /// Converts characters to the longest fitting braille Conversion
         /// </summary>
         /// <param name="s">Characters to convert</param>
         /// <returns>Braille Character that corresponds to the longest leading section of the input string, or null if no match was found, alongside the number of leading characters used</returns>
-        public (List<bool> brailleCharacter, int usedPrintCharacters) ConvertCharacterToBrailleList(string s)
+        public BrailleConversion ConvertCharacterToConversion(string s)
         {
             CharFactory text = new CharFactory(s);
             StringBuilder character = new StringBuilder();
@@ -118,7 +118,6 @@ namespace Braille
             
             List<BrailleConversion> possibleConversions = _conversionLanguages[currentLanguage].brailleConversions;
             BrailleConversion bestMatch = null;
-            int usedPrintCharacters = 0;
             
             while (text.Curr != '\0')
             {
@@ -129,8 +128,6 @@ namespace Braille
                 
                 if (newPossibleConversions.Count == 0) break;
                 
-
-                usedPrintCharacters++;
                 bestMatch = newPossibleConversions.First();
                 possibleConversions = newPossibleConversions;
                 text.Next();
@@ -140,8 +137,8 @@ namespace Braille
             {
                 Debug.Log("Character could not be converted to Braille");
             }
-            
-            return (bestMatch?.brailleCharacter, usedPrintCharacters);
+
+            return bestMatch;
         }
 
 
@@ -207,7 +204,7 @@ namespace Braille
 
 
         //takes a single digit and converts it into its corresponding character for braille representation
-        public Char ConvertNumberToChar(char c)
+        public char ConvertNumberToChar(char c)
         {
             switch (c)
             {
