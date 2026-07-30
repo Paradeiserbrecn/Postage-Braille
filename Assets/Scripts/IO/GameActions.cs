@@ -2093,6 +2093,34 @@ namespace IO
                     ""isPartOfComposite"": true
                 }
             ]
+        },
+        {
+            ""name"": ""ResetInput"",
+            ""id"": ""44da10d6-4546-4f0d-b853-c30c8277bdb9"",
+            ""actions"": [
+                {
+                    ""name"": ""reset"",
+                    ""type"": ""Button"",
+                    ""id"": ""002cfa16-7744-4c4f-b3d8-abdf77385101"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""719e795b-3da1-44a8-b924-0e80b561d67d"",
+                    ""path"": ""<Keyboard>/home"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""reset"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -2186,6 +2214,9 @@ namespace IO
             m_BrailleKeyboard_LBrace = m_BrailleKeyboard.FindAction("LBrace", throwIfNotFound: true);
             m_BrailleKeyboard_RBrace = m_BrailleKeyboard.FindAction("RBrace", throwIfNotFound: true);
             m_BrailleKeyboard_Apostrophe = m_BrailleKeyboard.FindAction("Apostrophe", throwIfNotFound: true);
+            // ResetInput
+            m_ResetInput = asset.FindActionMap("ResetInput", throwIfNotFound: true);
+            m_ResetInput_reset = m_ResetInput.FindAction("reset", throwIfNotFound: true);
         }
 
         ~@GameActions()
@@ -2194,6 +2225,7 @@ namespace IO
             UnityEngine.Debug.Assert(!m_BrailleSettings.enabled, "This will cause a leak and performance issues, GameActions.BrailleSettings.Disable() has not been called.");
             UnityEngine.Debug.Assert(!m_Navigation.enabled, "This will cause a leak and performance issues, GameActions.Navigation.Disable() has not been called.");
             UnityEngine.Debug.Assert(!m_BrailleKeyboard.enabled, "This will cause a leak and performance issues, GameActions.BrailleKeyboard.Disable() has not been called.");
+            UnityEngine.Debug.Assert(!m_ResetInput.enabled, "This will cause a leak and performance issues, GameActions.ResetInput.Disable() has not been called.");
         }
 
         /// <summary>
@@ -3496,6 +3528,102 @@ namespace IO
         /// Provides a new <see cref="BrailleKeyboardActions" /> instance referencing this action map.
         /// </summary>
         public BrailleKeyboardActions @BrailleKeyboard => new BrailleKeyboardActions(this);
+
+        // ResetInput
+        private readonly InputActionMap m_ResetInput;
+        private List<IResetInputActions> m_ResetInputActionsCallbackInterfaces = new List<IResetInputActions>();
+        private readonly InputAction m_ResetInput_reset;
+        /// <summary>
+        /// Provides access to input actions defined in input action map "ResetInput".
+        /// </summary>
+        public struct ResetInputActions
+        {
+            private @GameActions m_Wrapper;
+
+            /// <summary>
+            /// Construct a new instance of the input action map wrapper class.
+            /// </summary>
+            public ResetInputActions(@GameActions wrapper) { m_Wrapper = wrapper; }
+            /// <summary>
+            /// Provides access to the underlying input action "ResetInput/reset".
+            /// </summary>
+            public InputAction @reset => m_Wrapper.m_ResetInput_reset;
+            /// <summary>
+            /// Provides access to the underlying input action map instance.
+            /// </summary>
+            public InputActionMap Get() { return m_Wrapper.m_ResetInput; }
+            /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Enable()" />
+            public void Enable() { Get().Enable(); }
+            /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Disable()" />
+            public void Disable() { Get().Disable(); }
+            /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.enabled" />
+            public bool enabled => Get().enabled;
+            /// <summary>
+            /// Implicitly converts an <see ref="ResetInputActions" /> to an <see ref="InputActionMap" /> instance.
+            /// </summary>
+            public static implicit operator InputActionMap(ResetInputActions set) { return set.Get(); }
+            /// <summary>
+            /// Adds <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+            /// </summary>
+            /// <param name="instance">Callback instance.</param>
+            /// <remarks>
+            /// If <paramref name="instance" /> is <c>null</c> or <paramref name="instance"/> have already been added this method does nothing.
+            /// </remarks>
+            /// <seealso cref="ResetInputActions" />
+            public void AddCallbacks(IResetInputActions instance)
+            {
+                if (instance == null || m_Wrapper.m_ResetInputActionsCallbackInterfaces.Contains(instance)) return;
+                m_Wrapper.m_ResetInputActionsCallbackInterfaces.Add(instance);
+                @reset.started += instance.OnReset;
+                @reset.performed += instance.OnReset;
+                @reset.canceled += instance.OnReset;
+            }
+
+            /// <summary>
+            /// Removes <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+            /// </summary>
+            /// <remarks>
+            /// Calling this method when <paramref name="instance" /> have not previously been registered has no side-effects.
+            /// </remarks>
+            /// <seealso cref="ResetInputActions" />
+            private void UnregisterCallbacks(IResetInputActions instance)
+            {
+                @reset.started -= instance.OnReset;
+                @reset.performed -= instance.OnReset;
+                @reset.canceled -= instance.OnReset;
+            }
+
+            /// <summary>
+            /// Unregisters <param cref="instance" /> and unregisters all input action callbacks via <see cref="ResetInputActions.UnregisterCallbacks(IResetInputActions)" />.
+            /// </summary>
+            /// <seealso cref="ResetInputActions.UnregisterCallbacks(IResetInputActions)" />
+            public void RemoveCallbacks(IResetInputActions instance)
+            {
+                if (m_Wrapper.m_ResetInputActionsCallbackInterfaces.Remove(instance))
+                    UnregisterCallbacks(instance);
+            }
+
+            /// <summary>
+            /// Replaces all existing callback instances and previously registered input action callbacks associated with them with callbacks provided via <param cref="instance" />.
+            /// </summary>
+            /// <remarks>
+            /// If <paramref name="instance" /> is <c>null</c>, calling this method will only unregister all existing callbacks but not register any new callbacks.
+            /// </remarks>
+            /// <seealso cref="ResetInputActions.AddCallbacks(IResetInputActions)" />
+            /// <seealso cref="ResetInputActions.RemoveCallbacks(IResetInputActions)" />
+            /// <seealso cref="ResetInputActions.UnregisterCallbacks(IResetInputActions)" />
+            public void SetCallbacks(IResetInputActions instance)
+            {
+                foreach (var item in m_Wrapper.m_ResetInputActionsCallbackInterfaces)
+                    UnregisterCallbacks(item);
+                m_Wrapper.m_ResetInputActionsCallbackInterfaces.Clear();
+                AddCallbacks(instance);
+            }
+        }
+        /// <summary>
+        /// Provides a new <see cref="ResetInputActions" /> instance referencing this action map.
+        /// </summary>
+        public ResetInputActions @ResetInput => new ResetInputActions(this);
         /// <summary>
         /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "PerkinsBrailer" which allows adding and removing callbacks.
         /// </summary>
@@ -4094,6 +4222,21 @@ namespace IO
             /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
             void OnApostrophe(InputAction.CallbackContext context);
+        }
+        /// <summary>
+        /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "ResetInput" which allows adding and removing callbacks.
+        /// </summary>
+        /// <seealso cref="ResetInputActions.AddCallbacks(IResetInputActions)" />
+        /// <seealso cref="ResetInputActions.RemoveCallbacks(IResetInputActions)" />
+        public interface IResetInputActions
+        {
+            /// <summary>
+            /// Method invoked when associated input action "reset" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// </summary>
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+            void OnReset(InputAction.CallbackContext context);
         }
     }
 }

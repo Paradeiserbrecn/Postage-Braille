@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using System.Collections.Generic;
 using NUnit.Framework.Internal;
+using Serialization;
 using Unity.VisualScripting;
 using UnityEngine.InputSystem;
 using Utility;
@@ -29,7 +30,8 @@ namespace IO
         public enum InputType
         {
             Navigation,
-            BrailleSettings
+            BrailleSettings,
+            Reset
         }
         
         public static MultimodalInputManager Instance;
@@ -38,8 +40,13 @@ namespace IO
             Actions = new GameActions();
             Instance = this;
             
+            ActionRebinder.LoadRebinds();
+            
             _inputs[InputType.Navigation] = new NavigationInput(Actions);
             EnableInput(InputType.Navigation);
+            
+            _inputs[InputType.Reset] = new ResetInput(Actions);
+            EnableInput(InputType.Reset);
             
             _inputs[InputType.BrailleSettings] = new BrailleSettingsInput(Actions);
             EnableInput(InputType.BrailleSettings);

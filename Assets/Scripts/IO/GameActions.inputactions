@@ -2005,6 +2005,34 @@
                     "isPartOfComposite": true
                 }
             ]
+        },
+        {
+            "name": "ResetInput",
+            "id": "44da10d6-4546-4f0d-b853-c30c8277bdb9",
+            "actions": [
+                {
+                    "name": "reset",
+                    "type": "Button",
+                    "id": "002cfa16-7744-4c4f-b3d8-abdf77385101",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "719e795b-3da1-44a8-b924-0e80b561d67d",
+                    "path": "<Keyboard>/home",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "reset",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []
