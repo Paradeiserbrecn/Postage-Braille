@@ -23,15 +23,15 @@ namespace IO
 
         public enum TextInputType
         {
-            Perkins,
-            Keyboard
+            Perkins,            // InputType used by the perkins brailler simulator
+            Keyboard            // InputType used for standard Keyboard Input
         }
 
         public enum InputType
         {
-            Navigation,
-            BrailleSettings,
-            Reset
+            Navigation,         // Navigation includes toggling between UILayers and Focusable objects in those layers but also Directly selecting answers trough number keys
+            BrailleSettings,    // BrailleSettingsInput changes how Braille Characters are displayed on screen via the FKeys
+            Reset               // Resets all key bindings (In separate InputActionMap disable rebinding of this button to prevent a user soft locking themselves)
         }
         
         public static MultimodalInputManager Instance;
