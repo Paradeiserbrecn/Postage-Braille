@@ -1,0 +1,164 @@
+{
+  "brailleConversions": [
+    {
+      "printCharacter": "a",
+      "brailleCharacter": [true, false, false, false, false, false]
+    },
+    {
+      "printCharacter": "b",
+      "brailleCharacter": [true, false, true, false, false, false]
+    },
+    {
+      "printCharacter": "c",
+      "brailleCharacter": [true, true, false, false, false, false]
+    },
+    {
+      "printCharacter": "d",
+      "brailleCharacter": [true, true, false, true, false, false]
+    },
+    {
+      "printCharacter": "e",
+      "brailleCharacter": [true, false, false, true, false, false]
+    },
+    {
+      "printCharacter": "f",
+      "brailleCharacter": [true, true, true, false, false, false]
+    },
+    {
+      "printCharacter": "g",
+      "brailleCharacter": [true, true, true, true, false, false]
+    },
+    {
+      "printCharacter": "h",
+      "brailleCharacter": [true, false, true, true, false, false]
+    },
+    {
+      "printCharacter": "i",
+      "brailleCharacter": [false, true, true, false, false, false]
+    },
+    {
+      "printCharacter": "j",
+      "brailleCharacter": [false, true, true, true, false, false]
+    },
+    {
+      "printCharacter": "k",
+      "brailleCharacter": [true, false, false, false, true, false]
+    },
+    {
+      "printCharacter": "l",
+      "brailleCharacter": [true, false, true, false, true, false]
+    },
+    {
+      "printCharacter": "m",
+      "brailleCharacter": [true, true, false, false, true, false]
+    },
+    {
+      "printCharacter": "n",
+      "brailleCharacter": [true, true, false, true, true, false]
+    },
+    {
+      "printCharacter": "o",
+      "brailleCharacter": [true, false, false, true, true, false]
+    },
+    {
+      "printCharacter": "p",
+      "brailleCharacter": [true, true, true, false, true, false]
+    },
+    {
+      "printCharacter": "q",
+      "brailleCharacter": [true, true, true, true, true, false]
+    },
+    {
+      "printCharacter": "r",
+      "brailleCharacter": [true, false, true, true, true, false]
+    },
+    {
+      "printCharacter": "s",
+      "brailleCharacter": [false, true, true, false, true, false]
+    },
+    {
+      "printCharacter": "t",
+      "brailleCharacter": [false, true, true, true, true, false]
+    },
+    {
+      "printCharacter": "u",
+      "brailleCharacter": [true, false, false, false, true, true]
+    },
+    {
+      "printCharacter": "v",
+      "brailleCharacter": [true, false, true, false, true, true]
+    },
+    {
+      "printCharacter": "w",
+      "brailleCharacter": [false, true, true, true, false, true]
+    },
+    {
+      "printCharacter": "x",
+      "brailleCharacter": [true, true, false, false, true, true]
+    },
+    {
+      "printCharacter": "y",
+      "brailleCharacter": [true, true, false, true, true, true]
+    },
+    {
+      "printCharacter": "z",
+      "brailleCharacter": [true, false, false, true, true, true]
+    },
+    {
+      "printCharacter": "ä",
+      "brailleCharacter": [false, true, false, true, true, false]
+    },
+    {
+      "printCharacter": "ö",
+      "brailleCharacter": [false, true, true, false, false, true]
+    },
+    {
+      "printCharacter": "ü",
+      "brailleCharacter": [true, false, true, true, false, true]
+    },
+    {
+      "printCharacter": "ß",
+      "brailleCharacter": [false, true, true, false, true, true]
+    },
+    {
+      "printCharacter": ",",
+      "brailleCharacter": [false, false, true, false, false, false]
+    },
+    {
+      "printCharacter": ".",
+      "brailleCharacter": [false, false, false, false, true, false]
+    },
+    {
+      "printCharacter": ";",
+      "brailleCharacter": [false, false, true, false, true, false]
+    },
+    {
+      "printCharacter": ":",
+      "brailleCharacter": [false, false, true, true, false, false]
+    },
+    {
+      "printCharacter": "?",
+      "brailleCharacter": [false, false, true, false, false, true]
+    },
+    {
+      "printCharacter": "!",
+      "brailleCharacter": [false, false, true, true, true, false]
+    },
+    {
+      "printCharacter": "-",
+      "brailleCharacter": [false, false, false, false, true, true]
+    },
+    {
+      "printCharacter": "'",
+      "brailleCharacter": [false, false, false, false, false, true]
+    },
+    {
+      "printCharacter": "#",
+      "brailleCharacter": [false, true, false, true, true, true]
+    },
+    {
+      "printCharacter": " ",
+      "brailleCharacter": [false, false, false, false, false, false]
+    }
+  ]
+}
