@@ -12,26 +12,34 @@ namespace IO
     public class MultimodalInputManager : MonoBehaviour
     {
         private InputHandledUITextObject _currentTextbox;
-        
         private Dictionary<TextInputType, AbstractTextInput> _textInputs = new();
         private Dictionary<InputType, AbstractInput> _inputs = new();
-        
         public GameActions Actions { get; private set; }
         
+        [Header("DEBUG")]
         [SerializeField] private InputHandledUITextObject defaultTextbox;
         
 
+        /// <summary>
+        /// Perkins: InputType used by the perkins brailler simulator
+        /// Keyboard: InputType used for standard Keyboard Input
+        /// </summary>
         public enum TextInputType
         {
-            Perkins,            // InputType used by the perkins brailler simulator
-            Keyboard            // InputType used for standard Keyboard Input
+            Perkins,            
+            Keyboard            
         }
 
+        /// <summary>
+        /// Navigation: InputType includes toggling between UILayers and Focusable objects in those layers but also Directly selecting answers trough number keys
+        /// BrailleSettings: InputType handles changes how Braille Characters are displayed on screen via the FKeys
+        /// Reset: Resets all key bindings (In separate InputActionMap disable rebinding of this button to prevent a user soft locking themselves)
+        /// </summary>
         public enum InputType
         {
-            Navigation,         // Navigation includes toggling between UILayers and Focusable objects in those layers but also Directly selecting answers trough number keys
-            BrailleSettings,    // BrailleSettingsInput changes how Braille Characters are displayed on screen via the FKeys
-            Reset               // Resets all key bindings (In separate InputActionMap disable rebinding of this button to prevent a user soft locking themselves)
+            Navigation,         
+            BrailleSettings,    
+            Reset               
         }
         
         public static MultimodalInputManager Instance;
@@ -53,22 +61,36 @@ namespace IO
             
             _textInputs[TextInputType.Perkins] = new PerkinsTextInput(Actions);
             _textInputs[TextInputType.Keyboard] = new KeyboardTextInput(Actions);
+            
+            
             if (defaultTextbox != null)
             {
                 EnableTextInput(TextInputType.Keyboard, defaultTextbox);
             }
         }
         
+        /// <summary>
+        /// Enables specified TextInputType 
+        /// </summary> 
+        /// <param name="inputType"> InputType to enable </param>
         public void EnableInput(InputType inputType)
         {
             _inputs[inputType].Enable();
         }
-
+        /// <summary>
+        /// Disables specified TextInputType 
+        /// </summary> 
+        /// <param name="inputType"> InputType to disable </param>
         public void DisableInput(InputType inputType)
         {
             _inputs[inputType].Disable();
         }
 
+        /// <summary>
+        /// Enables specified TextInputType 
+        /// </summary>
+        /// <param name="textInputType"> TextInputType to enable </param>
+        /// <param name="textBox"> InputHandledUITextObject that should receive the Inputs </param>
         public void EnableTextInput(TextInputType textInputType, InputHandledUITextObject textBox)
         {
             DisableTextInput();
@@ -86,6 +108,9 @@ namespace IO
             notifier.Disabled += DisableTextInput;
         }
 
+        /// <summary>
+        /// Disables all TextInputTypes 
+        /// </summary>
         public void DisableTextInput()
         {
             foreach (var input in _textInputs.Keys)
