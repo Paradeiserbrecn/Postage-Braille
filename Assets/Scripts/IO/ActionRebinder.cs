@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using Utility;
 using Braille;
+using Serialization;
 
 namespace IO
 {
@@ -20,8 +21,7 @@ namespace IO
         private int _actionLayerIndex = -1;
         
         private Dictionary<string, InputActionMap> _rebindableActionMaps = new();
-
-
+        
         public static ActionRebinder Instance;
         private void Awake()
         {
@@ -38,6 +38,17 @@ namespace IO
         public void SpecifyInputActionsPanel(InputActionsPanel panel)
         {
             _inputActionsPanel = panel;
+        }
+
+        public void ReListAllActions()
+        {
+            if (_inputActionsPanel == null)
+            {
+                Debug.LogWarning("no InputActionsPanel found");
+                return;
+            }
+            
+            ListActions(_inputActionsPanel.currentlyDisplayedActionMap);
         }
 
         public void ListActions(String actionMapName)
@@ -82,6 +93,7 @@ namespace IO
             _actionLayerIndex = SceneControl.Instance.settingsUI.AddLayer(_actionLayer);
             
             Canvas.ForceUpdateCanvases();
+            _inputActionsPanel.currentlyDisplayedActionMap = actionMap;
             _inputActionsPanel.ScrollToTop();
         }
 
@@ -99,19 +111,37 @@ namespace IO
         }
         private void RebindCompleted(InputAction inputAction, FocusableRebindOption button)
         {
-            Debug.Log("RebindCompleted");
             _rebindingOperation.Dispose();
             button.SetBindingText(inputAction.bindings[0].effectivePath);
             MultimodalInputManager.Instance.EnableInput(MultimodalInputManager.InputType.Navigation);
             _rebinding = false;
             IOEventManager.AssistiveOutput("Neuer knopf ist " + inputAction.bindings[0].effectivePath, AssistiveOutput.OutputType.Both);
+
+            SaveRebinds();
+        }
+        
+        public static void SaveRebinds()
+        {
+            var rebinds = MultimodalInputManager.Instance.Actions.SaveBindingOverridesAsJson();
+            PlayerPrefs.SetString("Rebinds", rebinds);
+            PlayerPrefs.Save();
         }
 
-        public void ClearLayer()
+        public static void LoadRebinds()
         {
-            _inputActionsPanel.ClearAll();
-            if (_actionLayerIndex >= 0) SceneControl.Instance.settingsUI.RemoveLayer(_actionLayerIndex);
-            _actionLayerIndex = -1;
+            var rebinds = PlayerPrefs.GetString("Rebinds");
+            if (!string.IsNullOrEmpty(rebinds))
+            {
+                MultimodalInputManager.Instance.Actions.LoadBindingOverridesFromJson(rebinds);
+            }
+        }
+        
+        public static void ResetRebinds()
+        {
+            MultimodalInputManager.Instance.Actions.RemoveAllBindingOverrides();
+            PlayerPrefs.DeleteKey("Rebinds");
+
+            PlayerPrefs.Save();
         }
     }
 }
