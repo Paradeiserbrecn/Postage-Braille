@@ -19,26 +19,39 @@ namespace IO
         [Header("DEBUG")]
         [SerializeField] private InputHandledUITextObject defaultTextbox;
         
-
+        
         /// <summary>
-        /// Perkins: InputType used by the perkins brailler simulator
-        /// Keyboard: InputType used for standard Keyboard Input
+        /// Defines supported TextInput Methods
         /// </summary>
         public enum TextInputType
         {
-            Perkins,            
+            /// <summary>
+            /// InputType used by the perkins brailler simulator
+            /// </summary>
+            Perkins,  
+            /// <summary>
+            /// InputType used for standard Keyboard Input
+            /// </summary>
             Keyboard            
         }
-
+        
+        
         /// <summary>
-        /// Navigation: InputType includes toggling between UILayers and Focusable objects in those layers but also Directly selecting answers trough number keys
-        /// BrailleSettings: InputType handles changes how Braille Characters are displayed on screen via the FKeys
-        /// Reset: Resets all key bindings (In separate InputActionMap disable rebinding of this button to prevent a user soft locking themselves)
+        /// Defines supported general use Inputs
         /// </summary>
         public enum InputType
         {
-            Navigation,         
+            /// <summary>
+            /// InputType includes toggling between UILayers and Focusable objects in those layers but also Directly selecting answers trough number keys
+            /// </summary>
+            Navigation,       
+            /// <summary>
+            /// InputType handles changes how Braille Characters are displayed on screen via the FKeys
+            /// </summary>
             BrailleSettings,    
+            /// <summary>
+            /// Resets all key bindings (In separate InputActionMap disable rebinding of this button to prevent a user soft locking themselves)
+            /// </summary>
             Reset               
         }
         
