@@ -1229,6 +1229,7 @@ MonoBehaviour:
   text: 
   image: {fileID: 2082483662}
   wordbox: {fileID: 113316105}
+  animator: {fileID: 217568393}
 --- !u!95 &217568393
 Animator:
   serializedVersion: 7

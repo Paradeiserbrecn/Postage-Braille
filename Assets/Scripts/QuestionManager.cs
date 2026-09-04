@@ -54,7 +54,7 @@ public class QuestionManager : MonoBehaviour
     public QuestionType CurrentQuestionType = QuestionType.Letters;
 
     [Header("Scene References")] [SerializeField]
-    private FocusableQuestionLetter letterObject;
+    public FocusableQuestionLetter letterObject;
 
     [SerializeField] private GameObject optionsGrid;
     [SerializeField] private TextMeshProUGUI feedbackText;
@@ -281,13 +281,4 @@ public class QuestionManager : MonoBehaviour
         GameManager.Instance.NextQuestion();
     }
 
-    public void HideLetter()
-    {
-        letterObject.gameObject.GetComponent<Animator>().SetTrigger("Leave");
-    }
-    
-    public void ShowLetter()
-    {
-        letterObject.gameObject.GetComponent<Animator>().SetTrigger("Arrive");
-    }
 }

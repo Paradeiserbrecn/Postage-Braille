@@ -13,8 +13,11 @@ namespace UI
 {
     public class FocusableQuestionLetter : Focusable
     {
+        private static readonly int Arrive = Animator.StringToHash("Arrive");
+        private static readonly int Leave = Animator.StringToHash("Leave");
         [SerializeField] public Image image;
         [SerializeField] public GameObject wordbox;
+        [SerializeField] public Animator animator;
         private const string LetterLayerName = "Letter";
         public int LetterLayerIndex { get; private set; } = -1;
 
@@ -50,5 +53,15 @@ namespace UI
         public override void ConfirmAction()
         {
         }
+
+        /// <summary>
+        /// Sets the trigger for the letters animator to Leave
+        /// </summary>
+        public void HideLetter() => animator.SetTrigger(Leave);
+
+        /// <summary>
+        /// Sets the trigger for the letters animator to Arrive
+        /// </summary>
+        public void ShowLetter() => animator.SetTrigger(Arrive);
     }
 }

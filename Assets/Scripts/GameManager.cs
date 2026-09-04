@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator Start()
     {
-        yield return new WaitUntil(() => SceneControl.Instance != null && 
+        yield return new WaitUntil(() => SceneControl.Instance != null &&
                                          QuestionManager.Instance != null);
         StartGame();
     }
@@ -44,21 +44,21 @@ public class GameManager : MonoBehaviour
 
         QuestionManager.Instance.PopulateCurrentOptions();
         QuestionManager.Instance.DisplayQuestion();
-        QuestionManager.Instance.ShowLetter();
-        
+        QuestionManager.Instance.letterObject.ShowLetter();
+
         currentState = GameState.WaitingForInput;
     }
 
     public void SubmitAnswer(string answer)
     {
         if (currentState != GameState.WaitingForInput) return;
-        
+
         var correct = QuestionManager.Instance.CheckAnswer(answer);
-        
+
         currentState = GameState.ShowFeedback;
         MultimodalInputManager.Instance.DisableInput(MultimodalInputManager.InputType.Navigation);
         QuestionManager.Instance.ShowFeedback(correct);
-        QuestionManager.Instance.HideLetter();
+        QuestionManager.Instance.letterObject.HideLetter();
 
         _invoke(nameof(NextQuestion), 1.5f);
     }
