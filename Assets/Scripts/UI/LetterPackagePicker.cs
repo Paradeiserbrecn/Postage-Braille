@@ -70,9 +70,7 @@ namespace UI
         {
             var focusableUnit = Instantiate(packagePrefab, packageListObject.transform)
                 .GetComponentInChildren<FocusableLetterUnit>();
-
-
-            focusableUnit.image.color = GlobalSettings.MenuOptionColor;
+            
             focusableUnit.text =
                 $"Unit:     {letterUnit.UnitIndex}\n" +
                 $"Letters:  {string.Join(", ", letterUnit.Letters)}\n" +

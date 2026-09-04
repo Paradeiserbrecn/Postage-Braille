@@ -4,6 +4,7 @@ using IO;
 using Settings;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 using Utility;
 
@@ -11,7 +12,7 @@ namespace UI
 {
     public class FocusableLetterUnit : Focusable
     {
-        [SerializeField] public Image image;
+        [SerializeField] public Image border;
         [SerializeField] public TextMeshProUGUI indexTMP;
         [SerializeField] public TextMeshProUGUI lettersTMP;
         [SerializeField] public TextMeshProUGUI attemptsTMP;
@@ -20,16 +21,22 @@ namespace UI
 
         public LetterUnit letterUnit;
 
+        private void OnEnable()
+        {
+            border.enabled = false;
+            border.color = GlobalSettings.HighlightedColor;
+        }
+
         public override void Focus()
         {
             if (text != null) IOEventManager.InvokeAssistiveOutput(text, GlobalSettings.standardOutputType);
             if (LetterPackagePicker.Instance != null) LetterPackagePicker.Instance.ScrollTo(rectTransform);
-            image.color = GlobalSettings.HighlightedColor;
+            border.enabled = true;
         }
 
         public override void Unfocus()
         {
-            image.color = GlobalSettings.MenuOptionColor;
+            border.enabled = false;
         }
 
         public override void ConfirmAction()

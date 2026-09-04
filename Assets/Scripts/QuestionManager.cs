@@ -280,4 +280,14 @@ public class QuestionManager : MonoBehaviour
 
         GameManager.Instance.NextQuestion();
     }
+
+    public void HideLetter()
+    {
+        letterObject.gameObject.GetComponent<Animator>().SetTrigger("Leave");
+    }
+    
+    public void ShowLetter()
+    {
+        letterObject.gameObject.GetComponent<Animator>().SetTrigger("Arrive");
+    }
 }

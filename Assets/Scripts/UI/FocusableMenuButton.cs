@@ -15,23 +15,26 @@ namespace UI
     {
         [SerializeField] internal Image image;
         [SerializeField] internal Image iconImage;
+        [SerializeField] internal Image border;
         [SerializeField] internal UnityEvent action;
         [SerializeField] internal string confirmText;
 
+
         private void Awake()
         {
-            image.color = GlobalSettings.MenuOptionColor;
+            border.color = GlobalSettings.HighlightedColor;
+            border.enabled = false;
         }
 
         public override void Focus()
         {
             if (text != null) IOEventManager.InvokeAssistiveOutput(text, GlobalSettings.standardOutputType);
-            image.color = GlobalSettings.HighlightedColor;
+            border.enabled = true;
         }
 
         public override void Unfocus()
         {
-            image.color = GlobalSettings.MenuOptionColor;
+            border.enabled = false;
         }
 
         public override void ConfirmAction()

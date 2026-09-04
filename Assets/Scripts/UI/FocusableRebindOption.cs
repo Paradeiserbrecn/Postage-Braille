@@ -16,22 +16,28 @@ namespace UI
     {
         [SerializeField] private TextMeshProUGUI nameText;
         [SerializeField] private TextMeshProUGUI bindingText;
-        [SerializeField] private Image background;
+        [SerializeField] private Image border;
         [SerializeField] private RectTransform rectTransform;
         public InputActionsPanel inputActionsPanel;
 
         public InputAction inputAction;
 
+        private void Awake()
+        {
+            border.enabled = false;
+            border.color = GlobalSettings.HighlightedColor;
+        }
+
         public override void Focus()
         {
             IOEventManager.AssistiveOutput(nameText.text + ": " + bindingText.text, AssistiveOutput.OutputType.Both);
-            background.color = GlobalSettings.HighlightedButtonColor;
+            border.enabled = true;
             if (inputActionsPanel != null) inputActionsPanel.ScrollTo(rectTransform);
         }
 
         public override void Unfocus()
         {
-            background.color = GlobalSettings.MenuOptionColor;
+            border.enabled = false;
         }
 
         public override void ConfirmAction()

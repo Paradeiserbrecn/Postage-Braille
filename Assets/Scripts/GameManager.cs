@@ -44,6 +44,7 @@ public class GameManager : MonoBehaviour
 
         QuestionManager.Instance.PopulateCurrentOptions();
         QuestionManager.Instance.DisplayQuestion();
+        QuestionManager.Instance.ShowLetter();
         
         currentState = GameState.WaitingForInput;
     }
@@ -57,6 +58,7 @@ public class GameManager : MonoBehaviour
         currentState = GameState.ShowFeedback;
         MultimodalInputManager.Instance.DisableInput(MultimodalInputManager.InputType.Navigation);
         QuestionManager.Instance.ShowFeedback(correct);
+        QuestionManager.Instance.HideLetter();
 
         _invoke(nameof(NextQuestion), 1.5f);
     }

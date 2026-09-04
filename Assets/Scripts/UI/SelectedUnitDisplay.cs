@@ -4,6 +4,7 @@ using IO;
 using Settings;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 using Utility;
 
@@ -11,7 +12,7 @@ namespace UI
 {
     public class SelectedUnitDisplay : Focusable
     {
-        [SerializeField] public Image image;
+        [SerializeField] public Image border;
         [SerializeField] public TextMeshProUGUI indexTMP;
         [SerializeField] public TextMeshProUGUI lettersTMP;
         [SerializeField] public TextMeshProUGUI percentageTMP;
@@ -23,6 +24,8 @@ namespace UI
             indexTMP.color = GlobalSettings.TextColor;
             lettersTMP.color = GlobalSettings.PackageTextColor;
             percentageTMP.color = GlobalSettings.PackageTextColor;
+            border.color = GlobalSettings.HighlightedColor;
+            border.enabled = false;
         }
 
         public void ChangeLetterUnit(LetterUnit letterUnit)
@@ -44,12 +47,12 @@ namespace UI
             if (text != null)
                 IOEventManager.InvokeAssistiveOutput("Derzeitig Aktive Einheit: " + text,
                     GlobalSettings.standardOutputType);
-            image.color = GlobalSettings.HighlightedColor;
+            border.enabled = true;
         }
 
         public override void Unfocus()
         {
-            image.color = GlobalSettings.MenuOptionColor;
+            border.enabled = false;
         }
 
         public override void ConfirmAction()
