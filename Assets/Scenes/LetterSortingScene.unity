@@ -212,6 +212,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6374032343995571574, guid: 437a5809eacbcf64f8b258cb0a086a8b, type: 3}
+      propertyPath: text
+      value: Einstellungen
+      objectReference: {fileID: 0}
+    - target: {fileID: 6374032343995571574, guid: 437a5809eacbcf64f8b258cb0a086a8b, type: 3}
       propertyPath: action.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1975903113}
@@ -571,6 +575,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6374032343995571574, guid: 437a5809eacbcf64f8b258cb0a086a8b, type: 3}
+      propertyPath: text
+      value: Perkins Brailler
+      objectReference: {fileID: 0}
+    - target: {fileID: 6374032343995571574, guid: 437a5809eacbcf64f8b258cb0a086a8b, type: 3}
       propertyPath: action.m_PersistentCalls.m_Calls.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -905,6 +913,10 @@ PrefabInstance:
     - target: {fileID: 6339832605887739689, guid: 437a5809eacbcf64f8b258cb0a086a8b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6374032343995571574, guid: 437a5809eacbcf64f8b258cb0a086a8b, type: 3}
+      propertyPath: text
+      value: "Fragentyp \xE4ndern"
       objectReference: {fileID: 0}
     - target: {fileID: 6374032343995571574, guid: 437a5809eacbcf64f8b258cb0a086a8b, type: 3}
       propertyPath: action.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1481,6 +1493,10 @@ PrefabInstance:
     - target: {fileID: 6339832605887739689, guid: 437a5809eacbcf64f8b258cb0a086a8b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6374032343995571574, guid: 437a5809eacbcf64f8b258cb0a086a8b, type: 3}
+      propertyPath: text
+      value: "Fragerichtung \xE4ndern"
       objectReference: {fileID: 0}
     - target: {fileID: 6374032343995571574, guid: 437a5809eacbcf64f8b258cb0a086a8b, type: 3}
       propertyPath: action.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -2385,6 +2401,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6374032343995571574, guid: 437a5809eacbcf64f8b258cb0a086a8b, type: 3}
+      propertyPath: text
+      value: "Zu\xFCck"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6374032343995571574, guid: 437a5809eacbcf64f8b258cb0a086a8b, type: 3}
       propertyPath: action.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1975903113}
@@ -2967,6 +2987,10 @@ PrefabInstance:
     - target: {fileID: 6339832605887739689, guid: 437a5809eacbcf64f8b258cb0a086a8b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6374032343995571574, guid: 437a5809eacbcf64f8b258cb0a086a8b, type: 3}
+      propertyPath: text
+      value: "Zur\xFCck"
       objectReference: {fileID: 0}
     - target: {fileID: 6374032343995571574, guid: 437a5809eacbcf64f8b258cb0a086a8b, type: 3}
       propertyPath: action.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -3811,6 +3835,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6374032343995571574, guid: 437a5809eacbcf64f8b258cb0a086a8b, type: 3}
+      propertyPath: text
+      value: Navigation
+      objectReference: {fileID: 0}
+    - target: {fileID: 6374032343995571574, guid: 437a5809eacbcf64f8b258cb0a086a8b, type: 3}
       propertyPath: action.m_PersistentCalls.m_Calls.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -3978,6 +4006,10 @@ PrefabInstance:
     - target: {fileID: 6339832605887739689, guid: 437a5809eacbcf64f8b258cb0a086a8b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6374032343995571574, guid: 437a5809eacbcf64f8b258cb0a086a8b, type: 3}
+      propertyPath: text
+      value: Braille Einstellungen
       objectReference: {fileID: 0}
     - target: {fileID: 6374032343995571574, guid: 437a5809eacbcf64f8b258cb0a086a8b, type: 3}
       propertyPath: action.m_PersistentCalls.m_Calls.Array.size
@@ -4539,6 +4571,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6374032343995571574, guid: 437a5809eacbcf64f8b258cb0a086a8b, type: 3}
+      propertyPath: text
+      value: Packet Speichern
+      objectReference: {fileID: 0}
+    - target: {fileID: 6374032343995571574, guid: 437a5809eacbcf64f8b258cb0a086a8b, type: 3}
       propertyPath: action.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1930958266}
@@ -4738,7 +4774,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9989e087ed94c0da2bbe633da5d83d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UI.SelectedUnitDisplay
-  text: 
+  text: "Ausgew\xE4hlte Einheit"
   border: {fileID: 735133814}
   indexTMP: {fileID: 846328815}
   lettersTMP: {fileID: 1233319987}
@@ -5120,6 +5156,10 @@ PrefabInstance:
     - target: {fileID: 6339832605887739689, guid: 437a5809eacbcf64f8b258cb0a086a8b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6374032343995571574, guid: 437a5809eacbcf64f8b258cb0a086a8b, type: 3}
+      propertyPath: text
+      value: "Einstellungen zur\xFCcksetzen"
       objectReference: {fileID: 0}
     - target: {fileID: 6374032343995571574, guid: 437a5809eacbcf64f8b258cb0a086a8b, type: 3}
       propertyPath: action.m_PersistentCalls.m_Calls.Array.size
