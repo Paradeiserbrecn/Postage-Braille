@@ -72,10 +72,10 @@ namespace UI
                 .GetComponentInChildren<FocusableLetterUnit>();
             
             focusableUnit.text =
-                $"Unit:     {letterUnit.UnitIndex}\n" +
-                $"Letters:  {string.Join(", ", letterUnit.Letters)}\n" +
-                $"Attempts: {letterUnit.attempts}\n" +
-                $"Success:  {letterUnit.SuccessPercentage}%";
+                $"Einheit     {letterUnit.UnitIndex},\n" +
+                $"Buchstaben:  {string.Join(", ", letterUnit.Letters)},\n" +
+                $"Versuche: {letterUnit.attempts},\n" +
+                $"Erfolge:  {letterUnit.SuccessPercentage}%";
 
             focusableUnit.indexTMP.text = letterUnit.UnitIndex.ToString();
             focusableUnit.lettersTMP.text = string.Join(", ", letterUnit.Letters);

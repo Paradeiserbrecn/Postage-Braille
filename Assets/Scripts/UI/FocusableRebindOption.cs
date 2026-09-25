@@ -1,14 +1,10 @@
-using System;
 using Settings;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 using Utility;
-using System.Collections.Generic;
 using Braille;
 using IO;
 using UnityEngine.InputSystem;
-using UnityEngine.Serialization;
 
 namespace UI
 {
@@ -16,7 +12,6 @@ namespace UI
     {
         [SerializeField] private TextMeshProUGUI nameText;
         [SerializeField] private TextMeshProUGUI bindingText;
-        [SerializeField] private Image border;
         [SerializeField] private RectTransform rectTransform;
         public InputActionsPanel inputActionsPanel;
 
@@ -30,29 +25,25 @@ namespace UI
 
         public override void Focus()
         {
+            base.Focus();
             IOEventManager.AssistiveOutput(nameText.text + ": " + bindingText.text, AssistiveOutput.OutputType.Both);
-            border.enabled = true;
             if (inputActionsPanel != null) inputActionsPanel.ScrollTo(rectTransform);
-        }
-
-        public override void Unfocus()
-        {
-            border.enabled = false;
         }
 
         public override void ConfirmAction()
         {
+            base.ConfirmAction();
             ActionRebinder.Instance.RebindAction(inputAction, this);
         }
 
-        public void SetActionName(string text)
+        public void SetActionName(string actionName)
         {
-            nameText.text = text;
+            nameText.text = actionName;
         }
 
-        public void SetBindingText(string text)
+        public void SetBindingText(string binding)
         {
-            bindingText.text = text;
+            bindingText.text = binding;
         }
     }
 }

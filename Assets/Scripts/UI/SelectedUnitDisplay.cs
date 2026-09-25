@@ -12,7 +12,6 @@ namespace UI
 {
     public class SelectedUnitDisplay : Focusable
     {
-        [SerializeField] public Image border;
         [SerializeField] public TextMeshProUGUI indexTMP;
         [SerializeField] public TextMeshProUGUI lettersTMP;
         [SerializeField] public TextMeshProUGUI percentageTMP;
@@ -24,8 +23,6 @@ namespace UI
             indexTMP.color = GlobalSettings.TextColor;
             lettersTMP.color = GlobalSettings.PackageTextColor;
             percentageTMP.color = GlobalSettings.PackageTextColor;
-            border.color = GlobalSettings.HighlightedColor;
-            border.enabled = false;
         }
 
         public void ChangeLetterUnit(LetterUnit letterUnit)
@@ -36,10 +33,10 @@ namespace UI
             percentageTMP.text = letterUnit.SuccessPercentage + "%";
 
             text =
-                $"Unit:     {letterUnit.UnitIndex}\n" +
-                $"Letters:  {string.Join(", ", letterUnit.Letters)}\n" +
-                $"Attempts: {letterUnit.attempts}\n" +
-                $"Success:  {letterUnit.SuccessPercentage}%";
+                    $"Einheit     {letterUnit.UnitIndex},\n" +
+                    $"Buchstaben:  {string.Join(", ", letterUnit.Letters)},\n" +
+                    $"Versuche: {letterUnit.attempts},\n" +
+                    $"Erfolge:  {letterUnit.SuccessPercentage}%";
         }
 
         public override void Focus()
@@ -48,11 +45,6 @@ namespace UI
                 IOEventManager.InvokeAssistiveOutput("Derzeitig Aktive Einheit: " + text,
                     GlobalSettings.standardOutputType);
             border.enabled = true;
-        }
-
-        public override void Unfocus()
-        {
-            border.enabled = false;
         }
 
         public override void ConfirmAction()
