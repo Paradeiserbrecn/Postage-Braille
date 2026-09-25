@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Braille;
 using Data;
+using IO;
 using Settings;
 using TMPro;
 using UI;
@@ -54,7 +55,7 @@ public class QuestionManager : MonoBehaviour
     public QuestionType CurrentQuestionType = QuestionType.Letters;
 
     [Header("Scene References")] [SerializeField]
-    private FocusableQuestionLetter letterObject;
+    public FocusableQuestionLetter letterObject;
 
     [SerializeField] private GameObject optionsGrid;
     [SerializeField] private TextMeshProUGUI feedbackText;
@@ -143,15 +144,17 @@ public class QuestionManager : MonoBehaviour
             {
                 braille = BrailleConverter.Instance.ConvertTextToBraille(correctAnswer,
                         parent: letterObject.wordbox.transform,
-                        outputType: AssistiveOutput.OutputType.Braille, displayMode: UITextObject.DisplayMode.Braille)
+                        displayMode: UITextObject.DisplayMode.Braille)
                     .GetComponent<UITextObject>();
+                letterObject.assistiveOutputType = AssistiveOutput.OutputType.Braille;
             }
             else
             {
                 braille = BrailleConverter.Instance.ConvertTextToBraille(correctAnswer,
                         parent: letterObject.wordbox.transform,
-                        outputType: AssistiveOutput.OutputType.Speak, displayMode: UITextObject.DisplayMode.InkPrint)
+                        displayMode: UITextObject.DisplayMode.InkPrint)
                     .GetComponent<UITextObject>();
+                letterObject.assistiveOutputType = AssistiveOutput.OutputType.Speak;
             }
 
             braille.UpdateDotColor(GlobalSettings.QuestionBrailleColor);
@@ -166,7 +169,7 @@ public class QuestionManager : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("Tried to display unsupported question type.");
+            Debug.LogWarning("Tried to display unsupported question direction.");
         }
 
         SceneControl.Instance.gameUI.SwitchLayer(letterObject.LetterLayerIndex);
@@ -192,6 +195,7 @@ public class QuestionManager : MonoBehaviour
                     parent: parent.boxContent.transform,
                     outputType: AssistiveOutput.OutputType.Speak, displayMode: UITextObject.DisplayMode.InkPrint)
                 .GetComponent<UITextObject>();
+            parent.assistiveOutputType = AssistiveOutput.OutputType.Speak;
         }
         else
         {
@@ -199,6 +203,7 @@ public class QuestionManager : MonoBehaviour
                     parent: parent.boxContent.transform,
                     outputType: AssistiveOutput.OutputType.Braille, displayMode: UITextObject.DisplayMode.Braille)
                 .GetComponent<UITextObject>();
+            parent.assistiveOutputType = AssistiveOutput.OutputType.Braille;
         }
 
         focusableText.UpdateDotColor(GlobalSettings.QuestionTextColor);
@@ -214,7 +219,8 @@ public class QuestionManager : MonoBehaviour
     /// </param>
     public void ShowFeedback(bool correct)
     {
-        feedbackText.text = correct ? "Correct!" : "Wrong!";
+        feedbackText.text = correct ? "Richtig!" : "Falsch!";
+        IOEventManager.InvokeAssistiveOutput( correct ? "Richtig!" : "Falsch!", AssistiveOutput.OutputType.Both);
     }
 
 
@@ -280,4 +286,5 @@ public class QuestionManager : MonoBehaviour
 
         GameManager.Instance.NextQuestion();
     }
+
 }

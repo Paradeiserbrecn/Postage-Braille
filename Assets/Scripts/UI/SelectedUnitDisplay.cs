@@ -4,6 +4,7 @@ using IO;
 using Settings;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 using Utility;
 
@@ -11,7 +12,6 @@ namespace UI
 {
     public class SelectedUnitDisplay : Focusable
     {
-        [SerializeField] public Image image;
         [SerializeField] public TextMeshProUGUI indexTMP;
         [SerializeField] public TextMeshProUGUI lettersTMP;
         [SerializeField] public TextMeshProUGUI percentageTMP;
@@ -33,10 +33,10 @@ namespace UI
             percentageTMP.text = letterUnit.SuccessPercentage + "%";
 
             text =
-                $"Unit:     {letterUnit.UnitIndex}\n" +
-                $"Letters:  {string.Join(", ", letterUnit.Letters)}\n" +
-                $"Attempts: {letterUnit.attempts}\n" +
-                $"Success:  {letterUnit.SuccessPercentage}%";
+                    $"Einheit     {letterUnit.UnitIndex},\n" +
+                    $"Buchstaben:  {string.Join(", ", letterUnit.Letters)},\n" +
+                    $"Versuche: {letterUnit.attempts},\n" +
+                    $"Erfolge:  {letterUnit.SuccessPercentage}%";
         }
 
         public override void Focus()
@@ -44,12 +44,7 @@ namespace UI
             if (text != null)
                 IOEventManager.InvokeAssistiveOutput("Derzeitig Aktive Einheit: " + text,
                     GlobalSettings.standardOutputType);
-            image.color = GlobalSettings.HighlightedColor;
-        }
-
-        public override void Unfocus()
-        {
-            image.color = GlobalSettings.MenuOptionColor;
+            border.enabled = true;
         }
 
         public override void ConfirmAction()

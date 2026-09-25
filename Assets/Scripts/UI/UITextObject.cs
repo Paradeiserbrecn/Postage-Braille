@@ -1,9 +1,7 @@
-using System;
 using Braille;
 using IO;
 using Settings;
 using TMPro;
-using Unity.VisualScripting.InputSystem;
 using UnityEngine;
 using UnityEngine.UI;
 using Utility;
@@ -15,7 +13,6 @@ namespace UI
     {
         [SerializeField] private GridLayoutGroup _layoutGroup;
         [SerializeField] protected TextMeshProUGUI _textMeshPro;
-        public AssistiveOutput.OutputType outputType = GlobalSettings.standardOutputType;
 
         public DisplayMode CurrentDisplayMode { get; private set; } = GlobalSettings.standardDisplayMode;
 
@@ -116,7 +113,7 @@ namespace UI
 
         public override void Focus()
         {
-            if (text != null) IOEventManager.InvokeAssistiveOutput(text, outputType);
+            if (text != null) IOEventManager.InvokeAssistiveOutput(text, assistiveOutputType);
             foreach (var brailleObject in GetComponentsInChildren<BrailleObject>())
             {
                 brailleObject.HighlightDots();
@@ -125,7 +122,7 @@ namespace UI
 
         public override void Unfocus()
         {
-            if (text != null) IOEventManager.InvokeAssistiveOutput(text, outputType);
+            if (text != null) IOEventManager.InvokeAssistiveOutput(text, assistiveOutputType);
             foreach (var brailleObject in GetComponentsInChildren<BrailleObject>())
             {
                 brailleObject.UpdateDotColor();
