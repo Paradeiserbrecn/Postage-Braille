@@ -47,6 +47,14 @@ namespace UI
             Instance.mainCamera.transform.position = Instance.gameCameraTransform.position;
             GameManager.Instance.NextQuestion();
         }
+        
+        public static void TransitionToGameScreenInTutorial()
+        {
+            CurrentUI.CurrentLayer.Unfocus();
+            Instance.currentScreen = Screen.GameScreen;
+            CurrentUI.CurrentLayer.FocusFirst();
+            Instance.mainCamera.transform.position = Instance.gameCameraTransform.position;
+        }
 
         public static void TransitionToSettingsScreen()
         {
@@ -66,6 +74,14 @@ namespace UI
             LetterPackagePicker.Instance.ScrollToTop();
             LetterPackagePicker.Instance.PopulateWithCurrentLanguagePackage();
             LetterPackagePicker.Instance.SelectLetterUnit(LetterPackages.Instance.CurrentPackageUnit);
+        }
+        
+        public static void TransitionToPackagePickerScreenInTutorial()
+        {
+            CurrentUI.CurrentLayer.Unfocus();
+            Instance.currentScreen = Screen.PackagePickerScreen;
+            CurrentUI.CurrentLayer.FocusFirst();
+            Instance.mainCamera.transform.position = Instance.packagePickerCameraTransform.position;
         }
 
 

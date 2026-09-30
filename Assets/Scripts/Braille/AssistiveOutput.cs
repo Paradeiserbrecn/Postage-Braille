@@ -1,4 +1,5 @@
 using System;
+using System.Threading.Tasks;
 using DavyKager;
 using IO;
 using UnityEngine;
@@ -74,6 +75,23 @@ namespace Braille
 
             //if (!success)
             //    Debug.LogWarning("Failed to output text via Tolk.");
+        }
+        
+        public static async Task WaitForSpeakingToFinish(Action action)
+        {
+            // Wait for speaking to start
+            while (!Tolk.IsSpeaking())
+            {
+                await Task.Delay(50);
+            }
+
+            // Now wait for speaking to finish
+            while (Tolk.IsSpeaking())
+            {
+                await Task.Delay(50);
+            }
+
+            action?.Invoke();
         }
     }
 }

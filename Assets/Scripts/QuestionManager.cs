@@ -286,5 +286,4 @@ public class QuestionManager : MonoBehaviour
 
         GameManager.Instance.NextQuestion();
     }
-
 }
