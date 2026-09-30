@@ -69,7 +69,7 @@ namespace Tutorial
 
         private void OnSwitchUILayer(InputAction.CallbackContext context)
         {
-            if (Tutorial.CurrentStateKeymap?.Right == true)
+            if (Tutorial.CurrentStateKeymap?.Tab == true)
             {
                 SceneControl.CurrentUI.SwitchLayer();
             }

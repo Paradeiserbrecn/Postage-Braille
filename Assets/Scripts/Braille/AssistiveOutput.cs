@@ -76,9 +76,15 @@ namespace Braille
             //if (!success)
             //    Debug.LogWarning("Failed to output text via Tolk.");
         }
-        
+
         public static async Task WaitForSpeakingToFinish(Action action)
         {
+            if (Tolk.DetectScreenReader() == null)
+            {
+                action?.Invoke();
+                return;
+            }
+
             // Wait for speaking to start
             while (!Tolk.IsSpeaking())
             {

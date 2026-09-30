@@ -1,11 +1,9 @@
-using System;
 using System.Collections.Generic;
 using Braille;
-using Data;
 using IO;
 using UI;
 using UnityEngine;
-using Screen = UI.Screen;
+using UnityEngine.SceneManagement;
 
 namespace Tutorial
 {
@@ -17,12 +15,6 @@ namespace Tutorial
                 "Das ist der Spiel Bildschirm. Am Anfang ist immer der Brief ausgewählt. Dieser beinhaltet die aktuelle Frage. Drücke die Tabulator taste um zu den Antwortmöglichkeiten zu gelangen.");
         }
 
-        public static void SecondLetterOutput()
-        {
-            Output(
-                "Nach beantworten der Frage kommt man zum Brief zurück. Verwende die Tabulator Taste um zum Menü zu gelangen.");
-        }
-
         public static void FirstAnswerOutput()
         {
             Output(
@@ -32,26 +24,36 @@ namespace Tutorial
         public static void SecondAnswerFocus()
         {
             Output("Das ist die Zweite Antwort. Mit der Enter-Taste kannst du die Antwort bestätigen. ");
-            AssistiveOutput.WaitForSpeakingToFinish(() => UIManager.Instance.SwitchLayer(1));
         }
 
         public static void SecondAnswerSubmit()
         {
-            Output("Das ist die Zweite Antwort. Mit der Enter-Taste kannst du die Antwort bestätigen");
+            Output("Du hast die Antwort bestätigt und bekommst danach eine Rückmeldung!");
+            AssistiveOutput.WaitForSpeakingToFinish(() =>
+            {
+                UIManager.Instance.SwitchLayer(1);
+                SecondLetterOutput();
+            });
         }
 
-        public static void ThirdAnswerFocus()
+        public static void ThirdAnswerOutput()
         {
             Output(
                 "Das ist die Dritte Antwort. Es gibt immer drei Antwortmöglichkeiten. Gehe doch zur Zweiten zurück. Nutze dafür die linke Pfeiltaste");
         }
 
-        public static void SecondFirstAnswerOutput()
+        public static void SecondLetterOutput()
         {
-            Output("Das ist die erste Antwortmöglichkeit. Drücke die Tabulator erneut.");
+            Output(
+                "Nach beantworten der Frage kommt man zum Brief zurück. Verwende die Tabulator Taste um zum Menü zu gelangen.");
         }
 
-        public static void FirstLetterPackageButtonOutput()
+        public static void SecondFirstAnswerOutput()
+        {
+            Output("Das ist die erste Antwortmöglichkeit. Drücke die Tabulator-Taste erneut.");
+        }
+
+        public static void FirstSwitchPackButtonOutput()
         {
             Output(
                 "Das ist die Spielmenü-Leiste. Zuerst ist der \"Einheit Auswählen\" Knopf ausgewählt. Drücke die Enter-Taste um eine andere Einheit auszuwählen.");
@@ -63,38 +65,66 @@ namespace Tutorial
                 "Auf diesem Bildschirm kannst du die Einheiten auswählen. Am anfang ist der Zurück Knopf ausgewählt. Mit den Pfeiltasten kannst du im Menü navigieren.");
         }
 
-        public static void SecondPackageBackButtonOutput()
-        {
-            Output("Zurück");
-        }
 
-        public static void SaveButtonOutput()
+        public static void FirstSaveButtonOutput()
         {
             Output("Dieser Knopf speichert deinen Fortschritt. Vergiss nicht deinen Fortschritt zu Speichern.");
         }
 
-        public static void SelectedUnitOutput()
+        public static void FirstSelectedUnitOutput()
         {
             Output(
                 "Hier kannst du die ausgewählte einheit Überprüfen. Das sind alle Buttons in der Menüleiste. Mit der Tabulator-Taste wechselst du auf die Einheitenliste.");
         }
 
-        public static void UnitOutput()
+        public static void FirstUnitpickerOutput()
         {
             Output(
-                "Das ist die Einheitenliste. Mit der Enter-Taste kann man eine Einheit auswählen. Versuche jetzt zum Spielbildschirm zurück zu navigierten.");
+                "Das ist die Einheitenliste. Mit der Enter-Taste kann man eine Einheit auswählen. Versuche jetzt selbstständig zum Spielbildschirm zurück zu navigierten.");
         }
 
-        public static void SecondLetterPackageButtonOutput()
+        public static void SecondUnitpickerOutput()
+        {
+            Output("Einheit eins. In der Einführung kannst du nur diese Auswählen.");
+        }
+
+        public static void SecondPackageBackButtonOutput()
+        {
+            Output("Zurück");
+        }
+
+        public static void SecondSaveButtonOutput()
+        {
+            Output("Fortschritt speichern.");
+        }
+
+        public static void SecondSelectedUnitOutput()
+        {
+            Output("Das ist die ausgewählte Einheit. In der Einführung gibt es nur Einheit eins.");
+        }
+
+        public static void ThirdLetterOutput()
         {
             Output(
-                "Jetzt bist du wieder in der Menüleiste des Spielbildschirms. Navigiere mal zu den anderen Menüoptionen.");
+                "Du bist nun wieder am Spielbildschirm. Du bist nun mit dem Hauptteil des Spiels vertraut, es gibt aber noch eine andere Funktion. Navigiere in die menüleiste.");
+        }
+
+        public static void SecondSwitchPackButtonOutput()
+        {
+            Output(
+                "Du bist nun wieder in der Menüleiste des Spielbildschirms. Den ersten Knopf kennst du bereits, mit diesem sind wir zum Bildschirm zum auswählen von Einheiten gekommen. Navigiere zu den anderen Knöpfen um zu lernen was sie können.");
+        }
+
+        public static void ThirdSwitchPackButtonOutput()
+        {
+            Output(
+                "Dieser Knopf bringt dich in den Bildschirm zum Auswählen von Einheiten, navigiere zum Einstellungen Bildschirm um die Einleitung fortzufahren.");
         }
 
         public static void QuestionDirectionOutput()
         {
             Output(
-                "Dieser Knopf änderst die Fragerichtung. Anfangs ist die Frage in Braille dargestellt und die Antworten durch Schwarzschrift und Audio.");
+                "Dieser Knopf ändert die Fragerichtung. Anfangs ist die Frage in Braille dargestellt und die Antworten durch Schwarzschrift und Audio. Nach drücken des Knopfes wird zur umgekehrten Fragerichtung gewechselt.");
         }
 
         public static void QuestionModeOutput()
@@ -112,7 +142,7 @@ namespace Tutorial
         public static void FirstRebindBackOutput()
         {
             Output(
-                "Du befindest dich jetzt in EinstellungsBildschirm. Anfangs ist der Zurück Knopf ausgewählt. Navigiere doch durch die anderen Menüpunkte.");
+                "Du befindest dich jetzt im Einstellungsbildschirm. Anfangs ist der Zurück Knopf ausgewählt. Navigiere doch durch die anderen Menüpunkte.");
         }
 
         public static void NavigationOutput()
@@ -144,10 +174,13 @@ namespace Tutorial
             Output("Zurück");
         }
 
-        public static void RebindBackOutput()
+        public static void RebindBackOutputSubmit()
         {
+            // TODO: This currently does not work as intended, it seems like some parts of the tutorial stay loaded, look also: MutliModalInputManager.cs TODO
             Output(
-                "Super! Dus hast die Einführung abgeschlossen! Du kommst jetzt zum Spielbildschirm zurück und kannst ab jetzt frei navigieren. Viel Spaß beim Lernen.");
+                "Super! Du hast die Einführung abgeschlossen! Du kommst jetzt zum Spielbildschirm zurück und kannst ab jetzt frei navigieren. Viel Spaß beim Lernen.");
+
+            AssistiveOutput.WaitForSpeakingToFinish(() => SceneManager.LoadScene("Scenes/LetterSortingScene"));
         }
 
         public static void InvalidKeyPressOutput()
@@ -163,10 +196,7 @@ namespace Tutorial
 
     public class Tutorial : MonoBehaviour
     {
-        public static TutorialKeymap CurrentStateKeymap => Instance == null ? null : Instance.Keymaps[Instance.CurrentState];
-        public static Tutorial Instance { get; private set; }
-        public State CurrentState;
-        private enum Layer
+        public enum Layer
         {
             Letter = 1,
             QuestionLayer = 2,
@@ -178,34 +208,335 @@ namespace Tutorial
 
         public enum State
         {
-            Letter,
-            pickAnswer
+            Start,
+            PickAnswer,
+            AfterAnswerPicked,
+            FirstSwitchPackButton,
+            PackagePickerMenuNavigation,
+            OnSelectedUnit,
+            AfterUnitPicked,
+            AfterPackageScreen,
+            GameMenuNavigation,
+            SettingsMenuNavigation,
+            SettingsMenuIntroduction
         }
-        
-        public Dictionary<State, TutorialKeymap> Keymaps = new Dictionary<State, TutorialKeymap>()
+
+        public State CurrentState;
+
+        public Dictionary<State, TutorialKeymap> Keymaps = new()
         {
-            { State.Letter , new TutorialKeymap(false,false,true,true)}
+            { State.Start, new TutorialKeymap(false, false, true, true) },
+            { State.PickAnswer, new TutorialKeymap(true, true, false, true) },
+            { State.AfterAnswerPicked, new TutorialKeymap(false, false, true, true) },
+            { State.FirstSwitchPackButton, new TutorialKeymap(false, false, false, true) },
+            { State.PackagePickerMenuNavigation, new TutorialKeymap(true, true, false, false) },
+            { State.OnSelectedUnit, new TutorialKeymap(false, false, true, true) },
+            { State.AfterUnitPicked, new TutorialKeymap(true, true, true, true) },
+            { State.AfterPackageScreen, new TutorialKeymap(false, false, true, false) },
+            { State.GameMenuNavigation, new TutorialKeymap(true, true, false, true) },
+            { State.SettingsMenuIntroduction, new TutorialKeymap(true, true, false, true) },
+            { State.SettingsMenuNavigation, new TutorialKeymap(true, true, false, true) },
         };
+
+        public static TutorialKeymap CurrentStateKeymap =>
+            Instance == null ? null : Instance.Keymaps[Instance.CurrentState];
+
+        public static Tutorial Instance { get; private set; }
 
         private void Awake()
         {
             Instance = this;
         }
 
-        void Start()
+        private void Start()
         {
             UIManager.Instance.SwitchLayer((int)Layer.Letter);
         }
-        
-        public void LetterFocus()
+
+        #region GameScreen
+
+        public void Letter()
         {
-            TutorialOutputs.FirstLetterOutput();
+            switch (CurrentState)
+            {
+                case State.Start:
+                    TutorialOutputs.FirstLetterOutput();
+                    break;
+                case State.AfterAnswerPicked:
+                    TutorialOutputs.SecondLetterOutput();
+                    break;
+                case State.AfterPackageScreen:
+                    TutorialOutputs.ThirdLetterOutput();
+                    break;
+            }
         }
 
-        public void LetterSubmit()
+        public void FirstAnswer()
         {
-            TutorialOutputs.FirstLetterOutput();
+            switch (CurrentState)
+            {
+                case State.Start:
+                    TutorialOutputs.FirstAnswerOutput();
+                    CurrentState = State.PickAnswer;
+                    break;
+                case State.PickAnswer:
+                    TutorialOutputs.FirstAnswerOutput();
+                    break;
+                case State.AfterAnswerPicked:
+                    TutorialOutputs.SecondFirstAnswerOutput();
+                    break;
+                case State.AfterPackageScreen:
+                    TutorialOutputs.SecondFirstAnswerOutput();
+                    break;
+            }
         }
-        
+
+        public void SecondAnswerFocus()
+        {
+            switch (CurrentState)
+            {
+                case State.PickAnswer:
+                    TutorialOutputs.SecondAnswerFocus();
+                    break;
+            }
+        }
+
+        public void SecondAnswerSubmit()
+        {
+            switch (CurrentState)
+            {
+                case State.PickAnswer:
+                    TutorialOutputs.SecondAnswerSubmit();
+                    CurrentState = State.AfterAnswerPicked;
+                    break;
+            }
+        }
+
+        public void ThirdAnswer()
+        {
+            switch (CurrentState)
+            {
+                case State.PickAnswer:
+                    TutorialOutputs.ThirdAnswerOutput();
+                    break;
+            }
+        }
+
+        public void SwitchPackFocus()
+        {
+            switch (CurrentState)
+            {
+                case State.AfterAnswerPicked:
+                    CurrentState = State.FirstSwitchPackButton;
+                    TutorialOutputs.FirstSwitchPackButtonOutput();
+                    break;
+                case State.AfterPackageScreen:
+                    CurrentState = State.GameMenuNavigation;
+                    TutorialOutputs.SecondSwitchPackButtonOutput();
+                    break;
+                case State.GameMenuNavigation:
+                    TutorialOutputs.ThirdSwitchPackButtonOutput();
+                    break;
+            }
+        }
+
+        public void SwitchPackSubmit()
+        {
+            switch (CurrentState)
+            {
+                case State.FirstSwitchPackButton:
+                    CurrentState = State.PackagePickerMenuNavigation;
+                    SceneControl.TransitionToPackagePickerScreenInTutorial();
+                    break;
+                case State.GameMenuNavigation:
+                    TutorialOutputs.ThirdSwitchPackButtonOutput();
+                    break;
+            }
+        }
+
+        public void QuestionDirection()
+        {
+            switch (CurrentState)
+            {
+                case State.GameMenuNavigation:
+                    TutorialOutputs.QuestionDirectionOutput();
+                    break;
+            }
+        }
+
+        public void QuestionMode()
+        {
+            switch (CurrentState)
+            {
+                case State.GameMenuNavigation:
+                    TutorialOutputs.QuestionModeOutput();
+                    break;
+            }
+        }
+
+        public void SettingsFocus()
+        {
+            switch (CurrentState)
+            {
+                case State.GameMenuNavigation:
+                    TutorialOutputs.SettingsOutput();
+                    break;
+            }
+        }
+
+        public void SettingsSubmit()
+        {
+            switch (CurrentState)
+            {
+                case State.GameMenuNavigation:
+                    CurrentState = State.SettingsMenuIntroduction;
+                    SceneControl.TransitionToSettingsScreen();
+                    break;
+            }
+        }
+
+        #endregion
+
+
+        #region PackageScreen
+
+        public void PackageBackButtonFocus()
+        {
+            switch (CurrentState)
+            {
+                case State.PackagePickerMenuNavigation:
+                    TutorialOutputs.FirstPackageBackButtonOutput();
+                    break;
+                case State.AfterUnitPicked:
+                    TutorialOutputs.SecondPackageBackButtonOutput();
+                    break;
+            }
+        }
+
+        public void PackageBackButtonSubmit()
+        {
+            switch (CurrentState)
+            {
+                case State.PackagePickerMenuNavigation:
+                    TutorialOutputs.FirstPackageBackButtonOutput();
+                    break;
+                case State.AfterUnitPicked:
+                    CurrentState = State.AfterPackageScreen;
+                    SceneControl.TransitionToGameScreenInTutorial();
+                    UIManager.Instance.SwitchLayer((int)Layer.Letter);
+
+                    break;
+            }
+        }
+
+        public void SaveButton()
+        {
+            switch (CurrentState)
+            {
+                case State.PackagePickerMenuNavigation:
+                    TutorialOutputs.FirstSaveButtonOutput();
+                    break;
+                case State.AfterUnitPicked:
+                    TutorialOutputs.SecondSaveButtonOutput();
+                    break;
+            }
+        }
+
+        public void SelectedUnit()
+        {
+            switch (CurrentState)
+            {
+                case State.PackagePickerMenuNavigation:
+                    CurrentState = State.OnSelectedUnit;
+                    TutorialOutputs.FirstSelectedUnitOutput();
+                    break;
+                case State.OnSelectedUnit:
+                    TutorialOutputs.FirstSelectedUnitOutput();
+                    break;
+                case State.AfterUnitPicked:
+                    TutorialOutputs.SecondSelectedUnitOutput();
+                    break;
+            }
+        }
+
+        public void Unitpicker()
+        {
+            switch (CurrentState)
+            {
+                case State.OnSelectedUnit:
+                    TutorialOutputs.FirstUnitpickerOutput();
+                    CurrentState = State.AfterUnitPicked;
+                    break;
+                case State.AfterUnitPicked:
+                    TutorialOutputs.SecondUnitpickerOutput();
+                    break;
+            }
+        }
+
+        #endregion
+
+        #region SettingsScreen
+
+        public void RebindBackFocus()
+        {
+            switch (CurrentState)
+            {
+                case State.SettingsMenuIntroduction:
+                    TutorialOutputs.FirstRebindBackOutput();
+                    CurrentState = State.SettingsMenuNavigation;
+                    break;
+                case State.SettingsMenuNavigation:
+                    TutorialOutputs.SecondRebindBackOutput();
+                    break;
+            }
+        }
+
+        public void RebindBackSubmit()
+        {
+            switch (CurrentState)
+            {
+                case State.SettingsMenuIntroduction:
+                    TutorialOutputs.FirstRebindBackOutput();
+                    CurrentState = State.SettingsMenuNavigation;
+                    break;
+                case State.SettingsMenuNavigation:
+                    TutorialOutputs.RebindBackOutputSubmit();
+                    break;
+            }
+        }
+
+        public void Navigation()
+        {
+            if (CurrentState == State.SettingsMenuNavigation)
+            {
+                TutorialOutputs.NavigationOutput();
+            }
+        }
+
+        public void BrailleSettings()
+        {
+            if (CurrentState == State.SettingsMenuNavigation)
+            {
+                TutorialOutputs.BrailleSettingsOutput();
+            }
+        }
+
+        public void PerkinsBrailler()
+        {
+            if (CurrentState == State.SettingsMenuNavigation)
+            {
+                TutorialOutputs.PerkinsBraillerOutput();
+            }
+        }
+
+        public void ResetSettings()
+        {
+            if (CurrentState == State.SettingsMenuNavigation)
+            {
+                TutorialOutputs.ResetOutput();
+            }
+        }
+
+        #endregion
     }
 }
