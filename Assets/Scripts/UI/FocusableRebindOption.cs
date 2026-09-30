@@ -1,14 +1,10 @@
-using System;
 using Settings;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 using Utility;
-using System.Collections.Generic;
 using Braille;
 using IO;
 using UnityEngine.InputSystem;
-using UnityEngine.Serialization;
 
 namespace UI
 {
@@ -16,37 +12,38 @@ namespace UI
     {
         [SerializeField] private TextMeshProUGUI nameText;
         [SerializeField] private TextMeshProUGUI bindingText;
-        [SerializeField] private Image background;
         [SerializeField] private RectTransform rectTransform;
         public InputActionsPanel inputActionsPanel;
 
         public InputAction inputAction;
 
-        public override void Focus()
+        private void Awake()
         {
-            IOEventManager.AssistiveOutput(nameText.text + ": " + bindingText.text, AssistiveOutput.OutputType.Both);
-            background.color = GlobalSettings.HighlightedButtonColor;
-            if (inputActionsPanel != null) inputActionsPanel.ScrollTo(rectTransform);
+            border.enabled = false;
+            border.color = GlobalSettings.HighlightedColor;
         }
 
-        public override void Unfocus()
+        public override void Focus()
         {
-            background.color = GlobalSettings.MenuOptionColor;
+            base.Focus();
+            IOEventManager.AssistiveOutput(nameText.text + ": " + bindingText.text, AssistiveOutput.OutputType.Both);
+            if (inputActionsPanel != null) inputActionsPanel.ScrollTo(rectTransform);
         }
 
         public override void ConfirmAction()
         {
+            base.ConfirmAction();
             ActionRebinder.Instance.RebindAction(inputAction, this);
         }
 
-        public void SetActionName(string text)
+        public void SetActionName(string actionName)
         {
-            nameText.text = text;
+            nameText.text = actionName;
         }
 
-        public void SetBindingText(string text)
+        public void SetBindingText(string binding)
         {
-            bindingText.text = text;
+            bindingText.text = binding;
         }
     }
 }

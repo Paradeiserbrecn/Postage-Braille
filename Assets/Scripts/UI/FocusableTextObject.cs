@@ -1,10 +1,7 @@
-﻿using System;
-using Braille;
-using IO;
+﻿using Braille;
 using Settings;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Serialization;
 using Utility;
 
 namespace UI
@@ -13,8 +10,7 @@ namespace UI
     {
         public AssistiveOutput.OutputType OutputType = AssistiveOutput.OutputType.Both;
         public TextMeshProUGUI tmpText;
-
-        private bool _focused = false;
+        
         private string _displayTextOverride;
 
         public string Text
@@ -55,23 +51,10 @@ namespace UI
         /// <summary>
         /// Highlights the object and sends assistive output with the specified OutputType
         /// </summary>
-        public override void Focus()
-        {
-            _focused = true;
-            if (tmpText.text != null) IOEventManager.InvokeAssistiveOutput(tmpText.text, OutputType);
-            tmpText.color = GlobalSettings.HighlightedColor;
-        }
-
-        public override void Unfocus()
-        {
-            _focused = false;
-            if (tmpText.text != null) IOEventManager.InvokeAssistiveOutput(tmpText.text, OutputType);
-            tmpText.color = GlobalSettings.TextColor;
-        }
 
         public override void ConfirmAction()
         {
-            if (!_focused) throw new Exception("Tried to Execute Focus action on unfocused object");
+            base.ConfirmAction();
             switch (GameManager.Instance.currentState)
             {
                 case GameManager.GameState.WaitingForInput:

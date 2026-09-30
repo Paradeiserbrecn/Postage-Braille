@@ -60,9 +60,11 @@ namespace Braille
             switch (type)
             {
                 case OutputType.Braille:
+                    Tolk.Silence();
                     success = Tolk.Braille(text);
                     break;
                 case OutputType.Speak:
+                    Tolk.Silence();
                     success = Tolk.Speak(text);
                     break;
                 default:

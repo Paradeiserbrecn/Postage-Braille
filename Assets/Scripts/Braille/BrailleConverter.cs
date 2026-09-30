@@ -60,7 +60,7 @@ namespace Braille
             var textObject = Instantiate(textObjectPrefab, parent ?? transform);
             var brailleTextObject = textObject.GetComponent<UITextObject>();
             brailleTextObject.text = s;
-            brailleTextObject.outputType = outputType;
+            brailleTextObject.assistiveOutputType = outputType;
             brailleTextObject.UpdateBlackletterText();
 
             s = PreprocessText(s);
