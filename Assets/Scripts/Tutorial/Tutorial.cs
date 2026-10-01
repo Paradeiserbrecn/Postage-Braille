@@ -31,9 +31,9 @@ namespace Tutorial
             Output("Du hast die Antwort bestätigt und bekommst danach eine Rückmeldung!");
             AssistiveOutput.WaitForSpeakingToFinish(() =>
             {
+                Debug.Log("should switch to letter");
                 UIManager.Instance.SwitchLayer(1);
-                SecondLetterOutput();
-            });
+            },"Du hast die Antwort bestätigt und bekommst danach eine Rückmeldung!");
         }
 
         public static void ThirdAnswerOutput()
@@ -130,7 +130,7 @@ namespace Tutorial
         public static void QuestionModeOutput()
         {
             Output(
-                "Mit diesem Knopf änderst du die Art der Fragen. Anfangs werden einzelne Buchstaben der aktuellen Einheit abgefragt. Alternativ kann man Wörter aus allen gelernten Buchstaben abfragen. Vergiss nicht hin und wieder die die Art zu wechseln.");
+                "Mit diesem Knopf änderst du die Art der Fragen. Anfangs werden einzelne Buchstaben der aktuellen Einheit abgefragt. Alternativ kann man Wörter aus allen gelernten Buchstaben abfragen. Vergiss nicht hin und wieder die Art zu wechseln.");
         }
 
         public static void SettingsOutput()
@@ -166,7 +166,7 @@ namespace Tutorial
         public static void ResetOutput()
         {
             Output(
-                "Dieser Knopf setzte alle Tastenbelegungen auf die Standardeinstellungen zurück. Alternativ kann man auch die Home-Taste oder Pos1-Taste drücken. Jetzt bist du mit der Navigation vertraut. Gehe doch auf des Spielbildschirm zurück.");
+                "Dieser Knopf setzt alle Tastenbelegungen auf die Standardeinstellungen zurück. Alternativ kann man auch die Home-Taste oder Pos1-Taste drücken. Jetzt bist du mit der Navigation vertraut. Gehe doch auf den Spielbildschirm zurück.");
         }
 
         public static void SecondRebindBackOutput()
@@ -177,10 +177,10 @@ namespace Tutorial
         public static void RebindBackOutputSubmit()
         {
             // TODO: This currently does not work as intended, it seems like some parts of the tutorial stay loaded, look also: MutliModalInputManager.cs TODO
-            Output(
-                "Super! Du hast die Einführung abgeschlossen! Du kommst jetzt zum Spielbildschirm zurück und kannst ab jetzt frei navigieren. Viel Spaß beim Lernen.");
-
-            AssistiveOutput.WaitForSpeakingToFinish(() => SceneManager.LoadScene("Scenes/LetterSortingScene"));
+            var text = "Super! Du hast die Einführung abgeschlossen! Du kommst jetzt zum Spielbildschirm zurück und kannst ab jetzt frei navigieren. Viel Spaß beim Lernen.";
+            Output(text);
+            MultimodalInputManager.Instance?.DisableInput(MultimodalInputManager.InputType.Tutorial);
+            AssistiveOutput.WaitForSpeakingToFinish(() => SceneManager.LoadScene("Scenes/LetterSortingScene"), text);
         }
 
         public static void InvalidKeyPressOutput()
@@ -250,8 +250,10 @@ namespace Tutorial
 
         private void Start()
         {
+            
             UIManager.Instance.SwitchLayer((int)Layer.Letter);
         }
+        
 
         #region GameScreen
 
@@ -396,7 +398,6 @@ namespace Tutorial
         }
 
         #endregion
-
 
         #region PackageScreen
 

@@ -635,6 +635,94 @@ namespace IO
             ]
         },
         {
+            ""name"": ""TutorialNavigation"",
+            ""id"": ""5c6959f8-f063-495d-9d01-485dde983b17"",
+            ""actions"": [
+                {
+                    ""name"": ""next"",
+                    ""type"": ""Button"",
+                    ""id"": ""ec65a48e-1610-48fa-b140-0303b842b650"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""prev"",
+                    ""type"": ""Button"",
+                    ""id"": ""3488d212-64e3-43b3-996b-42fa31e1248b"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""confirm"",
+                    ""type"": ""Button"",
+                    ""id"": ""3b733802-03d1-439d-8e44-ca0dc8853697"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Switch UI Layer"",
+                    ""type"": ""Button"",
+                    ""id"": ""f6c04bff-f893-44b7-a3c0-d643275b39ae"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""79e87d52-4030-4599-afd0-9608f311de42"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""next"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f3fb8daf-31d3-432e-8211-e2aa341af087"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""prev"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""95971b06-ff73-4673-a5e1-507b6a984187"",
+                    ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""confirm"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b1f2efbe-5af6-485f-8fb6-0c1dc2723d9f"",
+                    ""path"": ""<Keyboard>/tab"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Switch UI Layer"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
             ""name"": ""BrailleKeyboard"",
             ""id"": ""a38afec2-0230-4c6b-9698-7439f7c051d6"",
             ""actions"": [
@@ -2031,6 +2119,12 @@ namespace IO
             m_Navigation_answer5 = m_Navigation.FindAction("answer5", throwIfNotFound: true);
             m_Navigation_confirm = m_Navigation.FindAction("confirm", throwIfNotFound: true);
             m_Navigation_SwitchUILayer = m_Navigation.FindAction("Switch UI Layer", throwIfNotFound: true);
+            // TutorialNavigation
+            m_TutorialNavigation = asset.FindActionMap("TutorialNavigation", throwIfNotFound: true);
+            m_TutorialNavigation_next = m_TutorialNavigation.FindAction("next", throwIfNotFound: true);
+            m_TutorialNavigation_prev = m_TutorialNavigation.FindAction("prev", throwIfNotFound: true);
+            m_TutorialNavigation_confirm = m_TutorialNavigation.FindAction("confirm", throwIfNotFound: true);
+            m_TutorialNavigation_SwitchUILayer = m_TutorialNavigation.FindAction("Switch UI Layer", throwIfNotFound: true);
             // BrailleKeyboard
             m_BrailleKeyboard = asset.FindActionMap("BrailleKeyboard", throwIfNotFound: true);
             m_BrailleKeyboard_A = m_BrailleKeyboard.FindAction("A", throwIfNotFound: true);
@@ -2095,6 +2189,7 @@ namespace IO
             UnityEngine.Debug.Assert(!m_PerkinsBrailer.enabled, "This will cause a leak and performance issues, GameActions.PerkinsBrailer.Disable() has not been called.");
             UnityEngine.Debug.Assert(!m_BrailleSettings.enabled, "This will cause a leak and performance issues, GameActions.BrailleSettings.Disable() has not been called.");
             UnityEngine.Debug.Assert(!m_Navigation.enabled, "This will cause a leak and performance issues, GameActions.Navigation.Disable() has not been called.");
+            UnityEngine.Debug.Assert(!m_TutorialNavigation.enabled, "This will cause a leak and performance issues, GameActions.TutorialNavigation.Disable() has not been called.");
             UnityEngine.Debug.Assert(!m_BrailleKeyboard.enabled, "This will cause a leak and performance issues, GameActions.BrailleKeyboard.Disable() has not been called.");
             UnityEngine.Debug.Assert(!m_ResetInput.enabled, "This will cause a leak and performance issues, GameActions.ResetInput.Disable() has not been called.");
         }
@@ -2709,6 +2804,135 @@ namespace IO
         /// Provides a new <see cref="NavigationActions" /> instance referencing this action map.
         /// </summary>
         public NavigationActions @Navigation => new NavigationActions(this);
+
+        // TutorialNavigation
+        private readonly InputActionMap m_TutorialNavigation;
+        private List<ITutorialNavigationActions> m_TutorialNavigationActionsCallbackInterfaces = new List<ITutorialNavigationActions>();
+        private readonly InputAction m_TutorialNavigation_next;
+        private readonly InputAction m_TutorialNavigation_prev;
+        private readonly InputAction m_TutorialNavigation_confirm;
+        private readonly InputAction m_TutorialNavigation_SwitchUILayer;
+        /// <summary>
+        /// Provides access to input actions defined in input action map "TutorialNavigation".
+        /// </summary>
+        public struct TutorialNavigationActions
+        {
+            private @GameActions m_Wrapper;
+
+            /// <summary>
+            /// Construct a new instance of the input action map wrapper class.
+            /// </summary>
+            public TutorialNavigationActions(@GameActions wrapper) { m_Wrapper = wrapper; }
+            /// <summary>
+            /// Provides access to the underlying input action "TutorialNavigation/next".
+            /// </summary>
+            public InputAction @next => m_Wrapper.m_TutorialNavigation_next;
+            /// <summary>
+            /// Provides access to the underlying input action "TutorialNavigation/prev".
+            /// </summary>
+            public InputAction @prev => m_Wrapper.m_TutorialNavigation_prev;
+            /// <summary>
+            /// Provides access to the underlying input action "TutorialNavigation/confirm".
+            /// </summary>
+            public InputAction @confirm => m_Wrapper.m_TutorialNavigation_confirm;
+            /// <summary>
+            /// Provides access to the underlying input action "TutorialNavigation/SwitchUILayer".
+            /// </summary>
+            public InputAction @SwitchUILayer => m_Wrapper.m_TutorialNavigation_SwitchUILayer;
+            /// <summary>
+            /// Provides access to the underlying input action map instance.
+            /// </summary>
+            public InputActionMap Get() { return m_Wrapper.m_TutorialNavigation; }
+            /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Enable()" />
+            public void Enable() { Get().Enable(); }
+            /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Disable()" />
+            public void Disable() { Get().Disable(); }
+            /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.enabled" />
+            public bool enabled => Get().enabled;
+            /// <summary>
+            /// Implicitly converts an <see ref="TutorialNavigationActions" /> to an <see ref="InputActionMap" /> instance.
+            /// </summary>
+            public static implicit operator InputActionMap(TutorialNavigationActions set) { return set.Get(); }
+            /// <summary>
+            /// Adds <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+            /// </summary>
+            /// <param name="instance">Callback instance.</param>
+            /// <remarks>
+            /// If <paramref name="instance" /> is <c>null</c> or <paramref name="instance"/> have already been added this method does nothing.
+            /// </remarks>
+            /// <seealso cref="TutorialNavigationActions" />
+            public void AddCallbacks(ITutorialNavigationActions instance)
+            {
+                if (instance == null || m_Wrapper.m_TutorialNavigationActionsCallbackInterfaces.Contains(instance)) return;
+                m_Wrapper.m_TutorialNavigationActionsCallbackInterfaces.Add(instance);
+                @next.started += instance.OnNext;
+                @next.performed += instance.OnNext;
+                @next.canceled += instance.OnNext;
+                @prev.started += instance.OnPrev;
+                @prev.performed += instance.OnPrev;
+                @prev.canceled += instance.OnPrev;
+                @confirm.started += instance.OnConfirm;
+                @confirm.performed += instance.OnConfirm;
+                @confirm.canceled += instance.OnConfirm;
+                @SwitchUILayer.started += instance.OnSwitchUILayer;
+                @SwitchUILayer.performed += instance.OnSwitchUILayer;
+                @SwitchUILayer.canceled += instance.OnSwitchUILayer;
+            }
+
+            /// <summary>
+            /// Removes <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+            /// </summary>
+            /// <remarks>
+            /// Calling this method when <paramref name="instance" /> have not previously been registered has no side-effects.
+            /// </remarks>
+            /// <seealso cref="TutorialNavigationActions" />
+            private void UnregisterCallbacks(ITutorialNavigationActions instance)
+            {
+                @next.started -= instance.OnNext;
+                @next.performed -= instance.OnNext;
+                @next.canceled -= instance.OnNext;
+                @prev.started -= instance.OnPrev;
+                @prev.performed -= instance.OnPrev;
+                @prev.canceled -= instance.OnPrev;
+                @confirm.started -= instance.OnConfirm;
+                @confirm.performed -= instance.OnConfirm;
+                @confirm.canceled -= instance.OnConfirm;
+                @SwitchUILayer.started -= instance.OnSwitchUILayer;
+                @SwitchUILayer.performed -= instance.OnSwitchUILayer;
+                @SwitchUILayer.canceled -= instance.OnSwitchUILayer;
+            }
+
+            /// <summary>
+            /// Unregisters <param cref="instance" /> and unregisters all input action callbacks via <see cref="TutorialNavigationActions.UnregisterCallbacks(ITutorialNavigationActions)" />.
+            /// </summary>
+            /// <seealso cref="TutorialNavigationActions.UnregisterCallbacks(ITutorialNavigationActions)" />
+            public void RemoveCallbacks(ITutorialNavigationActions instance)
+            {
+                if (m_Wrapper.m_TutorialNavigationActionsCallbackInterfaces.Remove(instance))
+                    UnregisterCallbacks(instance);
+            }
+
+            /// <summary>
+            /// Replaces all existing callback instances and previously registered input action callbacks associated with them with callbacks provided via <param cref="instance" />.
+            /// </summary>
+            /// <remarks>
+            /// If <paramref name="instance" /> is <c>null</c>, calling this method will only unregister all existing callbacks but not register any new callbacks.
+            /// </remarks>
+            /// <seealso cref="TutorialNavigationActions.AddCallbacks(ITutorialNavigationActions)" />
+            /// <seealso cref="TutorialNavigationActions.RemoveCallbacks(ITutorialNavigationActions)" />
+            /// <seealso cref="TutorialNavigationActions.UnregisterCallbacks(ITutorialNavigationActions)" />
+            public void SetCallbacks(ITutorialNavigationActions instance)
+            {
+                foreach (var item in m_Wrapper.m_TutorialNavigationActionsCallbackInterfaces)
+                    UnregisterCallbacks(item);
+                m_Wrapper.m_TutorialNavigationActionsCallbackInterfaces.Clear();
+                AddCallbacks(instance);
+            }
+        }
+        /// <summary>
+        /// Provides a new <see cref="TutorialNavigationActions" /> instance referencing this action map.
+        /// </summary>
+        public TutorialNavigationActions @TutorialNavigation => new TutorialNavigationActions(this);
 
         // BrailleKeyboard
         private readonly InputActionMap m_BrailleKeyboard;
@@ -3653,6 +3877,42 @@ namespace IO
             /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
             void OnAnswer5(InputAction.CallbackContext context);
+            /// <summary>
+            /// Method invoked when associated input action "confirm" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// </summary>
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+            void OnConfirm(InputAction.CallbackContext context);
+            /// <summary>
+            /// Method invoked when associated input action "Switch UI Layer" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// </summary>
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+            void OnSwitchUILayer(InputAction.CallbackContext context);
+        }
+        /// <summary>
+        /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "TutorialNavigation" which allows adding and removing callbacks.
+        /// </summary>
+        /// <seealso cref="TutorialNavigationActions.AddCallbacks(ITutorialNavigationActions)" />
+        /// <seealso cref="TutorialNavigationActions.RemoveCallbacks(ITutorialNavigationActions)" />
+        public interface ITutorialNavigationActions
+        {
+            /// <summary>
+            /// Method invoked when associated input action "next" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// </summary>
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+            void OnNext(InputAction.CallbackContext context);
+            /// <summary>
+            /// Method invoked when associated input action "prev" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// </summary>
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+            void OnPrev(InputAction.CallbackContext context);
             /// <summary>
             /// Method invoked when associated input action "confirm" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
             /// </summary>

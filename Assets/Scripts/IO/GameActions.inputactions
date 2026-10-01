@@ -547,6 +547,94 @@
             ]
         },
         {
+            "name": "TutorialNavigation",
+            "id": "5c6959f8-f063-495d-9d01-485dde983b17",
+            "actions": [
+                {
+                    "name": "next",
+                    "type": "Button",
+                    "id": "ec65a48e-1610-48fa-b140-0303b842b650",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "prev",
+                    "type": "Button",
+                    "id": "3488d212-64e3-43b3-996b-42fa31e1248b",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "confirm",
+                    "type": "Button",
+                    "id": "3b733802-03d1-439d-8e44-ca0dc8853697",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Switch UI Layer",
+                    "type": "Button",
+                    "id": "f6c04bff-f893-44b7-a3c0-d643275b39ae",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "79e87d52-4030-4599-afd0-9608f311de42",
+                    "path": "<Keyboard>/rightArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "next",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f3fb8daf-31d3-432e-8211-e2aa341af087",
+                    "path": "<Keyboard>/leftArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "prev",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "95971b06-ff73-4673-a5e1-507b6a984187",
+                    "path": "<Keyboard>/enter",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "confirm",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b1f2efbe-5af6-485f-8fb6-0c1dc2723d9f",
+                    "path": "<Keyboard>/tab",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Switch UI Layer",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
             "name": "BrailleKeyboard",
             "id": "a38afec2-0230-4c6b-9698-7439f7c051d6",
             "actions": [

@@ -15,24 +15,25 @@ namespace Tutorial
 
         public override void Enable()
         {
-            Actions.Navigation.SwitchUILayer.started += OnSwitchUILayer;
-            Actions.Navigation.next.started += OnNext;
-            Actions.Navigation.prev.started += OnPrev;
-            Actions.Navigation.confirm.started += OnConfirm;
-            Actions.Navigation.Enable();
+            Actions.TutorialNavigation.SwitchUILayer.started += OnSwitchUILayer;
+            Actions.TutorialNavigation.next.started += OnNext;
+            Actions.TutorialNavigation.prev.started += OnPrev;
+            Actions.TutorialNavigation.confirm.started += OnConfirm;
+            Actions.TutorialNavigation.Enable();
         }
 
         public override void Disable()
         {
-            Actions.Navigation.SwitchUILayer.started -= OnSwitchUILayer;
-            Actions.Navigation.next.started -= OnNext;
-            Actions.Navigation.prev.started -= OnPrev;
-            Actions.Navigation.confirm.started -= OnConfirm;
-            Actions.Navigation.Disable();
+            Actions.TutorialNavigation.SwitchUILayer.started -= OnSwitchUILayer;
+            Actions.TutorialNavigation.next.started -= OnNext;
+            Actions.TutorialNavigation.prev.started -= OnPrev;
+            Actions.TutorialNavigation.confirm.started -= OnConfirm;
+            Actions.TutorialNavigation.Disable();
         }
 
         private void OnNext(InputAction.CallbackContext context)
         {
+            
             if (Tutorial.CurrentStateKeymap?.Right == true)
             {
                 SceneControl.CurrentUI.HighlightNextOption();

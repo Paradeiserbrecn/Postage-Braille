@@ -44,6 +44,7 @@ namespace Braille
 
         public void OnDestroy()
         {
+            IOEventManager.AssistiveOutput -= Output;
             Tolk.Unload();
         }
 
@@ -84,19 +85,32 @@ namespace Braille
                 action?.Invoke();
                 return;
             }
+            
 
             // Wait for speaking to start
             while (!Tolk.IsSpeaking())
             {
+                Debug.Log("Wait for speaking to start: " +Tolk.IsSpeaking());
                 await Task.Delay(50);
             }
 
             // Now wait for speaking to finish
             while (Tolk.IsSpeaking())
             {
+                Debug.Log("Now wait for speaking to finish: "+Tolk.IsSpeaking());
                 await Task.Delay(50);
             }
 
+            action?.Invoke();
+        }
+
+        private static float _timePerCharacter = 0.08f;
+
+        public static async Task WaitForSpeakingToFinish(Action action, string text)
+        {
+
+            
+            await Task.Delay(TimeSpan.FromSeconds(_timePerCharacter * text.Length));
             action?.Invoke();
         }
     }

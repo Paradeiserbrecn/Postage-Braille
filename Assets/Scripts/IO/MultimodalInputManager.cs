@@ -1,15 +1,9 @@
 using System;
 using UnityEngine;
 using System.Collections.Generic;
-using NUnit.Framework.Internal;
-using Serialization;
+using System.Linq;
 using Tutorial;
-using Unity.VectorGraphics;
-using Unity.VisualScripting;
-using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
-using Utility;
-using Scene = UnityEngine.SceneManagement.Scene;
 
 namespace IO
 {
@@ -81,10 +75,14 @@ namespace IO
 
             //TODO: This currently lead to a strange bug, where if we switch to the game scene after finishing the tutorial,
             // we have both inputmodes active and we focus, submit and do everything twice 
+            Debug.Log(SceneManager.GetActiveScene().name);
+
 
             // Check whether to activate the normal navigation input type or limit actions in the tutorial
             _inputs[InputType.Navigation] = new NavigationInput(Actions);
             _inputs[InputType.Tutorial] = new TutorialInput(Actions);
+            
+            
             switch (SceneManager.GetActiveScene().name)
             {
                 case tutorialSceneName: EnableInput(InputType.Tutorial); break;
@@ -171,6 +169,22 @@ namespace IO
 
                 _currentTextbox = null;
             }
+        }
+
+        private void OnDestroy()
+        {
+            foreach (var input in _inputs.Values) input?.Disable();
+
+            foreach (var input in _textInputs.Values) input?.Disable();
+
+            Actions?.Disable();
+            Actions?.Dispose();
+
+            _inputs.Clear();
+            _textInputs.Clear();
+
+            if (Instance == this)
+                Instance = null;
         }
     }
 }
