@@ -1,3 +1,4 @@
+using DavyKager;
 using IO;
 using UI;
 using UnityEngine;
@@ -19,6 +20,7 @@ namespace Tutorial
             Actions.TutorialNavigation.next.started += OnNext;
             Actions.TutorialNavigation.prev.started += OnPrev;
             Actions.TutorialNavigation.confirm.started += OnConfirm;
+            Actions.TutorialNavigation.escape.started += OnEscape;
             Actions.TutorialNavigation.Enable();
         }
 
@@ -28,6 +30,7 @@ namespace Tutorial
             Actions.TutorialNavigation.next.started -= OnNext;
             Actions.TutorialNavigation.prev.started -= OnPrev;
             Actions.TutorialNavigation.confirm.started -= OnConfirm;
+            Actions.TutorialNavigation.escape.started -= OnEscape;
             Actions.TutorialNavigation.Disable();
         }
 
@@ -78,6 +81,11 @@ namespace Tutorial
             {
                 TutorialOutputs.InvalidKeyPressOutput();
             }
+        }
+        private void OnEscape(InputAction.CallbackContext context)
+        {
+            Debug.Log("Escape");
+            TutorialOutputs.SkipTutorial();
         }
     }
 }

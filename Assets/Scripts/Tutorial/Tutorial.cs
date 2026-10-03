@@ -1,7 +1,9 @@
 using System.Collections.Generic;
 using Braille;
+using DavyKager;
 using IO;
 using UI;
+using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -12,7 +14,7 @@ namespace Tutorial
         public static void FirstLetterOutput()
         {
             Output(
-                "Das ist der Spiel Bildschirm. Am Anfang ist immer der Brief ausgewählt. Dieser beinhaltet die aktuelle Frage. Drücke die Tabulator taste um zu den Antwortmöglichkeiten zu gelangen.");
+                "Willkommen zum Braille Lernprogramm Postage Braille! Die Einführung kann man mit der Escape-Taste überspringen. Das ist der Spiel Bildschirm. Am Anfang ist immer der Brief ausgewählt. Dieser beinhaltet die aktuelle Frage. Drücke die Tabulator taste um zu den Antwortmöglichkeiten zu gelangen.");
         }
 
         public static void FirstAnswerOutput()
@@ -188,6 +190,14 @@ namespace Tutorial
             Output("Knopf in diesem Einführungsabschnitt deaktiviert.");
         }
 
+        public static void SkipTutorial()
+        {
+            var text = "Einführung wird Übersprungen.";
+            Output(text);
+            MultimodalInputManager.Instance?.DisableInput(MultimodalInputManager.InputType.Tutorial);
+            AssistiveOutput.WaitForSpeakingToFinish(() => SceneManager.LoadScene("Scenes/LetterSortingScene"), text);
+        }
+
         private static void Output(string text)
         {
             IOEventManager.InvokeAssistiveOutput(text, Settings.GlobalSettings.standardOutputType);
@@ -253,7 +263,6 @@ namespace Tutorial
             
             UIManager.Instance.SwitchLayer((int)Layer.Letter);
         }
-        
 
         #region GameScreen
 

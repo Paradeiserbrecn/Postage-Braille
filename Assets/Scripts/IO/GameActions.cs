@@ -673,6 +673,15 @@ namespace IO
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""escape"",
+                    ""type"": ""Button"",
+                    ""id"": ""f6d14855-7732-4005-a2f8-278b88e39999"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -717,6 +726,17 @@ namespace IO
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Switch UI Layer"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""289ad494-ead7-4db4-9983-e9dc72e85084"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""escape"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -2125,6 +2145,7 @@ namespace IO
             m_TutorialNavigation_prev = m_TutorialNavigation.FindAction("prev", throwIfNotFound: true);
             m_TutorialNavigation_confirm = m_TutorialNavigation.FindAction("confirm", throwIfNotFound: true);
             m_TutorialNavigation_SwitchUILayer = m_TutorialNavigation.FindAction("Switch UI Layer", throwIfNotFound: true);
+            m_TutorialNavigation_escape = m_TutorialNavigation.FindAction("escape", throwIfNotFound: true);
             // BrailleKeyboard
             m_BrailleKeyboard = asset.FindActionMap("BrailleKeyboard", throwIfNotFound: true);
             m_BrailleKeyboard_A = m_BrailleKeyboard.FindAction("A", throwIfNotFound: true);
@@ -2812,6 +2833,7 @@ namespace IO
         private readonly InputAction m_TutorialNavigation_prev;
         private readonly InputAction m_TutorialNavigation_confirm;
         private readonly InputAction m_TutorialNavigation_SwitchUILayer;
+        private readonly InputAction m_TutorialNavigation_escape;
         /// <summary>
         /// Provides access to input actions defined in input action map "TutorialNavigation".
         /// </summary>
@@ -2839,6 +2861,10 @@ namespace IO
             /// Provides access to the underlying input action "TutorialNavigation/SwitchUILayer".
             /// </summary>
             public InputAction @SwitchUILayer => m_Wrapper.m_TutorialNavigation_SwitchUILayer;
+            /// <summary>
+            /// Provides access to the underlying input action "TutorialNavigation/escape".
+            /// </summary>
+            public InputAction @escape => m_Wrapper.m_TutorialNavigation_escape;
             /// <summary>
             /// Provides access to the underlying input action map instance.
             /// </summary>
@@ -2877,6 +2903,9 @@ namespace IO
                 @SwitchUILayer.started += instance.OnSwitchUILayer;
                 @SwitchUILayer.performed += instance.OnSwitchUILayer;
                 @SwitchUILayer.canceled += instance.OnSwitchUILayer;
+                @escape.started += instance.OnEscape;
+                @escape.performed += instance.OnEscape;
+                @escape.canceled += instance.OnEscape;
             }
 
             /// <summary>
@@ -2900,6 +2929,9 @@ namespace IO
                 @SwitchUILayer.started -= instance.OnSwitchUILayer;
                 @SwitchUILayer.performed -= instance.OnSwitchUILayer;
                 @SwitchUILayer.canceled -= instance.OnSwitchUILayer;
+                @escape.started -= instance.OnEscape;
+                @escape.performed -= instance.OnEscape;
+                @escape.canceled -= instance.OnEscape;
             }
 
             /// <summary>
@@ -3927,6 +3959,13 @@ namespace IO
             /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
             void OnSwitchUILayer(InputAction.CallbackContext context);
+            /// <summary>
+            /// Method invoked when associated input action "escape" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// </summary>
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+            void OnEscape(InputAction.CallbackContext context);
         }
         /// <summary>
         /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "BrailleKeyboard" which allows adding and removing callbacks.

@@ -22,6 +22,7 @@ namespace Braille
         private void Awake()
         {
             IOEventManager.AssistiveOutput += Output;
+            IOEventManager.DefaultOutput += OnDefaultOutput;
         }
 
         public void Start()
@@ -46,6 +47,15 @@ namespace Braille
         {
             IOEventManager.AssistiveOutput -= Output;
             Tolk.Unload();
+        }
+
+        /// <summary>
+        /// Enables Output being specified as action in focusableMenuButtons, outputs both braille and speech if available.
+        /// </summary>
+        /// <param name="text"></param>
+        public void OnDefaultOutput(string text)
+        {
+            Output(text);
         }
 
         // <summary>
@@ -108,8 +118,6 @@ namespace Braille
 
         public static async Task WaitForSpeakingToFinish(Action action, string text)
         {
-
-            
             await Task.Delay(TimeSpan.FromSeconds(_timePerCharacter * text.Length));
             action?.Invoke();
         }

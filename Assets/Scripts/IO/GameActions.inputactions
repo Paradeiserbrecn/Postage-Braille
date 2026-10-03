@@ -585,6 +585,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "escape",
+                    "type": "Button",
+                    "id": "f6d14855-7732-4005-a2f8-278b88e39999",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -629,6 +638,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Switch UI Layer",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "289ad494-ead7-4db4-9983-e9dc72e85084",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "escape",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
