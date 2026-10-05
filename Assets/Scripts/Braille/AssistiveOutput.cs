@@ -88,37 +88,23 @@ namespace Braille
             //    Debug.LogWarning("Failed to output text via Tolk.");
         }
 
-        public static async Task WaitForSpeakingToFinish(Action action)
+        private static readonly float TimePerCharacter = 0.08f;
+
+        /// <summary>
+        /// Waits <see cref="TimePerCharacter"/> seconds per character of the given string before invoking the action
+        /// If <see cref="Tolk"/> does not detect a screen reader, it will immediately invoke the action instead
+        /// </summary>
+        /// <param name="action">The action to be executed after assistive output has finished speaking</param>
+        /// <param name="text">The text that is being spoken, needed to calculate speaking time for <see cref="Tolk"/></param>
+        public static async Task WaitForSpeakingToFinish(Action action, string text)
         {
             if (Tolk.DetectScreenReader() == null)
             {
                 action?.Invoke();
                 return;
             }
-            
 
-            // Wait for speaking to start
-            while (!Tolk.IsSpeaking())
-            {
-                Debug.Log("Wait for speaking to start: " +Tolk.IsSpeaking());
-                await Task.Delay(50);
-            }
-
-            // Now wait for speaking to finish
-            while (Tolk.IsSpeaking())
-            {
-                Debug.Log("Now wait for speaking to finish: "+Tolk.IsSpeaking());
-                await Task.Delay(50);
-            }
-
-            action?.Invoke();
-        }
-
-        private static float _timePerCharacter = 0.08f;
-
-        public static async Task WaitForSpeakingToFinish(Action action, string text)
-        {
-            await Task.Delay(TimeSpan.FromSeconds(_timePerCharacter * text.Length));
+            await Task.Delay(TimeSpan.FromSeconds(TimePerCharacter * text.Length));
             action?.Invoke();
         }
     }

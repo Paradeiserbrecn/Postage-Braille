@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
+using IO;
 using UnityEngine;
 using Utility;
 
@@ -18,12 +20,20 @@ namespace UI
         /// </summary>
         public UILayer LetterLayer =>
             LetterLayerIndex == -1 ? null : SceneControl.Instance.gameUI.layers[LetterLayerIndex];
-        
+
         private IEnumerator Start()
         {
             yield return new WaitUntil(() => SceneControl.Instance.gameUI != null);
             LetterLayerIndex = SceneControl.Instance.gameUI.AddLayer(new UILayer(LetterLayerName));
             LetterLayer.Add(this);
+        }
+
+        public override void Focus()
+        {
+            // TODO: Issue #51: Indicate in assistive output that you are focusing the letter
+            // (https://github.com/Paradeiserbrecn/Postage-Braille/issues/51)
+            if (!String.IsNullOrEmpty(text)) IOEventManager.InvokeAssistiveOutput(text, assistiveOutputType);
+            border.enabled = true;
         }
 
         /// <summary>

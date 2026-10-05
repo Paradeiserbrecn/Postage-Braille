@@ -18,7 +18,7 @@ namespace Braille
         public static BrailleConverter Instance;
 
         [SerializeField] private GameObject brailleCharacterPrefab, textObjectPrefab;
-        
+
         private Dictionary<SupportedLanguage, BrailleLanguage> _conversionLanguages = new();
 
 
@@ -28,24 +28,24 @@ namespace Braille
             {
                 Instance = this;
             }
+
             foreach (var language in Enum.GetValues(typeof(SupportedLanguage)).Cast<SupportedLanguage>())
             {
                 LoadBrailleConversionData(language);
-                
             }
         }
-        
+
         private void LoadBrailleConversionData(SupportedLanguage language)
         {
             TextAsset json = Resources.Load<TextAsset>("BrailleLanguages/" + language.HumanName());
 
-             BrailleLanguage brailleLanguage =
+            BrailleLanguage brailleLanguage =
                 JsonUtility.FromJson<BrailleLanguage>(json.text);
-             
-             _conversionLanguages.Add(language, brailleLanguage);
-             Debug.Log("Loaded braille language: " + language.HumanName());
+
+            _conversionLanguages.Add(language, brailleLanguage);
+            Debug.Log("Loaded braille language: " + language.HumanName());
         }
-        
+
         /// <summary>
         /// Generates a UITextObject prefab and configures it according to the parameters.
         /// </summary>
@@ -55,7 +55,8 @@ namespace Braille
         /// <param name="parent">Parent transform the UITextObject should be a child of</param>
         /// <returns></returns>
         public GameObject ConvertTextToBraille(string s,
-            AssistiveOutput.OutputType outputType = AssistiveOutput.OutputType.Both, UITextObject.DisplayMode displayMode = UITextObject.DisplayMode.Braille, Transform parent = null)
+            AssistiveOutput.OutputType outputType = AssistiveOutput.OutputType.Both,
+            UITextObject.DisplayMode displayMode = UITextObject.DisplayMode.Braille, Transform parent = null)
         {
             var textObject = Instantiate(textObjectPrefab, parent ?? transform);
             var brailleTextObject = textObject.GetComponent<UITextObject>();
@@ -69,7 +70,7 @@ namespace Braille
             brailleTextObject.SetDisplayMode(displayMode);
             return textObject.gameObject;
         }
-        
+
         private void GenerateBrailleObjects(string s, GameObject textObject)
         {
             StringBuilder text = new StringBuilder(s);
@@ -96,12 +97,12 @@ namespace Braille
         /// <returns>BrailleObject prefab</returns>
         private GameObject ConvertConversionToBrailleObject(BrailleConversion brailleConversion)
         {
-            if(brailleConversion == null) return null;
-            
+            if (brailleConversion == null) return null;
+
             var brailleObject = Instantiate(brailleCharacterPrefab).GetComponent<BrailleObject>();
             brailleObject.gameObject.name = brailleConversion.printCharacter;
             brailleObject.SetBrailleCharacter(brailleConversion.brailleCharacter);
-            
+
             return brailleObject.gameObject;
         }
 
@@ -115,19 +116,20 @@ namespace Braille
             CharFactory text = new CharFactory(s);
             StringBuilder character = new StringBuilder();
             var currentLanguage = LetterPackages.Instance.currentLanguage;
-            
+
             List<BrailleConversion> possibleConversions = _conversionLanguages[currentLanguage].brailleConversions;
             BrailleConversion bestMatch = null;
-            
+
             while (text.Curr != '\0')
             {
                 character.Append(text.Curr);
-                
-                var newPossibleConversions = possibleConversions.Where(c => c.printCharacter.StartsWith(character.ToString()))
+
+                var newPossibleConversions = possibleConversions
+                    .Where(c => c.printCharacter.StartsWith(character.ToString()))
                     .ToList();
-                
+
                 if (newPossibleConversions.Count == 0) break;
-                
+
                 bestMatch = newPossibleConversions.First();
                 possibleConversions = newPossibleConversions;
                 text.Next();
@@ -135,7 +137,7 @@ namespace Braille
 
             if (bestMatch == null)
             {
-                Debug.Log("Character could not be converted to Braille");
+                Debug.LogWarning("Character could not be converted to Braille");
             }
 
             return bestMatch;
@@ -155,10 +157,9 @@ namespace Braille
             {
                 Debug.Log("Braille could not be converted to Character");
             }
-            
+
             return besteConversion?.printCharacter;
         }
-
 
 
         /// <summary>
