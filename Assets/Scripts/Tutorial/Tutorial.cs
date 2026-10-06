@@ -383,10 +383,13 @@ namespace Tutorial
             {
                 case State.PickAnswer:
                     var outputText = TutorialOutputs.SecondAnswerSubmit();
-                    AssistiveOutput.WaitForSpeakingToFinish(() => { UIManager.Instance.SwitchLayer(1); },
+                    AssistiveOutput.WaitForSpeakingToFinish(() =>
+                        {
+                            currentState = State.AfterAnswerPicked;
+                            UIManager.Instance.SwitchLayer((int)Layer.Letter);
+                        },
                         outputText);
 
-                    currentState = State.AfterAnswerPicked;
                     break;
             }
         }
