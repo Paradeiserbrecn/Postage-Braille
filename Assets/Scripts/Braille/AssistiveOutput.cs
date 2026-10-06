@@ -1,4 +1,5 @@
 using System;
+using System.Threading.Tasks;
 using DavyKager;
 using IO;
 using UnityEngine;
@@ -21,6 +22,7 @@ namespace Braille
         private void Awake()
         {
             IOEventManager.AssistiveOutput += Output;
+            IOEventManager.DefaultOutput += OnDefaultOutput;
         }
 
         public void Start()
@@ -43,7 +45,17 @@ namespace Braille
 
         public void OnDestroy()
         {
+            IOEventManager.AssistiveOutput -= Output;
             Tolk.Unload();
+        }
+
+        /// <summary>
+        /// Enables Output being specified as action in focusableMenuButtons, outputs both braille and speech if available.
+        /// </summary>
+        /// <param name="text"></param>
+        public void OnDefaultOutput(string text)
+        {
+            Output(text);
         }
 
         // <summary>
@@ -74,6 +86,26 @@ namespace Braille
 
             //if (!success)
             //    Debug.LogWarning("Failed to output text via Tolk.");
+        }
+
+        private static readonly float TimePerCharacter = 0.08f;
+
+        /// <summary>
+        /// Waits <see cref="TimePerCharacter"/> seconds per character of the given string before invoking the action
+        /// If <see cref="Tolk"/> does not detect a screen reader, it will immediately invoke the action instead
+        /// </summary>
+        /// <param name="action">The action to be executed after assistive output has finished speaking</param>
+        /// <param name="text">The text that is being spoken, needed to calculate speaking time for <see cref="Tolk"/></param>
+        public static async Task WaitForSpeakingToFinish(Action action, string text)
+        {
+            if (Tolk.DetectScreenReader() == null)
+            {
+                action?.Invoke();
+                return;
+            }
+
+            await Task.Delay(TimeSpan.FromSeconds(TimePerCharacter * text.Length));
+            action?.Invoke();
         }
     }
 }

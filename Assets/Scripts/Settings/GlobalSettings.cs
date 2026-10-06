@@ -34,7 +34,7 @@ namespace Settings
         public static float DotSize = BaseDotSize;
         public static float BrailleSpacing = BaseBrailleSpacing;
         public static float LineSpacing = BaseLineSpacing;
-        public static Color BrailleColor = Color.white;
+        public static Color BrailleColor = Color.black;
         public static Color HighlightedColor = Color.red;
         public static Color HighlightedButtonColor = Color.brown;
         public static Color TextColor = Color.white;

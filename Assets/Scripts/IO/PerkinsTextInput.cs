@@ -40,7 +40,6 @@ namespace IO
             {
                 actionsString.Append(binding + "\n");
             }
-            Debug.Log(actionsString.ToString());
 
             Actions.PerkinsBrailer.Enable();
         }
