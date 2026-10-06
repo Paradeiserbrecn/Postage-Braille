@@ -1162,7 +1162,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::QuestionManager
   currentQuestionDirection: 0
-  CurrentQuestionType: 0
+  CurrentQuestionType: 1
   letterObject: {fileID: 217568392}
   optionsGrid: {fileID: 2129736004}
   feedbackText: {fileID: 625592600}
