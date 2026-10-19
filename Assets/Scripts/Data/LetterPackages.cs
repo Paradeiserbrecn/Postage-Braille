@@ -75,7 +75,7 @@ namespace Data
 
         private void LoadLetterPackageData(SupportedLanguage language)
         {
-            TextAsset json = Resources.Load<TextAsset>("LetterPackages/" + language.HumanName());
+            TextAsset json = Resources.Load<TextAsset>("LetterPackages/" + language);
 
             LetterPackageData package =
                 JsonUtility.FromJson<LetterPackageData>(json.text);
