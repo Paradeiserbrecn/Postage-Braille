@@ -37,13 +37,13 @@ namespace Braille
 
         private void LoadBrailleConversionData(SupportedLanguage language)
         {
-            TextAsset json = Resources.Load<TextAsset>("BrailleLanguages/" + language.HumanName());
+            TextAsset json = Resources.Load<TextAsset>("BrailleLanguages/" + language);
 
             BrailleLanguage brailleLanguage =
                 JsonUtility.FromJson<BrailleLanguage>(json.text);
 
             _conversionLanguages.Add(language, brailleLanguage);
-            Debug.Log("Loaded braille language: " + language.HumanName());
+            Debug.Log("Loaded braille language: " + language);
         }
 
         /// <summary>
