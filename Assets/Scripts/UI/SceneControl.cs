@@ -1,6 +1,7 @@
 ﻿using System;
 using Data;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace UI
 {
@@ -85,6 +86,11 @@ namespace UI
             Instance.currentScreen = Screen.PackagePickerScreen;
             CurrentUI.CurrentLayer.FocusFirst();
             Instance.mainCamera.transform.position = Instance.packagePickerCameraTransform.position;
+        }
+        
+        public static void StartTutorial()
+        {
+            SceneManager.LoadScene("Scenes/Tutorial");
         }
     }
 }

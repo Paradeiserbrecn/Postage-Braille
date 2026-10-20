@@ -2,6 +2,7 @@ using System;
 using System.Threading.Tasks;
 using DavyKager;
 using IO;
+using TMPro;
 using UnityEngine;
 
 // Tolk accessibility wrapper
@@ -12,6 +13,10 @@ namespace Braille
 {
     public class AssistiveOutput : MonoBehaviour
     {
+        [SerializeField] private TextMeshProUGUI _text;
+
+        private const float fontCharacterWidth = 0.63197183098591549295774647887324f;
+
         public enum OutputType
         {
             Braille,
@@ -24,6 +29,9 @@ namespace Braille
             IOEventManager.AssistiveOutput += Output;
             IOEventManager.DefaultOutput += OnDefaultOutput;
         }
+
+        private Vector2 endTextPosX;
+        private Vector2 defaultTextPosX;
 
         public void Start()
         {
@@ -41,6 +49,8 @@ namespace Braille
 
             if (Tolk.HasBraille())
                 Debug.Log("This screen reader driver supports braille.");
+
+            defaultTextPosX = endTextPosX = _text.transform.localPosition;
         }
 
         public void OnDestroy()
@@ -65,27 +75,71 @@ namespace Braille
         // <param name="type">If the text is supposed to be output in speech, in braille, or both.</param>
         public void Output(string text, OutputType type = OutputType.Both)
         {
+            _text.text = "";
             Debug.Log("Tolk Output (" + type + "): " + text);
 
-            bool success = false;
-
+            Tolk.Silence();
             switch (type)
             {
                 case OutputType.Braille:
-                    Tolk.Silence();
-                    success = Tolk.Braille(text);
+                    Tolk.Braille(text);
                     break;
                 case OutputType.Speak:
-                    Tolk.Silence();
-                    success = Tolk.Speak(text);
+                    _text.text = text;
+                    Tolk.Speak(text);
+                    break;
+                case OutputType.Both:
+                    _text.text = text;
+                    Tolk.Output(text);
                     break;
                 default:
-                    success = Tolk.Output(text);
-                    break;
+                    throw new ArgumentOutOfRangeException(nameof(type), type, null);
             }
 
-            //if (!success)
-            //    Debug.LogWarning("Failed to output text via Tolk.");
+            CalculateOutputTextPos();
+        }
+
+
+        private void CalculateOutputTextPos()
+        {
+            if (_text.rectTransform.sizeDelta.x < fontCharacterWidth * _text.text.Length * _text.fontSize)
+            {
+                // Overflowing
+                endTextPosX = new Vector2(
+                    _text.rectTransform.sizeDelta.x - fontCharacterWidth * _text.fontSize * _text.text.Length,
+                    _text.transform.localPosition.y);
+                Debug.Log(endTextPosX);
+            }
+            else
+            {
+                endTextPosX = defaultTextPosX;
+            }
+        }
+
+        private bool resettingToDefaultPosition = false;
+        
+        //TODO: Put all the text related stuff in its own monobehaviour so assistive output doesnt handle the text position
+        private void Update()
+        {
+            if (resettingToDefaultPosition) return;
+            
+            
+            if (Vector2.Distance(_text.transform.localPosition, endTextPosX) > 0.1f)
+            {
+                _text.transform.localPosition = 
+                    Vector2.MoveTowards(_text.transform.localPosition, endTextPosX, 200 * Time.deltaTime);
+            }
+            else
+            {
+                resettingToDefaultPosition = true;
+                Invoke(nameof(ResetTextPos), 2);
+            }
+        }
+
+        private void ResetTextPos()
+        {
+            _text.transform.localPosition = defaultTextPosX;
+            resettingToDefaultPosition = false;
         }
 
         private static readonly float TimePerCharacter = 0.08f;

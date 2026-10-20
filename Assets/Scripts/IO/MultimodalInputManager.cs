@@ -175,6 +175,7 @@ namespace IO
 
             _inputs.Clear();
             _textInputs.Clear();
+            
 
             if (Instance == this)
                 Instance = null;
