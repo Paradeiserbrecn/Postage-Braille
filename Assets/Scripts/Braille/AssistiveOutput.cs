@@ -127,7 +127,6 @@ namespace Braille
                 endTextPosX = new Vector2(
                     Math.Abs(visualOutputText.rectTransform.sizeDelta.x) - fontCharacterWidth * visualOutputText.fontSize * visualOutputText.text.Length,
                     visualOutputText.transform.localPosition.y);
-                Debug.Log(endTextPosX);
             }
             else
             {

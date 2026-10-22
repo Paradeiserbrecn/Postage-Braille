@@ -33,10 +33,10 @@ namespace UI
             percentageTMP.text = letterUnit.SuccessPercentage + "%";
 
             text =
-                    $"Einheit     {letterUnit.UnitIndex},\n" +
-                    $"Buchstaben:  {string.Join(", ", letterUnit.Letters)},\n" +
-                    $"Versuche: {letterUnit.attempts},\n" +
-                    $"Erfolge:  {letterUnit.SuccessPercentage}%";
+                    $"Einheit: {letterUnit.UnitIndex}, " +
+                    $"Buchstaben:  {string.Join(", ", letterUnit.Letters)}, " +
+                    $"Versuche: {letterUnit.attempts}, " +
+                    $"Richtig%:  {letterUnit.SuccessPercentage}%";
         }
 
         public override void Focus()
