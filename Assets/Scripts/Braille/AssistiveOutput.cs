@@ -18,6 +18,7 @@ namespace Braille
 
         private const float fontCharacterWidth = 0.63197183098591549295774647887324f;
         private string _resetTextPos;
+        private string _startTextScrolling;
         private Action<string, float> _invoke;
 
         public enum OutputType
@@ -33,6 +34,7 @@ namespace Braille
             IOEventManager.DefaultOutput += OnDefaultOutput;
 
             _resetTextPos = nameof(ResetTextPos);
+            _startTextScrolling = nameof(StartTextScrolling);
             _invoke = Invoke;
         }
 
@@ -109,6 +111,8 @@ namespace Braille
             }
 
             visualOutputText.transform.localPosition = defaultTextPosX;
+            _scrollText = false;
+            Invoke(_startTextScrolling, TextScrollDelay);
             CalculateOutputTextPos();
         }
 
@@ -135,7 +139,9 @@ namespace Braille
         }
 
         private bool _resettingToDefaultPosition = false;
-        private const int TextResetDelay = 2;
+        private bool _scrollText = false;
+        private const int TextScrollDelay = 1;
+        private const int TextResetDelay = 1;
 
         //TODO: Put all the text related stuff in its own mono-behaviour so assistive output doesnt handle the text position
         private void MoveAssistiveOutputTextToEndPos()
@@ -144,18 +150,24 @@ namespace Braille
             // we do not have to move the text anymore that time 
             if (_resettingToDefaultPosition) return;
             
-            if (Vector2.Distance(visualOutputText.transform.localPosition, endTextPosX) > 0.1f)
+            if (_scrollText && Vector2.Distance(visualOutputText.transform.localPosition, endTextPosX) > 0.1f)
             {
                 visualOutputText.transform.localPosition = 
-                    Vector2.MoveTowards(visualOutputText.transform.localPosition, endTextPosX, 200 * Time.deltaTime);
+                    Vector2.MoveTowards(visualOutputText.transform.localPosition, endTextPosX, 520 * Time.deltaTime);
             }
             else
             {
                 _resettingToDefaultPosition = true;
+                _scrollText = false;
                 // This is necessary due to how Invoke is handled within c#
                 // Invoke is being stored in _invoke so the Invoke Heading is not being generated and garbage collected each time we reset the textPos
                 _invoke(_resetTextPos, TextResetDelay);
             }
+        }
+
+        private void StartTextScrolling()
+        {
+            _scrollText = true;
         }
 
         private void ResetTextPos()
@@ -164,7 +176,7 @@ namespace Braille
             _resettingToDefaultPosition = false;
         }
 
-        private static readonly float TimePerCharacter = 0.08f;
+        private const float TimePerCharacter = 0.08f;
 
         /// <summary>
         /// Waits <see cref="TimePerCharacter"/> seconds per character of the given string before invoking the action
@@ -172,7 +184,7 @@ namespace Braille
         /// </summary>
         /// <param name="action">The action to be executed after assistive output has finished speaking</param>
         /// <param name="text">The text that is being spoken, needed to calculate speaking time for <see cref="Tolk"/></param>
-        public static async Task WaitForSpeakingToFinish(Action action, string text)
+        public static async Task WaitForSpeakingToFinish(Action action, string text, float timePerCharacter = TimePerCharacter)
         {
             if (Tolk.DetectScreenReader() == null)
             {

@@ -84,9 +84,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   text: 
+  border: {fileID: 0}
+  confirmText: 
+  assistiveOutputType: 2
   _layoutGroup: {fileID: 3434115880025930205}
   _textMeshPro: {fileID: 7863611242752867971}
-  outputType: 2
 --- !u!114 &7863611242752867971
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -109,8 +111,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Test
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 83918b29122ec3d46a09fb4bdf619506, type: 2}
+  m_sharedMaterial: {fileID: 6731104447388508890, guid: 83918b29122ec3d46a09fb4bdf619506, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

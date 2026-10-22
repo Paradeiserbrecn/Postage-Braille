@@ -179,7 +179,7 @@ namespace Tutorial
         public static string SettingsOutput()
         {
             string outputText =
-                "Dieser Knopf führt zum Einstellungsmenü. Dücke die Entertaste um zu den Einstellungen zu gelangen.";
+                "Dieser Knopf führt zum Einstellungsmenü. Drücke die Entertaste um zu den Einstellungen zu gelangen.";
             Output(outputText);
             return outputText;
         }

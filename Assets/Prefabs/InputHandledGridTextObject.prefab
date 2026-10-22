@@ -85,9 +85,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::IO.InputHandledBrailleTextObject
   text: 
+  border: {fileID: 0}
+  confirmText: 
+  assistiveOutputType: 2
   _layoutGroup: {fileID: 2311312652076729242}
   _textMeshPro: {fileID: 549874221870288241}
-  outputType: 2
   brailleObjectPrefab: {fileID: 1004382091453081510, guid: 2146a4e2dfa83af48ba07d2c56ca225f, type: 3}
   destroyDisableNotifier: {fileID: 7857592080442634997}
   currentBrailleList: 
@@ -125,8 +127,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 83918b29122ec3d46a09fb4bdf619506, type: 2}
+  m_sharedMaterial: {fileID: 6731104447388508890, guid: 83918b29122ec3d46a09fb4bdf619506, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
