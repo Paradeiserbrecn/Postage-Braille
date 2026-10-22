@@ -16,6 +16,8 @@ namespace Braille
         [SerializeField] private TextMeshProUGUI _text;
 
         private const float fontCharacterWidth = 0.63197183098591549295774647887324f;
+        private string _resetTextPos;
+        private Action<string, float> _invoke;
 
         public enum OutputType
         {
@@ -28,6 +30,9 @@ namespace Braille
         {
             IOEventManager.AssistiveOutput += Output;
             IOEventManager.DefaultOutput += OnDefaultOutput;
+
+            _resetTextPos = nameof(ResetTextPos);
+            _invoke = Invoke;
         }
 
         private Vector2 endTextPosX;
@@ -51,6 +56,11 @@ namespace Braille
                 Debug.Log("This screen reader driver supports braille.");
 
             defaultTextPosX = endTextPosX = _text.transform.localPosition;
+        }
+
+        private void Update()
+        {
+            MoveAssistiveOutputTextToEndPos();
         }
 
         public void OnDestroy()
@@ -100,6 +110,12 @@ namespace Braille
         }
 
 
+        /// <summary>
+        /// Calculates the endposition of <see cref="_text"/> based on _text.text.length, the fontsize and the
+        /// <see cref="fontCharacterWidth"/> such that the last character of _text.text is just visible in the TextMeshProUGUI
+        ///
+        /// If the text is not overflowing its boundaries, <see cref="endTextPosX"/> is set to <see cref="defaultTextPosX"/>
+        /// </summary>
         private void CalculateOutputTextPos()
         {
             if (_text.rectTransform.sizeDelta.x < fontCharacterWidth * _text.text.Length * _text.fontSize)
@@ -116,13 +132,15 @@ namespace Braille
             }
         }
 
-        private bool resettingToDefaultPosition = false;
+        private bool _resettingToDefaultPosition = false;
+        private int _textResetDelay = 2;
         
-        //TODO: Put all the text related stuff in its own monobehaviour so assistive output doesnt handle the text position
-        private void Update()
+        //TODO: Put all the text related stuff in its own mono-behaviour so assistive output doesnt handle the text position
+        private void MoveAssistiveOutputTextToEndPos()
         {
-            if (resettingToDefaultPosition) return;
-            
+            // If we reset to the default position, we wait for _textResetDelay seconds until we reset.
+            // we do not have to move the text anymore that time 
+            if (_resettingToDefaultPosition) return;
             
             if (Vector2.Distance(_text.transform.localPosition, endTextPosX) > 0.1f)
             {
@@ -131,15 +149,17 @@ namespace Braille
             }
             else
             {
-                resettingToDefaultPosition = true;
-                Invoke(nameof(ResetTextPos), 2);
+                _resettingToDefaultPosition = true;
+                // This is necessary due to how Invoke is handled within c#
+                // Invoke is being stored in _invoke so the Invoke Heading is not being generated and garbage collected each time we reset the textPos
+                _invoke(_resetTextPos, 2);
             }
         }
 
         private void ResetTextPos()
         {
             _text.transform.localPosition = defaultTextPosX;
-            resettingToDefaultPosition = false;
+            _resettingToDefaultPosition = false;
         }
 
         private static readonly float TimePerCharacter = 0.08f;
