@@ -4,6 +4,7 @@ using DavyKager;
 using IO;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 // Tolk accessibility wrapper
 
@@ -13,7 +14,7 @@ namespace Braille
 {
     public class AssistiveOutput : MonoBehaviour
     {
-        [SerializeField] private TextMeshProUGUI _text;
+        [SerializeField] private TextMeshProUGUI visualOutputText;
 
         private const float fontCharacterWidth = 0.63197183098591549295774647887324f;
         private string _resetTextPos;
@@ -55,7 +56,7 @@ namespace Braille
             if (Tolk.HasBraille())
                 Debug.Log("This screen reader driver supports braille.");
 
-            defaultTextPosX = endTextPosX = _text.transform.localPosition;
+            defaultTextPosX = endTextPosX = visualOutputText.transform.localPosition;
         }
 
         private void Update()
@@ -85,45 +86,47 @@ namespace Braille
         // <param name="type">If the text is supposed to be output in speech, in braille, or both.</param>
         public void Output(string text, OutputType type = OutputType.Both)
         {
-            _text.text = "";
+            visualOutputText.text = "";
             Debug.Log("Tolk Output (" + type + "): " + text);
 
             Tolk.Silence();
             switch (type)
             {
                 case OutputType.Braille:
+                    visualOutputText.text = "Braille wird nicht vorgelesen.";
                     Tolk.Braille(text);
                     break;
                 case OutputType.Speak:
-                    _text.text = text;
+                    visualOutputText.text = text;
                     Tolk.Speak(text);
                     break;
                 case OutputType.Both:
-                    _text.text = text;
+                    visualOutputText.text = text;
                     Tolk.Output(text);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(type), type, null);
             }
 
+            visualOutputText.transform.localPosition = defaultTextPosX;
             CalculateOutputTextPos();
         }
 
 
         /// <summary>
-        /// Calculates the endposition of <see cref="_text"/> based on _text.text.length, the fontsize and the
+        /// Calculates the endposition of <see cref="visualOutputText"/> based on _text.text.length, the fontsize and the
         /// <see cref="fontCharacterWidth"/> such that the last character of _text.text is just visible in the TextMeshProUGUI
         ///
         /// If the text is not overflowing its boundaries, <see cref="endTextPosX"/> is set to <see cref="defaultTextPosX"/>
         /// </summary>
         private void CalculateOutputTextPos()
         {
-            if (_text.rectTransform.sizeDelta.x < fontCharacterWidth * _text.text.Length * _text.fontSize)
+            if (visualOutputText.rectTransform.sizeDelta.x < fontCharacterWidth * visualOutputText.text.Length * visualOutputText.fontSize)
             {
                 // Overflowing
                 endTextPosX = new Vector2(
-                    _text.rectTransform.sizeDelta.x - fontCharacterWidth * _text.fontSize * _text.text.Length,
-                    _text.transform.localPosition.y);
+                    Math.Abs(visualOutputText.rectTransform.sizeDelta.x) - fontCharacterWidth * visualOutputText.fontSize * visualOutputText.text.Length,
+                    visualOutputText.transform.localPosition.y);
                 Debug.Log(endTextPosX);
             }
             else
@@ -133,8 +136,8 @@ namespace Braille
         }
 
         private bool _resettingToDefaultPosition = false;
-        private int _textResetDelay = 2;
-        
+        private const int TextResetDelay = 2;
+
         //TODO: Put all the text related stuff in its own mono-behaviour so assistive output doesnt handle the text position
         private void MoveAssistiveOutputTextToEndPos()
         {
@@ -142,23 +145,23 @@ namespace Braille
             // we do not have to move the text anymore that time 
             if (_resettingToDefaultPosition) return;
             
-            if (Vector2.Distance(_text.transform.localPosition, endTextPosX) > 0.1f)
+            if (Vector2.Distance(visualOutputText.transform.localPosition, endTextPosX) > 0.1f)
             {
-                _text.transform.localPosition = 
-                    Vector2.MoveTowards(_text.transform.localPosition, endTextPosX, 200 * Time.deltaTime);
+                visualOutputText.transform.localPosition = 
+                    Vector2.MoveTowards(visualOutputText.transform.localPosition, endTextPosX, 200 * Time.deltaTime);
             }
             else
             {
                 _resettingToDefaultPosition = true;
                 // This is necessary due to how Invoke is handled within c#
                 // Invoke is being stored in _invoke so the Invoke Heading is not being generated and garbage collected each time we reset the textPos
-                _invoke(_resetTextPos, 2);
+                _invoke(_resetTextPos, TextResetDelay);
             }
         }
 
         private void ResetTextPos()
         {
-            _text.transform.localPosition = defaultTextPosX;
+            visualOutputText.transform.localPosition = defaultTextPosX;
             _resettingToDefaultPosition = false;
         }
 
